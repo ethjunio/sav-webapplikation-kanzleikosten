@@ -1,0 +1,12 @@
+{
+	"de": {
+		"landingPage": {
+			"h1": "Kanzleikosten Rechner",
+			"p1": "Der Kanzleikosten-Rechner des SAV ermöglicht eine Schätzung, welche Digitalisierungsmassnahme wie viel gekostet hat.",
+			"p2": "Sie können den Rechner in zwei einfachen Schritten nutzen:",
+			"p3": "Beschreiben Sie Ihre Kanzlei mit den Feldern im Bereich «Kanzlei-Beschreibung». Damit werden die Kosten anhand den Ausgaben ähnlicher Kanzleien in diesen Digitalisierungsschritten berechnet.",
+			"p4": "Geben Sie an, welche Digitalisierungsschritte sie durchführen möchten. Sie können bis zu maximal 8 Kosten gleichzeitig wählen.",
+			"button": "Loslegen"
+		}
+	}
+}
