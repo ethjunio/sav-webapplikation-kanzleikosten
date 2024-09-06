@@ -24,15 +24,16 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', width = '100%', en
 
 	// Apply different classes based on the variant prop
 	const variantClasses: { [key: string]: string } = {
-		primary: 'bg-primary text-white',
+		primary: 'bg-primary text-white hover:bg-primaryDark duration-200',
 		secondary: 'bg-gray-500 text-white',
+		ghost: 'bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white duration-200',
 		danger: 'bg-red-500 text-white',
 	};
 
 	return (
 		<button onClick={handleClick} className={`h-14 rounded-xl ${variantClasses[variant]} flex items-center justify-center`} style={{ width }}>
 			{startIcon && <span>{startIcon}</span>}
-			{text && <span className="uppercase">{text}</span>}
+			{text && <span className="uppercase tracking-wider text-sm font-medium">{text}</span>}
 			{endIcon && <span className="ms-2">{endIcon}</span>}
 		</button>
 	);

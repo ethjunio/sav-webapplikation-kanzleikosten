@@ -8,13 +8,13 @@ interface LanguageContextType {
 
 // Create the context with default values
 const LanguageContext = createContext<LanguageContextType>({
-	language: 'de', // default language
+	language: 'German', // default language
 	setLanguage: () => {}, // placeholder function
 });
 
 // Provider component to wrap the app and manage the language state
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-	const [language, setLanguage] = useState('de');
+	const [language, setLanguage] = useState('German');
 
 	return <LanguageContext.Provider value={{ language, setLanguage }}>{children}</LanguageContext.Provider>;
 };

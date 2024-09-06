@@ -1,5 +1,5 @@
 {
-	"de": {
+	"German": {
 		"landingPage": {
 			"h1": "Kanzleikosten Rechner",
 			"p1": "Der Kanzleikosten-Rechner des SAV ermöglicht eine Schätzung, welche Digitalisierungsmassnahme wie viel gekostet hat.",
@@ -7,6 +7,76 @@
 			"p3": "Beschreiben Sie Ihre Kanzlei mit den Feldern im Bereich «Kanzlei-Beschreibung». Damit werden die Kosten anhand den Ausgaben ähnlicher Kanzleien in diesen Digitalisierungsschritten berechnet.",
 			"p4": "Geben Sie an, welche Digitalisierungsschritte sie durchführen möchten. Sie können bis zu maximal 8 Kosten gleichzeitig wählen.",
 			"button": "Loslegen"
+		},
+		"progressBar": {
+			"step1": "Standort",
+			"step2": "Prozesse",
+			"step3": "Finanzen"
+		},
+		"locationInputCard": {
+			"locationType": "Standorttyp",
+			"locationNumber": "Anzahl Standorte",
+			"placeholder": "Zahl eingeben"
+		},
+		"processInputCard": {
+			"processLeadingPersonnel": "Anteil prozessführendes Personal",
+			"serviceType": "Typische Dienstleistung",
+			"partnersCount": "Anzahl Partner:innen",
+			"employeesCount": "Anzahl Mitarbeiter:innen",
+			"inputPlaceholderPercentage": "Prozent eingeben",
+			"inputPlaceholderOption": "Option auswählen",
+			"inputPlaceholderNumber": "Zahl eingeben"
+		},
+		"financialInputCard": {
+			"revenuePerYear": "Umsatz pro Jahr",
+			"operatingCostsPerYear": "Betriebskosten pro Jahr",
+			"inputPlaceholderCurrency": "Zahl in CHF eingeben"
+		},
+		"inputPage": {
+			"step": "Schritt 1",
+			"titel": "Kanzleibeschreibung",
+			"button1": "Zurück",
+			"button2": "Weiter"
+		}
+	},
+	"English": {
+		"landingPage": {
+			"h1": "Law Firm Cost Calculator",
+			"p1": "The SAV law firm cost calculator allows an estimation of how much each digitalization measure has cost.",
+			"p2": "You can use the calculator in two simple steps:",
+			"p3": "Describe your law firm using the fields in the 'Law Firm Description' section. This allows the costs to be calculated based on the expenses of similar law firms in these digitalization steps.",
+			"p4": "Indicate which digitalization steps you would like to take. You can select up to a maximum of 8 costs simultaneously.",
+			"button": "Get Started"
+		},
+		"progressBar": {
+			"step1": "Location",
+			"step2": "Processes",
+			"step3": "Finances"
+		},
+		"locationInputCard": {
+			"locationType": "Location Type",
+			"locationNumber": "Number of Locations",
+			"placeholder": "Enter number"
+		},
+		"processInputCard": {
+			"processLeadingPersonnel": "Percentage of Process-Leading Personnel",
+			"serviceType": "Typical Service",
+			"partnersCount": "Number of Partners",
+			"employeesCount": "Number of Employees",
+			"inputPlaceholderPercentage": "Enter percentage",
+			"inputPlaceholderOption": "Select an option",
+			"inputPlaceholderNumber": "Enter number"
+		},
+		"financialInputCard": {
+			"revenuePerYear": "Revenue per Year",
+			"operatingCostsPerYear": "Operating Costs per Year",
+			"inputPlaceholderCurrency": "Enter amount in CHF"
+		},
+		"inputPage": {
+			"step": "Step 1",
+			"titel": "Law Firm Description",
+			"button1": "Back",
+			"button2": "Next"
 		}
 	}
 }

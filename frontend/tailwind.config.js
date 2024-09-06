@@ -5,7 +5,8 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: '#004C93',
-        primaryFade: '#3873AA',
+				primaryFade: '#3873AA',
+				primaryDark: '#1d386b',
 				black: '#0D0D0D',
 				darkGray: '#555555',
 				brightGray: '#F1F1F1',
@@ -23,6 +24,9 @@ module.exports = {
 
 				sm: { max: '639px' },
 				// => @media (max-width: 639px) { ... }
+			},
+			boxShadow: {
+				onFocusInput: '0px 0px 0px 2px rgb(40, 76, 147,0.2)',
 			},
 		},
 	},
