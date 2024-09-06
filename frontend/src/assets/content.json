@@ -37,6 +37,13 @@
 			"titel": "Kanzleibeschreibung",
 			"button1": "Zurück",
 			"button2": "Weiter"
+		},
+		"errorMessages": {
+			"locationTypeRequired": "Standorttyp ist erforderlich",
+			"locationNumberRequired": "Standortnummer ist erforderlich",
+			"locationNumberInvalid": "Muss eine gültige Zahl sein",
+			"locationNumberGreaterThanZero": "Die Zahl muss größer als null sein",
+			"locationNumberInteger": "Die Zahl muss eine ganze Zahl sein"
 		}
 	},
 	"English": {
@@ -77,6 +84,13 @@
 			"titel": "Law Firm Description",
 			"button1": "Back",
 			"button2": "Next"
+		},
+		"errorMessages": {
+			"locationTypeRequired": "Location Type is required",
+			"locationNumberRequired": "Location number is required",
+			"locationNumberInvalid": "Must be a valid number",
+			"locationNumberGreaterThanZero": "Number must be greater than zero",
+			"locationNumberInteger": "Number must be a whole integer"
 		}
 	}
 }

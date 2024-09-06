@@ -2,17 +2,31 @@ import React, { useState } from 'react';
 import DropdownOverlay from '../ui/general/DropdownOverlay';
 import DropdownItem from '../ui/general/DropdownItem';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import { useForm, FormState, ActionType } from '../../context/FormState';
+
+// Mapping from form state keys to action types
+const actionTypeMap: Record<keyof FormState, ActionType['type']> = {
+	locationType: 'SET_LOCATION_TYPE',
+	locationNumber: 'SET_LOCATION_NUMBER',
+	processLeadingPersonnel: 'SET_PROCESS_LEADING_PERSONNEL',
+	serviceType: 'SET_SERVICE_TYPE',
+	partnersCount: 'SET_PARTNERS_COUNT',
+	employeesCount: 'SET_EMPLOYEES_COUNT',
+	revenuePerYear: 'SET_REVENUE_PER_YEAR',
+	operatingCostsPerYear: 'SET_OPERATING_COSTS_PER_YEAR',
+};
 
 interface InputFieldDropdownProps {
 	options: string[]; // Array of options to display in the dropdown
+	identifier: keyof FormState;
 }
 
-const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options }) => {
-	const [selectedOption, setSelectedOption] = useState<string | null>(null); // Store the selected option
+const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identifier }) => {
+	const { state, dispatch } = useForm();
 
 	// Handle option selection from the dropdown
 	const handleOptionSelect = (option: string) => {
-		setSelectedOption(option); // Update selected option
+		dispatch({ type: actionTypeMap[identifier], payload: option });
 	};
 
 	return (
@@ -22,7 +36,7 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options }) => {
 					className="flex flex-row items-center justify-between bg-white w-full px-4 py-3 border border-gray-300 rounded-xl cursor-pointer
       hover:border-primaryFade focus:border-primaryFade focus:shadow-onFocusInput transition-all"
 				>
-					<span>{selectedOption || 'Select an option'}</span>
+					<span>{state[identifier] || 'Select an option'}</span>
 					<IoMdArrowDropdown />
 				</button>
 			}

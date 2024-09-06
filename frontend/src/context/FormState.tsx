@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useContext, ReactNode } from 'react';
 
 // Define the structure of your form's state
-interface FormState {
+export interface FormState {
 	locationType: string;
 	locationNumber: string;
 	processLeadingPersonnel: string;
@@ -24,7 +24,7 @@ const initialFormState: FormState = {
 };
 
 // Define all possible action types
-type ActionType =
+export type ActionType =
 	| { type: 'SET_LOCATION_TYPE'; payload: string }
 	| { type: 'SET_LOCATION_NUMBER'; payload: string }
 	| { type: 'SET_PROCESS_LEADING_PERSONNEL'; payload: string }
@@ -58,6 +58,7 @@ function formReducer(state: FormState, action: ActionType): FormState {
 	}
 }
 
+// Create the context
 const FormContext = createContext<{
 	state: FormState;
 	dispatch: React.Dispatch<ActionType>;
@@ -66,10 +67,12 @@ const FormContext = createContext<{
 	dispatch: () => null,
 });
 
+// Create a provider to wrap the form components
 export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [state, dispatch] = useReducer(formReducer, initialFormState);
 
 	return <FormContext.Provider value={{ state, dispatch }}>{children}</FormContext.Provider>;
 };
 
+// Custom hook to use the form context
 export const useForm = () => useContext(FormContext);
