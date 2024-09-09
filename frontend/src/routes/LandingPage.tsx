@@ -5,7 +5,6 @@ import { useLanguage } from '../context/LanguageContext';
 import Button from '../components/ui/general/Button';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 
-
 const LandingPage = () => {
 	const { language } = useLanguage();
 	console.log(language);
@@ -13,11 +12,11 @@ const LandingPage = () => {
 	const pageContent = (content as languageContentType)[language].landingPage;
 
 	return (
-		<>
+		<div className='flex flex-col w-3/4'>
 			<h1>{pageContent.h1}</h1>
 			<p>{pageContent.p1}</p>
 			<p className="font-semibold">{pageContent.p2}</p>
-			<div className="flex flex-col w-3/4 mb-5 text-sm ms-6">
+			<div className="flex flex-col mb-5 text-sm ms-6">
 				<div className="flex flex-row gap-3">
 					<p>1.</p>
 					<p>{pageContent.p3}</p>
@@ -27,8 +26,8 @@ const LandingPage = () => {
 					<p>{pageContent.p4}</p>
 				</div>
 			</div>
-			<Button endIcon={<FaLongArrowAltRight />} text={pageContent.button} width="70%" />
-		</>
+			<Button endIcon={<FaLongArrowAltRight />} text={pageContent.button} route='/input' width="70%" />
+		</div>
 	);
 };
 

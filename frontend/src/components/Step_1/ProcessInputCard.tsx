@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import InputField from './InputField';
 import InputFieldDropdown from './InputFieldDropdown';
 import content from '../../assets/content.json';
@@ -6,7 +6,8 @@ import { useLanguage } from '../../context/LanguageContext';
 import { languageContentType } from '../../types/languageContentType';
 import cn from 'classnames';
 import { useForm } from '../../context/FormState';
-import { getZodFormValidation } from '../../types/getZodFormValidation';
+import { getZodFormValidationProcess } from '../../types/getZodFormValidation';
+import { IoMdAlert } from 'react-icons/io';
 
 const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref) => {
 	const { language } = useLanguage();
@@ -16,7 +17,7 @@ const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref)
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].processInputCard;
 
 	const validateForm = () => {
-		const schema = getZodFormValidation(language);
+		const schema = getZodFormValidationProcess(language);
 		const result = schema.safeParse({
 			processLeadingPersonnel: state.processLeadingPersonnel,
 			serviceType: state.serviceType,
@@ -35,6 +36,11 @@ const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref)
 			return true; // Return true if validation passes
 		}
 	};
+
+	useImperativeHandle(ref, () => ({
+		validateForm,
+	}));
+
 	return (
 		<div className={cn('flex flex-col gap-8 p-10 rounded-xl bg-gray-100', className)}>
 			<div className="flex flex-col gap-2">
@@ -53,6 +59,12 @@ const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref)
 				<span className="font-medium">{ComponentContent?.partnersCount}</span>
 				<InputField placeholder={ComponentContent?.inputPlaceholderNumber} identifier="partnersCount" />
 			</div>
+			{error && (
+				<div className="flex flex-row items-center justify-start text-red-500 gap-1 text-sm">
+					<IoMdAlert />
+					<div className="">{error}</div>
+				</div>
+			)}
 		</div>
 	);
 });

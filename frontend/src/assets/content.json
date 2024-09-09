@@ -43,7 +43,24 @@
 			"locationNumberRequired": "Standortnummer ist erforderlich",
 			"locationNumberInvalid": "Muss eine gültige Zahl sein",
 			"locationNumberGreaterThanZero": "Die Zahl muss größer als null sein",
-			"locationNumberInteger": "Die Zahl muss eine ganze Zahl sein"
+			"locationNumberInteger": "Die Zahl muss eine ganze Zahl sein",
+			"processPersonnelPercentageRequired": "Prozesspersonalanteil ist erforderlich",
+			"processPersonnelPercentageInvalid": "Muss eine gültige Zahl sein",
+			"processPersonnelPercentageRange": "Der Prozentsatz muss zwischen 0 und 100 liegen",
+			"serviceTypeRequired": "Dienstleistungstyp ist erforderlich",
+			"employeeCountRequired": "Anzahl der Mitarbeiter:innen ist erforderlich",
+			"employeeCountInvalid": "Muss eine gültige Zahl sein",
+			"employeeCountGreaterThanZero": "Die Zahl muss größer als null sein",
+			"employeeCountInteger": "Die Zahl muss eine ganze Zahl sein",
+			"partnerCountRequired": "Anzahl der Partner:innen ist erforderlich",
+			"partnerCountInvalid": "Muss eine gültige Zahl sein",
+			"partnerCountGreaterThanZero": "Die Zahl muss größer als null sein",
+			"partnerCountInteger": "Die Zahl muss eine ganze Zahl sein",
+			"revenuePerYearRequired": "Jahresumsatz ist erforderlich",
+			"revenuePerYearInvalid": "Muss eine gültige Zahl sein",
+			"operatingCostsPerYearRequired": "Jährliche Betriebskosten sind erforderlich",
+			"operatingCostsPerYearInvalid": "Muss eine gültige Zahl sein",
+			"revenuePerYearGreaterThanZero": "Die Zahl muss größer als null sein"
 		}
 	},
 	"English": {
@@ -90,7 +107,24 @@
 			"locationNumberRequired": "Location number is required",
 			"locationNumberInvalid": "Must be a valid number",
 			"locationNumberGreaterThanZero": "Number must be greater than zero",
-			"locationNumberInteger": "Number must be a whole integer"
+			"locationNumberInteger": "Number must be a whole integer",
+			"processPersonnelPercentageRequired": "Process personnel percentage is required",
+			"processPersonnelPercentageInvalid": "Must be a valid number",
+			"processPersonnelPercentageRange": "Percentage must be between 0 and 100",
+			"serviceTypeRequired": "Service type is required",
+			"employeeCountRequired": "Employee count is required",
+			"employeeCountInvalid": "Must be a valid number",
+			"employeeCountGreaterThanZero": "The number must be greater than zero",
+			"employeeCountInteger": "The number must be an integer",
+			"partnerCountRequired": "Partner count is required",
+			"partnerCountInvalid": "Must be a valid number",
+			"partnerCountGreaterThanZero": "The number must be greater than zero",
+			"partnerCountInteger": "The number must be an integer",
+			"revenuePerYearRequired": "Annual revenue is required",
+			"revenuePerYearInvalid": "Must be a valid number",
+			"operatingCostsPerYearRequired": "Annual operating costs are required",
+			"operatingCostsPerYearInvalid": "Must be a valid number",
+			"revenuePerYearGreaterThanZero": "The number must be greater than zero"
 		}
 	}
 }

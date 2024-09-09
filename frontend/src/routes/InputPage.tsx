@@ -17,6 +17,8 @@ const InputPage = () => {
 	const pageContent = (content as languageContentType)[language].inputPage;
 
 	const locationInputRef = useRef<{ validateForm: () => boolean }>(null);
+	const processInputRef = useRef<{ validateForm: () => boolean }>(null);
+	const financesInputRef = useRef<{ validateForm: () => boolean }>(null);
 
 	// Define the progress flow order
 	const steps = ['location', 'process', 'finances'];
@@ -27,6 +29,12 @@ const InputPage = () => {
 		if (currentProgress === 'location') {
 			const isValid = locationInputRef.current?.validateForm();
 			if (!isValid) return; // If validation fails, prevent moving to the next step
+		} else if (currentProgress === 'process') {
+			const isValid = processInputRef.current?.validateForm();
+			if (!isValid) return; // If validation fails, prevent moving to the next step
+		} else if (currentProgress === 'finances') {
+			const isValid = financesInputRef.current?.validateForm();
+			if (!isValid) return;
 		}
 
 		const currentStepIndex = steps.indexOf(currentProgress);
@@ -49,14 +57,9 @@ const InputPage = () => {
 				<h4>{pageContent.step}</h4>
 				<h2>{pageContent.titel}</h2>
 				<ProgressBar className={'w-3/4'} />
-				{currentProgress === 'location' && (
-					<LocationInputCard
-						className="w-full my-6"
-						ref={locationInputRef} // Pass the ref to LocationInputCard
-					/>
-				)}
-				{currentProgress === 'process' && <ProcessInputCard className="w-full my-6" ref={locationInputRef} />}
-				{currentProgress === 'finances' && <FinanceInputCard className="w-full my-6" />}
+				{currentProgress === 'location' && <LocationInputCard className="w-full my-6" ref={locationInputRef} />}
+				{currentProgress === 'process' && <ProcessInputCard className="w-full my-6" ref={processInputRef} />}
+				{currentProgress === 'finances' && <FinanceInputCard className="w-full my-6" ref={financesInputRef} />}
 				<div className="flex flex-row gap-4 w-full">
 					<Button
 						text={pageContent.button1}

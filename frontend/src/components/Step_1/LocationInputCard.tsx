@@ -6,7 +6,8 @@ import { useLanguage } from '../../context/LanguageContext';
 import { languageContentType } from '../../types/languageContentType';
 import cn from 'classnames';
 import { useForm } from '../../context/FormState';
-import { getZodFormValidation } from '../../types/getZodFormValidation';
+import { getZodFormValidationLocation } from '../../types/getZodFormValidation';
+import { IoMdAlert } from 'react-icons/io';
 
 const LocationInputCard = forwardRef(({ className }: { className?: string }, ref) => {
 	const { language } = useLanguage();
@@ -16,7 +17,7 @@ const LocationInputCard = forwardRef(({ className }: { className?: string }, ref
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].locationInputCard;
 
 	const validateForm = () => {
-		const schema = getZodFormValidation(language);
+		const schema = getZodFormValidationLocation(language);
 		const result = schema.safeParse({
 			locationType: state.locationType,
 			locationNumber: state.locationNumber,
@@ -49,7 +50,12 @@ const LocationInputCard = forwardRef(({ className }: { className?: string }, ref
 				<span className="font-medium">{ComponentContent?.locationNumber}</span>
 				<InputField placeholder={ComponentContent?.placeholder} identifier="locationNumber" />
 			</div>
-			{error && <p className="text-red-500">{error}</p>}
+			{error && (
+				<div className="flex flex-row items-center justify-start text-red-500 gap-1 text-sm">
+					<IoMdAlert />
+					<div className="">{error}</div>
+				</div>
+			)}
 		</div>
 	);
 });

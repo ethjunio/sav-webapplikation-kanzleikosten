@@ -13,7 +13,7 @@ const router = createBrowserRouter([
 		path: '/',
 		element: (
 			<>
-				<div className="w-1/2 content-center">
+				<div className="flex flex-col w-1/2 items-center justify-center">
 					<LandingPage />
 				</div>
 				<div className="w-1/2"> </div>
