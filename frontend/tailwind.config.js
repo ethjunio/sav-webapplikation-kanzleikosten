@@ -6,6 +6,7 @@ module.exports = {
 			colors: {
 				primary: '#004C93',
 				primaryFade: '#3873AA',
+				primaryFadeMore: '#a1b6dd',
 				primaryDark: '#1d386b',
 				black: '#0D0D0D',
 				darkGray: '#555555',
@@ -30,5 +31,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/forms')],
 };

@@ -7,30 +7,42 @@ import { LanguageProvider } from './context/LanguageContext';
 import { ProgressProvider } from './context/ProgressContext';
 import InputPage from './routes/InputPage';
 import { FormProvider } from './context/FormState';
+import Layout from './components/layout/Layout';
+import OutputPage from './routes/OutputPage';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: (
-			<>
-				<div className="flex flex-col w-1/2 items-center justify-center">
+			<Layout>
+				<div className="flex flex-col w-1/2 items-center justify-center ">
 					<LandingPage />
 				</div>
 				<div className="w-1/2"> </div>
-			</>
+			</Layout>
 		),
 	},
 	{
 		path: '/input',
 		element: (
-			<>
+			<Layout>
 				<ProgressProvider>
-					<div className="flex w-1/2 items-center justify-center">
+					<div className="flex w-1/2 items-start justify-center">
 						<InputPage />
 					</div>
 					<div className="w-1/2"> </div>
 				</ProgressProvider>
-			</>
+			</Layout>
+		),
+	},
+	{
+		path: '/output',
+		element: (
+			<Layout fullscreen={true}>
+				<div className="flex w-full items-start justify-center">
+					<OutputPage />
+				</div>
+			</Layout>
 		),
 	},
 ]);
@@ -38,16 +50,11 @@ const router = createBrowserRouter([
 const App: React.FC = () => {
 	return (
 		<>
-			<Background>
-				<FormProvider>
-					<LanguageProvider>
-						<Header />
-						<div className="flex flex-row container mx-auto px-4 flex-grow gap-32">
-							<RouterProvider router={router} />
-						</div>
-					</LanguageProvider>
-				</FormProvider>
-			</Background>
+			<FormProvider>
+				<LanguageProvider>
+					<RouterProvider router={router} />
+				</LanguageProvider>
+			</FormProvider>
 		</>
 	);
 };

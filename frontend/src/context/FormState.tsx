@@ -32,7 +32,8 @@ export type ActionType =
 	| { type: 'SET_PARTNERS_COUNT'; payload: string }
 	| { type: 'SET_EMPLOYEES_COUNT'; payload: string }
 	| { type: 'SET_REVENUE_PER_YEAR'; payload: string }
-	| { type: 'SET_OPERATING_COSTS_PER_YEAR'; payload: string };
+	| { type: 'SET_OPERATING_COSTS_PER_YEAR'; payload: string }
+	| { type: 'RESET_FORM' };
 
 // Reducer to update the form state
 function formReducer(state: FormState, action: ActionType): FormState {
@@ -53,6 +54,8 @@ function formReducer(state: FormState, action: ActionType): FormState {
 			return { ...state, revenuePerYear: action.payload };
 		case 'SET_OPERATING_COSTS_PER_YEAR':
 			return { ...state, operatingCostsPerYear: action.payload };
+		case 'RESET_FORM':
+			return initialFormState;
 		default:
 			return state;
 	}

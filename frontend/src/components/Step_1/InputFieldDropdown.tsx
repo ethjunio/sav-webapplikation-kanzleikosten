@@ -3,6 +3,9 @@ import DropdownOverlay from '../ui/general/DropdownOverlay';
 import DropdownItem from '../ui/general/DropdownItem';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { useForm, FormState, ActionType } from '../../context/FormState';
+import { useLanguage } from '../../context/LanguageContext';
+import { languageContentType } from '../../types/languageContentType';
+import content from '../../assets/content.json';
 
 // Mapping from form state keys to action types
 const actionTypeMap: Record<keyof FormState, ActionType['type']> = {
@@ -23,6 +26,9 @@ interface InputFieldDropdownProps {
 
 const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identifier }) => {
 	const { state, dispatch } = useForm();
+	const { language } = useLanguage();
+
+	const ComponentContent = (content as languageContentType)[language as keyof typeof content].dropdownComponent;
 
 	// Handle option selection from the dropdown
 	const handleOptionSelect = (option: string) => {
@@ -36,7 +42,7 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identi
 					className="flex flex-row items-center justify-between bg-white w-full px-4 py-3 border border-gray-300 rounded-xl cursor-pointer
       hover:border-primaryFade focus:border-primaryFade focus:shadow-onFocusInput transition-all"
 				>
-					<span>{state[identifier] || 'Select an option'}</span>
+					<span>{state[identifier] || ComponentContent?.placeholder}</span>
 					<IoMdArrowDropdown />
 				</button>
 			}
