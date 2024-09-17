@@ -3,21 +3,21 @@ import { useForm } from '../../context/FormState';
 import { FormState } from '../../context/FormState';
 import { ActionType } from '../../context/FormState';
 
-// Mapping from form state keys to action types
-const actionTypeMap: Record<keyof FormState, ActionType['type']> = {
-	locationType: 'SET_LOCATION_TYPE',
-	locationNumber: 'SET_LOCATION_NUMBER',
-	processLeadingPersonnel: 'SET_PROCESS_LEADING_PERSONNEL',
-	serviceType: 'SET_SERVICE_TYPE',
-	partnersCount: 'SET_PARTNERS_COUNT',
-	employeesCount: 'SET_EMPLOYEES_COUNT',
-	revenuePerYear: 'SET_REVENUE_PER_YEAR',
-	operatingCostsPerYear: 'SET_OPERATING_COSTS_PER_YEAR',
+// Define a mapping from identifiers to action creators
+const actionCreators: Record<Exclude<keyof FormState, 'outputParameters'>, (value: string) => ActionType> = {
+	locationType: (value) => ({ type: 'SET_LOCATION_TYPE', payload: value }),
+	locationNumber: (value) => ({ type: 'SET_LOCATION_NUMBER', payload: value }),
+	processLeadingPersonnel: (value) => ({ type: 'SET_PROCESS_LEADING_PERSONNEL', payload: value }),
+	serviceType: (value) => ({ type: 'SET_SERVICE_TYPE', payload: value }),
+	partnersCount: (value) => ({ type: 'SET_PARTNERS_COUNT', payload: value }),
+	employeesCount: (value) => ({ type: 'SET_EMPLOYEES_COUNT', payload: value }),
+	revenuePerYear: (value) => ({ type: 'SET_REVENUE_PER_YEAR', payload: value }),
+	operatingCostsPerYear: (value) => ({ type: 'SET_OPERATING_COSTS_PER_YEAR', payload: value }),
 };
 
 interface InputFieldProps {
 	placeholder?: string;
-	identifier: keyof FormState; 
+	identifier: Exclude<keyof FormState, 'outputParameters'>; // Exclude outputParameters
 }
 
 const InputField: React.FC<InputFieldProps> = ({ placeholder, identifier }) => {
@@ -27,12 +27,7 @@ const InputField: React.FC<InputFieldProps> = ({ placeholder, identifier }) => {
 	// Dispatch the corresponding action based on the identifier (key in FormState)
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
-
-		// Automatically map the identifier to the correct action type
-		dispatch({
-			type: actionTypeMap[identifier], // Use the map to get the correct action type
-			payload: value,
-		});
+		dispatch(actionCreators[identifier](value));
 	};
 
 	return (
@@ -41,7 +36,7 @@ const InputField: React.FC<InputFieldProps> = ({ placeholder, identifier }) => {
       hover:border-primary focus:border-primary focus:outline-none focus:shadow-onFocusInput transition-shadow duration-300"
 			placeholder={placeholder}
 			onChange={handleChange}
-			value={state[identifier]} // Dynamically access the value from the FormState based on the identifier
+			value={state[identifier] as string} // Dynamically access the value from the FormState based on the identifier
 		/>
 	);
 };

@@ -20,6 +20,10 @@
 	h2 {
 		@apply text-4xl font-medium text-primary mb-5;
 	}
+
+	h3 {
+		@apply text-2xl font-medium;
+	}
 	h4 {
 		@apply text-sm font-medium tracking-wider text-gray-400 uppercase;
 	}

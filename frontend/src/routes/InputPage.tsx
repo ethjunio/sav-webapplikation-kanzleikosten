@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import content from '../assets/content.json';
 import { languageContentType } from '../types/languageContentType';
 import { useLanguage } from '../context/LanguageContext';
@@ -16,8 +16,14 @@ const InputPage = () => {
 	const navigate = useNavigate();
 
 	const { language } = useLanguage();
-	const { currentProgress, setProgress } = useProgress();
 	const { state, dispatch } = useForm();
+	const { currentProgress, setProgress } = useProgress();
+
+	useEffect(() => {
+		if (state.revenuePerYear !== '') {
+			setProgress('finances');
+		}
+	}, []);
 
 	const pageContent = (content as languageContentType)[language].inputPage;
 

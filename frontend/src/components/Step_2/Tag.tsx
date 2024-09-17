@@ -25,13 +25,13 @@ const Tag: React.FC<TagProps> = ({ type }) => {
 		<div className="relative inline-block cursor-default" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 			{/* Tag UI */}
 			<div className={`flex flex-row justify-center h-6 items-center px-2 rounded-full ${isJahrlich ? 'bg-orange-100' : 'bg-green-100'}`}>
-				{isJahrlich ? <FaArrowsRotate className="text-xs text-orange-600" /> : <FaRegCalendarCheck className="text-xs text-green-600" />}
-				<span className={`ml-1 text-sm font-normal ${isJahrlich ? 'text-orange-600' : 'text-green-600'}`}>{label}</span>
+				{/* {isJahrlich ? <FaArrowsRotate className="text-xs text-orange-600" /> : <FaRegCalendarCheck className="text-xs text-green-600" />} */}
+				<span className={` text-xs font-normal ${isJahrlich ? 'text-orange-600' : 'text-green-600'}`}>{label}</span>
 			</div>
 
 			{/* Tooltip */}
 			{isHovered && (
-				<div className="absolute bottom-full text-center mb-2 py-1 px-2 bg-gray-500 text-white w-32 text-xs rounded-lg shadow-lg">
+				<div className="absolute bottom-full text-center mb-2 py-1 px-2 bg-gray-500 text-white w-32 text-xs rounded-lg shadow-lg opacity-0 animate-fade-in-slide-up">
 					{explanation}
 					<div className="absolute w-2 h-2 bg-gray-500 left-1/3 transform -translate-x-1/2 rotate-45"></div> {/* Arrow */}
 				</div>

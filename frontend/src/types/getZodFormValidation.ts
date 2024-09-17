@@ -1,6 +1,5 @@
 import { z } from 'zod';
-import content from '../assets/content.json'; // Path to your content.json file
-// Function to generate the schema based on language
+import content from '../assets/content.json'; 
 export const getZodFormValidationLocation = (language: string) => {
 	const errorMessages = (content as any)[language].errorMessages;
 

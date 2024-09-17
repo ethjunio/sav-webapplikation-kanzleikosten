@@ -9,6 +9,7 @@ import InputPage from './routes/InputPage';
 import { FormProvider } from './context/FormState';
 import Layout from './components/layout/Layout';
 import OutputPage from './routes/OutputPage';
+import ResultPage from './routes/ResultPage';
 
 const router = createBrowserRouter([
 	{
@@ -41,6 +42,16 @@ const router = createBrowserRouter([
 			<Layout fullscreen={true}>
 				<div className="flex w-full items-start justify-center">
 					<OutputPage />
+				</div>
+			</Layout>
+		),
+	},
+	{
+		path: '/result',
+		element: (
+			<Layout fullscreen={true}>
+				<div className="flex w-full items-start justify-center">
+					<ResultPage />
 				</div>
 			</Layout>
 		),

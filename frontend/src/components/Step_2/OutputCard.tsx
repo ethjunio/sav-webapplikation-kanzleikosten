@@ -7,8 +7,12 @@ import { IoChatbubbles, IoHardwareChip } from 'react-icons/io5';
 import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 
-const OutputCard = () => {
-	const [selectedList, setSelectedList] = useState<string[]>([]);
+interface OutputCardProps {
+	setSelectedList: React.Dispatch<React.SetStateAction<string[]>>;
+	selectedList: string[];
+}
+
+const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 	const [tooManySelected, setTooManySelected] = useState<boolean>(false);
 	const [classesForAlert, setClassesForAlert] = useState('');
 	const { language } = useLanguage();
@@ -28,25 +32,27 @@ const OutputCard = () => {
 
 			const timeoutId = setTimeout(() => {
 				setTooManySelected(false);
-				setClassesForAlert('');
+				setClassesForAlert('bg-red-200');
 			}, 1000);
 
 			// Cleanup function in case component unmounts before timeout completes
 			return () => clearTimeout(timeoutId);
+		} else if (selectedList.length === 8) {
+			setClassesForAlert('bg-orange-600 text-orange-50');
 		} else {
 			setClassesForAlert('');
 		}
-	}, [tooManySelected]);
+	}, [tooManySelected, selectedList]);
 
 	return (
-		<>
-			<div className={`flex flex-row text-white text-lg justify-center items-center px-4 py-1 rounded-xl bg-primary ${classesForAlert}`}>
+		<div className="flex flex-col gap-6 items-center">
+			<div className={`flex flex-row text-white w-fit text-lg justify-center items-center px-4 py-1 rounded-xl bg-primary ${classesForAlert}`}>
 				<span className={`font-semibold mr-1`}>
 					{/* Dynamically render the selected message based on language */}
 					{ComponentContent.selectedMessage.replace('{count}', selectedList.length.toString())}
 				</span>
 			</div>
-			<div className="grid grid-cols-2 gap-24 bg-gray-100 w-full p-8 rounded-xl">
+			<div className="grid grid-cols-2 gap-24 bg-gray-50 w-full p-8 rounded-xl">
 				{/* Column 1 */}
 				<div className="flex flex-col gap-8">
 					<div className="flex flex-col gap-2">
@@ -102,7 +108,7 @@ const OutputCard = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

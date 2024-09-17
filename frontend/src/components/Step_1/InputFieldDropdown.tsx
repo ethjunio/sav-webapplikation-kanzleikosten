@@ -7,21 +7,24 @@ import { useLanguage } from '../../context/LanguageContext';
 import { languageContentType } from '../../types/languageContentType';
 import content from '../../assets/content.json';
 
-// Mapping from form state keys to action types
-const actionTypeMap: Record<keyof FormState, ActionType['type']> = {
-	locationType: 'SET_LOCATION_TYPE',
-	locationNumber: 'SET_LOCATION_NUMBER',
-	processLeadingPersonnel: 'SET_PROCESS_LEADING_PERSONNEL',
-	serviceType: 'SET_SERVICE_TYPE',
-	partnersCount: 'SET_PARTNERS_COUNT',
-	employeesCount: 'SET_EMPLOYEES_COUNT',
-	revenuePerYear: 'SET_REVENUE_PER_YEAR',
-	operatingCostsPerYear: 'SET_OPERATING_COSTS_PER_YEAR',
+// Exclude 'outputParameters' from the identifiers
+type FormStateKey = Exclude<keyof FormState, 'outputParameters'>;
+
+// Define a mapping from identifiers to action creators
+const actionCreators: Record<FormStateKey, (value: string) => ActionType> = {
+	locationType: (value) => ({ type: 'SET_LOCATION_TYPE', payload: value }),
+	locationNumber: (value) => ({ type: 'SET_LOCATION_NUMBER', payload: value }),
+	processLeadingPersonnel: (value) => ({ type: 'SET_PROCESS_LEADING_PERSONNEL', payload: value }),
+	serviceType: (value) => ({ type: 'SET_SERVICE_TYPE', payload: value }),
+	partnersCount: (value) => ({ type: 'SET_PARTNERS_COUNT', payload: value }),
+	employeesCount: (value) => ({ type: 'SET_EMPLOYEES_COUNT', payload: value }),
+	revenuePerYear: (value) => ({ type: 'SET_REVENUE_PER_YEAR', payload: value }),
+	operatingCostsPerYear: (value) => ({ type: 'SET_OPERATING_COSTS_PER_YEAR', payload: value }),
 };
 
 interface InputFieldDropdownProps {
 	options: string[]; // Array of options to display in the dropdown
-	identifier: keyof FormState;
+	identifier: FormStateKey; // Use the updated type here
 }
 
 const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identifier }) => {
@@ -32,7 +35,7 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identi
 
 	// Handle option selection from the dropdown
 	const handleOptionSelect = (option: string) => {
-		dispatch({ type: actionTypeMap[identifier], payload: option });
+		dispatch(actionCreators[identifier](option));
 	};
 
 	return (

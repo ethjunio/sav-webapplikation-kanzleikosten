@@ -10,6 +10,7 @@ export interface FormState {
 	employeesCount: string;
 	revenuePerYear: string;
 	operatingCostsPerYear: string;
+	outputParameters: string[];
 }
 
 const initialFormState: FormState = {
@@ -21,9 +22,10 @@ const initialFormState: FormState = {
 	employeesCount: '',
 	revenuePerYear: '',
 	operatingCostsPerYear: '',
+	outputParameters: [],
 };
 
-// Define all possible action types
+//Define all possible action types
 export type ActionType =
 	| { type: 'SET_LOCATION_TYPE'; payload: string }
 	| { type: 'SET_LOCATION_NUMBER'; payload: string }
@@ -33,6 +35,7 @@ export type ActionType =
 	| { type: 'SET_EMPLOYEES_COUNT'; payload: string }
 	| { type: 'SET_REVENUE_PER_YEAR'; payload: string }
 	| { type: 'SET_OPERATING_COSTS_PER_YEAR'; payload: string }
+	| { type: 'SET_OUTPUT_ARRAY'; payload: string[] }
 	| { type: 'RESET_FORM' };
 
 // Reducer to update the form state
@@ -54,6 +57,8 @@ function formReducer(state: FormState, action: ActionType): FormState {
 			return { ...state, revenuePerYear: action.payload };
 		case 'SET_OPERATING_COSTS_PER_YEAR':
 			return { ...state, operatingCostsPerYear: action.payload };
+		case 'SET_OUTPUT_ARRAY':
+			return { ...state, outputParameters: action.payload };
 		case 'RESET_FORM':
 			return initialFormState;
 		default:
