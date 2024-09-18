@@ -32,21 +32,26 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identi
 	const { language } = useLanguage();
 
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].dropdownComponent;
+	
 
 	// Handle option selection from the dropdown
 	const handleOptionSelect = (option: string) => {
 		dispatch(actionCreators[identifier](option));
 	};
 
+	
+
 	return (
 		<DropdownOverlay
 			trigger={
 				<button
-					className="flex flex-row items-center justify-between bg-white w-full px-4 py-3 border border-gray-300 rounded-xl cursor-pointer
-      hover:border-primaryFade focus:border-primaryFade focus:shadow-onFocusInput transition-all"
+					className="flex flex-row items-center text-nowrap justify-between bg-white w-full px-4 py-3 border border-gray-300 rounded-xl cursor-pointer
+      hover:border-primaryFade focus:border-primaryFade focus:shadow-onFocusInput transition-all "
 				>
-					<span>{state[identifier] || ComponentContent?.placeholder}</span>
-					<IoMdArrowDropdown />
+					<span className="text-start overflow-hidden">{state[identifier] || ComponentContent?.placeholder}</span>
+					<div className=''>
+						<IoMdArrowDropdown />
+					</div>
 				</button>
 			}
 		>

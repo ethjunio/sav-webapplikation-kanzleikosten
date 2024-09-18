@@ -31,10 +31,16 @@ const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) =
 	let variantClass;
 	switch (variant) {
 		case 'header':
-			variantClass = 'uppercase text-m text-gray-400';
+			variantClass = 'uppercase text-m text-gray-400 px-4';
+			break;
+		case 'yearlyTotal':
+			variantClass = 'text-xl font-medium pt-2 border-t border-black';
+			break;
+		case 'onceTotal':
+			variantClass = 'text-xl font-medium  pt-2 border-t border-black';
 			break;
 		default:
-			variantClass = 'px-4 text-lg';
+			variantClass = 'ps-8 pe-4 text-lg';
 	}
 
 	let icon;

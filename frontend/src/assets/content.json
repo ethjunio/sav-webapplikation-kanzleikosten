@@ -18,6 +18,14 @@
 			"locationNumber": "Anzahl Standorte",
 			"placeholder": "Zahl eingeben"
 		},
+		"dropdownLocation": {
+			"localSwitzerland": "Nur in der Schweiz lokal",
+			"regionalSwitzerland": "Nur in der Schweiz regional",
+			"onlySwitzerlandOverregional": "Nur in der Schweiz, auch überregional",
+			"mainSwitzerlandAbroad": "Schweiz als Hauptstandort, aber auch Standorte im Ausland",
+			"switzerlandAndAbroadEqually": "In der Schweiz und im Ausland gleichermaßen",
+			"globalCompany": "Global tätiges Unternehmen (International Big Law)"
+		},
 		"processInputCard": {
 			"processLeadingPersonnel": "Anteil prozessführendes Personal",
 			"serviceType": "Typische Dienstleistung",
@@ -26,6 +34,14 @@
 			"inputPlaceholderPercentage": "Prozent eingeben",
 			"inputPlaceholderOption": "Option auswählen",
 			"inputPlaceholderNumber": "Zahl eingeben"
+		},
+		"dropdownProcess": {
+			"provideFillStandardDocuments": "Bereitstellen / Ausfüllen von Standarddokumenten",
+			"provideFillStandardDocumentsWithCoaching": "Bereitstellen / Ausfüllen von Standarddokumenten mit Coaching",
+			"repetitiveTasksIndividualizedOfferings": "Repetitive Arbeiten mit individualisierten Angeboten",
+			"bespokeStandard": "Bespoke normal",
+			"bespokeHighEnd": "Bespoke im High-End Bereich",
+			"highlyInnovativeWork": "Hoch-innovativer Tätigkeit / jeweils neu"
 		},
 		"financialInputCard": {
 			"revenuePerYear": "Umsatz pro Jahr",
@@ -58,7 +74,11 @@
 		},
 		"resultPage": {
 			"titel": "Resultat",
-			"description": "Anhand Ihrer Kanzlei-Beschreibung werden durchschnittliche Kosten in den einzelnen Digitalisierungsschritten berechnet. Die Kosten sind in CHF angegeben."
+			"description": "Anhand Ihrer Kanzlei-Beschreibung werden durchschnittliche Kosten in den einzelnen Digitalisierungsschritten berechnet. Die Kosten sind in CHF angegeben.",
+			"disclaimerTitel": "Disclaimer",
+			"disclaimer": "Der Kanzleikosten-Rechner basiert auf einem Modell von gfs.bern. Im Auftrag des SAV hat gfs.bern eine Umfrage bei Mitgliedern des SAV im Jahr 2024 durchgeführt und die Kosten der Kanzleien abgefragt. XXX Kanzleien haben teilgenommen und die Kosten basieren auf XXX bis XXX Werten. Die Modellierung ist eine Schätzung und dient als Orientierung zu den Digitalisierungskosten von Anwaltskanzleien.",
+			"button1": "Neustart",
+			"button2": "Bericht Herunterladen"
 		},
 		"checkboxLabels": {
 			"ITsupport": "IT-Support (extern)",
@@ -95,7 +115,9 @@
 			"kommunikationTitel": "Kommunikation und Kollaboration",
 			"dienstleistungenTitel": "Externe Dienstleistungen",
 			"softwareTitel": "Software und Lizenzen",
-			"hardwareTitel": "Hardware und Infrastruktur"
+			"hardwareTitel": "Hardware und Infrastruktur",
+			"yearlyTotal": "Total Jährlich",
+			"onceTotal": "Einmalige Jährlich"
 		},
 		"checkboxLabelsDescriptions": {
 			"ITsupport": "Externer IT-Support, der von einem Drittanbieter bereitgestellt wird, um technische Probleme zu lösen oder IT-Infrastruktur zu unterstützen.",
@@ -160,9 +182,9 @@
 		},
 		"firmPlot": {
 			"titel": "Ihre Kanzlei im Vergleich",
-			"description": "Vergleichen Sie Ihre Kanzlei mit anderen, um zu sehen, wie Ihre Kosten im Vergleich abschneiden.",
+			"description": "Das Spider-Diagramm vergleicht Ihre Kanzlei anhand der von Ihnen eingegebenen Daten mit dem Durchschnitt der Schweizer Kanzleien. So erhalten Sie eine klare Übersicht darüber, wie Ihre Kanzlei in den verschiedenen Bereichen abschneidet.",
 			"legend1": "Ihre Kanzlei",
-			"legend2": "Referenz Kanzlei",
+			"legend2": "Referenz Kanzlei (100%)",
 			"locationNumberLabel": "Anzahl Standorte",
 			"processLeadingPersonnelLabel": "Verantwortliches Personal",
 			"partnersCountLabel": "Anzahl Partner",
@@ -170,12 +192,21 @@
 			"revenuePerYearLabel": "Jahresumsatz",
 			"operatingCostsPerYearLabel": "Jährliche Betriebskosten"
 		},
+		"costPlot": {
+			"titel": "Digitalisierungskosten",
+			"description": "Das Diagramm präsentiert die geschätzten Ausgaben für Ihre geplanten Digitalisierungsmaßnahmen. Die Kosten basieren auf den aktuellen Investitionen ähnlicher Kanzleien, sodass Sie eine fundierte Budgetplanung vornehmen können."
+		},
 		"table": {
-			"yearlyLabel": "Jährlich",
-			"oneTimeLabel": "Einmalig",
-			"title": "Digitalisierunsschritt"
+			"yearlyLabel": "Jährliche Kostenübersicht",
+			"oneTimeLabel": "Einmalige Kostenübersicht",
+			"title": "Kostenübersicht"
+		},
+		"summeryCard": {
+			"titel": "Zusammenfassung",
+			"text": "Für die angegebene **Digitalisierungsschritte** geben ähnliche Kanzleien schätzungsweise insgesamt **{totalYearlyCost}.- pro Jahr** und **{totalOnceCost}.- einmalig** aus."
 		}
 	},
+
 	"English": {
 		"landingPage": {
 			"h1": "Law Firm Cost Calculator",
@@ -195,6 +226,14 @@
 			"locationNumber": "Number of Locations",
 			"placeholder": "Enter number"
 		},
+		"dropdownLocation": {
+			"localSwitzerland": "Only local in Switzerland",
+			"regionalSwitzerland": "Only regional in Switzerland",
+			"onlySwitzerlandOverregional": "Only in Switzerland, also across regions",
+			"mainSwitzerlandAbroad": "Switzerland as main location, but also locations abroad",
+			"switzerlandAndAbroadEqually": "In Switzerland and abroad equally",
+			"globalCompany": "Globally operating company (International Big Law)"
+		},
 		"processInputCard": {
 			"processLeadingPersonnel": "Percentage of Process-Leading Personnel",
 			"serviceType": "Typical Service",
@@ -204,16 +243,27 @@
 			"inputPlaceholderOption": "Select an option",
 			"inputPlaceholderNumber": "Enter number"
 		},
+		"dropdownProcess": {
+			"provideFillStandardDocuments": "Providing / Filling out standard documents",
+			"provideFillStandardDocumentsWithCoaching": "Providing / Filling out standard documents with coaching",
+			"repetitiveTasksIndividualizedOfferings": "Repetitive tasks with individualized offerings",
+			"bespokeStandard": "Bespoke standard",
+			"bespokeHighEnd": "Bespoke in the high-end sector",
+			"highlyInnovativeWork": "Highly innovative work / always new"
+		},
 		"financialInputCard": {
 			"revenuePerYear": "Revenue per Year",
 			"operatingCostsPerYear": "Operating Costs per Year",
 			"inputPlaceholderCurrency": "Enter amount in CHF"
 		},
+		"dropdownComponent": {
+			"placeholder": "Choose Option"
+		},
 		"inputPage": {
 			"step": "Step 1",
 			"titel": "Law Firm Description",
 			"button1": "Back",
-			"button1Abord": "Abord",
+			"button1Abord": "Abort",
 			"button2": "Next"
 		},
 		"outputPage": {
@@ -232,10 +282,11 @@
 		},
 		"resultPage": {
 			"titel": "Result",
-			"description": "Based on your law firm description, average costs in the individual digitization steps are calculated. The costs are given in CHF."
-		},
-		"dropdownComponent": {
-			"placeholder": "Choose Option"
+			"description": "Based on your law firm description, average costs in the individual digitization steps are calculated. The costs are given in CHF.",
+			"disclaimerTitel": "Disclaimer",
+			"disclaimer": "The law firm cost calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. XXX law firms participated, and the costs are based on XXX to XXX data points. The modeling is an estimate and serves as a guideline for the digitalization costs of law firms.",
+			"button1": "Restart",
+			"button2": "Download Report"
 		},
 		"checkboxLabels": {
 			"ITsupport": "IT Support (external)",
@@ -266,7 +317,15 @@
 			"Laptops": "Business Laptops",
 			"ServerNetzwerk": "Servers and Networking Devices",
 			"InternetMobile": "Internet (mobile/office)",
-			"EinmaligerHardwareKauf": "One-Time Hardware Purchase"
+			"EinmaligerHardwareKauf": "One-Time Hardware Purchase",
+			"personalkostenTitel": "Personnel Costs",
+			"sicherheitTitel": "Security and Privacy",
+			"kommunikationTitel": "Communication and Collaboration",
+			"dienstleistungenTitel": "External Services",
+			"softwareTitel": "Software and Licenses",
+			"hardwareTitel": "Hardware and Infrastructure",
+			"yearlyTotal": "Total Yearly",
+			"onceTotal": "One-Time Total"
 		},
 		"checkboxLabelsDescriptions": {
 			"ITsupport": "External IT support provided by a third-party vendor to resolve technical issues or support IT infrastructure.",
@@ -328,6 +387,31 @@
 			"operatingCostsPerYearRequired": "Annual operating costs are required",
 			"operatingCostsPerYearInvalid": "Must be a valid number",
 			"revenuePerYearGreaterThanZero": "The number must be greater than zero"
+		},
+		"firmPlot": {
+			"titel": "Your Law Firm Compared",
+			"description": "The spider diagram compares your law firm based on the data you entered with the average Swiss law firms. This provides you with a clear overview of how your firm performs in various areas.",
+			"legend1": "Your Law Firm",
+			"legend2": "Reference Law Firm (100%)",
+			"locationNumberLabel": "Number of Locations",
+			"processLeadingPersonnelLabel": "Responsible Personnel",
+			"partnersCountLabel": "Number of Partners",
+			"employeesCountLabel": "Number of Employees",
+			"revenuePerYearLabel": "Annual Revenue",
+			"operatingCostsPerYearLabel": "Annual Operating Costs"
+		},
+		"costPlot": {
+			"titel": "Digitization Costs",
+			"description": "The diagram presents the estimated expenses for your planned digitization measures. The costs are based on the current investments of similar law firms, allowing you to make informed budget planning."
+		},
+		"table": {
+			"yearlyLabel": "Yearly Cost Overview",
+			"oneTimeLabel": "One-Time Cost Overview",
+			"title": "Cost Overview"
+		},
+		"summeryCard": {
+			"titel": "Summary",
+			"text": "For the specified **digitalization steps**, similar law firms spend an estimated total of **{totalYearlyCost}.- per year** and **{totalOnceCost}.- one-time**."
 		}
 	}
 }

@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import content from '../assets/content.json';
 import { languageContentType } from '../types/languageContentType';
 import { useLanguage } from '../context/LanguageContext';
 import Button from '../components/ui/general/Button';
 import { FaLongArrowAltRight } from 'react-icons/fa';
+import { useForm } from '../context/FormState';
 
 const LandingPage = () => {
 	const { language } = useLanguage();
-	console.log(language);
+	const { dispatch } = useForm();
+
+	useEffect(() => {
+		dispatch({ type: 'RESET_FORM' });
+	}, []);
 
 	const pageContent = (content as languageContentType)[language].landingPage;
 
 	return (
-		<div className='flex flex-col w-3/4'>
+		<div className="flex flex-col w-3/4">
 			<h1>{pageContent.h1}</h1>
 			<p>{pageContent.p1}</p>
 			<p className="font-semibold">{pageContent.p2}</p>
@@ -26,7 +31,7 @@ const LandingPage = () => {
 					<p>{pageContent.p4}</p>
 				</div>
 			</div>
-			<Button endIcon={<FaLongArrowAltRight />} text={pageContent.button} route='/input' width="70%" />
+			<Button endIcon={<FaLongArrowAltRight />} text={pageContent.button} route="/input" width="70%" />
 		</div>
 	);
 };

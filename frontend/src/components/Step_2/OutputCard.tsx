@@ -49,7 +49,7 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 			<div className={`flex flex-row text-white w-fit text-lg justify-center items-center px-4 py-1 rounded-xl bg-primary ${classesForAlert}`}>
 				<span className={`font-semibold mr-1`}>
 					{/* Dynamically render the selected message based on language */}
-					{ComponentContent.selectedMessage.replace('{count}', selectedList.length.toString())}
+					{ComponentContent.selectedMessage?.replace('{count}', selectedList.length.toString())}
 				</span>
 			</div>
 			<div className="grid grid-cols-2 gap-24 bg-gray-50 w-full p-8 rounded-xl">

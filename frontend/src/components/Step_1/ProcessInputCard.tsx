@@ -15,6 +15,16 @@ const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref)
 	const [error, setError] = useState<string | null>(null);
 
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].processInputCard;
+	const DorpdownOptions = (content as languageContentType)[language as keyof typeof content].dropdownProcess;
+
+	const DropdownOptions = [
+		DorpdownOptions.provideFillStandardDocuments,
+		DorpdownOptions.provideFillStandardDocumentsWithCoaching,
+		DorpdownOptions.repetitiveTasksIndividualizedOfferings,
+		DorpdownOptions.bespokeStandard,
+		DorpdownOptions.bespokeHighEnd,
+		DorpdownOptions.highlyInnovativeWork,
+	];
 
 	const validateForm = () => {
 		const schema = getZodFormValidationProcess(language);
@@ -49,7 +59,7 @@ const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref)
 			</div>
 			<div className="flex flex-col gap-2">
 				<span className="font-medium">{ComponentContent?.serviceType}</span>
-				<InputFieldDropdown options={['option', 'option 2']} identifier="serviceType" />
+				<InputFieldDropdown options={DropdownOptions} identifier="serviceType" />
 			</div>
 			<div className="flex flex-col gap-2">
 				<span className="font-medium">{ComponentContent?.employeesCount}</span>

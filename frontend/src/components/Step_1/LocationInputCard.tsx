@@ -15,6 +15,16 @@ const LocationInputCard = forwardRef(({ className }: { className?: string }, ref
 	const [error, setError] = useState<string | null>(null);
 
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].locationInputCard;
+	const DorpdownOptions = (content as languageContentType)[language as keyof typeof content].dropdownLocation;
+
+	const DropdownOptions = [
+		DorpdownOptions.localSwitzerland,
+		DorpdownOptions.regionalSwitzerland,
+		DorpdownOptions.onlySwitzerlandOverregional,
+		DorpdownOptions.mainSwitzerlandAbroad,
+		DorpdownOptions.switzerlandAndAbroadEqually,
+		DorpdownOptions.globalCompany,
+	];
 
 	const validateForm = () => {
 		const schema = getZodFormValidationLocation(language);
@@ -44,7 +54,7 @@ const LocationInputCard = forwardRef(({ className }: { className?: string }, ref
 			<div className="flex flex-col gap-2">
 				<span className="font-medium">{ComponentContent?.locationType}</span>
 
-				<InputFieldDropdown options={['option', 'option 2']} identifier="locationType" />
+				<InputFieldDropdown options={DropdownOptions} identifier="locationType" />
 			</div>
 			<div className="flex flex-col gap-2">
 				<span className="font-medium">{ComponentContent?.locationNumber}</span>
