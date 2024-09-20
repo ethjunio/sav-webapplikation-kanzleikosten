@@ -47,7 +47,7 @@ const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) =
 	if (variant == 'header') {
 		icon = iconMap[identifier];
 	}
-
+	
 	return (
 		<div className={`flex flex-row justify-between items-center w-full ${variantClass}`}>
 			<div className="flex flex-row items-center gap-2">

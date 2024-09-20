@@ -18,14 +18,6 @@
 			"locationNumber": "Anzahl Standorte",
 			"placeholder": "Zahl eingeben"
 		},
-		"dropdownLocation": {
-			"localSwitzerland": "Nur in der Schweiz lokal",
-			"regionalSwitzerland": "Nur in der Schweiz regional",
-			"onlySwitzerlandOverregional": "Nur in der Schweiz, auch überregional",
-			"mainSwitzerlandAbroad": "Schweiz als Hauptstandort, aber auch Standorte im Ausland",
-			"switzerlandAndAbroadEqually": "In der Schweiz und im Ausland gleichermaßen",
-			"globalCompany": "Global tätiges Unternehmen (International Big Law)"
-		},
 		"processInputCard": {
 			"processLeadingPersonnel": "Anteil prozessführendes Personal",
 			"serviceType": "Typische Dienstleistung",
@@ -35,13 +27,12 @@
 			"inputPlaceholderOption": "Option auswählen",
 			"inputPlaceholderNumber": "Zahl eingeben"
 		},
-		"dropdownProcess": {
-			"provideFillStandardDocuments": "Bereitstellen / Ausfüllen von Standarddokumenten",
-			"provideFillStandardDocumentsWithCoaching": "Bereitstellen / Ausfüllen von Standarddokumenten mit Coaching",
+		"dropdownOptions": {
+			"localSwitzerland": "Nur in der Schweiz lokal",
+			"regionalSwitzerland": "Nur in der Schweiz regional",
 			"repetitiveTasksIndividualizedOfferings": "Repetitive Arbeiten mit individualisierten Angeboten",
 			"bespokeStandard": "Bespoke normal",
-			"bespokeHighEnd": "Bespoke im High-End Bereich",
-			"highlyInnovativeWork": "Hoch-innovativer Tätigkeit / jeweils neu"
+			"bespokeHighEnd": "Bespoke im High-End Bereich"
 		},
 		"financialInputCard": {
 			"revenuePerYear": "Umsatz pro Jahr",
@@ -226,14 +217,6 @@
 			"locationNumber": "Number of Locations",
 			"placeholder": "Enter number"
 		},
-		"dropdownLocation": {
-			"localSwitzerland": "Only local in Switzerland",
-			"regionalSwitzerland": "Only regional in Switzerland",
-			"onlySwitzerlandOverregional": "Only in Switzerland, also across regions",
-			"mainSwitzerlandAbroad": "Switzerland as main location, but also locations abroad",
-			"switzerlandAndAbroadEqually": "In Switzerland and abroad equally",
-			"globalCompany": "Globally operating company (International Big Law)"
-		},
 		"processInputCard": {
 			"processLeadingPersonnel": "Percentage of Process-Leading Personnel",
 			"serviceType": "Typical Service",
@@ -243,14 +226,6 @@
 			"inputPlaceholderOption": "Select an option",
 			"inputPlaceholderNumber": "Enter number"
 		},
-		"dropdownProcess": {
-			"provideFillStandardDocuments": "Providing / Filling out standard documents",
-			"provideFillStandardDocumentsWithCoaching": "Providing / Filling out standard documents with coaching",
-			"repetitiveTasksIndividualizedOfferings": "Repetitive tasks with individualized offerings",
-			"bespokeStandard": "Bespoke standard",
-			"bespokeHighEnd": "Bespoke in the high-end sector",
-			"highlyInnovativeWork": "Highly innovative work / always new"
-		},
 		"financialInputCard": {
 			"revenuePerYear": "Revenue per Year",
 			"operatingCostsPerYear": "Operating Costs per Year",
@@ -258,6 +233,13 @@
 		},
 		"dropdownComponent": {
 			"placeholder": "Choose Option"
+		},
+		"dropdownOptions": {
+			"localSwitzerland": "Only local in Switzerland",
+			"regionalSwitzerland": "Only regional in Switzerland",
+			"repetitiveTasksIndividualizedOfferings": "Repetitive tasks with individualized offerings",
+			"bespokeStandard": "Bespoke standard",
+			"bespokeHighEnd": "Bespoke in the high-end sector"
 		},
 		"inputPage": {
 			"step": "Step 1",

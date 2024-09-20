@@ -5,10 +5,10 @@ import { ActionType } from '../../context/FormState';
 
 // Define a mapping from identifiers to action creators
 const actionCreators: Record<Exclude<keyof FormState, 'outputParameters'>, (value: string) => ActionType> = {
-	locationType: (value) => ({ type: 'SET_LOCATION_TYPE', payload: value }),
+	locationType: (value) => ({ type: 'SET_LOCATION_TYPE', payload: value as 'localSwitzerland' | 'regionalSwitzerland' | '' }),
 	locationNumber: (value) => ({ type: 'SET_LOCATION_NUMBER', payload: value }),
 	processLeadingPersonnel: (value) => ({ type: 'SET_PROCESS_LEADING_PERSONNEL', payload: value }),
-	serviceType: (value) => ({ type: 'SET_SERVICE_TYPE', payload: value }),
+	serviceType: (value) => ({ type: 'SET_SERVICE_TYPE', payload: value as 'repetitiveTasksIndividualizedOfferings' | 'bespokeStandard' | 'bespokeHighEnd' | '' }),
 	partnersCount: (value) => ({ type: 'SET_PARTNERS_COUNT', payload: value }),
 	employeesCount: (value) => ({ type: 'SET_EMPLOYEES_COUNT', payload: value }),
 	revenuePerYear: (value) => ({ type: 'SET_REVENUE_PER_YEAR', payload: value }),

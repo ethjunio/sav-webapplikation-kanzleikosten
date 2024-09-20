@@ -18,12 +18,9 @@ const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref)
 	const DorpdownOptions = (content as languageContentType)[language as keyof typeof content].dropdownProcess;
 
 	const DropdownOptions = [
-		DorpdownOptions.provideFillStandardDocuments,
-		DorpdownOptions.provideFillStandardDocumentsWithCoaching,
-		DorpdownOptions.repetitiveTasksIndividualizedOfferings,
-		DorpdownOptions.bespokeStandard,
-		DorpdownOptions.bespokeHighEnd,
-		DorpdownOptions.highlyInnovativeWork,
+		'repetitiveTasksIndividualizedOfferings',
+		'bespokeStandard',
+		'bespokeHighEnd',
 	];
 
 	const validateForm = () => {

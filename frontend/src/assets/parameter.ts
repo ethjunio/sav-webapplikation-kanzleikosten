@@ -1,10 +1,12 @@
 export const referenceFirm = {
-	locationType: 23,
-	locationNumber: 43,
-	processLeadingPersonnel: 234,
-	serviceType: 23,
-	partnersCount: 43,
-	employeesCount: 23,
-	revenuePerYear: 23423,
-	operatingCostsPerYear: 23423,
+	locationType: 'Nur in der Schweiz lokal',
+	locationNumber: 1,
+	processLeadingPersonnel: 60,
+	serviceType: 'Bespoke normal',
+	partnersCount: 1,
+	employeesCount: 3,
+	revenuePerYear: 341771,
+	operatingCostsPerYear: 159500,
 };
+
+

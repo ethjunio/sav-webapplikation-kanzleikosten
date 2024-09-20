@@ -2,10 +2,10 @@ import React, { createContext, useReducer, useContext, ReactNode } from 'react';
 
 // Define the structure of your form's state
 export interface FormState {
-	locationType: string;
+	locationType: 'localSwitzerland' | 'regionalSwitzerland' | '';
 	locationNumber: string;
 	processLeadingPersonnel: string;
-	serviceType: string;
+	serviceType: 'repetitiveTasksIndividualizedOfferings' | 'bespokeStandard' | 'bespokeHighEnd' | '';
 	partnersCount: string;
 	employeesCount: string;
 	revenuePerYear: string;
@@ -27,10 +27,10 @@ const initialFormState: FormState = {
 
 //Define all possible action types
 export type ActionType =
-	| { type: 'SET_LOCATION_TYPE'; payload: string }
+	| { type: 'SET_LOCATION_TYPE'; payload: 'localSwitzerland' | 'regionalSwitzerland' | '' }
 	| { type: 'SET_LOCATION_NUMBER'; payload: string }
 	| { type: 'SET_PROCESS_LEADING_PERSONNEL'; payload: string }
-	| { type: 'SET_SERVICE_TYPE'; payload: string }
+	| { type: 'SET_SERVICE_TYPE'; payload: 'repetitiveTasksIndividualizedOfferings' | 'bespokeStandard' | 'bespokeHighEnd' | '' }
 	| { type: 'SET_PARTNERS_COUNT'; payload: string }
 	| { type: 'SET_EMPLOYEES_COUNT'; payload: string }
 	| { type: 'SET_REVENUE_PER_YEAR'; payload: string }
@@ -78,6 +78,8 @@ const FormContext = createContext<{
 // Create a provider to wrap the form components
 export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [state, dispatch] = useReducer(formReducer, initialFormState);
+
+	console.log(state);
 
 	return <FormContext.Provider value={{ state, dispatch }}>{children}</FormContext.Provider>;
 };

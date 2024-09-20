@@ -12,15 +12,19 @@ type FormStateKey = Exclude<keyof FormState, 'outputParameters'>;
 
 // Define a mapping from identifiers to action creators
 const actionCreators: Record<FormStateKey, (value: string) => ActionType> = {
-	locationType: (value) => ({ type: 'SET_LOCATION_TYPE', payload: value }),
+	locationType: (value) => ({ type: 'SET_LOCATION_TYPE', payload: value as 'localSwitzerland' | 'regionalSwitzerland' | '' }),
 	locationNumber: (value) => ({ type: 'SET_LOCATION_NUMBER', payload: value }),
 	processLeadingPersonnel: (value) => ({ type: 'SET_PROCESS_LEADING_PERSONNEL', payload: value }),
-	serviceType: (value) => ({ type: 'SET_SERVICE_TYPE', payload: value }),
+	serviceType: (value) => ({ type: 'SET_SERVICE_TYPE', payload: value as 'repetitiveTasksIndividualizedOfferings' | 'bespokeStandard' | 'bespokeHighEnd' | '' }),
 	partnersCount: (value) => ({ type: 'SET_PARTNERS_COUNT', payload: value }),
 	employeesCount: (value) => ({ type: 'SET_EMPLOYEES_COUNT', payload: value }),
 	revenuePerYear: (value) => ({ type: 'SET_REVENUE_PER_YEAR', payload: value }),
 	operatingCostsPerYear: (value) => ({ type: 'SET_OPERATING_COSTS_PER_YEAR', payload: value }),
 };
+
+interface DropdownLocationState {
+	state: Record<FormStateKey, string>;
+}
 
 interface InputFieldDropdownProps {
 	options: string[]; // Array of options to display in the dropdown
@@ -32,14 +36,12 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identi
 	const { language } = useLanguage();
 
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].dropdownComponent;
-	
+	const dropdownOptions = (content as languageContentType)[language as keyof typeof content].dropdownOptions as any
 
 	// Handle option selection from the dropdown
 	const handleOptionSelect = (option: string) => {
 		dispatch(actionCreators[identifier](option));
 	};
-
-	
 
 	return (
 		<DropdownOverlay
@@ -48,8 +50,8 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identi
 					className="flex flex-row items-center text-nowrap justify-between bg-white w-full px-4 py-3 border border-gray-300 rounded-xl cursor-pointer
       hover:border-primaryFade focus:border-primaryFade focus:shadow-onFocusInput transition-all "
 				>
-					<span className="text-start overflow-hidden">{state[identifier] || ComponentContent?.placeholder}</span>
-					<div className=''>
+					<span className="text-start overflow-hidden">{dropdownOptions[state[identifier]] || ComponentContent?.placeholder}</span>
+					<div className="">
 						<IoMdArrowDropdown />
 					</div>
 				</button>
@@ -61,7 +63,7 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identi
 						handleOptionSelect(option);
 					}}
 				>
-					{option}
+					{dropdownOptions[option]}
 				</DropdownItem>
 			))}
 		</DropdownOverlay>

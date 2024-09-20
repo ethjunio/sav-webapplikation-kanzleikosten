@@ -8,11 +8,27 @@ import Table from '../components/Results/Table';
 import SummeryCard from '../components/Results/SummaryCard';
 import Button from '../components/ui/general/Button';
 import { TbReport } from 'react-icons/tb';
+import calculateOutput from '../utils/calculateOutput';
 
 const ResultPage = () => {
 	const { language } = useLanguage();
 	const { state } = useForm();
 	const pageContent = (content as languageContentType)[language as keyof typeof content].resultPage;
+
+	calculateOutput({
+		outputIdentifier: 'ITsupport',
+		input: {
+			employeesCount: '23',
+			locationNumber: '23',
+			locationType: 'regionalSwitzerland',
+			operatingCostsPerYear: '23432',
+			outputParameters: ['ITsupport'],
+			partnersCount: '34',
+			processLeadingPersonnel: '23',
+			revenuePerYear: '2343',
+			serviceType: 'bespokeStandard',
+		},
+	});
 
 	return (
 		<div className="flex flex-col gap-14 items-center">

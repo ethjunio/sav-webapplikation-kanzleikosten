@@ -15,15 +15,10 @@ const LocationInputCard = forwardRef(({ className }: { className?: string }, ref
 	const [error, setError] = useState<string | null>(null);
 
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].locationInputCard;
-	const DorpdownOptions = (content as languageContentType)[language as keyof typeof content].dropdownLocation;
 
 	const DropdownOptions = [
-		DorpdownOptions.localSwitzerland,
-		DorpdownOptions.regionalSwitzerland,
-		DorpdownOptions.onlySwitzerlandOverregional,
-		DorpdownOptions.mainSwitzerlandAbroad,
-		DorpdownOptions.switzerlandAndAbroadEqually,
-		DorpdownOptions.globalCompany,
+		'localSwitzerland',
+		'regionalSwitzerland',
 	];
 
 	const validateForm = () => {
