@@ -1,0 +1,92 @@
+{
+	"ITMitarbeitende": {
+		"mean": 15000,
+		"median": 4000,
+		"q25": 1600,
+		"q75": 16000
+	},
+	"Videokonferenzsystem": {
+		"mean": 500,
+		"median": 200,
+		"q25": 200,
+		"q75": 500
+	},
+	"ChatExtern": {
+		"mean": 1100,
+		"median": 400,
+		"q25": 200,
+		"q75": 1100
+	},
+	"ExterneEntwicklung": {
+		"mean": 12800,
+		"median": 4000,
+		"q25": 2000,
+		"q75": 14000
+	},
+	"ChatInternEmployees": {
+		"mean": 1200,
+		"median": 400,
+		"q25": 200,
+		"q75": 1400
+	},
+	"InformatikKosten": {
+		"mean": 1500,
+		"median": 800,
+		"q25": 400,
+		"q75": 1800
+	},
+	"SchulungenSoftware": {
+		"mean": 1400,
+		"median": 600,
+		"q25": 500,
+		"q75": 2000
+	},
+	"VideoKonferenzen": {
+		"mean": 700,
+		"median": 500,
+		"q25": 200,
+		"q75": 500
+	},
+	"CRMSoftware": {
+		"mean": 3300,
+		"median": 1500,
+		"q25": 900,
+		"q75": 2900
+	},
+	"SichererDatenaustausch": {
+		"mean": 900,
+		"median": 400,
+		"q25": 200,
+		"q75": 1000
+	},
+	"DigitaleSignatur": {
+		"mean": 500,
+		"median": 400,
+		"q25": 200,
+		"q75": 500
+	},
+	"Systemintegration": {
+		"mean": 14600,
+		"median": 5000,
+		"q25": 2500,
+		"q75": 15000
+	},
+	"SchulungMitarbeitende": {
+		"mean": 4200,
+		"median": 2000,
+		"q25": 1000,
+		"q75": 5000
+	},
+	"EinmaligerSoftwareKauf": {
+		"mean": 5500,
+		"median": 2000,
+		"q25": 500,
+		"q75": 5000
+	},
+	"Datenmigration": {
+		"mean": 6300,
+		"median": 2000,
+		"q25": 500,
+		"q75": 6000
+	}
+}

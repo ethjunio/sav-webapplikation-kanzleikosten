@@ -1,4 +1,5 @@
 import formula from '../assets/formula.json';
+import staticResultValues from '../assets/staticResultValues.json';
 import { FormState } from '../context/FormState';
 import * as math from 'mathjs';
 
@@ -26,72 +27,114 @@ interface FormulaType {
 	[outputIdentifier: string]: OutputData;
 }
 
-interface CalculateOutputProps {
+interface StaticResultType {
+	[outputIdentifier: string]: {
+		mean: number;
+		median: number;
+		q25: number;
+		q75: number;
+	};
+}
+
+export interface CalculateOutputProps {
 	outputIdentifier: string;
 	input: FormState;
 }
 
-const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): void => {
-	const estimateVector = (formula as FormulaType)[outputIdentifier].estimate;
+// Discriminated Union Interfaces
+export interface EstimateWithConfidence {
+	type: 'confidence';
+	estimatedCost: number;
+	CI_lower: number;
+	CI_upper: number;
+}
 
-	// Calculate Ouput Estimate based on exponential Function
+export interface EstimateWithStatistics {
+	type: 'statistics';
+	estimatedCost: number;
+	mean: number;
+	q25: number;
+	q75: number;
+}
 
-	const regionalSwitzerland = input.locationType === 'regionalSwitzerland' ? 1 : 0;
-	const bespokeStandard = input.serviceType === 'bespokeStandard' ? 1 : 0;
-	const bespokeHighEnd = input.serviceType === 'bespokeHighEnd' ? 1 : 0;
+export type FunctionReturn = EstimateWithConfidence | EstimateWithStatistics;
 
-	const x_Vector = [
-		estimateVector.intercept,
-		regionalSwitzerland,
-		bespokeStandard,
-		bespokeHighEnd,
-		parseFloat(input.employeesCount),
-		parseFloat(input.processLeadingPersonnel),
-		parseFloat(input.partnersCount),
-		parseFloat(input.locationNumber),
-		parseFloat(input.revenuePerYear),
-		parseFloat(input.operatingCostsPerYear),
-	];
+const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): FunctionReturn => {
+	const estimateVector = (formula as FormulaType)[outputIdentifier]?.estimate;
 
-	const estimateArray = Object.values(estimateVector);
+	if (estimateVector !== undefined) {
+		// Calculate Output Estimate based on exponential Function
 
-	const sumTerm = math.multiply(x_Vector.slice(1), estimateArray.slice(1));
+		const regionalSwitzerland = input.locationType === 'regionalSwitzerland' ? 1 : 0;
+		const bespokeStandard = input.serviceType === 'bespokeStandard' ? 1 : 0;
+		const bespokeHighEnd = input.serviceType === 'bespokeHighEnd' ? 1 : 0;
 
-	const outputEstimateResult = Math.exp(estimateVector.intercept + sumTerm);
+		const x_Vector = [
+			1,
+			regionalSwitzerland,
+			bespokeStandard,
+			bespokeHighEnd,
+			parseFloat(input.employeesCount),
+			parseFloat(input.processLeadingPersonnel),
+			parseFloat(input.partnersCount),
+			parseFloat(input.locationNumber),
+			parseFloat(input.revenuePerYear),
+			parseFloat(input.operatingCostsPerYear),
+		];
 
-	console.log(outputEstimateResult, estimateArray, x_Vector);
+		const estimateArray = Object.values(estimateVector);
 
-	// Calculate Confidence Intervall
+		const sumTerm = math.multiply(x_Vector, estimateArray);
 
-	// Covariance matrix (Sigma) from the formula file
-	const sigmaMatrix = (formula as FormulaType)[outputIdentifier].matrix;
+		const outputEstimateResult = Math.exp(sumTerm);
 
-	// Transpose the x_Vector
-	const x_Vector_T = math.transpose(x_Vector);
+		// Calculate Confidence Interval
 
-	// Perform the matrix multiplication: x_Vector_T * Sigma * x_Vector
-	const multiplicationResult = math.multiply(math.multiply(x_Vector_T, sigmaMatrix), x_Vector);
+		// Covariance matrix (Sigma) from the formula file
+		const sigmaMatrix = (formula as FormulaType)[outputIdentifier].matrix;
 
-	// Ensure the result is a scalar, not an array
-	let scalarResult: number;
-	if (Array.isArray(multiplicationResult)) {
-		// Wenn das Ergebnis ein Array oder Matrix ist, extrahieren Sie das erste Element
-		scalarResult = multiplicationResult[0] as number;
+		// Transpose the x_Vector
+		const x_Vector_T = math.transpose(x_Vector);
+
+		// Perform the matrix multiplication: x_Vector_T * Sigma * x_Vector
+		const multiplicationResult = math.multiply(math.multiply(x_Vector_T, sigmaMatrix), x_Vector);
+
+		// Ensure the result is a scalar, not an array
+		let scalarResult: number;
+		if (Array.isArray(multiplicationResult)) {
+			scalarResult = multiplicationResult[0] as number;
+		} else {
+			scalarResult = multiplicationResult as number;
+		}
+
+		// Calculate the square root
+		const sqrtResult = math.sqrt(scalarResult) as number;
+		const t_Value = (formula as FormulaType)[outputIdentifier].tValue;
+
+		const CI_lower = outputEstimateResult - t_Value * sqrtResult;
+		const CI_upper = outputEstimateResult + t_Value * sqrtResult;
+
+		console.log(CI_lower, CI_upper);
+
+		// Return with discriminant
+		return {
+			type: 'confidence',
+			estimatedCost: outputEstimateResult,
+			CI_lower,
+			CI_upper,
+		};
 	} else {
-		// Andernfalls ist es bereits eine Zahl
-		scalarResult = multiplicationResult as number;
+		const staticResultVector = (staticResultValues as StaticResultType)[outputIdentifier];
+
+		// Return with discriminant
+		return {
+			type: 'statistics',
+			estimatedCost: staticResultVector.mean,
+			mean: staticResultVector.mean,
+			q25: staticResultVector.q25,
+			q75: staticResultVector.q75,
+		};
 	}
-
-
-	// Calculate the square root
-	const sqrtResult = math.sqrt(scalarResult) as number;
-
-	const t_Value = (formula as FormulaType)[outputIdentifier].tValue;
-
-	const CI_lower = outputEstimateResult - t_Value * sqrtResult;
-	const CI_upper = outputEstimateResult + t_Value * sqrtResult;
-
-	console.log(CI_lower, CI_upper);
 };
 
 export default calculateOutput;

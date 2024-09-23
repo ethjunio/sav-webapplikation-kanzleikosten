@@ -72,8 +72,7 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 						<GrouTitel titel={ComponentContent.communicationCollaboration} icon={<IoChatbubbles />} />
 						<Checkbox tag="jahrlich" identifier="VideoKonferenzen" {...stateProps} />
 						<Checkbox tag="jahrlich" identifier="SocialMedia" {...stateProps} />
-						<Checkbox tag="jahrlich" identifier="ChatExtern" {...stateProps} />
-						<Checkbox tag="jahrlich" identifier="ChatIntern" {...stateProps} line={false} />
+						<Checkbox tag="jahrlich" identifier="ChatExtern" {...stateProps} line={false} />
 					</div>
 					<div className="flex flex-col gap-2">
 						<GrouTitel titel={ComponentContent.externalServices} icon={<FaHandshakeSimple />} />
@@ -90,7 +89,6 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 						<Checkbox tag="jahrlich" identifier="SoftwareKosten" {...stateProps} />
 						<Checkbox tag="jahrlich" identifier="Kanzleisoftware" {...stateProps} />
 						<Checkbox tag="jahrlich" identifier="CRMSoftware" {...stateProps} />
-						<Checkbox tag="jahrlich" identifier="ChatExternClients" {...stateProps} />
 						<Checkbox tag="jahrlich" identifier="ChatInternEmployees" {...stateProps} />
 						<Checkbox tag="jahrlich" identifier="DigitaleSignatur" {...stateProps} />
 						<Checkbox tag="einmalig" identifier="Systemintegration" {...stateProps} />

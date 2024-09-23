@@ -10,7 +10,7 @@ import { FormProvider } from './context/FormState';
 import Layout from './components/layout/Layout';
 import OutputPage from './routes/OutputPage';
 import ResultPage from './routes/ResultPage';
-
+import { CalculationResultProvider } from './context/CalculationResultContext';
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -50,9 +50,11 @@ const router = createBrowserRouter([
 		path: '/result',
 		element: (
 			<Layout fullscreen={true}>
-				<div className="flex w-full items-start justify-center">
-					<ResultPage />
-				</div>
+				<CalculationResultProvider>
+					<div className="flex w-full items-start justify-center">
+						<ResultPage />
+					</div>
+				</CalculationResultProvider>
 			</Layout>
 		),
 	},

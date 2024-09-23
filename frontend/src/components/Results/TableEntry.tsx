@@ -22,11 +22,7 @@ interface TableEntryProps {
 const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) => {
 	const { language } = useLanguage();
 
-	console.log(identifier);
-
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].checkboxLabels;
-
-	console.log(ComponentContent[identifier]);
 
 	let variantClass;
 	switch (variant) {

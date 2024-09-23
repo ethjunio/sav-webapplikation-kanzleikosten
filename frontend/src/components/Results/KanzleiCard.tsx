@@ -3,7 +3,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 import { languageContentType } from '../../types/languageContentType';
 import RadarPlot from './RadarPlot';
-import { referenceFirm } from '../../assets/parameter';
+import { referenceFirm } from '../../assets/referenceFirm';
 import { roundTo } from '../../utils/roundTo';
 const KanzleiCard = () => {
 	const { language } = useLanguage();
@@ -48,7 +48,7 @@ const KanzleiCard = () => {
 			<h2 className=" font-bold text-gray-700">{pageContent.titel}</h2>
 			{pageContent.description && <p className="text-sm text-center text-gray-500 mb-4">{pageContent.description}</p>}
 			<div className="flex items-center content-stretch flex-grow w-full">
-				<RadarPlot dataSet1={plotData} dataSet2={[100, 100, 100, 100, 100, 100]} labels={labels} legendlabel1={pageContent.legend1} legendlabel2={pageContent.legend2} />
+				<RadarPlot dataSet1={plotData} dataSet2={[100, 100, 100, 100, 100, 100]} labels={labels} legendLabel1={pageContent.legend1} legendLabel2={pageContent.legend2} />
 			</div>
 			{/* <div className="grid grid-cols-2 w-full flex-grow gap-12">
 				<div className="flex flex-col items-start">
