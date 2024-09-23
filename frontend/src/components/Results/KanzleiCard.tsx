@@ -44,7 +44,7 @@ const KanzleiCard = () => {
 	];
 
 	return (
-		<div className="flex flex-col w-1/2 flex-grow gap-2 items-center min-h-screen bg-slate-100 rounded-2xl p-8">
+		<div className="flex flex-col w-full flex-grow gap-2 items-center  h-screen bg-slate-100 rounded-2xl p-8">
 			<h2 className=" font-bold text-gray-700">{pageContent.titel}</h2>
 			{pageContent.description && <p className="text-sm text-center text-gray-500 mb-4">{pageContent.description}</p>}
 			<div className="flex items-center content-stretch flex-grow w-full">

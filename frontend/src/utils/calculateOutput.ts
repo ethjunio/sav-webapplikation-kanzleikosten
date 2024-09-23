@@ -2,6 +2,7 @@ import formula from '../assets/formula.json';
 import staticResultValues from '../assets/staticResultValues.json';
 import { FormState } from '../context/FormState';
 import * as math from 'mathjs';
+import { roundTo } from './roundTo';
 
 export interface InputEstimate {
 	intercept: number;
@@ -43,7 +44,7 @@ export interface CalculateOutputProps {
 
 // Discriminated Union Interfaces
 export interface EstimateWithConfidence {
-	type: 'confidence';
+	type: 'confidence' | 'outOfRange';
 	estimatedCost: number;
 	CI_lower: number;
 	CI_upper: number;
@@ -114,15 +115,25 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
 		const CI_lower = outputEstimateResult - t_Value * sqrtResult;
 		const CI_upper = outputEstimateResult + t_Value * sqrtResult;
 
-		console.log(CI_lower, CI_upper);
+		// Read the Range
+		const range = (formula as FormulaType)[outputIdentifier].range;
 
 		// Return with discriminant
-		return {
-			type: 'confidence',
-			estimatedCost: outputEstimateResult,
-			CI_lower,
-			CI_upper,
-		};
+		if (outputEstimateResult >= range[0] && outputEstimateResult <= range[1]) {
+			return {
+				type: 'confidence',
+				estimatedCost: roundTo(outputEstimateResult, -2),
+				CI_lower: roundTo(CI_lower, 2),
+				CI_upper: roundTo(CI_upper, 2),
+			};
+		} else {
+			return {
+				type: 'outOfRange',
+				estimatedCost: 0,
+				CI_lower: 0,
+				CI_upper: 0,
+			};
+		}
 	} else {
 		const staticResultVector = (staticResultValues as StaticResultType)[outputIdentifier];
 

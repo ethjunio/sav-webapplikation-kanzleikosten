@@ -1,18 +1,21 @@
+// RadarPlotCost.tsx
+
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend, ChartOptions } from 'chart.js';
+import { PlotEntry } from './CostCard';
+import { PiTriangleFill } from 'react-icons/pi';
+import { FaCircle } from 'react-icons/fa6';
+import { index } from 'mathjs';
 
 // Register necessary ChartJS components
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
-// Define props types
 interface RadarPlotProps {
-	dataSet1: number[];
-	dataSet2?: number[]; // Optional second dataset
+	dataSet1: PlotEntry[];
 	ciUpper?: number[]; // Optional confidence interval upper bound
 	ciLower?: number[]; // Optional confidence interval lower bound
 	legendLabel1: string;
-	legendLabel2?: string;
 	labels: string[];
 }
 
@@ -46,33 +49,34 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
 	return lines;
 };
 
-const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, dataSet2, ciUpper, ciLower, legendLabel1, legendLabel2, labels }) => {
+const RadarPlotCost: React.FC<RadarPlotProps> = ({ dataSet1, ciUpper, ciLower, legendLabel1, labels }) => {
 	// Process labels to wrap text
 	const wrappedLabels = labels.map((label) => wrapLabel(label, 15)); // Adjust maxChars as needed
+
+	// Extract values and types from dataSet1
+	const values1 = dataSet1.map((item) => item.value);
+	const types1 = dataSet1.map((item) => item.type);
+
+	// Define point styles based on type
+	const pointStyles = types1.map((type) => (type === 'confidence' ? 'triangle' : 'circle'));
+
+	// Define point colors based on type
+	const pointColors = types1.map((type) => (type === 'confidence' ? 'rgba(255, 99, 132, 1)' : 'rgba(54, 162, 235, 1)'));
 
 	// Radar chart data structure
 	const datasets = [
 		{
 			label: legendLabel1 || 'Dataset 1',
-			data: dataSet1,
+			data: values1,
 			backgroundColor: 'rgba(40, 76, 147, 0.3)',
 			borderColor: 'rgba(40, 76, 147, 1)',
 			borderWidth: 2,
-			pointBackgroundColor: 'rgba(40, 76, 147, 1)',
+			pointBackgroundColor: pointColors,
+			pointStyle: pointStyles,
+			pointRadius: 7,
+			pointHoverRadius: 14,
 		},
 	];
-
-	// If dataSet2 is provided, add it to datasets
-	if (dataSet2) {
-		datasets.push({
-			label: legendLabel2 || 'Dataset 2',
-			data: dataSet2,
-			backgroundColor: 'rgba(148, 115, 40, 0.1)',
-			borderColor: 'rgba(148, 115, 40, 0.5)',
-			borderWidth: 1,
-			pointBackgroundColor: 'rgba(148, 115, 40, 1)',
-		});
-	}
 
 	// If confidence intervals are provided, add them to the datasets
 	if (ciLower) {
@@ -134,41 +138,52 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, dataSet2, ciUpper, ciLo
 				position: 'top',
 				labels: {
 					font: {
-						size: 14, // Adjusted legend font size
+						size: 14,
 					},
 				},
 			},
 			tooltip: {
 				callbacks: {
 					label: function (context) {
-						const index = context.dataIndex;
-						const datasetIndex = context.datasetIndex;
-						let originalValue;
-						if (datasetIndex === 0) {
-							originalValue = dataSet1[index];
-						} else if (datasetIndex === 1 && dataSet2) {
-							originalValue = dataSet2[index];
-						} else if (datasetIndex === 2 && ciLower) {
-							originalValue = ciLower[index];
-						} else if (datasetIndex === 3 && ciUpper) {
-							originalValue = ciUpper[index];
-						} else {
-							originalValue = context.raw;
-						}
-						return `${context.dataset.label}: ${originalValue}`;
+						const value = context.raw;
+						return `${context.dataset.label}: ${value} CHF`;
 					},
 				},
+		
 			},
+
 		},
 	};
 
+	const DataPointLegend = () => {
+		return (
+			<div className="flex space-x-4 mb-2">
+				{/* Confidence Legend */}
+				<div className="flex items-center space-x-2">
+					{/* Triangle Shape */}
+					<PiTriangleFill color="rgba(255, 99, 132, 1)" />
+					<span className="text-gray-600 text-sm">Confidence</span>
+				</div>
+				{/* Statistics Legend */}
+				<div className="flex items-center space-x-2">
+					{/* Circle Shape */}
+					<FaCircle color="rgba(54, 162, 235, 1)" />
+					<span className="text-gray-600 text-sm">Statistics</span>
+				</div>
+			</div>
+		);
+	};
+
 	return (
-		<div className="w-full h-full flex items-center justify-center">
-			<div className="w-full h-full">
-				<Radar data={data} options={options} />
+		<div className="w-full h-full flex items-center flex-col justify-center">
+			<DataPointLegend />
+			<div className="w-full h-full flex items-center justify-center">
+				<div className="w-full h-full">
+					<Radar data={data} options={options} />
+				</div>
 			</div>
 		</div>
 	);
 };
 
-export default RadarPlot;
+export default RadarPlotCost;

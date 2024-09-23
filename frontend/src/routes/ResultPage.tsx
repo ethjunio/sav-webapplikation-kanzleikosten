@@ -35,8 +35,12 @@ const ResultPage = () => {
 						outputIdentifier: identifier,
 						input: state,
 					});
-					console.log(result);
 
+					// if (result.type === 'outOfRange') {
+					// 	return { index, identifier, {}};
+					// } else {
+						
+					// }
 					return { index, identifier, result };
 				});
 
@@ -84,7 +88,7 @@ const ResultPage = () => {
 			</div>
 
 			{/* Cards Section */}
-			<div className="flex flex-row gap-12">
+			<div className="flex flex-col gap-12">
 				<KanzleiCard />
 				<CostCard />
 			</div>
