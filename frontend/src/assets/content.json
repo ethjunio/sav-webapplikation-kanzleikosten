@@ -69,7 +69,8 @@
 			"disclaimerTitel": "Disclaimer",
 			"disclaimer": "Der Kanzleikosten-Rechner basiert auf einem Modell von gfs.bern. Im Auftrag des SAV hat gfs.bern eine Umfrage bei Mitgliedern des SAV im Jahr 2024 durchgeführt und die Kosten der Kanzleien abgefragt. XXX Kanzleien haben teilgenommen und die Kosten basieren auf XXX bis XXX Werten. Die Modellierung ist eine Schätzung und dient als Orientierung zu den Digitalisierungskosten von Anwaltskanzleien.",
 			"button1": "Neustart",
-			"button2": "Bericht Herunterladen"
+			"button2": "Bericht Herunterladen",
+			"rangeMessage": "Die Kostenvorschläge für die ausgewählten Digitalisierungsschritte liegen außerhalb des definierten Bereichs und werden von den Berechnungen ausgeschlossen. Bitte stellen Sie sicher, dass alle Eingabewerte innerhalb des zulässigen Bereichs liegen."
 		},
 		"checkboxLabels": {
 			"ITsupport": "IT-Support (extern)",
@@ -268,7 +269,8 @@
 			"disclaimerTitel": "Disclaimer",
 			"disclaimer": "The law firm cost calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. XXX law firms participated, and the costs are based on XXX to XXX data points. The modeling is an estimate and serves as a guideline for the digitalization costs of law firms.",
 			"button1": "Restart",
-			"button2": "Download Report"
+			"button2": "Download Report",
+			"rangeMessage": "The cost estimates for the selected digitalization steps are outside the defined range and will be excluded from the calculations. Please ensure that all input values fall within the acceptable range."
 		},
 		"checkboxLabels": {
 			"ITsupport": "IT Support (external)",

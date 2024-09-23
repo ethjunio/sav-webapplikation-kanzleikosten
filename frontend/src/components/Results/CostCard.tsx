@@ -20,8 +20,10 @@ const CostCard: React.FC = () => {
 	const pageContent = (content as languageContentType)[language as keyof typeof content].costPlot;
 	const labelContent = (content as languageContentType)[language as keyof typeof content].checkboxLabels;
 
+	console.log(calculationResults);
+
 	// Extract output parameter identifiers from the form state
-	const labelIdentifier = state.outputParameters;
+	const labelIdentifier = Object.keys(calculationResults);
 
 	// Create the labels for the radar plot from the checkbox labels in the content
 	const labels: string[] = labelIdentifier.map((value) => labelContent[value]);

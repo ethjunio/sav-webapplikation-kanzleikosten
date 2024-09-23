@@ -11,18 +11,20 @@ import Button from '../components/ui/general/Button';
 import { TbReport } from 'react-icons/tb';
 import calculateOutput from '../utils/calculateOutput';
 import { useCalculationResultContext } from '../context/CalculationResultContext';
-// import Spinner from '../components/ui/Spinner'; // Assume you have a Spinner component
-
+import { IoAlertCircle } from 'react-icons/io5';
 const ResultPage = () => {
 	const { language } = useLanguage();
 	const { state } = useForm();
 	const { calculationResults, updateCalculationResult } = useCalculationResultContext();
 	const pageContent = (content as languageContentType)[language as keyof typeof content].resultPage;
+	const outputIdentifiers = (content as languageContentType)[language as keyof typeof content].checkboxLabels;
 
 	// State to store calculated table values
 	const [tableValues, setTableValues] = useState<string[]>([]);
 	// State to manage loading status
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+
+	const [warning, setWarning] = useState<string[]>([]);
 
 	useEffect(() => {
 		const fetchCalculations = async () => {
@@ -36,24 +38,22 @@ const ResultPage = () => {
 						input: state,
 					});
 
-					// if (result.type === 'outOfRange') {
-					// 	return { index, identifier, {}};
-					// } else {
-						
-					// }
 					return { index, identifier, result };
 				});
 
 				// Wait for all calculations to complete
 				const results = await Promise.all(calculations);
 
-				console.log(results);
-
 				// Prepare new table values and update calculation results
 				const newTableValues: string[] = [];
 				results.forEach(({ index, identifier, result }) => {
-					newTableValues[index] = result.estimatedCost.toString();
-					updateCalculationResult(identifier, result);
+					if (result.type === 'outOfRange') {
+						setWarning((prev) => [...prev, identifier]);
+						return;
+					} else {
+						newTableValues[index] = result.estimatedCost.toString();
+						updateCalculationResult(identifier, result);
+					}
 				});
 
 				// Update state with the new table values
@@ -64,8 +64,6 @@ const ResultPage = () => {
 				setIsLoading(false); // Loading finished
 			}
 		};
-
-		console.log(calculationResults);
 
 		fetchCalculations();
 	}, []);
@@ -85,6 +83,22 @@ const ResultPage = () => {
 			<div className="flex flex-col items-center w-1/2 text-center">
 				<h1 className="text-2xl font-bold">{pageContent.titel}</h1>
 				<p className="mt-2">{pageContent.description}</p>
+				{warning.length > 0 && (
+					<div className="flex flex-col p-8 justify-center text-left bg-red-100 rounded-lg w-full">
+						<div className="flex flex-row gap-2 items-center">
+							<IoAlertCircle size={20} />
+							<span className="text-lg font-bold">Warning</span>
+						</div>
+						<span>
+							{pageContent.rangeMessage}
+							<ul className="list-inside list-disc">
+								{warning.map((identifier) => (
+									<li key={identifier}>{outputIdentifiers[identifier]}</li>
+								))}
+							</ul>
+						</span>
+					</div>
+				)}
 			</div>
 
 			{/* Cards Section */}
@@ -99,7 +113,7 @@ const ResultPage = () => {
 					totalYearlyCost={'3433'} // Ideally, compute these based on tableValues
 					totalOnceCost={'23423'} // Ideally, compute these based on tableValues
 				/>
-				<Table identifiers={state.outputParameters} values={tableValues} />
+				<Table identifiers={Object.keys(calculationResults)} values={tableValues.filter((subArray) => subArray.length > 0)} />
 			</div>
 
 			{/* Buttons Section */}
