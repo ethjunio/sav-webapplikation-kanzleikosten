@@ -26,14 +26,14 @@ const router = createBrowserRouter([
 	{
 		path: '/input',
 		element: (
-			<Layout>
-				<ProgressProvider>
+			<ProgressProvider>
+				<Layout>
 					<div className="flex w-1/2 items-start justify-center">
 						<InputPage />
 					</div>
 					<div className="w-1/2"> </div>
-				</ProgressProvider>
-			</Layout>
+				</Layout>
+			</ProgressProvider>
 		),
 	},
 	{

@@ -50,25 +50,6 @@ const KanzleiCard = () => {
 			<div className="flex items-center content-stretch flex-grow w-full">
 				<RadarPlot dataSet1={plotData} dataSet2={[100, 100, 100, 100, 100, 100]} labels={labels} legendLabel1={pageContent.legend1} legendLabel2={pageContent.legend2} />
 			</div>
-			{/* <div className="grid grid-cols-2 w-full flex-grow gap-12">
-				<div className="flex flex-col items-start">
-					<h4 className="text-gray-700 font-semibold mb-2">Location Type</h4>
-					<div className="flex items-center gap-2 text-gray-800">
-						<span className="font-medium">{state.locationType}</span>
-						<FaArrowRightArrowLeft />
-						<span className="font-medium">{referenceFirm.locationType}</span>
-					</div>
-				</div>
-
-				<div className="flex flex-col items-start">
-					<h4 className="text-gray-700 font-semibold mb-2">Service Type</h4>
-					<div className="flex items-center gap-2 text-gray-800">
-						<span className="font-medium">{state.serviceType}</span>
-						<FaArrowRightArrowLeft />
-						<span className="font-medium">{referenceFirm.serviceType}</span>
-					</div>
-				</div>
-			</div> */}
 		</div>
 	);
 };

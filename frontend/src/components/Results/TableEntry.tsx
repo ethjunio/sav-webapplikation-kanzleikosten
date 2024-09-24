@@ -30,10 +30,10 @@ const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) =
 			variantClass = 'uppercase text-m text-gray-400 px-4';
 			break;
 		case 'yearlyTotal':
-			variantClass = 'text-xl font-medium pt-2 border-t border-black';
+			variantClass = 'text-xl font-semibold pt-2 px-4 border-t border-black';
 			break;
 		case 'onceTotal':
-			variantClass = 'text-xl font-medium  pt-2 border-t border-black';
+			variantClass = 'text-xl font-semibold  pt-2 px-4 border-t border-black';
 			break;
 		default:
 			variantClass = 'ps-8 pe-4 text-lg';
@@ -49,7 +49,7 @@ const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) =
 			<div className="flex flex-row items-center gap-2">
 				{icon && icon} {ComponentContent[identifier]}
 			</div>
-			<div className="font-medium text-lg">{value}</div>
+			<div className="">{value}</div>
 		</div>
 	);
 };

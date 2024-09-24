@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
-import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend, ChartOptions } from 'chart.js';
+import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend, ChartOptions, PointStyle } from 'chart.js';
 
 // Register necessary ChartJS components
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
@@ -70,6 +70,9 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 				borderColor: 'rgba(40, 76, 147, 1)',
 				borderWidth: 2,
 				pointBackgroundColor: 'rgba(40, 76, 147, 1)',
+				pointStyle: 'circle',
+				pointRadius: 4,
+				pointHoverRadius: 10,
 			},
 			{
 				label: legendLabel2 || 'Dataset 2',
@@ -78,6 +81,9 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 				borderColor: 'rgba(148, 115, 40,0.5)',
 				borderWidth: 1,
 				pointBackgroundColor: 'rgba(148, 115, 40, 1)',
+				pointStyle: 'circle',
+				pointRadius: 4,
+				pointHoverRadius: 10,
 			},
 		],
 	};
@@ -90,7 +96,6 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 			r: {
 				beginAtZero: true,
 				ticks: {
-					
 					// Adjust the font size for tick labels
 					font: {
 						size: 12, // Reduced font size
@@ -101,7 +106,7 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 
 						// Format the tick labels as needed
 						return `${expValue.toFixed(0)} %`;
-					}
+					},
 				},
 				// Adjust the font size and padding for point labels
 				pointLabels: {

@@ -61,7 +61,7 @@ const RadarPlotCost: React.FC<RadarPlotProps> = ({ dataSet1, ciUpper, ciLower, l
 	const pointStyles = types1.map((type) => (type === 'confidence' ? 'triangle' : 'circle'));
 
 	// Define point colors based on type
-	const pointColors = types1.map((type) => (type === 'confidence' ? 'rgba(255, 99, 132, 1)' : 'rgba(54, 162, 235, 1)'));
+	const pointColors = types1.map((type) => (type === 'confidence' ? 'rgba(255, 99, 132, 1)' : 'rgb(79, 204, 102,1)'));
 
 	// Radar chart data structure
 	const datasets = [
@@ -73,8 +73,8 @@ const RadarPlotCost: React.FC<RadarPlotProps> = ({ dataSet1, ciUpper, ciLower, l
 			borderWidth: 2,
 			pointBackgroundColor: pointColors,
 			pointStyle: pointStyles,
-			pointRadius: 7,
-			pointHoverRadius: 14,
+			pointRadius: 5,
+			pointHoverRadius: 10,
 		},
 	];
 
@@ -167,7 +167,7 @@ const RadarPlotCost: React.FC<RadarPlotProps> = ({ dataSet1, ciUpper, ciLower, l
 				{/* Statistics Legend */}
 				<div className="flex items-center space-x-2">
 					{/* Circle Shape */}
-					<FaCircle color="rgba(54, 162, 235, 1)" />
+					<FaCircle color="rgb(79, 204, 102,1)" />
 					<span className="text-gray-600 text-sm">Statistics</span>
 				</div>
 			</div>

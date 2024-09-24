@@ -11,10 +11,11 @@ interface ProgressBarProps {
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ className }) => {
-	const { currentProgress, setProgress } = useProgress();
+	const { currentProgress } = useProgress();
 	const { language } = useLanguage();
 
 	const ComponentContent = (content as any)[language].progressBar;
+
 	return (
 		<div className={cn('flex flex-row', className)}>
 			<div className="flex items-center justify-center w-full">

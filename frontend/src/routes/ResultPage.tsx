@@ -27,6 +27,7 @@ const ResultPage = () => {
 	const [warning, setWarning] = useState<string[]>([]);
 
 	useEffect(() => {
+		setWarning([])
 		const fetchCalculations = async () => {
 			try {
 				setIsLoading(true); // Start loading
@@ -84,10 +85,10 @@ const ResultPage = () => {
 				<h1 className="text-2xl font-bold">{pageContent.titel}</h1>
 				<p className="mt-2">{pageContent.description}</p>
 				{warning.length > 0 && (
-					<div className="flex flex-col p-8 justify-center text-left bg-red-100 rounded-lg w-full">
-						<div className="flex flex-row gap-2 items-center">
+					<div className="flex flex-col p-8 justify-center text-left bg-red-100 rounded-lg w-full gap-3">
+						<div className="flex flex-row gap-2 items-center text-red-600 border-b border-red-200 pb-3">
 							<IoAlertCircle size={20} />
-							<span className="text-lg font-bold">Warning</span>
+							<span className="text-lg font-semibold ">{pageContent.rangeMessageTitel}</span>
 						</div>
 						<span>
 							{pageContent.rangeMessage}
@@ -102,7 +103,7 @@ const ResultPage = () => {
 			</div>
 
 			{/* Cards Section */}
-			<div className="flex flex-col gap-12">
+			<div className="flex flex-row gap-12">
 				<KanzleiCard />
 				<CostCard />
 			</div>
