@@ -71,7 +71,7 @@
 			"button1": "Neustart",
 			"button2": "Bericht Herunterladen",
 			"rangeMessageTitel": "Resultate ausserhalb des Definitionsbereichs",
-			"rangeMessage": "Die Kostenvorschläge für die ausgewählten Digitalisierungsschritte liegen ausserhalb des definierten Bereichs und werden von den Berechnungen ausgeschlossen."
+			"rangeMessage": "Die berechneten Kostenvorschläge für die folgend aufgeführten Digitalisierungsschritte liegen ausserhalb des definierten Bereichs und werden daher von den Berechnungen ausgeschlossen:"
 		},
 		"checkboxLabels": {
 			"ITsupport": "IT-Support (extern)",
@@ -272,7 +272,7 @@
 			"button1": "Restart",
 			"button2": "Download Report",
 			"rangeMessageTitel": "Results outside rage definition",
-			"rangeMessage": "The cost estimates for the selected digitalization steps are outside the defined range and will be excluded from the calculations."
+			"rangeMessage": "The cost estimates for the following digitalization steps are outside the defined range and will be excluded from the calculations:"
 		},
 		"checkboxLabels": {
 			"ITsupport": "IT Support (external)",

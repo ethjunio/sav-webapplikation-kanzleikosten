@@ -112,8 +112,11 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
 		const sqrtResult = math.sqrt(scalarResult) as number;
 		const t_Value = (formula as FormulaType)[outputIdentifier].tValue;
 
-		const CI_lower = outputEstimateResult - t_Value * sqrtResult;
-		const CI_upper = outputEstimateResult + t_Value * sqrtResult;
+		console.log(t_Value * sqrtResult);
+		console.log(outputEstimateResult);
+
+		const CI_lower = outputEstimateResult - (t_Value * sqrtResult);
+		const CI_upper = outputEstimateResult + (t_Value * sqrtResult);
 
 		// Read the Range
 		const range = (formula as FormulaType)[outputIdentifier].range;
@@ -122,7 +125,7 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
 		if (outputEstimateResult >= range[0] && outputEstimateResult <= range[1]) {
 			return {
 				type: 'confidence',
-				estimatedCost: roundTo(outputEstimateResult, -2),
+				estimatedCost: roundTo(outputEstimateResult, 2),
 				CI_lower: roundTo(CI_lower, 2),
 				CI_upper: roundTo(CI_upper, 2),
 			};

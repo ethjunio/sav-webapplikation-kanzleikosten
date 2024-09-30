@@ -27,7 +27,6 @@ const ResultPage = () => {
 	const [warning, setWarning] = useState<string[]>([]);
 
 	useEffect(() => {
-		setWarning([])
 		const fetchCalculations = async () => {
 			try {
 				setIsLoading(true); // Start loading
@@ -38,26 +37,27 @@ const ResultPage = () => {
 						outputIdentifier: identifier,
 						input: state,
 					});
-
 					return { index, identifier, result };
 				});
 
 				// Wait for all calculations to complete
 				const results = await Promise.all(calculations);
 
-				// Prepare new table values and update calculation results
+				// Prepare new table values and collect warnings
 				const newTableValues: string[] = [];
+				const newWarnings: string[] = []; // Collect warnings here
+
 				results.forEach(({ index, identifier, result }) => {
 					if (result.type === 'outOfRange') {
-						setWarning((prev) => [...prev, identifier]);
-						return;
+						newWarnings.push(identifier); // Collect warning
 					} else {
 						newTableValues[index] = result.estimatedCost.toString();
 						updateCalculationResult(identifier, result);
 					}
 				});
 
-				// Update state with the new table values
+				// Update state once after processing
+				setWarning(newWarnings);
 				setTableValues(newTableValues);
 			} catch (err) {
 				console.error('Error during calculations:', err);
@@ -67,7 +67,7 @@ const ResultPage = () => {
 		};
 
 		fetchCalculations();
-	}, []);
+	}, []); // Empty dependency array ensures this runs once on mount
 
 	// Conditional rendering based on loading and error states
 	if (isLoading) {
@@ -82,7 +82,7 @@ const ResultPage = () => {
 		<div className="flex flex-col gap-14 items-center">
 			{/* Header Section */}
 			<div className="flex flex-col items-center w-1/2 text-center">
-				<h1 className="text-2xl font-bold">{pageContent.titel}</h1>
+				<h2 className="">{pageContent.titel}</h2>
 				<p className="mt-2">{pageContent.description}</p>
 				{warning.length > 0 && (
 					<div className="flex flex-col p-8 justify-center text-left bg-red-100 rounded-lg w-full gap-3">
