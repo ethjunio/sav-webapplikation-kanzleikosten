@@ -3,21 +3,6 @@ services:
     build:
       context: .
       dockerfile: ./backend/Dockerfile
-      # Optional: Setze Build-Argumente, falls du weitere Anpassungen benötigst
-      # args:
-      #   NODE_OPTIONS: "--max-old-space-size=2048"
     ports:
-      - "5500:5500"
-    environment:
-      - NODE_ENV=production
-      - NODE_OPTIONS=--max-old-space-size=2048
-    deploy:
-      resources:
-        limits:
-          memory: 2G
-    # Optional: Begrenze die CPU-Nutzung, um Überlastung zu vermeiden
-    # deploy:
-    #   resources:
-    #     limits:
-    #       cpus: "0.5"
-    restart: unless-stopped
+      - "5500:5500"  # Use the PORT variable from the backend's .env file
+

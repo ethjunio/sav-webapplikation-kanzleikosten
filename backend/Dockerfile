@@ -1,14 +1,12 @@
 # Stage 1: Build the frontend
-FROM node:18-alpine AS build-frontend
+FROM node:20-alpine AS build-frontend
 
 # Set working directory
 WORKDIR /app/frontend
 
-# Install dependencies
-COPY ./frontend/package*.json ./
-RUN npm ci --silent
-
 # Copy frontend source code
+COPY ./frontend/package*.json ./
+RUN npm install
 COPY ./frontend ./
 
 # Build the frontend
@@ -20,11 +18,13 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /app
 
-# Install backend dependencies
+# Copy backend package.json and package-lock.json files
 COPY ./backend/package*.json ./
-RUN npm ci --only=production --silent
 
-# Copy the backend source code
+# Install dependencies inside the container
+RUN npm install
+
+# Copy the backend source code (excluding node_modules)
 COPY ./backend ./
 
 # Copy the build files from the frontend stage to the public directory
@@ -33,8 +33,6 @@ COPY --from=build-frontend /app/frontend/build ./public
 # Expose the backend port
 EXPOSE 5500
 
-# Define environment variables (optional)
-ENV NODE_ENV=production
-
 # Command to run the backend server
 CMD ["npm", "start"]
+
