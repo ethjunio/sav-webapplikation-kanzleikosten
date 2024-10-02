@@ -1,4 +1,3 @@
-import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './routes/LandingPage';
 import { LanguageProvider } from './context/LanguageContext';
@@ -58,7 +57,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const App: React.FC = () => {
+export default function App() {
   return (
     <>
       <FormProvider>
@@ -68,6 +67,4 @@ const App: React.FC = () => {
       </FormProvider>
     </>
   );
-};
-
-export default App;
+}

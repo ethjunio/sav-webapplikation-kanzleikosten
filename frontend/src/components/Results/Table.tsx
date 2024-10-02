@@ -1,6 +1,5 @@
 import TableEntry from './TableEntry';
 import classifyOutput from '../../utils/classifyOutput';
-import React from 'react';
 import { languageContentType } from '../../types/languageContentType';
 import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
@@ -67,21 +66,19 @@ function formatCost(value: string) {
 // Helper function to render grouped entries
 const renderGroups = (groups: Record<string, Entry[]>) => {
   return Object.entries(groups).map(([groupIdentifier, groupEntries]) => (
-    <React.Fragment key={groupIdentifier}>
-      <div className="flex flex-col gap-1 mb-3">
-        <TableEntry identifier={groupIdentifier} variant="header" />
-        <div className="flex flex-col gap-2">
-          {groupEntries.map((entry) => (
-            <TableEntry
-              key={entry.identifier}
-              identifier={entry.identifier}
-              variant="entry"
-              value={formatCost(entry.value)}
-            />
-          ))}
-        </div>
+    <div className="flex flex-col gap-1 mb-3" key={groupIdentifier}>
+      <TableEntry identifier={groupIdentifier} variant="header" />
+      <div className="flex flex-col gap-2">
+        {groupEntries.map((entry) => (
+          <TableEntry
+            key={entry.identifier}
+            identifier={entry.identifier}
+            variant="entry"
+            value={formatCost(entry.value)}
+          />
+        ))}
       </div>
-    </React.Fragment>
+    </div>
   ));
 };
 
@@ -90,7 +87,7 @@ interface TableProps {
   values: string[];
 }
 
-const Table: React.FC<TableProps> = ({ identifiers, values }) => {
+export default function Table({ identifiers, values }: TableProps) {
   const { language } = useLanguage();
 
   const ComponentContent = (content as languageContentType)[language as keyof typeof content].table;
@@ -142,6 +139,4 @@ const Table: React.FC<TableProps> = ({ identifiers, values }) => {
       )}
     </div>
   );
-};
-
-export default Table;
+}

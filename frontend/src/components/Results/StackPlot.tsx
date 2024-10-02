@@ -1,6 +1,4 @@
 // src/components/StackPlot.tsx
-
-import React from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -52,7 +50,7 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
   return lines;
 };
 
-const StackPlot: React.FC<StackPlotProps> = ({ legendLabel, data, labels }) => {
+export default function StackPlot({ legendLabel, data, labels }: StackPlotProps) {
   const chartData: ChartData<'bar'> = {
     labels,
     datasets: [
@@ -122,6 +120,4 @@ const StackPlot: React.FC<StackPlotProps> = ({ legendLabel, data, labels }) => {
       </div>
     </div>
   );
-};
-
-export default StackPlot;
+}

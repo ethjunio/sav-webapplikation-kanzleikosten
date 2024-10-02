@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 
@@ -7,7 +6,7 @@ interface SummeryCardProps {
   totalOnceCost: string;
 }
 
-const SummeryCard: React.FC<SummeryCardProps> = ({ totalYearlyCost, totalOnceCost }) => {
+export default function SummaryCard({ totalYearlyCost, totalOnceCost }: SummeryCardProps) {
   const { language } = useLanguage();
 
   const ComponentContent = (content as any)[language as keyof typeof content].summeryCard;
@@ -37,6 +36,4 @@ const SummeryCard: React.FC<SummeryCardProps> = ({ totalYearlyCost, totalOnceCos
       </div>
     </div>
   );
-};
-
-export default SummeryCard;
+}

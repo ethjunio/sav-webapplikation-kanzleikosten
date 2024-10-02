@@ -1,12 +1,7 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Footer = () => {
+export default function Footer() {
   const navigate = useNavigate();
-
-  const handleLogoClick = (): void => {
-    navigate('/');
-  };
 
   const handleLinkClick = (route: string): void => {
     navigate(route);
@@ -27,6 +22,4 @@ const Footer = () => {
       </div>
     </div>
   );
-};
-
-export default Footer;
+}

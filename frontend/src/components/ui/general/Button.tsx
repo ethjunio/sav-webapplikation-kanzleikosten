@@ -1,17 +1,17 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom'; // Optional, for routing
 
 interface ButtonProps {
   variant?: string;
-  endIcon?: React.ReactNode;
-  startIcon?: React.ReactNode;
+  endIcon?: ReactNode;
+  startIcon?: ReactNode;
   text?: string;
   route?: string;
   width?: string;
   onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({
+export default function Button({
   variant = 'primary',
   width = '100%',
   endIcon,
@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   text,
   route,
   onClick,
-}) => {
+}: ButtonProps) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -49,6 +49,4 @@ const Button: React.FC<ButtonProps> = ({
       {endIcon && <span className="ms-2">{endIcon}</span>}
     </button>
   );
-};
-
-export default Button;
+}

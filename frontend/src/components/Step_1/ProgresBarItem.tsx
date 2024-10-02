@@ -1,13 +1,13 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 interface ProgressBarItemProps {
-  icon: React.ReactNode;
+  icon: ReactNode;
   text: string;
   progressKey: 'location' | 'process' | 'finances'; // Unique key for each progress item
   currentProgress: 'location' | 'process' | 'finances'; // Current progress state
 }
 
-const ProgressBarItem: React.FC<ProgressBarItemProps> = ({ icon, text, progressKey, currentProgress }) => {
+export default function ProgressBarItem({ icon, text, progressKey, currentProgress }: ProgressBarItemProps) {
   // Define the steps order
   const stepsOrder = ['location', 'process', 'finances'];
 
@@ -76,6 +76,4 @@ const ProgressBarItem: React.FC<ProgressBarItemProps> = ({ icon, text, progressK
       )}
     </div>
   );
-};
-
-export default ProgressBarItem;
+}

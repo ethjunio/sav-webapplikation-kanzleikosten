@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Checkbox from './Checkbox';
 import GrouTitel from './GroupTitel';
 import { FaPeopleGroup, FaShieldHalved, FaHandshakeSimple, FaKey } from 'react-icons/fa6';
@@ -8,7 +8,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 
 interface OutputCardProps {
-  setSelectedList: React.Dispatch<React.SetStateAction<string[]>>;
+  setSelectedList: Dispatch<SetStateAction<string[]>>;
   selectedList: string[];
 }
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaEarthAfrica } from 'react-icons/fa6';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { useLanguage } from '../../../context/LanguageContext';

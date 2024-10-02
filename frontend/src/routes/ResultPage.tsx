@@ -12,7 +12,8 @@ import { TbReport } from 'react-icons/tb';
 import calculateOutput from '../utils/calculateOutput';
 import { useCalculationResultContext } from '../context/CalculationResultContext';
 import { IoAlertCircle } from 'react-icons/io5';
-const ResultPage = () => {
+
+export default function ResultPage() {
   const { language } = useLanguage();
   const { state } = useForm();
   const { calculationResults, updateCalculationResult } = useCalculationResultContext();
@@ -67,6 +68,7 @@ const ResultPage = () => {
     };
 
     fetchCalculations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array ensures this runs once on mount
 
   // Conditional rendering based on loading and error states
@@ -133,6 +135,4 @@ const ResultPage = () => {
       </div>
     </div>
   );
-};
-
-export default ResultPage;
+}

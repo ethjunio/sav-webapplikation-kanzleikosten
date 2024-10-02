@@ -1,4 +1,3 @@
-import React from 'react';
 import { useProgress } from '../../context/ProgressContext';
 import ProgressBarItem from './ProgresBarItem';
 import { FaMapMarkerAlt, FaCog, FaCoins } from 'react-icons/fa';
@@ -10,7 +9,7 @@ interface ProgressBarProps {
   className?: string;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ className }) => {
+export default function ProgressBar({ className }: ProgressBarProps) {
   const { currentProgress } = useProgress();
   const { language } = useLanguage();
 
@@ -40,6 +39,4 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ className }) => {
       </div>
     </div>
   );
-};
-
-export default ProgressBar;
+}

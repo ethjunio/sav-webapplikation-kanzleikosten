@@ -1,5 +1,4 @@
-import React, { ReactNode } from 'react';
-import { Outlet } from 'react-router-dom';
+import { ReactNode } from 'react';
 import Background from './Background'; // Assuming you have this already
 import Footer from './Footer';
 import Header from './Header';
@@ -9,7 +8,7 @@ interface LayoutProps {
   fullscreen?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, fullscreen }) => {
+export default function Layout({ children, fullscreen }: LayoutProps) {
   return (
     <>
       <Background fullscreen={fullscreen}>
@@ -19,6 +18,4 @@ const Layout: React.FC<LayoutProps> = ({ children, fullscreen }) => {
       <Footer />
     </>
   );
-};
-
-export default Layout;
+}

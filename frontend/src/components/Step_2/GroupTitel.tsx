@@ -1,11 +1,11 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 interface GrouTitelProps {
   titel: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
 }
 
-const GrouTitel: React.FC<GrouTitelProps> = ({ titel, icon }) => {
+export default function GrouTitel({ titel, icon }: GrouTitelProps) {
   return (
     <div
       className={`flex flex-row w-full bg-gray-100 px-4 py-2 rounded-xl items-center justify-start gap-2 mb-1 text-lg text-primaryFade`}
@@ -14,6 +14,4 @@ const GrouTitel: React.FC<GrouTitelProps> = ({ titel, icon }) => {
       {titel}
     </div>
   );
-};
-
-export default GrouTitel;
+}

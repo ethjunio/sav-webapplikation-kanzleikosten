@@ -1,4 +1,3 @@
-import React from 'react';
 import { languageContentType } from '../../types/languageContentType';
 import content from '../../assets/content.json';
 import { useLanguage } from '../../context/LanguageContext';
@@ -11,7 +10,7 @@ export interface PlotEntry {
   type: string;
 }
 
-const CostCard: React.FC = () => {
+export default function CostCard() {
   const { language } = useLanguage();
   const { calculationResults } = useCalculationResultContext();
 
@@ -80,6 +79,4 @@ const CostCard: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default CostCard;
+}

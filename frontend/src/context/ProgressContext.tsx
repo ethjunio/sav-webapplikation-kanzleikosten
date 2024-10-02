@@ -1,12 +1,12 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { createContext, useState, useContext, ReactNode } from 'react';
 
 // Define the possible progress states
-export type ProgressContext = 'location' | 'process' | 'finances';
+export type ProgressState = 'location' | 'process' | 'finances';
 
 // Define the shape of the context value
 interface ProgressContextType {
-  currentProgress: ProgressContext;
-  setProgress: (progress: ProgressContext) => void;
+  currentProgress: ProgressState;
+  setProgress: (progress: ProgressState) => void;
 }
 
 // Create the context with default values
@@ -17,9 +17,9 @@ const ProgressContext = createContext<ProgressContextType>({
 
 // Create the provider component
 export const ProgressProvider = ({ children }: { children: ReactNode }) => {
-  const [currentProgress, setCurrentProgress] = useState<ProgressContext>('location');
+  const [currentProgress, setCurrentProgress] = useState<ProgressState>('location');
 
-  const setProgress = (progress: ProgressContext) => {
+  const setProgress = (progress: ProgressState) => {
     setCurrentProgress(progress);
   };
 

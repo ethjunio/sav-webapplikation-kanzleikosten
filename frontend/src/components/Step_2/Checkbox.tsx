@@ -2,30 +2,30 @@ import Tag from './Tag';
 import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 import { languageContentType } from '../../types/languageContentType';
-import { useState } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 
 interface CheckboxProps {
   identifier: string;
   tag?: 'einmalig' | 'jahrlich';
-  setSelectedList: React.Dispatch<React.SetStateAction<string[]>>;
+  setSelectedList: Dispatch<SetStateAction<string[]>>;
   selectedList: string[];
   line?: boolean;
   tooManySelected: boolean;
-  setTooManySelected: React.Dispatch<React.SetStateAction<boolean>>;
+  setTooManySelected: Dispatch<SetStateAction<boolean>>;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export default function Checkbox({
   identifier,
   tag,
   selectedList,
   setSelectedList,
   line = true,
   setTooManySelected,
-}) => {
+}: CheckboxProps) {
   const { language } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
     if (isChecked) {
       if (selectedList.length >= 8) {
@@ -70,6 +70,4 @@ const Checkbox: React.FC<CheckboxProps> = ({
       <Tag type={tag} />
     </div>
   );
-};
-
-export default Checkbox;
+}

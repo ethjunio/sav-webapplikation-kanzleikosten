@@ -1,6 +1,5 @@
 // RadarPlotCost.tsx
 
-import React from 'react';
 import { Radar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -57,7 +56,7 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
   return lines;
 };
 
-const RadarPlotCost: React.FC<RadarPlotProps> = ({ dataSet1, ciUpper, ciLower, legendLabel1, labels }) => {
+export default function RadarPlotCost({ dataSet1, ciUpper, ciLower, legendLabel1, labels }: RadarPlotProps) {
   // Process labels to wrap text
   const wrappedLabels = labels.map((label) => wrapLabel(label, 15)); // Adjust maxChars as needed
 
@@ -190,6 +189,4 @@ const RadarPlotCost: React.FC<RadarPlotProps> = ({ dataSet1, ciUpper, ciLower, l
       </div>
     </div>
   );
-};
-
-export default RadarPlotCost;
+}

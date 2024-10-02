@@ -1,6 +1,5 @@
 // src/components/RadarPlot.tsx
 
-import React from 'react';
 import { Radar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -55,7 +54,7 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
   return lines;
 };
 
-const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2, legendLabel2, labels }) => {
+export default function RadarPlot({ dataSet1, legendLabel1, dataSet2, legendLabel2, labels }: RadarPlotProps) {
   // Transformation function
   const transformData = (data: number[]) => {
     return data.map((value) => Math.log(value + 1));
@@ -156,6 +155,4 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
       </div>
     </div>
   );
-};
-
-export default RadarPlot;
+}

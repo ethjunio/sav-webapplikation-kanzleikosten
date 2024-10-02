@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 import InputField from './InputField';
 import content from '../../assets/content.json';
 import { useLanguage } from '../../context/LanguageContext';
@@ -59,4 +59,4 @@ const FinanceInputCard = ({ className }: { className?: string }, ref: any) => {
   );
 };
 
-export default React.forwardRef(FinanceInputCard);
+export default forwardRef(FinanceInputCard);

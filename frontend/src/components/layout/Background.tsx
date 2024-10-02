@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useProgress } from '../../context/ProgressContext';
 
@@ -7,7 +7,7 @@ interface BackgroundProps {
   fullscreen?: boolean;
 }
 
-const Background: React.FC<BackgroundProps> = ({ children, fullscreen }) => {
+export default function Background({ children, fullscreen }: BackgroundProps) {
   const location = useLocation();
   const { currentProgress } = useProgress();
 
@@ -34,6 +34,7 @@ const Background: React.FC<BackgroundProps> = ({ children, fullscreen }) => {
         setFadeIn(true); // Start fade-in transition
       }, 300); // Set this to match the duration of your fade-out transition (300ms in this case)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, currentProgress]);
 
   return (
@@ -65,6 +66,4 @@ const Background: React.FC<BackgroundProps> = ({ children, fullscreen }) => {
       <div className="relative flex flex-col z-10 min-h-screen">{children}</div>
     </div>
   );
-};
-
-export default Background;
+}

@@ -1,4 +1,3 @@
-import React from 'react';
 import DropdownOverlay from '../ui/general/DropdownOverlay';
 import DropdownItem from '../ui/general/DropdownItem';
 import { IoMdArrowDropdown } from 'react-icons/io';
@@ -39,7 +38,7 @@ interface InputFieldDropdownProps {
   identifier: FormStateKey; // Use the updated type here
 }
 
-const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identifier }) => {
+export default function InputFieldDropdown({ options, identifier }: InputFieldDropdownProps) {
   const { state, dispatch } = useForm();
   const { language } = useLanguage();
 
@@ -67,7 +66,7 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identi
         </button>
       }
     >
-      {options.map((option, index) => (
+      {options.map((option) => (
         <DropdownItem
           onClick={() => {
             handleOptionSelect(option);
@@ -78,6 +77,4 @@ const InputFieldDropdown: React.FC<InputFieldDropdownProps> = ({ options, identi
       ))}
     </DropdownOverlay>
   );
-};
-
-export default InputFieldDropdown;
+}

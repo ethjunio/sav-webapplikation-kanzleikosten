@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { ChangeEvent } from 'react';
 import { useForm } from '../../context/FormState';
 import { FormState } from '../../context/FormState';
 import { ActionType } from '../../context/FormState';
@@ -32,11 +32,11 @@ interface InputFieldProps {
   identifier: Exclude<keyof FormState, 'outputParameters'>; // Exclude outputParameters
 }
 
-const InputField: React.FC<InputFieldProps> = ({ placeholder, identifier }) => {
+export default function InputField({ placeholder, identifier }: InputFieldProps) {
   const { state, dispatch } = useForm();
 
   // Dispatch the corresponding action based on the identifier (key in FormState)
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     dispatch(actionCreators[identifier](value));
   };
@@ -50,6 +50,4 @@ const InputField: React.FC<InputFieldProps> = ({ placeholder, identifier }) => {
       value={state[identifier] as string} // Dynamically access the value from the FormState based on the identifier
     />
   );
-};
-
-export default InputField;
+}

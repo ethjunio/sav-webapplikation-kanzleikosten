@@ -6,8 +6,7 @@ import Button from '../components/ui/general/Button';
 import LocationInputCard from '../components/Step_1/LocationInputCard';
 import ProgressBar from '../components/Step_1/ProgressBar';
 import ProcessInputCard from '../components/Step_1/ProcessInputCard';
-import { useProgress } from '../context/ProgressContext';
-import { ProgressContext } from '../context/ProgressContext';
+import { useProgress, ProgressState } from '../context/ProgressContext';
 import FinanceInputCard from '../components/Step_1/FinanceInputCard';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../context/FormState';
@@ -23,6 +22,7 @@ const InputPage = () => {
     if (state.revenuePerYear !== '') {
       setProgress('finances');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const pageContent = (content as languageContentType)[language].inputPage;
@@ -50,7 +50,7 @@ const InputPage = () => {
 
     const currentStepIndex = steps.indexOf(currentProgress);
     if (currentStepIndex < steps.length - 1) {
-      setProgress(steps[currentStepIndex + 1] as ProgressContext);
+      setProgress(steps[currentStepIndex + 1] as ProgressState);
     } else if (currentStepIndex === 2) {
       navigate('/output');
     }
@@ -60,7 +60,7 @@ const InputPage = () => {
   const handleBackClick = () => {
     const currentStepIndex = steps.indexOf(currentProgress);
     if (currentStepIndex > 0) {
-      setProgress(steps[currentStepIndex - 1] as ProgressContext);
+      setProgress(steps[currentStepIndex - 1] as ProgressState);
     } else if (currentStepIndex === 0) {
       navigate('/');
       dispatch({ type: 'RESET_FORM' });

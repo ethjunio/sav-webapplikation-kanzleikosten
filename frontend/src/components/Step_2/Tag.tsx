@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import content from '../../assets/content.json'; // Update with the correct path to your content.json
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -6,7 +6,7 @@ interface TagProps {
   type?: 'einmalig' | 'jahrlich'; // Define the types of tags (either 'einmalig' or 'jahrlich')
 }
 
-const Tag: React.FC<TagProps> = ({ type }) => {
+export default function Tag({ type }: TagProps) {
   const [isHovered, setIsHovered] = useState(false); // To handle the hover state
   const { language } = useLanguage(); // Get the current language, e.g., 'en' or 'de'
 
@@ -44,6 +44,4 @@ const Tag: React.FC<TagProps> = ({ type }) => {
       )}
     </div>
   ) : null;
-};
-
-export default Tag;
+}

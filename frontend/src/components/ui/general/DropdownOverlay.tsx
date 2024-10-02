@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, ReactNode } from 'react';
 import cn from 'classnames';
 
 interface DropdownOverlayProps {
-  trigger: React.ReactNode;
-  children: React.ReactNode;
+  trigger: ReactNode;
+  children: ReactNode;
   className?: string;
 }
 
-const DropdownOverlay: React.FC<DropdownOverlayProps> = ({ trigger, children, className }) => {
+export default function DropdownOverlay({ trigger, children, className }: DropdownOverlayProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -28,7 +28,7 @@ const DropdownOverlay: React.FC<DropdownOverlayProps> = ({ trigger, children, cl
     setIsOpen(!isOpen);
   };
 
-  const handleDropdownClick = (event: React.MouseEvent) => {
+  const handleDropdownClick = () => {
     // Close the dropdown when any item inside the dropdown is clicked
     setIsOpen(false);
   };
@@ -55,6 +55,4 @@ const DropdownOverlay: React.FC<DropdownOverlayProps> = ({ trigger, children, cl
       )}
     </div>
   );
-};
-
-export default DropdownOverlay;
+}

@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext, ReactNode } from 'react';
+import { createContext, useReducer, useContext, Dispatch, PropsWithChildren } from 'react';
 
 // Define the structure of your form's state
 export interface FormState {
@@ -75,20 +75,20 @@ function formReducer(state: FormState, action: ActionType): FormState {
 // Create the context
 const FormContext = createContext<{
   state: FormState;
-  dispatch: React.Dispatch<ActionType>;
+  dispatch: Dispatch<ActionType>;
 }>({
   state: initialFormState,
   dispatch: () => null,
 });
 
 // Create a provider to wrap the form components
-export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export function FormProvider({ children }: PropsWithChildren) {
   const [state, dispatch] = useReducer(formReducer, initialFormState);
 
   console.log(state);
 
   return <FormContext.Provider value={{ state, dispatch }}>{children}</FormContext.Provider>;
-};
+}
 
 // Custom hook to use the form context
 export const useForm = () => useContext(FormContext);

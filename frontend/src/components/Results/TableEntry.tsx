@@ -3,8 +3,9 @@ import { IoChatbubbles, IoHardwareChip } from 'react-icons/io5';
 import content from '../../assets/content.json';
 import { languageContentType } from '../../types/languageContentType';
 import { useLanguage } from '../../context/LanguageContext';
+import { ReactNode } from 'react';
 
-const iconMap: Record<string, React.ReactNode> = {
+const iconMap: Record<string, ReactNode> = {
   personalkostenTitel: <FaPeopleGroup />,
   sicherheitTitel: <FaShieldHalved />,
   kommunikationTitel: <FaHandshakeSimple />,
@@ -19,7 +20,7 @@ interface TableEntryProps {
   variant?: string;
 }
 
-const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) => {
+export default function TableEntry({ identifier, value, variant }: TableEntryProps) {
   const { language } = useLanguage();
 
   const ComponentContent = (content as languageContentType)[language as keyof typeof content].checkboxLabels;
@@ -40,7 +41,7 @@ const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) =
   }
 
   let icon;
-  if (variant == 'header') {
+  if (variant === 'header') {
     icon = iconMap[identifier];
   }
 
@@ -52,6 +53,4 @@ const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) =
       <div className="">{value}</div>
     </div>
   );
-};
-
-export default TableEntry;
+}
