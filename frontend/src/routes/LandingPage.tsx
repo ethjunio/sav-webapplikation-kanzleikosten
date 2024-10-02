@@ -7,33 +7,33 @@ import { FaLongArrowAltRight } from 'react-icons/fa';
 import { useForm } from '../context/FormState';
 
 const LandingPage = () => {
-	const { language } = useLanguage();
-	const { dispatch } = useForm();
+  const { language } = useLanguage();
+  const { dispatch } = useForm();
 
-	useEffect(() => {
-		dispatch({ type: 'RESET_FORM' });
-	}, []);
+  useEffect(() => {
+    dispatch({ type: 'RESET_FORM' });
+  }, []);
 
-	const pageContent = (content as languageContentType)[language].landingPage;
+  const pageContent = (content as languageContentType)[language].landingPage;
 
-	return (
-		<div className="flex flex-col w-3/4">
-			<h1>{pageContent.h1}</h1>
-			<p>{pageContent.p1}</p>
-			<p className="font-semibold">{pageContent.p2}</p>
-			<div className="flex flex-col mb-5 text-sm ms-6">
-				<div className="flex flex-row gap-3">
-					<p>1.</p>
-					<p>{pageContent.p3}</p>
-				</div>
-				<div className="flex flex-row gap-3">
-					<p>2.</p>
-					<p>{pageContent.p4}</p>
-				</div>
-			</div>
-			<Button endIcon={<FaLongArrowAltRight />} text={pageContent.button} route="/input" width="70%" />
-		</div>
-	);
+  return (
+    <div className="flex flex-col w-3/4">
+      <h1>{pageContent.h1}</h1>
+      <p>{pageContent.p1}</p>
+      <p className="font-semibold">{pageContent.p2}</p>
+      <div className="flex flex-col mb-5 text-sm ms-6">
+        <div className="flex flex-row gap-3">
+          <p>1.</p>
+          <p>{pageContent.p3}</p>
+        </div>
+        <div className="flex flex-row gap-3">
+          <p>2.</p>
+          <p>{pageContent.p4}</p>
+        </div>
+      </div>
+      <Button endIcon={<FaLongArrowAltRight />} text={pageContent.button} route="/input" width="70%" />
+    </div>
+  );
 };
 
 export default LandingPage;

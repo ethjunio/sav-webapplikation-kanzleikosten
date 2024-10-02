@@ -19,22 +19,22 @@
  * roundTo(1234.5678, 0)    // Returns 1235
  */
 export function roundTo(value: any, digits: number): number {
-	// Convert the input value to a number
-	const num = parseFloat(value);
+  // Convert the input value to a number
+  const num = parseFloat(value);
 
-	// Validate that the input is a number
-	if (isNaN(num)) {
-		throw new Error('Invalid number input');
-	}
+  // Validate that the input is a number
+  if (isNaN(num)) {
+    throw new Error('Invalid number input');
+  }
 
-	// Validate that digits is an integer
-	if (!Number.isInteger(digits)) {
-		throw new Error('Digits must be an integer');
-	}
+  // Validate that digits is an integer
+  if (!Number.isInteger(digits)) {
+    throw new Error('Digits must be an integer');
+  }
 
-	// Calculate the rounding factor based on digits
-	const factor = Math.pow(10, digits);
+  // Calculate the rounding factor based on digits
+  const factor = Math.pow(10, digits);
 
-	// Perform the rounding
-	return Math.round(num * factor) / factor;
+  // Perform the rounding
+  return Math.round(num * factor) / factor;
 }
