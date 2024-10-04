@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullscreen }) => {
 		<>
 			<Background fullscreen={fullscreen}>
 				<Header />
-				<div className="flex flex-row container mx-auto px-4 py-16 flex-grow">{children}</div>
+				<div className="flex flex-row container mx-auto px-4 lg:0 py-16 flex-grow">{children}</div>
 			</Background>
 			<Footer />
 		</>

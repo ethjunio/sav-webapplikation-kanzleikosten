@@ -28,14 +28,14 @@ const OutputPage = () => {
 	}
 
 	return (
-		<div className="flex flex-col gap-12 items-center">
-			<div className="flex flex-col gap-2 items-center w-1/2">
+		<div className="flex flex-col gap-12 sm:gap-6 items-center">
+			<div className="flex flex-col gap-2 items-center w-1/2 sm:w-full">
 				<h4>{pageContent.step}</h4>
 				<h2>{pageContent.titel}</h2>
 				<p className="text-center">{pageContent.description}</p>
 			</div>
 			<OutputCard selectedList={selectedList} setSelectedList={setSelectedList} />
-			<div className="flex flex-row gap-4 w-full">
+			<div className="flex flex-row sm:flex-col-reverse gap-4 w-full">
 				<Button text={pageContent.button1} width="100%" variant="ghost" onClick={handleBackClick} route="" />
 				<Button text={pageContent.button2} startIcon={<FaBolt />} onClick={handleNextClick} width="100%" />
 			</div>

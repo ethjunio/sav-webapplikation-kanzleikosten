@@ -81,7 +81,7 @@ const ResultPage = () => {
 	return (
 		<div className="flex flex-col gap-14 items-center">
 			{/* Header Section */}
-			<div className="flex flex-col items-center w-1/2 text-center">
+			<div className="flex flex-col items-center w-1/2 text-center sm:w-full">
 				<h2 className="">{pageContent.titel}</h2>
 				<p className="mt-2">{pageContent.description}</p>
 				{warning.length > 0 && (
@@ -103,7 +103,7 @@ const ResultPage = () => {
 			</div>
 
 			{/* Cards Section */}
-			<div className="flex flex-row gap-12">
+			<div className="flex flex-row xl:flex-col gap-12">
 				<KanzleiCard />
 				<CostCard />
 			</div>

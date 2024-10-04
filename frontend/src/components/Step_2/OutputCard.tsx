@@ -45,14 +45,14 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 	}, [tooManySelected, selectedList]);
 
 	return (
-		<div className="flex flex-col gap-6 items-center">
+		<div className="flex flex-col gap-6 items-center xl:w-full">
 			<div className={`flex flex-row text-white w-fit text-lg justify-center items-center px-4 py-1 rounded-xl bg-primary ${classesForAlert}`}>
-				<span className={`font-semibold mr-1`}>
+				<span className={`font-semibold`}>
 					{/* Dynamically render the selected message based on language */}
 					{ComponentContent.selectedMessage?.replace('{count}', selectedList.length.toString())}
 				</span>
 			</div>
-			<div className="grid grid-cols-2 gap-24 bg-gray-50 w-full p-8 rounded-xl">
+			<div className="grid grid-cols-2 xl:grid-cols-1 gap-24 xl:gap-8 bg-gray-50 w-full p-8  sm:p-2 rounded-xl">
 				{/* Column 1 */}
 				<div className="flex flex-col gap-8">
 					<div className="flex flex-col gap-2">

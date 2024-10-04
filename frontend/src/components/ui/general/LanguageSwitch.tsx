@@ -4,9 +4,11 @@ import { IoMdArrowDropdown } from 'react-icons/io';
 import { useLanguage } from '../../../context/LanguageContext';
 import DropdownOverlay from './DropdownOverlay';
 import DropdownItem from './DropdownItem';
+import { useWindowWidth } from '../../../context/WindowWidthContext';
 
 const LangugageSwitch = () => {
 	const { language, setLanguage } = useLanguage();
+	const { width } = useWindowWidth();
 
 	return (
 		<DropdownOverlay
@@ -14,7 +16,7 @@ const LangugageSwitch = () => {
 				<div className="flex flex-row items-center gap-3 text-white relative">
 					<div className="flex flex-row items-center gap-2">
 						<FaEarthAfrica />
-						<div>{language}</div>
+						{width > 639 && <div>{language}</div>}
 					</div>
 					<IoMdArrowDropdown />
 				</div>
@@ -25,18 +27,14 @@ const LangugageSwitch = () => {
 					onClick={() => {
 						setLanguage('German');
 					}}
-				>
-					German
-				</DropdownItem>
+					languageText="German"
+				/>
 				<DropdownItem
 					onClick={() => {
 						setLanguage('English');
 					}}
-				>
-					English
-				</DropdownItem>
-				<DropdownItem>French</DropdownItem>
-				<DropdownItem>Italian</DropdownItem>
+					languageText="English"
+				/>
 			</div>
 		</DropdownOverlay>
 	);

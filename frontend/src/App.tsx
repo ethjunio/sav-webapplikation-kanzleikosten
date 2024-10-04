@@ -11,15 +11,16 @@ import Layout from './components/layout/Layout';
 import OutputPage from './routes/OutputPage';
 import ResultPage from './routes/ResultPage';
 import { CalculationResultProvider } from './context/CalculationResultContext';
+import { WindowWidthProvider } from './context/WindowWidthContext';
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: (
 			<Layout>
-				<div className="flex flex-col w-1/2 items-center justify-center ">
+				<div className="flex flex-col w-1/2 lg:w-full items-center justify-center ">
 					<LandingPage />
 				</div>
-				<div className="w-1/2"> </div>
+				<div className="w-1/2 lg:w-0"> </div>
 			</Layout>
 		),
 	},
@@ -28,10 +29,10 @@ const router = createBrowserRouter([
 		element: (
 			<ProgressProvider>
 				<Layout>
-					<div className="flex w-1/2 items-start justify-center">
+					<div className="flex w-1/2 lg:w-full items-start justify-center">
 						<InputPage />
 					</div>
-					<div className="w-1/2"> </div>
+					<div className="w-1/2 lg:w-0"> </div>
 				</Layout>
 			</ProgressProvider>
 		),
@@ -63,11 +64,13 @@ const router = createBrowserRouter([
 const App: React.FC = () => {
 	return (
 		<>
-			<FormProvider>
-				<LanguageProvider>
-					<RouterProvider router={router} />
-				</LanguageProvider>
-			</FormProvider>
+			<WindowWidthProvider>
+				<FormProvider>
+					<LanguageProvider>
+						<RouterProvider router={router} />
+					</LanguageProvider>
+				</FormProvider>
+			</WindowWidthProvider>
 		</>
 	);
 };

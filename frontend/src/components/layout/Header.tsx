@@ -10,9 +10,9 @@ const Header = () => {
 	};
 
 	return (
-		<div className="sticky top-0 flex flex-row w-screen h-20 bg-primary items-center justify-between px-12 shadow-md z-50">
+		<div className="sticky top-0 flex flex-row w-screen h-20 bg-primary items-center justify-between px-12 md:px-6 sm:px-4 shadow-md z-50">
 			<img src="./images/logo-white.svg" alt="" style={{ height: '50%', cursor:'pointer'}} onClick={handlLogoClick} />
-			<LangugageSwitch />
+			<LangugageSwitch /> 
 		</div>
 	);
 };

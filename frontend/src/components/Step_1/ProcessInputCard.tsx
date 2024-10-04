@@ -49,7 +49,7 @@ const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref)
 	}));
 
 	return (
-		<div className={cn('flex flex-col gap-8 p-10 rounded-xl bg-gray-100', className)}>
+		<div className={cn('flex flex-col gap-8 p-10  md:p-5 sm:p-2 rounded-xl bg-gray-100', className)}>
 			<div className="flex flex-col gap-2">
 				<span className="font-medium">{ComponentContent?.processLeadingPersonnel}</span>
 				<InputField placeholder={ComponentContent?.inputPlaceholderPercentage} identifier="processLeadingPersonnel" />

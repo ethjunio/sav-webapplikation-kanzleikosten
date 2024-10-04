@@ -69,16 +69,16 @@ const InputPage = () => {
 
 	return (
 		<>
-			<div className="flex flex-col gap-3 items-center w-3/4">
+			<div className="flex flex-col gap-3 items-center w-3/4 sm:w-full">
 				<div className="flex flex-col gap-2 items-center w-full">
 					<h4>{pageContent.step}</h4>
 					<h2>{pageContent.titel}</h2>
-					<ProgressBar className={'w-3/4'} />
+					<ProgressBar className={'w-3/4 sm:w-5/6'} />
 				</div>
 				{currentProgress === 'location' && <LocationInputCard className="w-full my-6" ref={locationInputRef} />}
 				{currentProgress === 'process' && <ProcessInputCard className="w-full my-6" ref={processInputRef} />}
 				{currentProgress === 'finances' && <FinanceInputCard className="w-full my-6" ref={financesInputRef} />}
-				<div className="flex flex-row gap-4 w-full">
+				<div className="flex flex-row sm:flex-col-reverse gap-4 w-full">
 					<Button
 						text={steps.indexOf(currentProgress) === 0 ? pageContent.button1Abord : pageContent.button1}
 						width="100%"

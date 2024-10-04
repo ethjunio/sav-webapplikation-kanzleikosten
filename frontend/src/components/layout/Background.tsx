@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useProgress } from '../../context/ProgressContext';
+import { useWindowWidth } from '../../context/WindowWidthContext';
 
 interface BackgroundProps {
 	children: ReactNode;
@@ -10,6 +11,7 @@ interface BackgroundProps {
 const Background: React.FC<BackgroundProps> = ({ children, fullscreen }) => {
 	const location = useLocation();
 	const { currentProgress } = useProgress();
+	const { width } = useWindowWidth();
 
 	// State for controlling the current background image
 	const [backgroundImage, setBackgroundImage] = useState<string>('');
@@ -36,34 +38,45 @@ const Background: React.FC<BackgroundProps> = ({ children, fullscreen }) => {
 		}
 	}, [location, currentProgress]);
 
+	console.log(width);
+
 	return (
-		<div className="relative min-h-screen w-screen">
-			{!fullscreen && (
-				<div className="absolute inset-0 flex flex-row">
-					<div className="w-1/2"></div>
-					<div className="w-1/2 relative">
-						{backgroundImage && (
-							<img
-								src={backgroundImage}
-								alt="background"
-								style={{
-									objectFit: 'cover',
-									width: '100%',
-									top: '0px',
-									objectPosition: 'center',
-									height: '100%',
-									opacity: fadeIn ? 1 : 0.5, // Apply fade effect based on state
-									transition: 'opacity 0.5s ease-in-out', // Smooth transition
-								}}
-							/>
-						)}
-					</div>
+		<>
+			{width > 1023 ? (
+				<div className="relative min-h-screen w-screen">
+					{!fullscreen && (
+						<div className="absolute inset-0 flex flex-row">
+							<div className="w-1/2"></div>
+							<div className="w-1/2 relative">
+								{backgroundImage && (
+									<img
+										src={backgroundImage}
+										alt="background"
+										style={{
+											objectFit: 'cover',
+											width: '100%',
+											top: '0px',
+											objectPosition: 'center',
+											height: '100%',
+											opacity: fadeIn ? 1 : 0.5, // Apply fade effect based on state
+											transition: 'opacity 0.5s ease-in-out', // Smooth transition
+										}}
+									/>
+								)}
+							</div>
+						</div>
+					)}
+
+					{/* Children content */}
+					<div className="relative flex flex-col z-10 min-h-screen">{children}</div>
+				</div>
+			) : (
+				<div className="relative min-h-screen w-screen">
+
+					<div className="relative flex flex-col z-10 min-h-screen">{children}</div>
 				</div>
 			)}
-
-			{/* Children content */}
-			<div className="relative flex flex-col z-10 min-h-screen">{children}</div>
-		</div>
+		</>
 	);
 };
 

@@ -40,7 +40,7 @@ const FinanceInputCard = ({ className }: { className?: string }, ref: any) => {
 	}));
 
 	return (
-		<div className={cn('flex flex-col gap-8 p-10 rounded-xl bg-gray-100', className)}>
+		<div className={cn('flex flex-col gap-8 p-10  md:p-5 sm:p-2 rounded-xl bg-gray-100', className)}>
 			<div className="flex flex-col gap-2">
 				<span className="font-medium">{ComponentContent?.revenuePerYear}</span>
 				<InputField placeholder={ComponentContent?.inputPlaceholderCurrency} identifier={'revenuePerYear'} />
