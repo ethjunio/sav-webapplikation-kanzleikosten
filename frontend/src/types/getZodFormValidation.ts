@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import content from '../assets/content.json';
+import content from '@/assets/content.json';
 export const getZodFormValidationLocation = (language: string) => {
   const errorMessages = (content as any)[language].errorMessages;
 
