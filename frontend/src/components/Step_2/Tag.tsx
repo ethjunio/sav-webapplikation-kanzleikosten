@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import content from '../../assets/content.json'; // Update with the correct path to your content.json
-import { useLanguage } from '../../context/LanguageContext';
+import content from '@/assets/content.json'; // Update with the correct path to your content.json
+import { useLanguage } from '@/context/LanguageContext';
 
 interface TagProps {
   type?: 'einmalig' | 'jahrlich'; // Define the types of tags (either 'einmalig' or 'jahrlich')

@@ -1,9 +1,9 @@
-import { languageContentType } from '../../types/languageContentType';
-import content from '../../assets/content.json';
-import { useLanguage } from '../../context/LanguageContext';
-import { useCalculationResultContext } from '../../context/CalculationResultContext';
+import { languageContentType } from '@/types/languageContentType';
+import content from '@/assets/content.json';
+import { useLanguage } from '@/context/LanguageContext';
+import { useCalculationResultContext } from '@/context/CalculationResultContext';
 import RadarPlotCost from './RadarPlotCost';
-import { EstimateWithConfidence, EstimateWithStatistics } from '../../utils/calculateOutput';
+import { EstimateWithConfidence, EstimateWithStatistics } from '@/utils/calculateOutput';
 
 export interface PlotEntry {
   value: number;

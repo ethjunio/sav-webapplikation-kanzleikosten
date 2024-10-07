@@ -1,10 +1,10 @@
-import { useForm } from '../../context/FormState';
-import { useLanguage } from '../../context/LanguageContext';
-import content from '../../assets/content.json';
-import { languageContentType } from '../../types/languageContentType';
+import { useForm } from '@/context/FormState';
+import { useLanguage } from '@/context/LanguageContext';
+import content from '@/assets/content.json';
+import { languageContentType } from '@/types/languageContentType';
 import RadarPlot from './RadarPlot';
-import { referenceFirm } from '../../assets/referenceFirm';
-import { roundTo } from '../../utils/roundTo';
+import { referenceFirm } from '@/assets/referenceFirm';
+import { roundTo } from '@/utils/roundTo';
 const KanzleiCard = () => {
   const { language } = useLanguage();
   const { state } = useForm();

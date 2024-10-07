@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react';
-import content from '../assets/content.json';
-import { languageContentType } from '../types/languageContentType';
-import { useLanguage } from '../context/LanguageContext';
-import Button from '../components/ui/general/Button';
-import LocationInputCard from '../components/Step_1/LocationInputCard';
-import ProgressBar from '../components/Step_1/ProgressBar';
-import ProcessInputCard from '../components/Step_1/ProcessInputCard';
-import { useProgress, ProgressState } from '../context/ProgressContext';
-import FinanceInputCard from '../components/Step_1/FinanceInputCard';
+import content from '@/assets/content.json';
+import { languageContentType } from '@/types/languageContentType';
+import { useLanguage } from '@/context/LanguageContext';
+import Button from '@/components/ui/general/Button';
+import LocationInputCard from '@/components/Step_1/LocationInputCard';
+import ProgressBar from '@/components/Step_1/ProgressBar';
+import ProcessInputCard from '@/components/Step_1/ProcessInputCard';
+import { useProgress, ProgressState } from '@/context/ProgressContext';
+import FinanceInputCard from '@/components/Step_1/FinanceInputCard';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from '../context/FormState';
+import { useForm } from '@/context/FormState';
 
 const InputPage = () => {
   const navigate = useNavigate();

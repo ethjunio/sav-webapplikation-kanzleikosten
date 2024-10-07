@@ -1,12 +1,12 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import InputField from './InputField';
-import content from '../../assets/content.json';
-import { useLanguage } from '../../context/LanguageContext';
-import { languageContentType } from '../../types/languageContentType';
-import { getZodFormValidationFinances } from '../../types/getZodFormValidation';
+import content from '@/assets/content.json';
+import { useLanguage } from '@/context/LanguageContext';
+import { languageContentType } from '@/types/languageContentType';
+import { getZodFormValidationFinances } from '@/types/getZodFormValidation';
 import cn from 'classnames';
 import { IoMdAlert } from 'react-icons/io';
-import { useForm } from '../../context/FormState';
+import { useForm } from '@/context/FormState';
 
 const FinanceInputCard = ({ className }: { className?: string }, ref: any) => {
   const { language } = useLanguage();

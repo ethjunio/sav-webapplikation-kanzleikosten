@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { languageContentType } from '../types/languageContentType';
-import content from '../assets/content.json';
-import { useLanguage } from '../context/LanguageContext';
-import KanzleiCard from '../components/Results/KanzleiCard';
-import CostCard from '../components/Results/CostCard';
-import { useForm } from '../context/FormState';
-import Table from '../components/Results/Table';
-import SummeryCard from '../components/Results/SummaryCard';
-import Button from '../components/ui/general/Button';
+import { languageContentType } from '@/types/languageContentType';
+import content from '@/assets/content.json';
+import { useLanguage } from '@/context/LanguageContext';
+import KanzleiCard from '@/components/Results/KanzleiCard';
+import CostCard from '@/components/Results/CostCard';
+import { useForm } from '@/context/FormState';
+import Table from '@/components/Results/Table';
+import SummeryCard from '@/components/Results/SummaryCard';
+import Button from '@/components/ui/general/Button';
 import { TbReport } from 'react-icons/tb';
-import calculateOutput from '../utils/calculateOutput';
-import { useCalculationResultContext } from '../context/CalculationResultContext';
+import calculateOutput from '@/utils/calculateOutput';
+import { useCalculationResultContext } from '@/context/CalculationResultContext';
 import { IoAlertCircle } from 'react-icons/io5';
 
 export default function ResultPage() {

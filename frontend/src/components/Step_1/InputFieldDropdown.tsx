@@ -1,10 +1,10 @@
 import DropdownOverlay from '../ui/general/DropdownOverlay';
 import DropdownItem from '../ui/general/DropdownItem';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import { useForm, FormState, ActionType } from '../../context/FormState';
-import { useLanguage } from '../../context/LanguageContext';
-import { languageContentType } from '../../types/languageContentType';
-import content from '../../assets/content.json';
+import { useForm, FormState, ActionType } from '@/context/FormState';
+import { useLanguage } from '@/context/LanguageContext';
+import { languageContentType } from '@/types/languageContentType';
+import content from '@/assets/content.json';
 
 // Exclude 'outputParameters' from the identifiers
 type FormStateKey = Exclude<keyof FormState, 'outputParameters'>;

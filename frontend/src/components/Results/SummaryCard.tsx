@@ -1,5 +1,5 @@
-import { useLanguage } from '../../context/LanguageContext';
-import content from '../../assets/content.json';
+import { useLanguage } from '@/context/LanguageContext';
+import content from '@/assets/content.json';
 
 interface SummeryCardProps {
   totalYearlyCost: string;

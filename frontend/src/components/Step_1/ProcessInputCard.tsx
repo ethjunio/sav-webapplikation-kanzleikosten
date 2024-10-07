@@ -1,12 +1,12 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import InputField from './InputField';
 import InputFieldDropdown from './InputFieldDropdown';
-import content from '../../assets/content.json';
-import { useLanguage } from '../../context/LanguageContext';
-import { languageContentType } from '../../types/languageContentType';
+import content from '@/assets/content.json';
+import { useLanguage } from '@/context/LanguageContext';
+import { languageContentType } from '@/types/languageContentType';
 import cn from 'classnames';
-import { useForm } from '../../context/FormState';
-import { getZodFormValidationProcess } from '../../types/getZodFormValidation';
+import { useForm } from '@/context/FormState';
+import { getZodFormValidationProcess } from '@/types/getZodFormValidation';
 import { IoMdAlert } from 'react-icons/io';
 
 const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref) => {

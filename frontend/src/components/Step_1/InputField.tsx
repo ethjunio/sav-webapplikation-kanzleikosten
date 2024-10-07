@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
-import { useForm } from '../../context/FormState';
-import { FormState } from '../../context/FormState';
-import { ActionType } from '../../context/FormState';
+import { useForm } from '@/context/FormState';
+import { FormState } from '@/context/FormState';
+import { ActionType } from '@/context/FormState';
 
 // Define a mapping from identifiers to action creators
 const actionCreators: Record<Exclude<keyof FormState, 'outputParameters'>, (value: string) => ActionType> = {

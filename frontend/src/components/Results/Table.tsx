@@ -1,8 +1,8 @@
 import TableEntry from './TableEntry';
-import classifyOutput from '../../utils/classifyOutput';
-import { languageContentType } from '../../types/languageContentType';
-import { useLanguage } from '../../context/LanguageContext';
-import content from '../../assets/content.json';
+import classifyOutput from '@/utils/classifyOutput';
+import { languageContentType } from '@/types/languageContentType';
+import { useLanguage } from '@/context/LanguageContext';
+import content from '@/assets/content.json';
 
 // Type definitions
 type CostType = 'jährlich' | 'einmalig';

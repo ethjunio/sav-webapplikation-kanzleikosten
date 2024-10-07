@@ -1,7 +1,7 @@
 import Tag from './Tag';
-import { useLanguage } from '../../context/LanguageContext';
-import content from '../../assets/content.json';
-import { languageContentType } from '../../types/languageContentType';
+import { useLanguage } from '@/context/LanguageContext';
+import content from '@/assets/content.json';
+import { languageContentType } from '@/types/languageContentType';
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 
 interface CheckboxProps {

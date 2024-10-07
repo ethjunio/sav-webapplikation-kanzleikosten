@@ -1,25 +1,19 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
-  const navigate = useNavigate();
-
-  const handleLinkClick = (route: string): void => {
-    navigate(route);
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <div className="flex flex-col w-screen bg-primary items-center justify-center h-20">
-      <div className="flex flex-col w-full max-w-screen-lg items-center ">
-        <div className="flex flex-row gap-4">
-          <span className="text-white cursor-pointer" onClick={() => handleLinkClick('/datenschutz')}>
-            Datenschutz
-          </span>
-          <span className="text-white cursor-pointer" onClick={() => handleLinkClick('/policy')}>
-            Policy
-          </span>
-        </div>
-        <div className="text-white">&copy; {new Date().getFullYear()} SAV</div>
+    <div className="flex flex-col w-full bg-primary items-center justify-center h-20">
+      <div className="flex flex-row gap-4">
+        <Link to="/datenschutz" className="text-white">
+          Datenschutz
+        </Link>
+        <Link to="/policy" className="text-white">
+          Policy
+        </Link>
       </div>
+      <div className="text-white">&copy; {currentYear} SAV</div>
     </div>
   );
 }

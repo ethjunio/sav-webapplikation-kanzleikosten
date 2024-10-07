@@ -4,8 +4,8 @@ import GrouTitel from './GroupTitel';
 import { FaPeopleGroup, FaShieldHalved, FaHandshakeSimple, FaKey } from 'react-icons/fa6';
 import { IoChatbubbles, IoHardwareChip } from 'react-icons/io5';
 
-import { useLanguage } from '../../context/LanguageContext';
-import content from '../../assets/content.json';
+import { useLanguage } from '@/context/LanguageContext';
+import content from '@/assets/content.json';
 
 interface OutputCardProps {
   setSelectedList: Dispatch<SetStateAction<string[]>>;

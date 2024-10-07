@@ -1,6 +1,6 @@
-import formula from '../assets/formula.json';
-import staticResultValues from '../assets/staticResultValues.json';
-import { FormState } from '../context/FormState';
+import formula from '@/assets/formula.json';
+import staticResultValues from '@/assets/staticResultValues.json';
+import { FormState } from '@/context/FormState';
 import * as math from 'mathjs';
 import { roundTo } from './roundTo';
 

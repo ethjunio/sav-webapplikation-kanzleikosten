@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { FunctionReturn } from '../utils/calculateOutput';
+import { FunctionReturn } from '@/utils/calculateOutput';
 
 // Define the new type for the calculation results object
 interface CalculationResults {

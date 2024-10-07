@@ -1,11 +1,11 @@
-import { languageContentType } from '../types/languageContentType';
-import content from '../assets/content.json';
-import { useLanguage } from '../context/LanguageContext';
-import OutputCard from '../components/Step_2/OutputCard';
-import Button from '../components/ui/general/Button';
+import { languageContentType } from '@/types/languageContentType';
+import content from '@/assets/content.json';
+import { useLanguage } from '@/context/LanguageContext';
+import OutputCard from '@/components/Step_2/OutputCard';
+import Button from '@/components/ui/general/Button';
 import { FaBolt } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from '../context/FormState';
+import { useForm } from '@/context/FormState';
 import { useState } from 'react';
 
 const OutputPage = () => {

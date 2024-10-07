@@ -1,8 +1,8 @@
-import { useProgress } from '../../context/ProgressContext';
+import { useProgress } from '@/context/ProgressContext';
 import ProgressBarItem from './ProgresBarItem';
 import { FaMapMarkerAlt, FaCog, FaCoins } from 'react-icons/fa';
-import content from '../../assets/content.json';
-import { useLanguage } from '../../context/LanguageContext';
+import content from '@/assets/content.json';
+import { useLanguage } from '@/context/LanguageContext';
 import cn from 'classnames';
 
 interface ProgressBarProps {
