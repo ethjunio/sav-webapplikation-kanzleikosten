@@ -17,8 +17,6 @@ export default function CostCard() {
   const pageContent = (content as languageContentType)[language as keyof typeof content].costPlot;
   const labelContent = (content as languageContentType)[language as keyof typeof content].checkboxLabels;
 
-  console.log(calculationResults);
-
   // Extract output parameter identifiers from the form state
   const labelIdentifier = Object.keys(calculationResults);
 
@@ -61,9 +59,6 @@ export default function CostCard() {
     }
   });
 
-  console.log(dataSet1);
-  console.log(ciLower);
-  console.log(ciUpper);
   return (
     <div className="flex flex-col w-full flex-grow gap-2 items-center h-screen bg-slate-100 rounded-2xl p-8">
       <h2 className="font-bold text-gray-700">{pageContent.titel}</h2>

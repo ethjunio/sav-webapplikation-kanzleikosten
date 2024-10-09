@@ -1,16 +1,23 @@
+import { usePortletProps } from '@/context/PortletPropsContext';
 import LangugageSwitch from '../ui/general/LanguageSwitch';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
+  const { contextPath } = usePortletProps();
 
   const handlLogoClick = (): void => {
     navigate('/');
   };
 
   return (
-    <div className="sticky top-0 flex flex-row w-screen h-20 bg-primary items-center justify-between px-12 shadow-md z-50">
-      <img src="./images/logo-white.svg" alt="" style={{ height: '50%', cursor: 'pointer' }} onClick={handlLogoClick} />
+    <div className="flex flex-row h-20 bg-primary items-center justify-between px-12 shadow-md">
+      <img
+        src={`${contextPath}/images/logo-white.svg`}
+        alt="Brand logo"
+        style={{ height: '50%', cursor: 'pointer' }}
+        onClick={handlLogoClick}
+      />
       <LangugageSwitch />
     </div>
   );

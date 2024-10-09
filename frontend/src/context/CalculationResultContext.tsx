@@ -37,8 +37,6 @@ export const CalculationResultProvider = ({ children }: CalculationResultProvide
     }));
   };
 
-  console.log(calculationResults);
-
   return (
     <CalculationResultContext.Provider value={{ calculationResults, updateCalculationResult }}>
       {children}

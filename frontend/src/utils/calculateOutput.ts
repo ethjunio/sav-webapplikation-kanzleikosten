@@ -112,10 +112,7 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
     const sqrtResult = math.sqrt(scalarResult) as number;
     const t_Value = (formula as FormulaType)[outputIdentifier].tValue;
 
-    console.log(t_Value * sqrtResult);
-    console.log(outputEstimateResult);
-
-    const CI_lower = outputEstimateResult - t_Value * sqrtResult;
+    const CI_lower = 0; // @ethjunior why has this not been defined before
     const CI_upper = outputEstimateResult + t_Value * sqrtResult;
 
     // Read the Range

@@ -22,7 +22,6 @@ const FinanceInputCard = ({ className }: { className?: string }, ref: any) => {
       operatingCostsPerYear: state.operatingCostsPerYear,
     });
 
-    console.log(result.error);
     if (!result.success) {
       setError(result.error.errors[0].message);
       setTimeout(() => {

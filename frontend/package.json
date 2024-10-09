@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "vite build && liferay-npm-bundler-improved",
+    "build": "vite build",
+    "build:liferay": "vite build && liferay-npm-bundler-improved --copy-assets",
     "deploy": "vite build && liferay-npm-bundler-improved -d",
     "format": "prettier --write ./src/**/*.{ts,tsx}",
     "translate": "translation-transformer",
@@ -33,7 +34,6 @@
     "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
-    "liferay-npm-build-tools-common": "^2.32.0",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@clavisit/translation-transformer": "^3.0.1",
     "@rollup/plugin-replace": "^6.0.1",
@@ -59,7 +59,7 @@
     "zod": "^3.23.8"
   },
   "portlet": {
-    "com.liferay.portlet.header-portlet-css": "style.css",
+    "com.liferay.portlet.header-portlet-css": "/style.css",
     "javax.portlet.resource-bundle": "content.Language",
     "javax.portlet.security-role-ref": "power-user,user",
     "com.liferay.portlet.instanceable": true,

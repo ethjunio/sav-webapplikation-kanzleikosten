@@ -8,6 +8,8 @@ import Layout from './components/layout/Layout';
 import OutputPage from './routes/OutputPage';
 import ResultPage from './routes/ResultPage';
 import { CalculationResultProvider } from './context/CalculationResultContext';
+import { PortletEntryParams } from './types/liferay.types';
+import { PortletPropsProvider } from './context/PortletPropsContext';
 
 const router = createMemoryRouter([
   {
@@ -48,13 +50,15 @@ const router = createMemoryRouter([
   },
 ]);
 
-export default function App() {
+export default function App(props: PortletEntryParams) {
   return (
     <>
       <FormProvider>
-        <LanguageProvider>
-          <RouterProvider router={router} />
-        </LanguageProvider>
+        <PortletPropsProvider {...props}>
+          <LanguageProvider>
+            <RouterProvider router={router} />
+          </LanguageProvider>
+        </PortletPropsProvider>
       </FormProvider>
     </>
   );

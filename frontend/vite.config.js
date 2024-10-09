@@ -4,11 +4,12 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import replace from '@rollup/plugin-replace';
 
 export default defineConfig(({ mode }) => ({
+  publicDir: 'assets',
   plugins: [
     react(),
     replace({
       preventAssignment: true,
-      'process.env.NODE_ENV': mode === 'production' ? JSON.stringify('production') : undefined,
+      'process.env.NODE_ENV': JSON.stringify(mode),
       'process.env.BUILD': JSON.stringify('web'),
     }),
     tsconfigPaths(),

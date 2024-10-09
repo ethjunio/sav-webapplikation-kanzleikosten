@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, ReactNode } from 'react';
+import { useState, useRef, ReactNode } from 'react';
 import cn from 'classnames';
 
 interface DropdownOverlayProps {
@@ -11,18 +11,25 @@ export default function DropdownOverlay({ trigger, children, className }: Dropdo
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  /**
+   * NOTE: This ClickOutside Handler does not function within a ShadowDOM and must be rewritten
+   * if the functionality is required.
+   * > It does not work because the event.target is always the ShadowDOM root
+   * > and thus cannot be inside the Ref element. The ShadowDOM is necessary to
+   * > maintain a strict css separation between this portlet and liferay
+   */
   // Handle closing the dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [dropdownRef]);
+  // useEffect(() => {
+  //   function handleClickOutside(event: MouseEvent) {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+  //       setIsOpen(false);
+  //     }
+  //   }
+  //   document.addEventListener('mousedown', handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, [dropdownRef]);
 
   const handleToggleDropdown = () => {
     setIsOpen(!isOpen);
