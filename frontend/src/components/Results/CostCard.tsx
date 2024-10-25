@@ -66,7 +66,7 @@ const CostCard: React.FC = () => {
 			<h2 className="font-bold text-gray-700">{pageContent.titel}</h2>
 			{pageContent.description && <p className="text-center text-sm text-gray-500 mb-4">{pageContent.description}</p>}
 			<div className="flex items-center content-stretch flex-grow w-full">
-				<BarPlotCost dataSet1={dataSet1}  labels={labels} />
+				<BarPlotCost dataSet1={dataSet1} labels={labels} labelIdentifier={labelIdentifier} />
 			</div>
 		</div>
 	);

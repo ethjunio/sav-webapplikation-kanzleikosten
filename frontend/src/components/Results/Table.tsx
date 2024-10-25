@@ -39,17 +39,21 @@ function calculateTotalCost(entries: Entry[]): string {
 		return sum + (isNaN(value) ? 0 : value);
 	}, 0);
 
-	return total.toLocaleString('de-CH', {
-		style: 'decimal',
-	}) + ' CHF';
+	return (
+		total.toLocaleString('de-CH', {
+			style: 'decimal',
+		}) + ' CHF'
+	);
 }
 
 //Function to format String into Currency
 function formatCost(value: string) {
-    const numericValue = parseFloat(value?.replace(/[^\d.-]/g, ''));
-    return numericValue.toLocaleString('de-CH', {
-        style: 'decimal',
-    }) + ' CHF';
+	const numericValue = parseFloat(value?.replace(/[^\d.-]/g, ''));
+	return (
+		numericValue.toLocaleString('de-CH', {
+			style: 'decimal',
+		}) + ' CHF'
+	);
 }
 
 // Helper function to render grouped entries
@@ -78,6 +82,7 @@ const Table: React.FC<TableProps> = ({ identifiers, values }) => {
 
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].table;
 
+	console.log(identifiers);
 	// Step 1: Process the identifiers
 	const entries: Entry[] = identifiers
 		.map((identifier, index) => {
