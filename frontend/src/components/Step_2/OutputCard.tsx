@@ -45,7 +45,7 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 	}, [tooManySelected, selectedList]);
 
 	return (
-		<div className="flex flex-col gap-6 items-center xl:w-full">
+		<div className="flex flex-col gap-6 items-center xl:w-full ">
 			<div className={`flex flex-row text-white w-fit text-lg justify-center items-center px-4 py-1 rounded-xl bg-primary ${classesForAlert}`}>
 				<span className={`font-semibold`}>
 					{/* Dynamically render the selected message based on language */}

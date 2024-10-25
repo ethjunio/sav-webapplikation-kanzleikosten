@@ -63,6 +63,8 @@ export type FunctionReturn = EstimateWithConfidence | EstimateWithStatistics;
 const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): FunctionReturn => {
 	const estimateVector = (formula as FormulaType)[outputIdentifier]?.estimate;
 
+	console.log(outputIdentifier, input);
+
 	if (estimateVector !== undefined) {
 		// Calculate Output Estimate based on exponential Function
 
@@ -115,8 +117,8 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
 		console.log(t_Value * sqrtResult);
 		console.log(outputEstimateResult);
 
-		const CI_lower = outputEstimateResult - (t_Value * sqrtResult);
-		const CI_upper = outputEstimateResult + (t_Value * sqrtResult);
+		const CI_lower = outputEstimateResult - t_Value * sqrtResult;
+		const CI_upper = outputEstimateResult + t_Value * sqrtResult;
 
 		// Read the Range
 		const range = (formula as FormulaType)[outputIdentifier].range;

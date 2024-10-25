@@ -4,8 +4,8 @@ import content from '../../assets/content.json';
 import { useLanguage } from '../../context/LanguageContext';
 import { useForm } from '../../context/FormState';
 import { useCalculationResultContext } from '../../context/CalculationResultContext';
-import RadarPlotCost from './RadarPlotCost';
 import { EstimateWithConfidence, EstimateWithStatistics } from '../../utils/calculateOutput';
+import BarPlotCost from './BarPlotDigiCost';
 
 export interface PlotEntry {
 	value: number;
@@ -66,7 +66,7 @@ const CostCard: React.FC = () => {
 			<h2 className="font-bold text-gray-700">{pageContent.titel}</h2>
 			{pageContent.description && <p className="text-center text-sm text-gray-500 mb-4">{pageContent.description}</p>}
 			<div className="flex items-center content-stretch flex-grow w-full">
-				<RadarPlotCost dataSet1={dataSet1} ciLower={ciLower} ciUpper={ciUpper} legendLabel1="Estimated Costs" labels={labels} />
+				<BarPlotCost dataSet1={dataSet1}  labels={labels} />
 			</div>
 		</div>
 	);
