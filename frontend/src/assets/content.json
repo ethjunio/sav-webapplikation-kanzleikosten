@@ -19,7 +19,7 @@
 			"placeholder": "Zahl eingeben"
 		},
 		"processInputCard": {
-			"processLeadingPersonnel": "Anteil prozessführendes Personal",
+			"processLeadingPersonnel": "Anteil Prozessführende Anwält:innen",
 			"serviceType": "Typische Dienstleistung",
 			"partnersCount": "Anzahl Partner:innen",
 			"employeesCount": "Anzahl Mitarbeiter:innen",
@@ -28,10 +28,10 @@
 			"inputPlaceholderNumber": "Zahl eingeben"
 		},
 		"dropdownOptions": {
-			"localSwitzerland": "Nur in der Schweiz lokal",
-			"regionalSwitzerland": "Nur in der Schweiz regional",
+			"localSwitzerland": "Lokal (innerhalb eines Kantons vertreten)",
+			"regionalSwitzerland": "Regional (in mehrern Kantonen vertreten)",
 			"repetitiveTasksIndividualizedOfferings": "Repetitive Arbeiten mit individualisierten Angeboten",
-			"bespokeStandard": "Bespoke normal",
+			"bespokeStandard": "Bespoke (individuell angepasste oder personalisierte Dienstleistungen), normal",
 			"bespokeHighEnd": "Bespoke im High-End Bereich"
 		},
 		"financialInputCard": {
@@ -52,7 +52,7 @@
 		"outputPage": {
 			"step": "Schritt 2",
 			"titel": "Digitalisierungsschritte",
-			"description": "Wählen Sie die Digitalisierungsschritte aus, die Sie in Ihrer Kanzlei umsetzen möchten. Sie können bis zu acht Optionen auswählen, um eine detaillierte Kostenübersicht zu erhalten.",
+			"description": "Wählen Sie die Digitalisierungsschritte aus, die Sie in Ihrer Kanzlei umsetzen möchten oder die sie interessieren.",
 			"selectedMessage": "{count} von max. 8 ausgewählt",
 			"personnelCosts": "Personalkosten",
 			"securityAndPrivacy": "Sicherheit und Datenschutz",
@@ -67,11 +67,12 @@
 			"titel": "Resultat",
 			"description": "Anhand Ihrer Kanzlei-Beschreibung werden durchschnittliche Kosten in den einzelnen Digitalisierungsschritten berechnet. Die Kosten sind in CHF angegeben.",
 			"disclaimerTitel": "Disclaimer",
-			"disclaimer": "Der Kanzleikosten-Rechner basiert auf einem Modell von gfs.bern. Im Auftrag des SAV hat gfs.bern eine Umfrage bei Mitgliedern des SAV im Jahr 2024 durchgeführt und die Kosten der Kanzleien abgefragt. XXX Kanzleien haben teilgenommen und die Kosten basieren auf XXX bis XXX Werten. Die Modellierung ist eine Schätzung und dient als Orientierung zu den Digitalisierungskosten von Anwaltskanzleien.",
+			"disclaimer": "Der Kanzleikosten-Rechner basiert auf einem Modell von gfs.bern. Im Auftrag des SAV hat gfs.bern eine Umfrage bei Mitgliedern des SAV im Jahr 2024 durchgeführt und die Kosten der Kanzleien abgefragt. 489 Kanzleien haben an der Befragung von gfs.bern im Auftrag des SAV teilgenommen. Die Werte zu den Kosten basieren auf bis zu 256 Werten von Kanzleien. Bei den Digitalisierungsschritten, bei denen wenige Kanzleien Kosten angegeben haben, werden Mediane ausgegeben, unabhängig von den Angaben Ihrer Kanzlei. Die Modellierung ist eine Schätzung und dient als Orientierung zu den Digitalisierungskosten von Anwaltskanzleien.",
 			"button1": "Neustart",
 			"button2": "Bericht Herunterladen",
 			"rangeMessageTitel": "Resultate ausserhalb des Definitionsbereichs",
-			"rangeMessage": "Die berechneten Kostenvorschläge für die folgend aufgeführten Digitalisierungsschritte liegen ausserhalb des definierten Bereichs und werden daher von den Berechnungen ausgeschlossen:"
+			"rangeMessage": "Die berechneten Kostenvorschläge für die folgend aufgeführten Digitalisierungsschritte liegen ausserhalb des definierten Bereichs und werden daher von den Berechnungen ausgeschlossen:",
+			"loadingMessage": "Wird berechnet..."
 		},
 		"checkboxLabels": {
 			"ITsupport": "IT-Support (extern)",
@@ -110,18 +111,18 @@
 			"softwareTitel": "Software und Lizenzen",
 			"hardwareTitel": "Hardware und Infrastruktur",
 			"yearlyTotal": "Total Jährlich",
-			"onceTotal": "Einmalige Jährlich"
+			"onceTotal": "Total Einmalig"
 		},
 		"checkboxLabelsDescriptions": {
 			"ITsupport": "Externer IT-Support, der von einem Drittanbieter bereitgestellt wird, um technische Probleme zu lösen oder IT-Infrastruktur zu unterstützen.",
 			"ITMitarbeitende": "Interne IT-Mitarbeitende, die für die IT-Administration und den Support innerhalb des Unternehmens verantwortlich sind.",
 			"SchulungenSoftware": "Schulungen zu Themen wie neue Software, Datenschutz oder anderen relevanten Technologien für Mitarbeitende.",
 			"SchulungMitarbeitende": "Allgemeine Schulungen für Mitarbeitende, die verschiedene Themen wie IT-Sicherheit oder andere interne Prozesse abdecken können.",
-			"Datensicherheit": "Maßnahmen und Technologien, um Daten vor unbefugtem Zugriff, Verlust oder Beschädigung zu schützen.",
+			"Datensicherheit": "Massnahmen und Technologien, um Daten vor unbefugtem Zugriff, Verlust oder Beschädigung zu schützen.",
 			"HostedDataStorage": "Externe Datenhosting- und Managementlösungen, bei denen Daten in der Cloud oder auf Servern von Drittanbietern gespeichert und verwaltet werden.",
 			"SichererDatenaustausch": "Lösungen für den sicheren Austausch von Daten mit externen Partnern oder Kunden, z.B. durch Verschlüsselung.",
 			"VideoKonferenzen": "Technologien für Video- oder Telefonkonferenzen, um virtuelle Meetings zu ermöglichen.",
-			"SocialMedia": "Der Webauftritt und die Präsenz in sozialen Medien, einschließlich bezahlter Werbeanzeigen.",
+			"SocialMedia": "Der Webauftritt und die Präsenz in sozialen Medien, einschliesslich bezahlter Werbeanzeigen.",
 			"ChatExtern": "Externe Chat-Lösungen zur Kommunikation mit Klienten und Kunden, z.B. über ein CRM-System oder spezielle Chat-Plattformen.",
 			"ChatIntern": "Interne Chat-Lösungen für die Kommunikation zwischen Mitarbeitenden, z.B. über Tools wie Slack oder Microsoft Teams.",
 			"ExterneITBeratung": "Beratungsleistungen von externen IT-Fachleuten, um bei der IT-Strategie, -Planung oder -Implementierung zu unterstützen.",
@@ -130,7 +131,7 @@
 			"SoftwareKosten": "Kosten im Zusammenhang mit der Nutzung von Software, insbesondere Lizenzkosten für kommerzielle Softwareprodukte.",
 			"Kanzleisoftware": "Spezialisierte Software für Kanzleien, z.B. zur Verwaltung von Mandanten, Fällen und Dokumenten.",
 			"CRMSoftware": "Customer-Relationship-Management-Software, die verwendet wird, um Kundenbeziehungen zu verwalten und zu optimieren.",
-			"ChatExternClients": "Chat-Lösungen für die Kommunikation mit Klienten und Klientinnen außerhalb des Unternehmens, z.B. über ein CRM-System oder spezielle Chat-Plattformen.",
+			"ChatExternClients": "Chat-Lösungen für die Kommunikation mit Klienten und Klientinnen ausserhalb des Unternehmens, z.B. über ein CRM-System oder spezielle Chat-Plattformen.",
 			"ChatInternEmployees": "Interne Chat-Lösungen für die Kommunikation zwischen Mitarbeitenden, z.B. über Tools wie Slack oder Microsoft Teams.",
 			"DigitaleSignatur": "Lösungen, die es ermöglichen, Dokumente elektronisch zu signieren und so den Papierkram zu reduzieren.",
 			"Systemintegration": "Integration neuer Software oder Systeme in die bestehende IT-Infrastruktur des Unternehmens.",
@@ -153,7 +154,7 @@
 			"locationTypeRequired": "Standorttyp ist erforderlich",
 			"locationNumberRequired": "Standortnummer ist erforderlich",
 			"locationNumberInvalid": "Muss eine gültige Zahl sein",
-			"locationNumberGreaterThanZero": "Die Zahl muss größer als null sein",
+			"locationNumberGreaterThanZero": "Die Zahl muss grösser als null sein",
 			"locationNumberInteger": "Die Zahl muss eine ganze Zahl sein",
 			"processPersonnelPercentageRequired": "Prozesspersonalanteil ist erforderlich",
 			"processPersonnelPercentageInvalid": "Muss eine gültige Zahl sein",
@@ -161,33 +162,37 @@
 			"serviceTypeRequired": "Dienstleistungstyp ist erforderlich",
 			"employeeCountRequired": "Anzahl der Mitarbeiter:innen ist erforderlich",
 			"employeeCountInvalid": "Muss eine gültige Zahl sein",
-			"employeeCountGreaterThanZero": "Die Zahl muss größer als null sein",
+			"employeeCountGreaterThanZero": "Die Zahl muss grösser als null sein",
 			"employeeCountInteger": "Die Zahl muss eine ganze Zahl sein",
 			"partnerCountRequired": "Anzahl der Partner:innen ist erforderlich",
 			"partnerCountInvalid": "Muss eine gültige Zahl sein",
-			"partnerCountGreaterThanZero": "Die Zahl muss größer als null sein",
+			"partnerCountGreaterThanZero": "Die Zahl muss grösser als null sein",
 			"partnerCountInteger": "Die Zahl muss eine ganze Zahl sein",
 			"revenuePerYearRequired": "Jahresumsatz ist erforderlich",
 			"revenuePerYearInvalid": "Muss eine gültige Zahl sein",
 			"operatingCostsPerYearRequired": "Jährliche Betriebskosten sind erforderlich",
 			"operatingCostsPerYearInvalid": "Muss eine gültige Zahl sein",
-			"revenuePerYearGreaterThanZero": "Die Zahl muss größer als null sein"
+			"revenuePerYearGreaterThanZero": "Die Zahl muss grösser als null sein"
 		},
 		"firmPlot": {
 			"titel": "Ihre Kanzlei im Vergleich",
 			"description": "Das Spider-Diagramm vergleicht Ihre Kanzlei anhand der von Ihnen eingegebenen Daten mit dem Durchschnitt der Schweizer Kanzleien. So erhalten Sie eine klare Übersicht darüber, wie Ihre Kanzlei in den verschiedenen Bereichen abschneidet.",
 			"legend1": "Ihre Kanzlei",
-			"legend2": "Referenz Kanzlei (100%)",
+			"legend2": "Referenz Kanzlei",
 			"locationNumberLabel": "Anzahl Standorte",
 			"processLeadingPersonnelLabel": "Verantwortliches Personal",
 			"partnersCountLabel": "Anzahl Partner",
 			"employeesCountLabel": "Anzahl Mitarbeiter",
 			"revenuePerYearLabel": "Jahresumsatz",
-			"operatingCostsPerYearLabel": "Jährliche Betriebskosten"
+			"operatingCostsPerYearLabel": "Jährliche Betriebskosten",
+			"yourFirm": "Ihre Kanzlei",
+			"referenceFirm": "Referenzkanzlei"
 		},
 		"costPlot": {
 			"titel": "Digitalisierungskosten",
-			"description": "Das Diagramm präsentiert die geschätzten Ausgaben für Ihre geplanten Digitalisierungsmaßnahmen. Die Kosten basieren auf den aktuellen Investitionen ähnlicher Kanzleien, sodass Sie eine fundierte Budgetplanung vornehmen können."
+			"description": "Das Diagramm zeigt die geschätzten Ausgaben für Ihre geplanten Digitalisierungsmassnahmen. Die Kosten basieren auf den aktuellen Investitionen ähnlicher Kanzleien, sodass Sie eine fundierte Budgetplanung vornehmen können.",
+			"descriptionStatistical": "Keine Schätzung aufgrund mangelder Datengrundlage. Stattdessen Mittelwert aller Kanzleien, die an der Umfrage teilgenommen haben",
+			"descriptionRegression": "Ausreichende Datengrundlage für eine modellgestützte Schätzung vorhanden."
 		},
 		"table": {
 			"yearlyLabel": "Jährliche Kostenübersicht",
@@ -196,7 +201,13 @@
 		},
 		"summeryCard": {
 			"titel": "Zusammenfassung",
-			"text": "Für die angegebene **Digitalisierungsschritte** geben ähnliche Kanzleien schätzungsweise insgesamt **{totalYearlyCost}.- pro Jahr** und **{totalOnceCost}.- einmalig** aus."
+			"text": "Für die angegebene **Digitalisierungsschritte** geben ähnliche Kanzleien schätzungsweise insgesamt **{totalYearlyCost} pro Jahr** und **{totalOnceCost} einmalig** aus."
+		},
+		"stackedBarPlotCost": {
+			"yearlyCosts": "Jährlich Kosten",
+			"oneTimeCosts": "Einmalige Kosten",
+			"mean": "Mittelwert",
+			"model": "Modell"
 		}
 	},
 
@@ -220,7 +231,7 @@
 			"placeholder": "Enter number"
 		},
 		"processInputCard": {
-			"processLeadingPersonnel": "Percentage of Process-Leading Personnel",
+			"processLeadingPersonnel": "Percentage of Process-Leading Lawyers",
 			"serviceType": "Typical Service",
 			"partnersCount": "Number of Partners",
 			"employeesCount": "Number of Employees",
@@ -237,10 +248,10 @@
 			"placeholder": "Choose Option"
 		},
 		"dropdownOptions": {
-			"localSwitzerland": "Only local in Switzerland",
-			"regionalSwitzerland": "Only regional in Switzerland",
+			"localSwitzerland": "Local (represented within a single canton)",
+			"regionalSwitzerland": "Regional (represented in multiple cantons)",
 			"repetitiveTasksIndividualizedOfferings": "Repetitive tasks with individualized offerings",
-			"bespokeStandard": "Bespoke standard",
+			"bespokeStandard": "Bespoke (individually tailored or personalized services), standard",
 			"bespokeHighEnd": "Bespoke in the high-end sector"
 		},
 		"inputPage": {
@@ -253,7 +264,7 @@
 		"outputPage": {
 			"step": "Step 2",
 			"titel": "Digitization Steps",
-			"description": "Select the digitization steps you want to implement in your firm. You can choose up to eight options to receive a detailed cost overview.",
+			"description": "Select the digitalization steps you would like to implement in your law firm or that interest you",
 			"selectedMessage": "{count} out of max. 8 selected",
 			"personnelCosts": "Personnel Costs",
 			"securityAndPrivacy": "Security and Privacy",
@@ -268,11 +279,12 @@
 			"titel": "Result",
 			"description": "Based on your law firm description, average costs in the individual digitization steps are calculated. The costs are given in CHF.",
 			"disclaimerTitel": "Disclaimer",
-			"disclaimer": "The law firm cost calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. XXX law firms participated, and the costs are based on XXX to XXX data points. The modeling is an estimate and serves as a guideline for the digitalization costs of law firms.",
+			"disclaimer": "The law firm cost calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. A total of 489 law firms participated in the survey conducted by gfs.bern on behalf of the SAV. The cost values are based on up to 256 data points from law firms. For digitalization steps where few firms provided cost data, medians are used, regardless of your law firm’s specific values. This model is an estimate and serves as a guide to the digitalization costs of law firms.",
 			"button1": "Restart",
 			"button2": "Download Report",
 			"rangeMessageTitel": "Results outside rage definition",
-			"rangeMessage": "The cost estimates for the following digitalization steps are outside the defined range and will be excluded from the calculations:"
+			"rangeMessage": "The cost estimates for the following digitalization steps are outside the defined range and will be excluded from the calculations:",
+			"loadingMessage": "Calculating..."
 		},
 		"checkboxLabels": {
 			"ITsupport": "IT Support (external)",
@@ -378,17 +390,21 @@
 			"titel": "Your Law Firm Compared",
 			"description": "The spider diagram compares your law firm based on the data you entered with the average Swiss law firms. This provides you with a clear overview of how your firm performs in various areas.",
 			"legend1": "Your Law Firm",
-			"legend2": "Reference Law Firm (100%)",
+			"legend2": "Reference Law Firm",
 			"locationNumberLabel": "Number of Locations",
 			"processLeadingPersonnelLabel": "Responsible Personnel",
 			"partnersCountLabel": "Number of Partners",
 			"employeesCountLabel": "Number of Employees",
 			"revenuePerYearLabel": "Annual Revenue",
-			"operatingCostsPerYearLabel": "Annual Operating Costs"
+			"operatingCostsPerYearLabel": "Annual Operating Costs",
+			"yourFirm": "Your Firm",
+			"referenceFirm": "Reference Firm"
 		},
 		"costPlot": {
 			"titel": "Digitization Costs",
-			"description": "The diagram presents the estimated expenses for your planned digitization measures. The costs are based on the current investments of similar law firms, allowing you to make informed budget planning."
+			"description": "The diagram presents the estimated expenses for your planned digitization measures. The costs are based on the current investments of similar law firms, allowing you to make informed budget planning.",
+			"descriptionStatistical": "Insufficient data available. Instead, the average value of all firms participating in the survey was used.",
+			"descriptionRegression": "Sufficient data available for a model-based estimation."
 		},
 		"table": {
 			"yearlyLabel": "Yearly Cost Overview",
@@ -397,7 +413,13 @@
 		},
 		"summeryCard": {
 			"titel": "Summary",
-			"text": "For the specified **digitalization steps**, similar law firms spend an estimated total of **{totalYearlyCost}.- per year** and **{totalOnceCost}.- one-time**."
+			"text": "For the specified **digitalization steps**, similar law firms spend an estimated total of **{totalYearlyCost} per year** and **{totalOnceCost} one-time**."
+		},
+		"stackedBarPlotCost": {
+			"yearlyCosts": "Yearly Costs",
+			"oneTimeCosts": "One-time Costs",
+			"mean": "Mean",
+			"model": "Model"
 		}
 	}
 }

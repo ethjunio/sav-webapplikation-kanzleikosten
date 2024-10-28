@@ -39,6 +39,14 @@ module.exports = {
 				'fade-in-slide-up': 'fade-in-slide-up 0.3s ease-out forwards',
 			},
 		},
+		// container: {
+	
+		// 	center: true, // Centers the container by default
+		// 	screens: {
+		// 		xl: '1280px',
+		// 		'2xl': '1280px',
+		// 	},
+		// },
 	},
 	plugins: [require('@tailwindcss/forms')],
 };

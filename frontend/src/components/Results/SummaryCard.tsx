@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { languageContentType } from '../../types/languageContentType';
 import content from '../../assets/content.json';
@@ -13,6 +13,8 @@ const SummeryCard: React.FC<SummeryCardProps> = ({ totalYearlyCost, totalOnceCos
 
 	const ComponentContent = (content as any)[language as keyof typeof content].summeryCard;
 
+	console.log(totalYearlyCost);
+
 	const parseBold = (text: string) => {
 		const parts = text.split(/(\*\*[^*]+\*\*)/g);
 		return parts.map((part, index) => {
@@ -25,9 +27,9 @@ const SummeryCard: React.FC<SummeryCardProps> = ({ totalYearlyCost, totalOnceCos
 	};
 
 	return (
-		<div className="flex text-primary flex-col items-center justify-center gap-5 rounded-xl mb-4">
-			<div className="flex flex-row items-center justify-center gap-2 w-full font-semibold text-6xl">{ComponentContent?.titel}</div>
-			<div className="text-center leading-10 text-4xl ">
+		<div className="flex text-primary flex-col items-center  justify-center gap-5 rounded-xl mb-4">
+			<div className="flex flex-row items-center justify-center gap-2 font-semibold text-6xl">{ComponentContent?.titel}</div>
+			<div className="text-center leading-10 w-2/3 text-4xl ">
 				{parseBold(ComponentContent?.text?.replace('{totalYearlyCost}', totalYearlyCost.toString()).replace('{totalOnceCost}', totalOnceCost.toString()))}
 			</div>
 		</div>

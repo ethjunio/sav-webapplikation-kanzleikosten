@@ -22,12 +22,11 @@ const Checkbox: React.FC<CheckboxProps> = ({ identifier, tag, selectedList, setS
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const isChecked = e.target.checked;
 		if (isChecked) {
-			if (selectedList.length >= 8) {
-				setTooManySelected(true);
-				return;
-			} else {
-				setSelectedList((prev) => [...prev, identifier]);
-			}
+			// if (selectedList.length >= 8) {
+			// 	setTooManySelected(true);
+			// 	return;
+			// } else
+			setSelectedList((prev) => [...prev, identifier]);
 		} else {
 			setSelectedList((prev) => prev.filter((item) => item !== identifier));
 		}

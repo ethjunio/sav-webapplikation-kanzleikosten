@@ -1,10 +1,10 @@
 import TableEntry from './TableEntry';
-import { FaKey } from 'react-icons/fa';
 import classifyOutput from '../../utils/classifyOutput';
 import React from 'react';
 import { languageContentType } from '../../types/languageContentType';
 import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
+import SummeryCard from './SummaryCard';
 
 // Type definitions
 type CostType = 'jährlich' | 'einmalig';
@@ -39,15 +39,12 @@ function calculateTotalCost(entries: Entry[]): string {
 		return sum + (isNaN(value) ? 0 : value);
 	}, 0);
 
-	return (
-		total.toLocaleString('de-CH', {
-			style: 'decimal',
-		}) + ' CHF'
-	);
+	return total.toString();
 }
 
 //Function to format String into Currency
 function formatCost(value: string) {
+	console.log(value);
 	const numericValue = parseFloat(value?.replace(/[^\d.-]/g, ''));
 	return (
 		numericValue.toLocaleString('de-CH', {
@@ -103,28 +100,32 @@ const Table: React.FC<TableProps> = ({ identifiers, values }) => {
 	const yearlyGroups = groupBy<Entry>(yearlyEntries, 'groupIdentifier');
 	const onceGroups = groupBy<Entry>(onceEntries, 'groupIdentifier');
 
+	
+
 	return (
-		<div className="flex flex-col gap-4 rounded-xl w-full">
-			{/* <div className="flex flex-row items-center justify-center bg-slate-100 p-8 rounded-xl">
-				<h3>{ComponentContent.title}</h3>
-			</div> */}
-			{/* Render "jährlich" section */}
-			{yearlyEntries.length > 0 && (
-				<div className="flex flex-col bg-orange-100 p-8 rounded-xl">
-					<div className="font-semibold text-2xl text-center mb-2 pb-2 border-b border-black">{ComponentContent.yearlyLabel}</div>
-					{renderGroups(yearlyGroups)}
-					<TableEntry identifier={'yearlyTotal'} variant={'yearlyTotal'} value={totalYearlyCost} />
-				</div>
-			)}
-			{/* Render "einmalig" section */}
-			{onceEntries.length > 0 && (
-				<div className="flex flex-col bg-green-100 p-8 rounded-xl">
-					<div className="font-semibold text-2xl text-center mb-2 pb-2 border-b border-black">{ComponentContent.oneTimeLabel}</div>
-					{renderGroups(onceGroups)}
-					<TableEntry identifier={'onceTotal'} variant={'onceTotal'} value={totalOnceCost} />
-				</div>
-			)}
-		</div>
+		<>
+			<div className="pb-6">
+				<SummeryCard totalYearlyCost={formatCost(totalYearlyCost)} totalOnceCost={formatCost(totalOnceCost)} />
+			</div>
+			<div className="flex flex-row lg:flex-col gap-16 rounded-xl w-full">
+				{/* Render "jährlich" section */}
+				{yearlyEntries.length > 0 && (
+					<div className="flex flex-col bg-gray-100 py-8 px-4 justify-start rounded-xl w-full">
+						<div className="font-semibold text-2xl text-center mb-2 pb-2 border-b border-black">{ComponentContent.yearlyLabel}</div>
+						{renderGroups(yearlyGroups)}
+						<TableEntry identifier={'yearlyTotal'} variant={'yearlyTotal'} value={formatCost(totalYearlyCost)} />
+					</div>
+				)}
+				{/* Render "einmalig" section */}
+				{onceEntries.length > 0 && (
+					<div className="flex flex-col bg-gray-100 py-8 px-4 justify-start  rounded-xl w-full">
+						<div className="font-semibold text-2xl text-center mb-2 pb-2 border-b border-black">{ComponentContent.oneTimeLabel}</div>
+						{renderGroups(onceGroups)}
+						<TableEntry identifier={'onceTotal'} variant={'onceTotal'} value={formatCost(totalOnceCost)} />
+					</div>
+				)}
+			</div>
+		</>
 	);
 };
 

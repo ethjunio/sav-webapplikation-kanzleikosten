@@ -26,32 +26,26 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 		setTooManySelected,
 	};
 
-	useEffect(() => {
-		if (tooManySelected) {
-			setClassesForAlert('bg-red-600 transform scale-105 text-red-100 duration-100');
+	// useEffect(() => {
+	// 	if (tooManySelected) {
+	// 		setClassesForAlert('bg-red-600 transform scale-105 text-red-100 duration-100');
 
-			const timeoutId = setTimeout(() => {
-				setTooManySelected(false);
-				setClassesForAlert('bg-red-200');
-			}, 1000);
+	// 		const timeoutId = setTimeout(() => {
+	// 			setTooManySelected(false);
+	// 			setClassesForAlert('bg-red-200');
+	// 		}, 1000);
 
-			// Cleanup function in case component unmounts before timeout completes
-			return () => clearTimeout(timeoutId);
-		} else if (selectedList.length === 8) {
-			setClassesForAlert('bg-orange-600 text-orange-50');
-		} else {
-			setClassesForAlert('');
-		}
-	}, [tooManySelected, selectedList]);
+	// 		// Cleanup function in case component unmounts before timeout completes
+	// 		return () => clearTimeout(timeoutId);
+	// 	} else if (selectedList.length === 8) {
+	// 		setClassesForAlert('bg-orange-600 text-orange-50');
+	// 	} else {
+	// 		setClassesForAlert('');
+	// 	}
+	// }, [tooManySelected, selectedList]);
 
 	return (
 		<div className="flex flex-col gap-6 items-center xl:w-full ">
-			<div className={`flex flex-row text-white w-fit text-lg justify-center items-center px-4 py-1 rounded-xl bg-primary ${classesForAlert}`}>
-				<span className={`font-semibold`}>
-					{/* Dynamically render the selected message based on language */}
-					{ComponentContent.selectedMessage?.replace('{count}', selectedList.length.toString())}
-				</span>
-			</div>
 			<div className="grid grid-cols-2 xl:grid-cols-1 gap-24 xl:gap-8 bg-gray-50 w-full p-8  sm:p-2 rounded-xl">
 				{/* Column 1 */}
 				<div className="flex flex-col gap-8">
@@ -111,3 +105,7 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 };
 
 export default OutputCard;
+
+
+
+

@@ -44,10 +44,21 @@ const KanzleiCard = () => {
 	];
 
 	return (
-		<div className="flex flex-col w-full flex-grow gap-2 items-center  h-screen bg-slate-100 rounded-2xl p-8">
-			<h2 className=" font-bold text-gray-700">{pageContent.titel}</h2>
-			{pageContent.description && <p className="text-sm text-center text-gray-500 mb-4">{pageContent.description}</p>}
-			<div className="flex items-center content-stretch flex-grow w-full">
+		<div className="flex flex-row lg:flex-col w-full gap-10 items-center lg:items-start h-screen rounded-2xl px-0 py-12">
+			<div className="flex flex-col w-2/6 lg:w-full">
+				<h2 className=" font-bold text-start w-full text-gray-700">{pageContent.titel}</h2>
+				<p className="text-xl font-semibold text-start text-gray-500 mb-4">{pageContent.description}</p>
+				<p className=" text-lg font-medium text-start text-gray-500  ">
+					<div className="ms-9 w-10 inline-block h-4 me-2 bg-[#BFC9DF] border-[#284C93] border rounded-sm"> </div>
+					{pageContent.yourFirm}
+				</p>
+
+				<p className="text-lg font-medium text-start text-gray-500  ">
+					<div className=" ms-9 w-10 inline-block h-4 bg-[#F4F1EA] border border-[#9E720B] rounded-sm me-2"> </div>
+					{pageContent.referenceFirm}
+				</p>
+			</div>
+			<div className="flex items-center w-4/6 lg:w-full content-stretch h-full">
 				<RadarPlot dataSet1={plotData} dataSet2={[100, 100, 100, 100, 100, 100]} labels={labels} legendLabel1={pageContent.legend1} legendLabel2={pageContent.legend2} />
 			</div>
 		</div>

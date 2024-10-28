@@ -119,7 +119,7 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 		},
 		plugins: {
 			legend: {
-				display: true,
+				display: false,
 				position: 'top',
 				labels: {
 					font: {
@@ -133,15 +133,18 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 						const index = context.dataIndex;
 						const datasetIndex = context.datasetIndex;
 						const originalValue = datasetIndex === 0 ? dataSet1[index] : dataSet2[index];
-						return `${context.dataset.label}: ${originalValue}`;
+						return `${context.dataset.label}: ${originalValue}%`;
 					},
 				},
+			},
+			datalabels: {
+				display: false,
 			},
 		},
 	};
 
 	return (
-		<div className="w-full h-full flex items-center justify-center">
+		<div className="w-full h-full flex ">
 			<div className="w-full h-full">
 				<Radar data={data} options={options} />
 			</div>

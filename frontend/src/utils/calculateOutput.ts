@@ -127,7 +127,7 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
 		if (outputEstimateResult >= range[0] && outputEstimateResult <= range[1]) {
 			return {
 				type: 'confidence',
-				estimatedCost: roundTo(outputEstimateResult, 2),
+				estimatedCost: roundTo(outputEstimateResult, 0),
 				CI_lower: roundTo(CI_lower, 2),
 				CI_upper: roundTo(CI_upper, 2),
 			};

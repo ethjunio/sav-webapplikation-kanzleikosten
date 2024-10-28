@@ -84,8 +84,10 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({
   const datasets = [
     {
       label: 'Confidence',
+	  
       data: confidenceValues,
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
+	  
     },
     {
       label: 'Statistics',
@@ -130,6 +132,7 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({
           font: {
             size: 14,
           },
+
         },
       },
       tooltip: {

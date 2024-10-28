@@ -62,10 +62,21 @@ const CostCard: React.FC = () => {
 	console.log(ciLower);
 	console.log(ciUpper);
 	return (
-		<div className="flex flex-col w-full flex-grow gap-2 items-center h-screen bg-slate-100 rounded-2xl p-8">
-			<h2 className="font-bold text-gray-700">{pageContent.titel}</h2>
-			{pageContent.description && <p className="text-center text-sm text-gray-500 mb-4">{pageContent.description}</p>}
-			<div className="flex items-center content-stretch flex-grow w-full">
+		<div className="flex flex-col w-full flex-grow  items-start h-screen rounded-2xl px-0 py-12">
+			<h2 className="font-bold text-start w-2/3 text-gray-700">{pageContent.titel}</h2>
+			<p className="text-xl font-semibold mt-2 text-start text-gray-500 w-2/3 lg:w-full">{pageContent.description}</p>
+
+			<div className="flex flex-row text-lg font-medium text-start items-start text-gray-500  w-2/3 lg:w-full">
+				<div className="ms-9 mt-1.5 w-10 h-4 me-2 bg-[#ded8ca] rounded-sm"></div>
+				<div className="w-2/3">{pageContent.descriptionStatistical}</div>
+			</div>
+
+			<div className="flex text-lg font-medium text-start items-start mb-12 text-gray-500  w-2/3 lg:w-full">
+				<div className=" ms-9 mt-1.5 w-10 h-4 bg-[#8997B3] rounded-sm me-2"></div>
+				<div className="w-2/3">{pageContent.descriptionRegression}</div>
+			</div>
+
+			<div className="flex items-end self-end content-stretch flex-grow w-full">
 				<BarPlotCost dataSet1={dataSet1} labels={labels} labelIdentifier={labelIdentifier} />
 			</div>
 		</div>
