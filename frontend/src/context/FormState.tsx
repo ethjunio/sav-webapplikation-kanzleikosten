@@ -79,8 +79,6 @@ const FormContext = createContext<{
 export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [state, dispatch] = useReducer(formReducer, initialFormState);
 
-	console.log(state);
-
 	return <FormContext.Provider value={{ state, dispatch }}>{children}</FormContext.Provider>;
 };
 

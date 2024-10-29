@@ -1,39 +1,31 @@
-// StackedBarPlotCost.tsx
-
-import React, { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartOptions } from 'chart.js';
-import { PlotEntry } from './CostCard';
+import React, { useState, useRef, createRef } from 'react';
+import { Chart } from 'react-chartjs-2';
+import { Chart as ChartJS, ChartConfiguration, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
+import 'chartjs-chart-error-bars';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { IErrorBarYDataPoint, BarWithErrorBar } from 'chartjs-chart-error-bars';
+import { PlotEntry } from './CostCard';
 import classifyOutput from '../../utils/classifyOutput';
-import { title } from 'process';
-import { roundTo } from '../../utils/roundTo';
 import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 import { languageContentType } from '../../types/languageContentType';
 
-// Register necessary ChartJS components
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartDataLabels);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartDataLabels, BarWithErrorBar);
 
 interface StackedBarPlotProps {
 	dataSet1: PlotEntry[];
 	labels: string[];
 	labelIdentifier: string[];
+	CI_upper: number[];
+	CI_lower: number[];
 }
 
-/**
- * Utility function to split a label into multiple lines based on max characters per line.
- * @param label - The original label string.
- * @param maxChars - Maximum number of characters per line.
- * @returns An array of strings, each representing a line.
- */
 const wrapLabel = (label: string, maxChars: number = 15): string[] => {
 	const words = label.split(' ');
 	const lines: string[] = [];
 	let currentLine = '';
 
 	words.forEach((word) => {
-		// If adding the next word exceeds the maxChars, push the current line and start a new one
 		if ((currentLine + word).length > maxChars) {
 			if (currentLine.length > 0) {
 				lines.push(currentLine.trim());
@@ -43,7 +35,6 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
 		currentLine += `${word} `;
 	});
 
-	// Push any remaining text as the last line
 	if (currentLine.length > 0) {
 		lines.push(currentLine.trim());
 	}
@@ -51,150 +42,113 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
 	return lines;
 };
 
-const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, labelIdentifier }) => {
-	console.log(dataSet1, labels);
-
+const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, labelIdentifier, CI_upper, CI_lower }) => {
 	const { language } = useLanguage();
 	const pageContent = (content as languageContentType)[language as keyof typeof content].stackedBarPlotCost;
+	  const canvasRef = createRef<HTMLCanvasElement>();
 
-	// State to manage which dataset is currently displayed
+
 	const [currentData, setCurrentData] = useState<'yearly' | 'onetime'>('yearly');
 
-	// Process labels to wrap text
-	const wrappedLabels = labels.map((label) => wrapLabel(label, 30)); // Adjust maxChars as needed
+	const wrappedLabels = labels.map((label) => wrapLabel(label, 30));
 
 	const tagArray = labelIdentifier.map((item) => {
 		const costInfo = classifyOutput(item);
 		return costInfo?.costType;
 	});
 
-	// Initialize data arrays for values and background colors
-	const valuesArray: number[] = [];
-	const backgroundColorsArray: string[] = [];
-	const typesArray: string[] = [];
+	const dataPoints: IErrorBarYDataPoint[] = dataSet1.map((item, index) => ({
+		y: item.value,
+		yMin: CI_lower[index],
+		yMax: CI_upper[index],
+	}));
 
-	// Map dataSet1 to values and background colors
-	for (let i = 0; i < dataSet1.length; i++) {
-		const item = dataSet1[i];
-		valuesArray.push(item.value);
-		typesArray.push(item.type); // Keep track of the type for tooltips
-		if (item.type === 'confidence') {
-			backgroundColorsArray.push('#A4B4D4');
-		} else if (item.type === 'statistics') {
-			backgroundColorsArray.push('#ded8ca');
-		} else {
-			backgroundColorsArray.push('#8997B3'); // Default color
-		}
-	}
-
-	// Combine all relevant data into an array of objects
 	const combinedData = dataSet1.map((item, index) => ({
 		label: labels[index],
 		wrappedLabel: wrappedLabels[index],
-		value: valuesArray[index],
-		type: typesArray[index],
-		backgroundColor: backgroundColorsArray[index],
+		value: dataPoints[index],
+		type: item.type,
+		backgroundColor: item.type === 'confidence' ? '#A4B4D4' : item.type === 'statistics' ? '#ded8ca' : '#8997B3',
 		tag: tagArray[index],
 	}));
 
-	// Sort the combined data based on the value in descending order
-	combinedData.sort((a, b) => b.value - a.value);
+	combinedData.sort((a, b) => b.value.y - a.value.y);
 
-	console.log(combinedData);
-
-	// Separate data into yearly and one-time based on the tag
 	const yearlyData = combinedData.filter((item) => item.tag === 'jährlich');
 	const onetimeData = combinedData.filter((item) => item.tag === 'einmalig');
 
-	console.log(yearlyData, onetimeData);
-
-	// Extract the sorted arrays for yearly data
-	const yearlySortedWrappedLabels = yearlyData.map((item) => item.wrappedLabel);
-	const yearlySortedValuesArray = yearlyData.map((item) => item.value);
-	const yearlySortedBackgroundColorsArray = yearlyData.map((item) => item.backgroundColor);
-	const yearlySortedTypesArray = yearlyData.map((item) => item.type);
-
-	// Extract the sorted arrays for one-time data
-	const onetimeSortedWrappedLabels = onetimeData.map((item) => item.wrappedLabel);
-	const onetimeSortedValuesArray = onetimeData.map((item) => item.value);
-	const onetimeSortedBackgroundColorsArray = onetimeData.map((item) => item.backgroundColor);
-	const onetimeSortedTypesArray = onetimeData.map((item) => item.type);
-
-	// Bar chart data structures
-	const dataYear = {
-		labels: yearlySortedWrappedLabels, // Use sorted and wrapped labels
-		datasets: [
-			{
-				label: 'Values',
-				data: yearlySortedValuesArray,
-				backgroundColor: yearlySortedBackgroundColorsArray,
-				borderRadius: 8,
-			},
-		],
-	};
-
-	const dataOnetime = {
-		labels: onetimeSortedWrappedLabels, // Use sorted and wrapped labels
-		datasets: [
-			{
-				label: 'Values',
-				data: onetimeSortedValuesArray,
-				backgroundColor: onetimeSortedBackgroundColorsArray,
-				borderRadius: 8,
-			},
-		],
-	};
-
-	// Define the bar chart options
-	const options: ChartOptions<'bar'> = {
+	const options: ChartConfiguration<'barWithErrorBars'>['options'] = {
 		responsive: true,
 		maintainAspectRatio: false,
 		scales: {
-			x: {
-				ticks: {
-					font: {
-						size: 12, // Adjust font size as needed
-					},
-				},
-			},
+			x: { ticks: { font: { size: 12 } } },
 			y: {
 				beginAtZero: true,
 				ticks: {
-					font: {
-						size: 12, // Adjust font size as needed
-					},
-					callback: function (value) {
-						const valueNumber = Number(value);
-						return new Intl.NumberFormat('de-CH').format(valueNumber);
-					},
+					font: { size: 12 },
+					callback: (value) => new Intl.NumberFormat('de-CH').format(Number(value)),
 				},
 			},
 		},
 		plugins: {
-			legend: {
-				display: false, // We have only one dataset, so no need for a legend
-			},
-			tooltip: {
-				callbacks: {
-					label: function (context) {
-						const index = context.dataIndex;
-						const type = currentData === 'yearly' ? yearlySortedTypesArray[index] : onetimeSortedTypesArray[index];
-						const rawValue = context.raw as number;
-						const formattedValue = new Intl.NumberFormat('de-CH').format(rawValue);
-						return `${type === 'statistics' ? pageContent.mean : pageContent.model}: ${formattedValue} CHF`;
-					},
-				},
-			},
+			legend: { display: false },
+			// tooltip: {
+			// 	callbacks: {
+			// 		label: (context) => {
+			// 			const index = context.dataIndex;
+			// 			const type = currentData === 'yearly' ? yearlyData[index].type : onetimeData[index].type;
+			// 			const rawValue = context.raw as IErrorBarYDataPoint;
+			// 			const formattedValue = new Intl.NumberFormat('de-CH').format(rawValue.y);
+			// 			const ciLower = new Intl.NumberFormat('de-CH').format(rawValue.yMin);
+			// 			const ciUpper = new Intl.NumberFormat('de-CH').format(rawValue.yMax);
+			// 			return `${type === 'statistics' ? pageContent.mean : pageContent.model}: ${formattedValue} CHF (CI: ${ciLower} - ${ciUpper} CHF)`;
+			// 		},
+			// 	},
+			// },
 			datalabels: {
 				anchor: 'end',
 				align: 'end',
 				color: 'gray',
-				formatter: function (value) {
-					const formattedValue = new Intl.NumberFormat('de-CH').format(value);
-					return `${formattedValue} CHF`;
-				},
+				formatter: (value: IErrorBarYDataPoint) => `${new Intl.NumberFormat('de-CH').format(value.y)} CHF`,
 			},
 		},
+	};
+	const canvas = canvasRef.current;
+
+	if (canvas) {
+		const ctx = canvas.getContext('2d');
+		if (ctx) {
+			const chartConfig: ChartConfiguration<'barWithErrorBars'> = {
+				type: 'barWithErrorBars',
+				data: {
+					labels: yearlyData.map((item) => item.wrappedLabel),
+					datasets: [
+						{
+							data: yearlyData.map((item) => item.value),
+							backgroundColor: yearlyData.map((item) => item.backgroundColor),
+							borderRadius: 8,
+						},
+					],
+				},
+				options: options,
+			};
+			new Chart(ctx, chartConfig);
+		}
+	}
+
+	const dataOnetimeConfig: ChartConfiguration<'barWithErrorBars'> = {
+		type: 'barWithErrorBars',
+		data: {
+			labels: onetimeData.map((item) => item.wrappedLabel),
+			datasets: [
+				{
+					data: onetimeData.map((item) => item.value),
+					backgroundColor: onetimeData.map((item) => item.backgroundColor),
+					borderRadius: 8,
+				},
+			],
+		},
+		options: options,
 	};
 
 	return (
@@ -208,13 +162,10 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, l
 					{pageContent.oneTimeCosts}
 				</button>
 			</div>
-			{/* <div className="flex self-end flex-row gap-1 items-center">
-				<div className="w-10 h-4 bg-yellow-700 rounded-sm"></div>Statistical <sup>1</sup>
-				<div className="w-10 h-4 bg-green-700 rounded-sm ms-4"></div> Statistical <sup>2</sup>
-			</div> */}
 			<div className="w-full h-full flex items-center justify-center">
 				<div className="w-full h-full">
-					<Bar data={currentData === 'yearly' ? dataYear : dataOnetime} options={options} />
+					{/* <Chart {...(currentData === 'yearly' ? dataYearConfig : dataOnetimeConfig)} /> */}
+					<canvas ref={canvasRef} />
 				</div>
 			</div>
 		</div>

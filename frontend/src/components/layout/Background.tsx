@@ -38,7 +38,6 @@ const Background: React.FC<BackgroundProps> = ({ children, fullscreen }) => {
 		}
 	}, [location, currentProgress]);
 
-	console.log(width);
 
 	return (
 		<>

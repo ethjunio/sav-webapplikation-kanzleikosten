@@ -13,7 +13,6 @@ const SummeryCard: React.FC<SummeryCardProps> = ({ totalYearlyCost, totalOnceCos
 
 	const ComponentContent = (content as any)[language as keyof typeof content].summeryCard;
 
-	console.log(totalYearlyCost);
 
 	const parseBold = (text: string) => {
 		const parts = text.split(/(\*\*[^*]+\*\*)/g);

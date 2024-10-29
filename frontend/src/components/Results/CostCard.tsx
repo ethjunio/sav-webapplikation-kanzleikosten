@@ -20,7 +20,6 @@ const CostCard: React.FC = () => {
 	const pageContent = (content as languageContentType)[language as keyof typeof content].costPlot;
 	const labelContent = (content as languageContentType)[language as keyof typeof content].checkboxLabels;
 
-	console.log(calculationResults);
 
 	// Extract output parameter identifiers from the form state
 	const labelIdentifier = Object.keys(calculationResults);
@@ -42,8 +41,6 @@ const CostCard: React.FC = () => {
 	const ciLower = labelIdentifier.map((identifier) => {
 		if (calculationResults[identifier].type === 'confidence') {
 			return (calculationResults[identifier] as EstimateWithConfidence)?.CI_lower || 0;
-		} else if (calculationResults[identifier].type === 'statistics') {
-			return (calculationResults[identifier] as EstimateWithStatistics)?.estimatedCost || 0;
 		} else {
 			return 0;
 		}
@@ -51,16 +48,13 @@ const CostCard: React.FC = () => {
 	const ciUpper = labelIdentifier.map((identifier) => {
 		if (calculationResults[identifier].type === 'confidence') {
 			return (calculationResults[identifier] as EstimateWithConfidence)?.CI_upper || 0;
-		} else if (calculationResults[identifier].type === 'statistics') {
-			return (calculationResults[identifier] as EstimateWithStatistics)?.estimatedCost || 0;
 		} else {
 			return 0;
 		}
 	});
 
-	console.log(dataSet1);
-	console.log(ciLower);
-	console.log(ciUpper);
+
+
 	return (
 		<div className="flex flex-col w-full flex-grow  items-start h-screen rounded-2xl px-0 py-12">
 			<h2 className="font-bold text-start w-2/3 text-gray-700">{pageContent.titel}</h2>
@@ -77,7 +71,7 @@ const CostCard: React.FC = () => {
 			</div>
 
 			<div className="flex items-end self-end content-stretch flex-grow w-full">
-				<BarPlotCost dataSet1={dataSet1} labels={labels} labelIdentifier={labelIdentifier} />
+				<BarPlotCost dataSet1={dataSet1} labels={labels} labelIdentifier={labelIdentifier} CI_lower={ciLower} CI_upper={ciUpper} />
 			</div>
 		</div>
 	);

@@ -44,7 +44,6 @@ function calculateTotalCost(entries: Entry[]): string {
 
 //Function to format String into Currency
 function formatCost(value: string) {
-	console.log(value);
 	const numericValue = parseFloat(value?.replace(/[^\d.-]/g, ''));
 	return (
 		numericValue.toLocaleString('de-CH', {
@@ -79,7 +78,6 @@ const Table: React.FC<TableProps> = ({ identifiers, values }) => {
 
 	const ComponentContent = (content as languageContentType)[language as keyof typeof content].table;
 
-	console.log(identifiers);
 	// Step 1: Process the identifiers
 	const entries: Entry[] = identifiers
 		.map((identifier, index) => {
