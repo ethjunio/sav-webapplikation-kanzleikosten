@@ -35,6 +35,18 @@ const LangugageSwitch = () => {
 					}}
 					languageText="English"
 				/>
+				<DropdownItem
+					onClick={() => {
+						setLanguage('French');
+					}}
+					languageText="French"
+				/>
+				<DropdownItem
+					onClick={() => {
+						setLanguage('Italian');
+					}}
+					languageText="Italian"
+				/>
 			</div>
 		</DropdownOverlay>
 	);
