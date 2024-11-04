@@ -1,6 +1,6 @@
 // StackedBarPlotCost.tsx
 
-import React, { useState } from 'react';
+import React, { SetStateAction, useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartOptions } from 'chart.js';
 import { PlotEntry } from './CostCard';
@@ -11,6 +11,7 @@ import { roundTo } from '../../utils/roundTo';
 import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 import { languageContentType } from '../../types/languageContentType';
+import { useWindowWidth } from '../../context/WindowWidthContext';
 
 // Register necessary ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartDataLabels);
@@ -19,6 +20,8 @@ interface StackedBarPlotProps {
 	dataSet1: PlotEntry[];
 	labels: string[];
 	labelIdentifier: string[];
+	currentData: string;
+	setCurrentData: React.Dispatch<SetStateAction<string>>;
 }
 
 /**
@@ -27,7 +30,7 @@ interface StackedBarPlotProps {
  * @param maxChars - Maximum number of characters per line.
  * @returns An array of strings, each representing a line.
  */
-const wrapLabel = (label: string, maxChars: number = 15): string[] => {
+const wrapLabel = (label: string, maxChars: number): string[] => {
 	const words = label.split(' ');
 	const lines: string[] = [];
 	let currentLine = '';
@@ -51,17 +54,14 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
 	return lines;
 };
 
-const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, labelIdentifier }) => {
-	console.log(dataSet1, labels);
-
+const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, labelIdentifier, currentData, setCurrentData }) => {
 	const { language } = useLanguage();
+	const { width } = useWindowWidth();
+
 	const pageContent = (content as languageContentType)[language as keyof typeof content].stackedBarPlotCost;
 
-	// State to manage which dataset is currently displayed
-	const [currentData, setCurrentData] = useState<'yearly' | 'onetime'>('yearly');
-
 	// Process labels to wrap text
-	const wrappedLabels = labels.map((label) => wrapLabel(label, 30)); // Adjust maxChars as needed
+	const wrappedLabels = labels.map((label) => wrapLabel(label, width > 767 ? 30 : 12)); // Adjust maxChars as needed
 
 	const tagArray = labelIdentifier.map((item) => {
 		const costInfo = classifyOutput(item);
@@ -145,27 +145,38 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, l
 		],
 	};
 
+	const indexAxis = width > 767 ? 'x' : 'y';
+	const valueAxis = indexAxis === 'x' ? 'y' : 'x';
+	const categoryAxis = indexAxis === 'x' ? 'x' : 'y';
+
 	// Define the bar chart options
 	const options: ChartOptions<'bar'> = {
 		responsive: true,
+		devicePixelRatio: 2,
+		indexAxis: indexAxis,
 		maintainAspectRatio: false,
-		scales: {
-			x: {
-				ticks: {
-					font: {
-						size: 12, // Adjust font size as needed
-					},
-				},
+		layout: {
+			padding: {
+				top: 40,
 			},
-			y: {
+		},
+		scales: {
+			[valueAxis]: {
 				beginAtZero: true,
 				ticks: {
 					font: {
-						size: 12, // Adjust font size as needed
+						size: width > 767 ? 16 : 8,
 					},
 					callback: function (value) {
 						const valueNumber = Number(value);
 						return new Intl.NumberFormat('de-CH').format(valueNumber);
+					},
+				},
+			},
+			[categoryAxis]: {
+				ticks: {
+					font: {
+						size: width > 767 ? 16 : 8,
 					},
 				},
 			},
@@ -187,7 +198,7 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, l
 			},
 			datalabels: {
 				anchor: 'end',
-				align: 'end',
+				align: width > 767 ? 'end' : 'start',
 				color: 'gray',
 				formatter: function (value) {
 					const formattedValue = new Intl.NumberFormat('de-CH').format(value);
@@ -198,23 +209,22 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, l
 	};
 
 	return (
-		<div className="w-full h-full flex items-start flex-col justify-center gap-5">
+		<div className="w-full h-full flex items-start flex-col justify-center sm:gap-5">
 			{/* Switch Buttons */}
-			<div className="flex self-end">
+			<div id="switchButtons" className="flex self-end md:self-start">
 				<button className={`px-4 py-2 mr-2 ${currentData === 'yearly' ? 'bg-primaryFade text-white' : 'bg-gray-200'} rounded-lg`} onClick={() => setCurrentData('yearly')}>
 					{pageContent.yearlyCosts}
 				</button>
-				<button className={`px-4 py-2 ${currentData === 'onetime' ? 'bg-primaryFade text-white' : 'bg-gray-200'} rounded-lg`} onClick={() => setCurrentData('onetime')}>
+				<button
+					className={`px-4 py-2 ${currentData === 'onetime' || currentData === 'oneTimeImage' ? 'bg-primaryFade text-white' : 'bg-gray-200'} rounded-lg`}
+					onClick={() => setCurrentData('onetime')}
+				>
 					{pageContent.oneTimeCosts}
 				</button>
 			</div>
-			{/* <div className="flex self-end flex-row gap-1 items-center">
-				<div className="w-10 h-4 bg-yellow-700 rounded-sm"></div>Statistical <sup>1</sup>
-				<div className="w-10 h-4 bg-green-700 rounded-sm ms-4"></div> Statistical <sup>2</sup>
-			</div> */}
-			<div className="w-full h-full flex items-center justify-center">
+			<div className="w-full h-full flex items-center justify-center overflow-visible">
 				<div className="w-full h-full">
-					<Bar data={currentData === 'yearly' ? dataYear : dataOnetime} options={options} />
+					<Bar data={currentData === 'yearly' || currentData === 'yearlyImage' ? dataYear : dataOnetime} options={options} />
 				</div>
 			</div>
 		</div>

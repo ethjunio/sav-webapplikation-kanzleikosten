@@ -82,7 +82,7 @@
 			"Datensicherheit": "Datensicherheit",
 			"HostedDataStorage": "Hosted Data Storage / Management Solution",
 			"SichererDatenaustausch": "Sicherer Datenaustausch (extern)",
-			"VideoKonferenzen": "Video-/Telefonkonferenzen",
+			"VideoKonferenzen": "Video- / Telefonkonferenzen",
 			"SocialMedia": "Web- und Social Media-Auftritt (inkl. Ads)",
 			"ChatExtern": "Chat-Lösung mit Klienten (extern)",
 			"ChatIntern": "Chat-Lösung mit Mitarbeitenden (intern)",
@@ -102,7 +102,7 @@
 			"Videokonferenzsystem": "Videokonferenzsystem",
 			"Laptops": "Geschäfts-Laptops",
 			"ServerNetzwerk": "Server und Netzwerkgeräte",
-			"InternetMobile": "Internet (mobile/office)",
+			"InternetMobile": "Internet (mobile / office)",
 			"EinmaligerHardwareKauf": "Einmaliger Kauf von Hardware",
 			"personalkostenTitel": "Personalkosten",
 			"sicherheitTitel": "Sicherheit und Datenschutz",
@@ -180,18 +180,21 @@
 			"legend1": "Ihre Kanzlei",
 			"legend2": "Referenz Kanzlei",
 			"locationNumberLabel": "Anzahl Standorte",
+			"locationTypeLabel": "Standorttyp",
 			"processLeadingPersonnelLabel": "Verantwortliches Personal",
 			"partnersCountLabel": "Anzahl Partner",
 			"employeesCountLabel": "Anzahl Mitarbeiter",
+			"serviceTypeLabel": "Serivce Typ",
 			"revenuePerYearLabel": "Jahresumsatz",
 			"operatingCostsPerYearLabel": "Jährliche Betriebskosten",
 			"yourFirm": "Ihre Kanzlei",
-			"referenceFirm": "Referenzkanzlei"
+			"referenceFirm": "Referenzkanzlei",
+			"outputParametersLabel": "Ausgewählter Output"
 		},
 		"costPlot": {
 			"titel": "Digitalisierungskosten",
 			"description": "Das Diagramm zeigt die geschätzten Ausgaben für Ihre geplanten Digitalisierungsmassnahmen. Die Kosten basieren auf den aktuellen Investitionen ähnlicher Kanzleien, sodass Sie eine fundierte Budgetplanung vornehmen können.",
-			"descriptionStatistical": "Keine Schätzung aufgrund mangelder Datengrundlage. Stattdessen Mittelwert aller Kanzleien, die an der Umfrage teilgenommen haben",
+			"descriptionStatistical": "Da keine spezifischen Daten vorliegen, dient hier der Mittelwert aller befragten Kanzleien als Orientierung.",
 			"descriptionRegression": "Ausreichende Datengrundlage für eine modellgestützte Schätzung vorhanden."
 		},
 		"table": {
@@ -201,13 +204,27 @@
 		},
 		"summeryCard": {
 			"titel": "Zusammenfassung",
-			"text": "Für die angegebene **Digitalisierungsschritte** geben ähnliche Kanzleien schätzungsweise insgesamt **{totalYearlyCost} pro Jahr** und **{totalOnceCost} einmalig** aus."
+			"text": "Für die angegebene **Digitalisierungsschritte** geben Kanzleien schätzungsweise insgesamt **{totalYearlyCost} pro Jahr** und **{totalOnceCost} einmalig** aus."
 		},
 		"stackedBarPlotCost": {
 			"yearlyCosts": "Jährlich Kosten",
 			"oneTimeCosts": "Einmalige Kosten",
 			"mean": "Mittelwert",
 			"model": "Modell"
+		},
+		"report": {
+			"titel": "Kanzleikostenrechner Bericht",
+			"header1": "Kanzleikostenrechner",
+			"header2": "SAV FSA - Schweizerischer Anwaltsverand",
+			"tabelKey": "Eigenschaft",
+			"tabelValue": "Eingabe",
+			"inputSectionTitel": "Eingabe",
+			"inputSection": "Sie haben folgende Kanzleidaten in den Rechner eingegeben. Basierend auf diesen Angaben wurden die spezifischen Digitalisierungskosten berechnet.",
+			"headerTitle": "Bericht",
+			"introTitel": "Einführung",
+			"limitationTitel": "Limitierung",
+			"introduction": "Der Kanzleikosten-Rechner des SAV bietet Anwaltskanzleien eine fundierte Schätzung der potenziellen Digitalisierungskosten. Basierend auf einer Modellierung, die von gfs.bern entwickelt wurde, zielt dieses Tool darauf ab, eine Übersicht über die möglichen finanziellen Aufwände für verschiedene Digitalisierungsschritte zu bieten. Kanzleien können mithilfe des Rechners spezifische Schritte auswählen, die sie durchführen möchten, und erhalten so eine Übersicht der durchschnittlichen Kosten im Vergleich zu ähnlichen Kanzleien.",
+			"limitations": "Der Kanzleikosten-Rechner basiert auf einer Umfrage, die von gfs.bern im Auftrag des SAV im Jahr 2024 durchgeführt wurde. Die Kostenkalkulation stützt sich auf Daten von 489 teilnehmenden Kanzleien, wobei einige Kostenkategorien auf einer kleineren Datengrundlage basieren. Für Digitalisierungsschritte, zu denen nur wenige Kanzleien Angaben gemacht haben, werden Mediane statt spezifischer Schätzungen ausgegeben. Die dargestellten Kosten sind als Orientierung gedacht und können in der Realität je nach Kanzlei erheblich abweichen. Der Rechner bietet keine exakte Voraussage, sondern eine Annäherung basierend auf vorhandenen Daten."
 		}
 	},
 
@@ -294,7 +311,7 @@
 			"Datensicherheit": "Data Security",
 			"HostedDataStorage": "Hosted Data Storage / Management Solution",
 			"SichererDatenaustausch": "Secure Data Exchange (external)",
-			"VideoKonferenzen": "Video/Teleconferences",
+			"VideoKonferenzen": "Video / Teleconferences",
 			"SocialMedia": "Web and Social Media Presence (incl. Ads)",
 			"ChatExtern": "Chat Solution with Clients (external)",
 			"ChatIntern": "Chat Solution with Employees (internal)",
@@ -314,7 +331,7 @@
 			"Videokonferenzsystem": "Video Conference System",
 			"Laptops": "Business Laptops",
 			"ServerNetzwerk": "Servers and Networking Devices",
-			"InternetMobile": "Internet (mobile/office)",
+			"InternetMobile": "Internet (mobile / office)",
 			"EinmaligerHardwareKauf": "One-Time Hardware Purchase",
 			"personalkostenTitel": "Personnel Costs",
 			"sicherheitTitel": "Security and Privacy",
@@ -394,16 +411,19 @@
 			"locationNumberLabel": "Number of Locations",
 			"processLeadingPersonnelLabel": "Responsible Personnel",
 			"partnersCountLabel": "Number of Partners",
+			"locationTypeLabel": "Type of location",
 			"employeesCountLabel": "Number of Employees",
+			"serviceTypeLabel": "Serivce type",
 			"revenuePerYearLabel": "Annual Revenue",
 			"operatingCostsPerYearLabel": "Annual Operating Costs",
 			"yourFirm": "Your Firm",
-			"referenceFirm": "Reference Firm"
+			"referenceFirm": "Reference Firm",
+			"outputParametersLabel": "Chosen Output"
 		},
 		"costPlot": {
 			"titel": "Digitization Costs",
 			"description": "The diagram presents the estimated expenses for your planned digitization measures. The costs are based on the current investments of similar law firms, allowing you to make informed budget planning.",
-			"descriptionStatistical": "Insufficient data available. Instead, the average value of all firms participating in the survey was used.",
+			"descriptionStatistical": "As no specific data is available, the mean of all surveyed law firms serves as a guide here.",
 			"descriptionRegression": "Sufficient data available for a model-based estimation."
 		},
 		"table": {
@@ -413,13 +433,26 @@
 		},
 		"summeryCard": {
 			"titel": "Summary",
-			"text": "For the specified **digitalization steps**, similar law firms spend an estimated total of **{totalYearlyCost} per year** and **{totalOnceCost} one-time**."
+			"text": "For the specified **digitalization steps**, law firms spend an estimated total of **{totalYearlyCost} per year** and **{totalOnceCost} one-time**."
 		},
 		"stackedBarPlotCost": {
 			"yearlyCosts": "Yearly Costs",
 			"oneTimeCosts": "One-time Costs",
 			"mean": "Mean",
 			"model": "Model"
+		},
+		"report": {
+			"titel": "Law Firm Cost Calculator Report",
+			"header1": "Law Firm Cost Calculator",
+			"header2": "SAV FSA - Swiss Law Firm Association",
+			"inputSectionTitel": "Input",
+			"inputSection": "You have entered the following law firm data into the calculator. Based on this information, the specific digitalization costs have been calculated.",
+			"tabelKey": "Property",
+			"tabelValue": "Input",
+			"introTitel": "Introduction",
+			"introduction": "The SAV Law Firm Cost Calculator provides law firms with an informed estimate of potential digitalization costs. Based on a model developed by gfs.bern, this tool aims to offer a financial overview of various digitalization steps. Law firms can select specific steps they wish to implement and receive a comparison of average costs with similar firms.",
+			"limitationTitel": "Limitations",
+			"limitations": "The Law Firm Cost Calculator is based on a 2024 survey conducted by gfs.bern on behalf of the SAV. The cost calculations rely on data from 489 participating law firms, with some cost categories based on a smaller dataset. For digitalization steps with limited data, median values are displayed rather than specific estimates. The presented costs serve as a guideline and may vary significantly in practice. The calculator does not provide an exact prediction but offers an approximation based on available data."
 		}
 	}
 }

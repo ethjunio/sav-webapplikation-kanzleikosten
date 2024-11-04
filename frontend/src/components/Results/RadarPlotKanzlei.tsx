@@ -3,6 +3,7 @@
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend, ChartOptions, PointStyle } from 'chart.js';
+import { useWindowWidth } from '../../context/WindowWidthContext';
 
 // Register necessary ChartJS components
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
@@ -47,6 +48,7 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
 };
 
 const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2, legendLabel2, labels }) => {
+	const { width } = useWindowWidth();
 	// Transformation function
 	const transformData = (data: number[]) => {
 		return data.map((value) => Math.log(value + 1));
@@ -57,7 +59,7 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 	const transformedDataSet2 = transformData(dataSet2);
 
 	// Process labels to wrap text
-	const wrappedLabels = labels.map((label) => wrapLabel(label, 15)); // Adjust maxChars as needed
+	const wrappedLabels = labels.map((label) => wrapLabel(label, width > 767 ? 30 : 12)); // Adjust maxChars as needed
 
 	// Radar chart data structure
 	const data = {
@@ -92,13 +94,14 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 	const options: ChartOptions<'radar'> = {
 		responsive: true,
 		maintainAspectRatio: false,
+		devicePixelRatio: 2,
 		scales: {
 			r: {
 				beginAtZero: true,
 				ticks: {
 					// Adjust the font size for tick labels
 					font: {
-						size: 12, // Reduced font size
+						size: width > 767 ? 12 : 8, // Reduced font size
 					},
 					callback: function (value) {
 						// Inverse of the transformation function
@@ -111,7 +114,7 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 				// Adjust the font size and padding for point labels
 				pointLabels: {
 					font: {
-						size: 12, // Adjust font size as needed
+						size: width > 767 ? 12 : 8, // Adjust font size as needed
 					},
 					color: '#4B5563', // Tailwind Gray-700 for better visibility
 				},

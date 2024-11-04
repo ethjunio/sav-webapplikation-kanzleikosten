@@ -100,32 +100,31 @@ const Table: React.FC<TableProps> = ({ identifiers, values }) => {
 	const yearlyGroups = groupBy<Entry>(yearlyEntries, 'groupIdentifier');
 	const onceGroups = groupBy<Entry>(onceEntries, 'groupIdentifier');
 
-	
-
 	return (
-		<>
+		<div className="h-full w-full">
 			<div className="pb-6">
 				<SummeryCard totalYearlyCost={formatCost(totalYearlyCost)} totalOnceCost={formatCost(totalOnceCost)} />
 			</div>
-			<div className="flex flex-row lg:flex-col gap-16 rounded-xl w-full">
+			<div className="flex flex-row items-start justify-center lg:flex-col gap-16 lg:gap-6 rounded-xl w-full">
 				{/* Render "jährlich" section */}
 				{yearlyEntries.length > 0 && (
-					<div className="flex flex-col bg-gray-100 py-8 px-4 justify-start rounded-xl w-full">
-						<div className="font-semibold text-2xl text-center mb-2 pb-2 border-b border-black">{ComponentContent.yearlyLabel}</div>
+					<div id="tableYearly" className="flex flex-col bg-gray-100 py-8 px-4 justify-start rounded-xl w-1/2 lg:w-full">
+						<div className="font-semibold text-2xl text-center sm:text-start mb-2 pb-2 border-b border-black">{ComponentContent.yearlyLabel}</div>
 						{renderGroups(yearlyGroups)}
 						<TableEntry identifier={'yearlyTotal'} variant={'yearlyTotal'} value={formatCost(totalYearlyCost)} />
 					</div>
 				)}
+
 				{/* Render "einmalig" section */}
 				{onceEntries.length > 0 && (
-					<div className="flex flex-col bg-gray-100 py-8 px-4 justify-start  rounded-xl w-full">
-						<div className="font-semibold text-2xl text-center mb-2 pb-2 border-b border-black">{ComponentContent.oneTimeLabel}</div>
+					<div id="tableOnce" className="flex flex-col bg-gray-100 py-8 px-4 justify-start  rounded-xl w-1/2 lg:w-full">
+						<div className="font-semibold text-2xl text-center sm:text-start mb-2 pb-2 border-b border-black">{ComponentContent.oneTimeLabel}</div>
 						{renderGroups(onceGroups)}
 						<TableEntry identifier={'onceTotal'} variant={'onceTotal'} value={formatCost(totalOnceCost)} />
 					</div>
 				)}
 			</div>
-		</>
+		</div>
 	);
 };
 

@@ -27,9 +27,9 @@ const SummeryCard: React.FC<SummeryCardProps> = ({ totalYearlyCost, totalOnceCos
 	};
 
 	return (
-		<div className="flex text-primary flex-col items-center  justify-center gap-5 rounded-xl mb-4">
-			<div className="flex flex-row items-center justify-center gap-2 font-semibold text-6xl">{ComponentContent?.titel}</div>
-			<div className="text-center leading-10 w-2/3 text-4xl ">
+		<div className="flex text-primary flex-col items-center sm:items-start justify-center gap-5 rounded-xl mb-4">
+			<div className="flex flex-row items-center justify-center gap-2 font-semibold text-6xl md:text-4xl">{ComponentContent?.titel}</div>
+			<div id={'summaryText'} className="text-center sm:text-start leading-10 w-2/3 lg:w-full text-4xl md:text-xl">
 				{parseBold(ComponentContent?.text?.replace('{totalYearlyCost}', totalYearlyCost.toString()).replace('{totalOnceCost}', totalOnceCost.toString()))}
 			</div>
 		</div>

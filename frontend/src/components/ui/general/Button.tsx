@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Optional, for routing
+import { useNavigate } from 'react-router-dom';
 
 interface ButtonProps {
 	variant?: string;
@@ -9,9 +9,10 @@ interface ButtonProps {
 	route?: string;
 	width?: string;
 	onClick?: () => void;
+	disable?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ variant = 'primary', width = '100%', endIcon, startIcon, text, route, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ variant = 'primary', width = '100%', endIcon, startIcon, text, route, onClick, disable }) => {
 	const navigate = useNavigate();
 
 	const handleClick = () => {
@@ -28,10 +29,19 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', width = '100%', en
 		secondary: 'bg-gray-500 text-white',
 		ghost: 'bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white duration-200',
 		danger: 'bg-red-500 text-white',
+		report: 'bg-[#28942A] text-white hover:bg-primaryDark duration-200',
 	};
 
+	// Disabled style
+	const disabledClass = 'opacity-70 cursor-not-allowed';
+
 	return (
-		<button onClick={handleClick} className={`h-14 rounded-xl ${variantClasses[variant]} flex items-center px-8 justify-center`} style={{ width }}>
+		<button
+			disabled={disable}
+			onClick={handleClick}
+			className={`h-14 rounded-xl ${variantClasses[variant]} ${disable ? disabledClass : ''} flex items-center px-8 justify-center`}
+			style={{ width }}
+		>
 			{startIcon && <span className="me-2">{startIcon}</span>}
 			{text && <span className="uppercase tracking-wider text-sm font-medium">{text}</span>}
 			{endIcon && <span className="ms-2">{endIcon}</span>}
