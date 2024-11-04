@@ -46,10 +46,10 @@ const TableEntry: React.FC<TableEntryProps> = ({ identifier, value, variant }) =
 
 	return (
 		<div className={`flex flex-row justify-between items-center w-full sm:gap-12 ${variantClass}`}>
-			<div className={`flex flex-row items-center gap-2  ${icon && 'sm:w-full sm:text-sm '}`}>
+			<div className={`flex flex-row items-center gap-2 sm:text-base  ${icon && 'sm:w-full sm:text-sm '}`}>
 				{icon && icon} {ComponentContent[identifier]}
 			</div>
-			<div className="whitespace-nowrap ">{value}</div>
+			<div className="whitespace-nowrap sm:text-base ">{value}</div>
 		</div>
 	);
 };

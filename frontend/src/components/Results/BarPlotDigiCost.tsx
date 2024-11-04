@@ -178,6 +178,7 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, l
 					font: {
 						size: width > 767 ? 16 : 8,
 					},
+					autoSkip: false, // erzwingt die Anzeige aller Labels
 				},
 			},
 		},
@@ -198,7 +199,11 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, l
 			},
 			datalabels: {
 				anchor: 'end',
-				align: width > 767 ? 'end' : 'start',
+				align: function (context) {
+					// Prüfe, ob das aktuelle Label das erste in seinem Datenset ist
+					const isFirstInDataset = context.dataIndex === 0;
+					return isFirstInDataset ? 'start' : 'end';
+				},
 				color: 'gray',
 				formatter: function (value) {
 					const formattedValue = new Intl.NumberFormat('de-CH').format(value);
