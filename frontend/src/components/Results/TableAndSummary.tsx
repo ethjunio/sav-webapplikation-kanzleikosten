@@ -6,7 +6,6 @@ import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 import SummeryCard from './SummaryCard';
 import { formatCost } from '../../utils/formatCost';
-
 // Type definitions
 type CostType = 'jährlich' | 'einmalig';
 type groupIdentifier = 'personalkostenTitel' | 'sicherheitTitel' | 'kommunikationTitel' | 'dienstleistungenTitel' | 'softwareTitel' | 'hardwareTitel';

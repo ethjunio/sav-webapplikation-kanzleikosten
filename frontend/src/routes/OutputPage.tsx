@@ -7,11 +7,13 @@ import { FaBolt } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../context/FormState';
 import { useState } from 'react';
+import { IoMdAlert } from 'react-icons/io';
 
 const OutputPage = () => {
 	const { language } = useLanguage();
 	const { state, dispatch } = useForm();
 	const [selectedList, setSelectedList] = useState<string[]>(state.outputParameters);
+	const [error, setError] = useState<string|null>(null);
 
 	const navigate = useNavigate();
 
@@ -23,8 +25,15 @@ const OutputPage = () => {
 	}
 
 	function handleNextClick() {
-		dispatch({ type: 'SET_OUTPUT_ARRAY', payload: selectedList });
-		navigate('/result');
+		if (selectedList.length > 0) {
+			dispatch({ type: 'SET_OUTPUT_ARRAY', payload: selectedList });
+			navigate('/result');
+		} else {
+			setError(pageContent.error);
+			setTimeout(() => {
+				setError(null); 
+			}, 2000);
+		}
 	}
 
 	return (
@@ -37,7 +46,15 @@ const OutputPage = () => {
 			<OutputCard selectedList={selectedList} setSelectedList={setSelectedList} />
 			<div className="flex flex-row sm:flex-col-reverse gap-4 w-full">
 				<Button text={pageContent.button1} width="100%" variant="ghost" onClick={handleBackClick} route="" />
-				<Button text={pageContent.button2} startIcon={<FaBolt />} onClick={handleNextClick} width="100%" />
+				<div className=" flex w-full flex-col gap-2">
+					<Button text={pageContent.button2} startIcon={<FaBolt />} onClick={handleNextClick} width="100%" />
+					{error && (
+						<div className="flex flex-row items-center justify-center text-red-500 gap-1 text-sm">
+							<IoMdAlert />
+							<div className="">{error}</div>
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

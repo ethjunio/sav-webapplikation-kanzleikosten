@@ -61,7 +61,8 @@
 			"softwareLicenses": "Software und Lizenzen",
 			"hardwareInfrastructure": "Hardware und Infrastruktur",
 			"button1": "Zurück",
-			"button2": "Berechnen"
+			"button2": "Berechnen",
+			"error": "Es muss mindestens ein Digitalisierungsschritt ausgewählt sein."
 		},
 		"resultPage": {
 			"titel": "Resultat",
@@ -70,6 +71,7 @@
 			"disclaimer": "Der Kanzleikosten-Rechner basiert auf einem Modell von gfs.bern. Im Auftrag des SAV hat gfs.bern eine Umfrage bei Mitgliedern des SAV im Jahr 2024 durchgeführt und die Kosten der Kanzleien abgefragt. 489 Kanzleien haben an der Befragung von gfs.bern im Auftrag des SAV teilgenommen. Die Werte zu den Kosten basieren auf bis zu 256 Werten von Kanzleien. Bei den Digitalisierungsschritten, bei denen wenige Kanzleien Kosten angegeben haben, werden Mediane ausgegeben, unabhängig von den Angaben Ihrer Kanzlei. Die Modellierung ist eine Schätzung und dient als Orientierung zu den Digitalisierungskosten von Anwaltskanzleien.",
 			"button1": "Neustart",
 			"button2": "Bericht Herunterladen",
+			"buttonBack": "Zurück",
 			"rangeMessageTitel": "Resultate ausserhalb des Definitionsbereichs",
 			"rangeMessage": "Die berechneten Kostenvorschläge für die folgend aufgeführten Digitalisierungsschritte liegen ausserhalb des definierten Bereichs und werden daher von den Berechnungen ausgeschlossen:",
 			"loadingMessage": "Wird berechnet..."
@@ -291,7 +293,8 @@
 			"softwareLicenses": "Software and Licenses",
 			"hardwareInfrastructure": "Hardware and Infrastructure",
 			"button1": "Back",
-			"button2": "Calculate"
+			"button2": "Calculate",
+			"error": "At least one digitalization step must be selected."
 		},
 		"resultPage": {
 			"titel": "Result",
@@ -300,6 +303,7 @@
 			"disclaimer": "The law firm cost calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. A total of 489 law firms participated in the survey conducted by gfs.bern on behalf of the SAV. The cost values are based on up to 256 data points from law firms. For digitalization steps where few firms provided cost data, medians are used, regardless of your law firm’s specific values. This model is an estimate and serves as a guide to the digitalization costs of law firms.",
 			"button1": "Restart",
 			"button2": "Download Report",
+			"buttonBack": "Back",
 			"rangeMessageTitel": "Results outside rage definition",
 			"rangeMessage": "The cost estimates for the following digitalization steps are outside the defined range and will be excluded from the calculations:",
 			"loadingMessage": "Calculating..."
@@ -519,7 +523,8 @@
 			"softwareLicenses": "Logiciels et licences",
 			"hardwareInfrastructure": "Matériel et infrastructure",
 			"button1": "Retour",
-			"button2": "Calculer"
+			"button2": "Calculer",
+			"error": "Au moins une étape de digitalisation doit être sélectionnée."
 		},
 		"resultPage": {
 			"titel": "Résultat",
@@ -528,6 +533,7 @@
 			"disclaimer": "Le calculateur de coûts du cabinet est basé sur un modèle de gfs.bern. Sur mandat du SAV, gfs.bern a mené une enquête auprès des membres du SAV en 2024 et a recueilli les coûts des cabinets. 489 cabinets ont participé à l'enquête de gfs.bern pour le compte du SAV. Les valeurs des coûts sont basées sur jusqu'à 256 données de cabinets. Pour les étapes de digitalisation où peu de cabinets ont fourni des coûts, des médianes sont utilisées, indépendamment des valeurs spécifiques de votre cabinet. Ce modèle est une estimation et sert de guide pour les coûts de digitalisation des cabinets d'avocats.",
 			"button1": "Redémarrer",
 			"button2": "Télécharger le rapport",
+			"buttonBack": "Retour",
 			"rangeMessageTitel": "Résultats en dehors de la plage définie",
 			"rangeMessage": "Les estimations de coûts pour les étapes de digitalisation suivantes sont en dehors de la plage définie et seront exclues des calculs :",
 			"loadingMessage": "Calcul en cours..."
@@ -749,7 +755,8 @@
 			"softwareLicenses": "Software e licenze",
 			"hardwareInfrastructure": "Hardware e infrastruttura",
 			"button1": "Indietro",
-			"button2": "Calcola"
+			"button2": "Calcola",
+			"error": "Deve essere selezionato almeno un passaggio di digitalizzazione."
 		},
 		"resultPage": {
 			"titel": "Risultato",
@@ -758,6 +765,7 @@
 			"disclaimer": "Il calcolatore dei costi dello studio si basa su un modello di gfs.bern. Su incarico del SAV, gfs.bern ha condotto un sondaggio tra i membri del SAV nel 2024 per raccogliere dati sui costi degli studi legali. Un totale di 489 studi ha partecipato al sondaggio condotto da gfs.bern per conto del SAV. I valori dei costi si basano su un massimo di 256 punti dati di studi legali. Per i passi di digitalizzazione in cui pochi studi hanno fornito dati sui costi, vengono utilizzate le mediane, indipendentemente dai valori specifici del tuo studio. Questo modello è una stima e serve come guida ai costi di digitalizzazione degli studi legali.",
 			"button1": "Riavvia",
 			"button2": "Scarica rapporto",
+			"buttonBack": "Indietro",
 			"rangeMessageTitel": "Risultati al di fuori dell'intervallo definito",
 			"rangeMessage": "Le stime dei costi per i seguenti passi di digitalizzazione sono al di fuori dell'intervallo definito e saranno esclusi dai calcoli:",
 			"loadingMessage": "Calcolo in corso..."

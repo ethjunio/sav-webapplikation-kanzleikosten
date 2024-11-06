@@ -28,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', width = '100%', en
 		primary: 'bg-primary text-white hover:bg-primaryDark duration-200',
 		secondary: 'bg-gray-500 text-white',
 		ghost: 'bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white duration-200',
+		noBorder: 'bg-white border-0 px-0 justify-start hover:text-primary',
 		danger: 'bg-red-500 text-white',
 		report: 'bg-[#28942A] text-white hover:bg-primaryDark duration-200',
 	};
@@ -39,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', width = '100%', en
 		<button
 			disabled={disable}
 			onClick={handleClick}
-			className={`h-14 rounded-xl ${variantClasses[variant]} ${disable ? disabledClass : ''} flex items-center px-8 justify-center`}
+			className={`h-14 rounded-xl flex items-center px-8 justify-center ${variantClasses[variant]} ${disable ? disabledClass : ''}`}
 			style={{ width }}
 		>
 			{startIcon && <span className="me-2">{startIcon}</span>}

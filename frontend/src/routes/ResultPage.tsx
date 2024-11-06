@@ -25,6 +25,7 @@ import { pdf } from '@react-pdf/renderer';
 import html2canvas from 'html2canvas';
 import { quantum } from 'ldrs';
 import { useWindowWidth } from '../context/WindowWidthContext';
+import { FaArrowLeft } from 'react-icons/fa';
 
 // Initialize Quantum library
 quantum.register();
@@ -289,6 +290,9 @@ const ResultPage = () => {
 						</span>
 					</div>
 				)}
+			</div>
+			<div className="w-full flex items-start justify-start h-fit">
+				<Button text={pageContent.buttonBack} width="fit" variant={'secondary'} route="/output" startIcon={<FaArrowLeft />} />
 			</div>
 
 			{/* Cards Section */}
