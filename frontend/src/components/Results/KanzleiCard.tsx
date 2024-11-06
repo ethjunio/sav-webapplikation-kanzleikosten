@@ -61,7 +61,14 @@ const KanzleiCard = () => {
 				</div>
 			</div>
 			<div id="kanzleiPlot" className="flex items-center w-4/6 lg:w-full content-stretch h-full">
-				<RadarPlot dataSet1={plotData} dataSet2={[100, 100, 100, 100, 100, 100]} labels={labels} legendLabel1={pageContent.legend1} legendLabel2={pageContent.legend2} />
+				<RadarPlot
+					referenceFirmDataAbsolut={referenceFirmData}
+					dataSet1={plotData}
+					dataSet2={[100, 100, 100, 100, 100, 100]}
+					labels={labels}
+					legendLabel1={pageContent.legend1}
+					legendLabel2={pageContent.legend2}
+				/>
 			</div>
 		</div>
 	);

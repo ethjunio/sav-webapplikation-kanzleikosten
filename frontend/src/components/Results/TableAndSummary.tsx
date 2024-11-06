@@ -5,6 +5,7 @@ import { languageContentType } from '../../types/languageContentType';
 import { useLanguage } from '../../context/LanguageContext';
 import content from '../../assets/content.json';
 import SummeryCard from './SummaryCard';
+import { formatCost } from '../../utils/formatCost';
 
 // Type definitions
 type CostType = 'jährlich' | 'einmalig';
@@ -40,17 +41,6 @@ function calculateTotalCost(entries: Entry[]): string {
 	}, 0);
 
 	return total.toString();
-}
-
-//Function to format String into Currency
-function formatCost(value: string) {
-	console.log(value);
-	const numericValue = parseFloat(value?.replace(/[^\d.-]/g, ''));
-	return (
-		numericValue.toLocaleString('de-CH', {
-			style: 'decimal',
-		}) + ' CHF'
-	);
 }
 
 // Helper function to render grouped entries

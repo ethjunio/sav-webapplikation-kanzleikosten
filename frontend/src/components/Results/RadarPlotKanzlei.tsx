@@ -4,6 +4,10 @@ import React from 'react';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend, ChartOptions, PointStyle } from 'chart.js';
 import { useWindowWidth } from '../../context/WindowWidthContext';
+import { roundTo } from '../../utils/roundTo';
+import { useLanguage } from '../../context/LanguageContext';
+import { languageContentType } from '../../types/languageContentType';
+import content from '../../assets/content.json';
 
 // Register necessary ChartJS components
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
@@ -15,7 +19,10 @@ interface RadarPlotProps {
 	legendLabel1?: string;
 	legendLabel2?: string;
 	labels: string[];
+	referenceFirmDataAbsolut: number[];
 }
+
+const unitArray = ['', '%', '', '', 'CHF', 'CHF'];
 
 /**
  * Utility function to split a label into multiple lines based on max characters per line.
@@ -47,8 +54,12 @@ const wrapLabel = (label: string, maxChars: number = 15): string[] => {
 	return lines;
 };
 
-const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2, legendLabel2, labels }) => {
+const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2, legendLabel2, labels, referenceFirmDataAbsolut }) => {
 	const { width } = useWindowWidth();
+	const { language } = useLanguage();
+
+	const ComponentContent = (content as any)[language as keyof typeof content].firmPlot;
+
 	// Transformation function
 	const transformData = (data: number[]) => {
 		return data.map((value) => Math.log(value + 1));
@@ -61,7 +72,7 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 	// Process labels to wrap text
 	const wrappedLabels = labels.map((label) => wrapLabel(label, width > 767 ? 30 : 12)); // Adjust maxChars as needed
 
-	// Radar chart data structure
+	// Radar chart data structure DATASET 1 = UserFirm!
 	const data = {
 		labels: wrappedLabels, // Use wrapped labels
 		datasets: [
@@ -136,7 +147,11 @@ const RadarPlot: React.FC<RadarPlotProps> = ({ dataSet1, legendLabel1, dataSet2,
 						const index = context.dataIndex;
 						const datasetIndex = context.datasetIndex;
 						const originalValue = datasetIndex === 0 ? dataSet1[index] : dataSet2[index];
-						return `${context.dataset.label}: ${originalValue}%`;
+						const absoluteValue = datasetIndex === 0 ? (referenceFirmDataAbsolut[index] * dataSet1[index]) / 100 : referenceFirmDataAbsolut[index];
+						return [
+							`${context.dataset.label}: ${originalValue}%`,
+							`${ComponentContent.absoluteValue}: ${roundTo(absoluteValue, 0)}${unitArray[index]}`
+						];
 					},
 				},
 			},

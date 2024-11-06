@@ -131,7 +131,7 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
 		} else {
 			return {
 				type: 'statistics',
-				estimatedCost: (formula as FormulaType)[outputIdentifier]?.mean,
+				estimatedCost: (formula as FormulaType)[outputIdentifier]?.median,
 				mean: (formula as FormulaType)[outputIdentifier]?.mean,
 				q25: 0,
 				q75: 0,
@@ -143,7 +143,7 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
 		// Return with discriminant
 		return {
 			type: 'statistics',
-			estimatedCost: staticResultVector.mean,
+			estimatedCost: staticResultVector.median,
 			mean: staticResultVector.mean,
 			q25: staticResultVector.q25,
 			q75: staticResultVector.q75,

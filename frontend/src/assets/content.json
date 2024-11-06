@@ -189,12 +189,13 @@
 			"operatingCostsPerYearLabel": "Jährliche Betriebskosten",
 			"yourFirm": "Ihre Kanzlei",
 			"referenceFirm": "Referenzkanzlei",
-			"outputParametersLabel": "Ausgewählter Output"
+			"outputParametersLabel": "Ausgewählter Output",
+			"absoluteValue": "Absolutwert"
 		},
 		"costPlot": {
 			"titel": "Digitalisierungskosten",
 			"description": "Das Diagramm zeigt die geschätzten Ausgaben für Ihre geplanten Digitalisierungsmassnahmen. Die Kosten basieren auf den aktuellen Investitionen ähnlicher Kanzleien, sodass Sie eine fundierte Budgetplanung vornehmen können.",
-			"descriptionStatistical": "Da keine spezifischen Daten vorliegen, dient hier der Mittelwert aller befragten Kanzleien als Orientierung.",
+			"descriptionStatistical": "Da keine spezifischen Daten vorliegen, dient hier der Median aller befragten Kanzleien als Orientierung.",
 			"descriptionRegression": "Ausreichende Datengrundlage für eine modellgestützte Schätzung vorhanden."
 		},
 		"table": {
@@ -209,7 +210,7 @@
 		"stackedBarPlotCost": {
 			"yearlyCosts": "Jährlich Kosten",
 			"oneTimeCosts": "Einmalige Kosten",
-			"mean": "Mittelwert",
+			"mean": "Median",
 			"model": "Modell"
 		},
 		"report": {
@@ -418,12 +419,13 @@
 			"operatingCostsPerYearLabel": "Annual Operating Costs",
 			"yourFirm": "Your Firm",
 			"referenceFirm": "Reference Firm",
-			"outputParametersLabel": "Chosen Output"
+			"outputParametersLabel": "Chosen Output",
+			"absoluteValue": "Absolut value"
 		},
 		"costPlot": {
 			"titel": "Digitization Costs",
 			"description": "The diagram presents the estimated expenses for your planned digitization measures. The costs are based on the current investments of similar law firms, allowing you to make informed budget planning.",
-			"descriptionStatistical": "As no specific data is available, the mean of all surveyed law firms serves as a guide here.",
+			"descriptionStatistical": "As no specific data is available, the median of all surveyed law firms serves as a guide here.",
 			"descriptionRegression": "Sufficient data available for a model-based estimation."
 		},
 		"table": {
@@ -438,7 +440,7 @@
 		"stackedBarPlotCost": {
 			"yearlyCosts": "Yearly Costs",
 			"oneTimeCosts": "One-time Costs",
-			"mean": "Mean",
+			"mean": "Median",
 			"model": "Model"
 		},
 		"report": {
@@ -645,12 +647,13 @@
 			"operatingCostsPerYearLabel": "Coûts opérationnels annuels",
 			"yourFirm": "Votre cabinet",
 			"referenceFirm": "Cabinet de référence",
-			"outputParametersLabel": "Sortie sélectionnée"
+			"outputParametersLabel": "Sortie sélectionnée",
+			"absoluteValue": "Valeur Absolue"
 		},
 		"costPlot": {
 			"titel": "Coûts de digitalisation",
 			"description": "Le diagramme présente les dépenses estimées pour vos mesures de digitalisation planifiées. Les coûts sont basés sur les investissements actuels de cabinets similaires, vous permettant de planifier votre budget de manière éclairée.",
-			"descriptionStatistical": "Comme aucune donnée spécifique n'est disponible, la moyenne de tous les cabinets interrogés sert ici de guide.",
+			"descriptionStatistical": "Comme aucune donnée spécifique n'est disponible, la médian de tous les cabinets interrogés sert ici de guide.",
 			"descriptionRegression": "Données suffisantes disponibles pour une estimation basée sur un modèle."
 		},
 		"table": {
@@ -665,7 +668,7 @@
 		"stackedBarPlotCost": {
 			"yearlyCosts": "Coûts annuels",
 			"oneTimeCosts": "Coûts uniques",
-			"mean": "Moyenne",
+			"mean": "Médian",
 			"model": "Modèle"
 		},
 		"report": {
@@ -874,12 +877,13 @@
 			"operatingCostsPerYearLabel": "Costi operativi annui",
 			"yourFirm": "Il tuo studio",
 			"referenceFirm": "Studio di riferimento",
-			"outputParametersLabel": "Output selezionato"
+			"outputParametersLabel": "Output selezionato",
+			"absoluteValue": "Valore Assoluto"
 		},
 		"costPlot": {
 			"titel": "Costi di digitalizzazione",
 			"description": "Il diagramma presenta le spese stimate per le tue misure di digitalizzazione pianificate. I costi si basano sugli investimenti attuali di studi legali simili, permettendoti di pianificare il budget in modo informato.",
-			"descriptionStatistical": "Poiché non sono disponibili dati specifici, qui la media di tutti gli studi intervistati serve come guida.",
+			"descriptionStatistical": "Poiché non sono disponibili dati specifici, qui la mediano di tutti gli studi intervistati serve come guida.",
 			"descriptionRegression": "Dati sufficienti disponibili per una stima basata su modello."
 		},
 		"table": {
@@ -894,7 +898,7 @@
 		"stackedBarPlotCost": {
 			"yearlyCosts": "Costi annuali",
 			"oneTimeCosts": "Costi una tantum",
-			"mean": "Media",
+			"mean": "Mediano",
 			"model": "Modello"
 		},
 		"report": {
