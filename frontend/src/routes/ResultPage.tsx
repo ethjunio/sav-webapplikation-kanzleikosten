@@ -96,14 +96,9 @@ const ResultPage = () => {
 
 				// Process results and update states
 				results.forEach(({ index, identifier, result }) => {
-					if (result.type === 'outOfRange') {
-						// Collect warnings for out-of-range results
-						newWarnings.push(identifier);
-					} else {
-						// Update table values and calculation results
-						newTableValues[index] = result.estimatedCost.toString();
-						updateCalculationResult(identifier, result);
-					}
+					// Update table values and calculation results
+					newTableValues[index] = result.estimatedCost.toString();
+					updateCalculationResult(identifier, result);
 				});
 
 				setWarning(newWarnings);
@@ -314,7 +309,7 @@ const ResultPage = () => {
 					{/* Button to reset or go back */}
 					<Button text={pageContent.button1} width="100%" variant={width > 1000 ? 'secondary' : 'primary'} route="/" />
 					{/* Button to generate the report */}
-					{ width > 1000 ?
+					{width > 1000 ? (
 						<Button
 							startIcon={<TbReport />}
 							text={loadingReport ? 'loading...' : pageContent.button2}
@@ -323,7 +318,9 @@ const ResultPage = () => {
 							variant="primary"
 							disable={loadingReport}
 						/>
-					 : ''}
+					) : (
+						''
+					)}
 				</div>
 			</div>
 
@@ -331,7 +328,6 @@ const ResultPage = () => {
 			<div className="flex flex-col items-center sm:items-start w-full text-center sm:text-start border-t-2 pt-8 my-12">
 				<h1 className="text-xl font-semibold">{pageContent.disclaimerTitel}</h1>
 				<p className="mt-2 w-2/3 lg:w-full">{pageContent.disclaimer}</p>
-				
 			</div>
 		</div>
 	);

@@ -18,6 +18,8 @@ export interface InputEstimate {
 }
 
 interface OutputData {
+	mean: number;
+	median: number;
 	estimate: InputEstimate;
 	range: number[];
 	matrix: number[][];
@@ -128,10 +130,11 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
 			};
 		} else {
 			return {
-				type: 'outOfRange',
-				estimatedCost: 0,
-				CI_lower: 0,
-				CI_upper: 0,
+				type: 'statistics',
+				estimatedCost: (formula as FormulaType)[outputIdentifier]?.mean,
+				mean: (formula as FormulaType)[outputIdentifier]?.mean,
+				q25: 0,
+				q75: 0,
 			};
 		}
 	} else {
