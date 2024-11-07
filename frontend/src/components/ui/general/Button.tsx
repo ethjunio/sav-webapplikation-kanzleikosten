@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'primary', width = '100%', en
 	// Apply different classes based on the variant prop
 	const variantClasses: { [key: string]: string } = {
 		primary: 'bg-primary text-white hover:bg-primaryDark duration-200',
-		secondary: 'bg-gray-500 text-white',
+		secondary: 'bg-gray-500 text-white hover:bg-gray-600 duration-200',
 		ghost: 'bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white duration-200',
 		noBorder: 'bg-white border-0 px-0 justify-start hover:text-primary',
 		danger: 'bg-red-500 text-white',

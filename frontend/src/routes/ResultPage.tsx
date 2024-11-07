@@ -26,7 +26,7 @@ import html2canvas from 'html2canvas';
 import { quantum } from 'ldrs';
 import { useWindowWidth } from '../context/WindowWidthContext';
 import { FaArrowLeft } from 'react-icons/fa';
-
+import { FaArrowRotateLeft } from 'react-icons/fa6';
 // Initialize Quantum library
 quantum.register();
 
@@ -291,9 +291,6 @@ const ResultPage = () => {
 					</div>
 				)}
 			</div>
-			<div className="w-full flex items-start justify-start h-fit">
-				<Button text={pageContent.buttonBack} width="fit" variant={'secondary'} route="/output" startIcon={<FaArrowLeft />} />
-			</div>
 
 			{/* Cards Section */}
 			<div className="flex flex-col gap-12">
@@ -311,7 +308,11 @@ const ResultPage = () => {
 				{/* Action Buttons */}
 				<div className="flex flex-row gap-4 w-2/3 lg:w-full py-12 justify-center">
 					{/* Button to reset or go back */}
-					<Button text={pageContent.button1} width="100%" variant={width > 1000 ? 'secondary' : 'primary'} route="/" />
+					<div className="w-full flex items-start justify-start h-fit gap-2">
+						<Button text={pageContent.buttonBack} width="100%" variant={'secondary'} route="/output" startIcon={<FaArrowLeft />} />
+						<Button text={pageContent.button1} width="100%" variant={width > 1000 ? 'secondary' : 'primary'} route="/" startIcon={<FaArrowRotateLeft />} />
+					</div>
+
 					{/* Button to generate the report */}
 					{width > 1000 ? (
 						<Button

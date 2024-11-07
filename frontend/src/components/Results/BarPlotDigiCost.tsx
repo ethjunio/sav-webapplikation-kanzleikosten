@@ -201,8 +201,11 @@ const StackedBarPlotCost: React.FC<StackedBarPlotProps> = ({ dataSet1, labels, l
 				anchor: 'end',
 				align: function (context) {
 					// Prüfe, ob das aktuelle Label das erste in seinem Datenset ist
-					const isFirstInDataset = context.dataIndex === 0;
-					return isFirstInDataset ? 'start' : 'end';
+					if (context.dataset.data[context.dataIndex] === context.dataset.data[0] || context.dataIndex === 0) {
+						return 'start';
+					} else {
+						return 'end';
+					}
 				},
 				color: 'gray',
 				formatter: function (value) {
