@@ -18,9 +18,10 @@ const actionCreators: Record<Exclude<keyof FormState, 'outputParameters'>, (valu
 interface InputFieldProps {
 	placeholder?: string;
 	identifier: Exclude<keyof FormState, 'outputParameters'>; // Exclude outputParameters
+	unit?: string;
 }
 
-const InputField: React.FC<InputFieldProps> = ({ placeholder, identifier }) => {
+const InputField: React.FC<InputFieldProps> = ({ placeholder, identifier, unit }) => {
 	const [error, setError] = useState<string | null>(null);
 	const { state, dispatch } = useForm();
 
@@ -31,13 +32,16 @@ const InputField: React.FC<InputFieldProps> = ({ placeholder, identifier }) => {
 	};
 
 	return (
-		<input
-			className="appearance-none flex flex-row items-center justify-between w-full px-4 py-3 border border-gray-300 rounded-xl
-      hover:border-primary focus:border-primary focus:outline-none focus:shadow-onFocusInput transition-shadow duration-300"
-			placeholder={placeholder}
-			onChange={handleChange}
-			value={state[identifier] as string} // Dynamically access the value from the FormState based on the identifier
-		/>
+		<div className="relative">
+			<input
+				className="appearance-none w-full px-4 py-3 border border-gray-300 rounded-xl
+          hover:border-primary focus:border-primary focus:outline-none focus:shadow-onFocusInput transition-shadow duration-300 pr-8"
+				placeholder={placeholder}
+				onChange={handleChange}
+				value={state[identifier] as string}
+			/>
+			{unit && <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">{unit}</span>}
+		</div>
 	);
 };
 

@@ -43,11 +43,11 @@ const FinanceInputCard = ({ className }: { className?: string }, ref: any) => {
 		<div className={cn('flex flex-col gap-8 p-10  md:p-5 sm:p-2 rounded-xl bg-gray-100', className)}>
 			<div className="flex flex-col gap-2">
 				<span className="font-medium">{ComponentContent?.revenuePerYear}</span>
-				<InputField placeholder={ComponentContent?.inputPlaceholderCurrency} identifier={'revenuePerYear'} />
+				<InputField placeholder={ComponentContent?.inputPlaceholderCurrency} identifier={'revenuePerYear'} unit={'CHF'} />
 			</div>
 			<div className="flex flex-col gap-2">
 				<span className="font-medium">{ComponentContent?.operatingCostsPerYear}</span>
-				<InputField placeholder={ComponentContent?.inputPlaceholderCurrency} identifier={'operatingCostsPerYear'} />
+				<InputField placeholder={ComponentContent?.inputPlaceholderCurrency} identifier={'operatingCostsPerYear'} unit={'CHF'} />
 			</div>
 			{error && (
 				<div className="flex flex-row items-center justify-start text-red-500 gap-1 text-sm">

@@ -332,7 +332,7 @@ const ResultPage = () => {
 			{/* Disclaimer Section */}
 			<div className="flex flex-col items-center sm:items-start w-full text-center sm:text-start border-t-2 pt-8 my-12">
 				<h1 className="text-xl font-semibold">{pageContent.disclaimerTitel}</h1>
-				<p className="mt-2 w-2/3 lg:w-full">{pageContent.disclaimer}</p>
+				<p className="-mt-3 w-2/3 lg:w-full">{pageContent.disclaimer}</p>
 			</div>
 		</div>
 	);
