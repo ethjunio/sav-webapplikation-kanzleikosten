@@ -1,8 +1,8 @@
 {
 	"German": {
 		"landingPage": {
-			"h1": "Kanzleikosten Rechner",
-			"p1": "Der Kanzleikosten Rechner des SAV ermöglicht eine Schätzung, welche Digitalisierungsmassnahme wie viel gekostet hat.",
+			"h1": "DigiKosten-Rechner",
+			"p1": "Der DigiKosten-Rechner des SAV ermöglicht eine Schätzung, welche Digitalisierungsmassnahme wie viel gekostet hat.",
 			"p2": "Sie können den Rechner in zwei einfachen Schritten nutzen:",
 			"p3": "Beschreiben Sie Ihre Kanzlei mit den Feldern im Bereich «Kanzlei-Beschreibung». Damit werden die Kosten anhand den Ausgaben ähnlicher Kanzleien in diesen Digitalisierungsschritten berechnet.",
 			"p4": "Geben Sie an, welche Digitalisierungsschritte Sie durchführen möchten.",
@@ -233,8 +233,8 @@
 
 	"English": {
 		"landingPage": {
-			"h1": "Law Firm Cost Calculator",
-			"p1": "The SAV law firm cost calculator allows an estimation of how much each digitalization measure has cost.",
+			"h1": "DigiCost Calculator",
+			"p1": "The SAV DigiCost Calculator allows an estimation of how much each digitalization measure has cost.",
 			"p2": "You can use the calculator in two simple steps:",
 			"p3": "Describe your law firm using the fields in the 'Law Firm Description' section. This allows the costs to be calculated based on the expenses of similar law firms in these digitalization steps.",
 			"p4": "Indicate which digitalization steps you would like to take.",
@@ -300,7 +300,7 @@
 			"titel": "Result",
 			"description": "Based on your law firm description, average costs in the individual digitization steps are calculated. The costs are given in CHF.",
 			"disclaimerTitel": "Disclaimer",
-			"disclaimer": "The law firm cost calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. A total of 489 law firms participated in the survey conducted by gfs.bern on behalf of the SAV. The cost values are based on up to 256 data points from law firms. For digitalization steps where few firms provided cost data, medians are used, regardless of your law firm’s specific values. This model is an estimate and serves as a guide to the digitalization costs of law firms.",
+			"disclaimer": "The DigiCost Calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. A total of 489 law firms participated in the survey conducted by gfs.bern on behalf of the SAV. The cost values are based on up to 256 data points from law firms. For digitalization steps where few firms provided cost data, medians are used, regardless of your law firm’s specific values. This model is an estimate and serves as a guide to the digitalization costs of law firms.",
 			"button1": "Restart",
 			"button2": "Download Report",
 			"buttonBack": "Back",
@@ -448,23 +448,23 @@
 			"model": "Model"
 		},
 		"report": {
-			"titel": "Law Firm Cost Calculator Report",
-			"header1": "Law Firm Cost Calculator",
+			"titel": "DigiCost Calculator Report",
+			"header1": "DigiCost Calculator",
 			"header2": "SAV FSA - Swiss Law Firm Association",
 			"inputSectionTitel": "Input",
 			"inputSection": "You have entered the following law firm data into the calculator. Based on this information, the specific digitalization costs have been calculated.",
 			"tabelKey": "Property",
 			"tabelValue": "Input",
 			"introTitel": "Introduction",
-			"introduction": "The SAV Law Firm Cost Calculator provides law firms with an informed estimate of potential digitalization costs. Based on a model developed by gfs.bern, this tool aims to offer a financial overview of various digitalization steps. Law firms can select specific steps they wish to implement and receive a comparison of average costs with similar firms.",
+			"introduction": "The SAV DigiCost Calculator provides law firms with an informed estimate of potential digitalization costs. Based on a model developed by gfs.bern, this tool aims to offer a financial overview of various digitalization steps. Law firms can select specific steps they wish to implement and receive a comparison of average costs with similar firms.",
 			"limitationTitel": "Limitations",
-			"limitations": "The Law Firm Cost Calculator is based on a 2024 survey conducted by gfs.bern on behalf of the SAV. The cost calculations rely on data from 489 participating law firms, with some cost categories based on a smaller dataset. For digitalization steps with limited data, median values are displayed rather than specific estimates. The presented costs serve as a guideline and may vary significantly in practice. The calculator does not provide an exact prediction but offers an approximation based on available data."
+			"limitations": "The DigiCost Calculator is based on a 2024 survey conducted by gfs.bern on behalf of the SAV. The cost calculations rely on data from 489 participating law firms, with some cost categories based on a smaller dataset. For digitalization steps with limited data, median values are displayed rather than specific estimates. The presented costs serve as a guideline and may vary significantly in practice. The calculator does not provide an exact prediction but offers an approximation based on available data."
 		}
 	},
 	"French": {
 		"landingPage": {
-			"h1": "Calculateur de coûts pour les cabinets d'avocats",
-			"p1": "Le calculateur de coûts de la FSA permet d'estimer le coût des mesures de numérisation.",
+			"h1": "Calculateur de coûts numériques",
+			"p1": "Le calculateur de coûts numériques de SVA permet d'estimer le coût des mesures de numérisation.",
 			"p2": "Vous pouvez utiliser le calculateur en deux étapes simples :",
 			"p3": "Décrivez votre étude en utilisant les champs de la section « Description de l'étude ». Cela permettra de calculer les coûts en fonction des dépenses d'études similaires dans ces étapes de numérisation.",
 			"p4": "Indiquez quelles étapes de numérisation vous souhaitez entreprendre.",
@@ -530,7 +530,7 @@
 			"titel": "Résultat",
 			"description": "Sur la base de la description de votre étude, il est procédé à un calcul des coûts moyens pour chaque étape de numérisation. Les coûts sont indiqués en CHF.",
 			"disclaimerTitel": "Avertissement",
-			"disclaimer": "Le calculateur des coûts des études repose sur un modèle développé par gfs.bern. À la demande de la FSA, gfs.bern a réalisé une enquête en 2024 auprès des membres de la fédération, collectant des données sur les coûts des études. Au total, 489 études ont participé à cette enquête. Les valeurs utilisées pour les calculs reposent sur un maximum de 256 données provenant de ces études. Pour les étapes de numérisation où le nombre de données disponibles est limité, des médianes sont appliquées, sans tenir compte des spécificités propres à chaque étude. Ce modèle constitue une estimation et sert de référence indicative pour évaluer les coûts de numérisation des études d’avocats.",
+			"disclaimer": "Le calculateur de coûts numériques  repose sur un modèle développé par gfs.bern. À la demande de la FSA, gfs.bern a réalisé une enquête en 2024 auprès des membres de la fédération, collectant des données sur les coûts des études. Au total, 489 études ont participé à cette enquête. Les valeurs utilisées pour les calculs reposent sur un maximum de 256 données provenant de ces études. Pour les étapes de numérisation où le nombre de données disponibles est limité, des médianes sont appliquées, sans tenir compte des spécificités propres à chaque étude. Ce modèle constitue une estimation et sert de référence indicative pour évaluer les coûts de numérisation des études d’avocats.",
 			"button1": "Redémarrer",
 			"button2": "Télécharger le rapport",
 			"buttonBack": "Retour",
@@ -541,7 +541,7 @@
 		"checkboxLabels": {
 			"ITsupport": "Support informatique (externe)",
 			"ITMitarbeitende": "Personnel informatiques (interne)",
-			"SchulungenSoftware": "Formations (par ex. nouveaux logiciels, protection des données, etc.)",
+			"SchulungenSoftware": "Formations (par ex. nouveaux logiciels, etc.)",
 			"SchulungMitarbeitende": "Formation du personnel",
 			"Datensicherheit": "Sécurité des données",
 			"HostedDataStorage": "Solution de stockage/gestion de données hébergée",
@@ -678,8 +678,8 @@
 			"model": "Modèle"
 		},
 		"report": {
-			"titel": "Rapport du calculateur de coûts des études",
-			"header1": "Calculateur de coûts des études",
+			"titel": "Rapport du calculateur de coûts numériques  de coûts numériques ",
+			"header1": "Calculateur de coûts numériques ",
 			"header2": "SAV-FSA - Fédération Suisse des Avocats",
 			"inputSectionTitel": "Entrée",
 			"inputSection": "Vous avez saisi les données suivantes de votre étude dans le calculateur. Sur la base de ces informations, les coûts de numérisation spécifiques ont été calculés.",
@@ -687,16 +687,16 @@
 			"tabelValue": "Entrée",
 			"headerTitle": "Rapport",
 			"introTitel": "Introduction",
-			"introduction": "Le calculateur des coûts des études de la FSA offre aux études d'avocats une estimation éclairée des coûts potentiels de relatifs à la numérisation. Basé sur un modèle développé par gfs.bern, cet outil vise à fournir un aperçu financier des différentes étapes de numérisation. Les études peuvent sélectionner des étapes spécifiques qu'elles souhaitent mettre en œuvre et recevoir une comparaison des coûts moyens avec des études similaires.",
+			"introduction": "Le calculateur de coûts numériques  de la FSA offre aux études d'avocats une estimation éclairée des coûts potentiels de relatifs à la numérisation. Basé sur un modèle développé par gfs.bern, cet outil vise à fournir un aperçu financier des différentes étapes de numérisation. Les études peuvent sélectionner des étapes spécifiques qu'elles souhaitent mettre en œuvre et recevoir une comparaison des coûts moyens avec des études similaires.",
 			"limitationTitel": "Limitations",
-			"limitations": "Le calculateur de coûts pour les études repose sur une enquête réalisée en 2024 par gfs.bern pour le compte de la FSA. Les calculs s'appuient sur les données collectées auprès de 489 études participantes, certaines catégories de coûts étant basées sur un échantillon plus restreint. Pour les étapes de numérisation disposant de données limitées, des valeurs médianes sont utilisées à la place d'estimations spécifiques. Les coûts indiqués servent de référence indicative et peuvent varier significativement dans la pratique. Le calculateur ne prétend pas fournir une prédiction précise, mais propose une approximation fondée sur les données disponibles."
+			"limitations": "Le calculateur de coûts numériques repose sur une enquête réalisée en 2024 par gfs.bern pour le compte de la FSA. Les calculs s'appuient sur les données collectées auprès de 489 études participantes, certaines catégories de coûts étant basées sur un échantillon plus restreint. Pour les étapes de numérisation disposant de données limitées, des valeurs médianes sont utilisées à la place d'estimations spécifiques. Les coûts indiqués servent de référence indicative et peuvent varier significativement dans la pratique. Le calculateur ne prétend pas fournir une prédiction précise, mais propose une approximation fondée sur les données disponibles."
 		}
 	},
 
 	"Italian": {
 		"landingPage": {
-			"h1": "Calcolatore dei costi dello studio legale",
-			"p1": "Il calcolatore dei costi del SAV consente una stima di quanto è costata ciascuna misura di digitalizzazione.",
+			"h1": "Calcolatore die costi digitali",
+			"p1": "Il calcolatore die costi digitali del SAV consente una stima di quanto è costata ciascuna misura di digitalizzazione.",
 			"p2": "Puoi utilizzare il calcolatore in due semplici passaggi:",
 			"p3": "Descrivi il tuo studio legale utilizzando i campi nella sezione 'Descrizione dello studio'. Questo permette di calcolare i costi basandosi sulle spese di studi legali simili in queste fasi di digitalizzazione.",
 			"p4": "Indica quali passi di digitalizzazione desideri intraprendere.",
@@ -762,7 +762,7 @@
 			"titel": "Risultato",
 			"description": "Basandosi sulla descrizione del tuo studio, vengono calcolati i costi medi nelle singole fasi di digitalizzazione. I costi sono espressi in CHF.",
 			"disclaimerTitel": "Avvertenza",
-			"disclaimer": "Il calcolatore dei costi dello studio si basa su un modello di gfs.bern. Su incarico del SAV, gfs.bern ha condotto un sondaggio tra i membri del SAV nel 2024 per raccogliere dati sui costi degli studi legali. Un totale di 489 studi ha partecipato al sondaggio condotto da gfs.bern per conto del SAV. I valori dei costi si basano su un massimo di 256 punti dati di studi legali. Per i passi di digitalizzazione in cui pochi studi hanno fornito dati sui costi, vengono utilizzate le mediane, indipendentemente dai valori specifici del tuo studio. Questo modello è una stima e serve come guida ai costi di digitalizzazione degli studi legali.",
+			"disclaimer": "Il calcolatore die costi digitali si basa su un modello di gfs.bern. Su incarico del SAV, gfs.bern ha condotto un sondaggio tra i membri del SAV nel 2024 per raccogliere dati sui costi degli studi legali. Un totale di 489 studi ha partecipato al sondaggio condotto da gfs.bern per conto del SAV. I valori dei costi si basano su un massimo di 256 punti dati di studi legali. Per i passi di digitalizzazione in cui pochi studi hanno fornito dati sui costi, vengono utilizzate le mediane, indipendentemente dai valori specifici del tuo studio. Questo modello è una stima e serve come guida ai costi di digitalizzazione degli studi legali.",
 			"button1": "Riavvia",
 			"button2": "Scarica rapporto",
 			"buttonBack": "Indietro",
@@ -910,8 +910,8 @@
 			"model": "Modello"
 		},
 		"report": {
-			"titel": "Rapporto del calcolatore dei costi dello studio",
-			"header1": "Calcolatore dei costi dello studio",
+			"titel": "Rapporto del calcolatore die costi digitali",
+			"header1": "Calcolatore die costi digitali",
 			"header2": "SAV FSA - Associazione Svizzera degli Avvocati",
 			"inputSectionTitel": "Input",
 			"inputSection": "Hai inserito i seguenti dati dello studio nel calcolatore. Basandosi su queste informazioni, sono stati calcolati i costi specifici di digitalizzazione.",
@@ -919,9 +919,9 @@
 			"tabelValue": "Input",
 			"headerTitle": "Rapporto",
 			"introTitel": "Introduzione",
-			"introduction": "Il calcolatore dei costi del SAV offre agli studi legali una stima informata dei potenziali costi di digitalizzazione. Basato su un modello sviluppato da gfs.bern, questo strumento mira a offrire una panoramica finanziaria di vari passi di digitalizzazione. Gli studi possono selezionare specifici passi che desiderano implementare e ricevere un confronto dei costi medi con studi simili.",
+			"introduction": "Il calcolatore die costi digitali del SAV offre agli studi legali una stima informata dei potenziali costi di digitalizzazione. Basato su un modello sviluppato da gfs.bern, questo strumento mira a offrire una panoramica finanziaria di vari passi di digitalizzazione. Gli studi possono selezionare specifici passi che desiderano implementare e ricevere un confronto dei costi medi con studi simili.",
 			"limitationTitel": "Limitazioni",
-			"limitations": "Il calcolatore dei costi dello studio si basa su un sondaggio del 2024 condotto da gfs.bern su incarico del SAV. I calcoli dei costi si basano su dati di 489 studi partecipanti, con alcune categorie di costi basate su un dataset più piccolo. Per i passi di digitalizzazione con dati limitati, vengono visualizzati valori mediani anziché stime specifiche. I costi presentati servono come linea guida e possono variare significativamente nella pratica. Il calcolatore non fornisce una previsione esatta ma offre un'approssimazione basata sui dati disponibili."
+			"limitations": "Il calcolatore die costi digitali si basa su un sondaggio del 2024 condotto da gfs.bern su incarico del SAV. I calcoli dei costi si basano su dati di 489 studi partecipanti, con alcune categorie di costi basate su un dataset più piccolo. Per i passi di digitalizzazione con dati limitati, vengono visualizzati valori mediani anziché stime specifiche. I costi presentati servono come linea guida e possono variare significativamente nella pratica. Il calcolatore non fornisce una previsione esatta ma offre un'approssimazione basata sui dati disponibili."
 		}
 	}
 }

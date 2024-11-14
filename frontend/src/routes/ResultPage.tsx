@@ -306,13 +306,8 @@ const ResultPage = () => {
 				tabl with calculdfstion results */}
 				<Table identifiers={Object.keys(calculationResults)} values={tableValues.filter((subArray) => subArray.length > 0)} />
 				{/* Action Buttons */}
-				<div className="flex flex-row gap-4 w-2/3 lg:w-full py-12 justify-center">
+				<div className="flex flex-col gap-4 w-1/2 lg:w-full py-12 justify-center">
 					{/* Button to reset or go back */}
-					<div className="w-full flex items-start justify-start h-fit gap-2">
-						<Button text={pageContent.buttonBack} width="100%" variant={'secondary'} route="/output" startIcon={<FaArrowLeft />} />
-						<Button text={pageContent.button1} width="100%" variant={width > 1000 ? 'secondary' : 'primary'} route="/" startIcon={<FaArrowRotateLeft />} />
-					</div>
-
 					{/* Button to generate the report */}
 					{width > 1000 ? (
 						<Button
@@ -326,6 +321,10 @@ const ResultPage = () => {
 					) : (
 						''
 					)}
+					<div className="w-full flex items-start justify-start h-fit gap-2">
+						<Button text={pageContent.buttonBack} width="100%" variant={'secondary'} route="/output" startIcon={<FaArrowLeft />} />
+						<Button text={pageContent.button1} width="100%" variant={width > 1000 ? 'secondary' : 'primary'} route="/" startIcon={<FaArrowRotateLeft />} />
+					</div>
 				</div>
 			</div>
 
