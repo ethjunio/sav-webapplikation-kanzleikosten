@@ -1,15 +1,23 @@
 {
 	"German": {
 		"landingPage": {
-			"h1": "Kanzleikosten Rechner",
-			"p1": "Der Kanzleikosten-Rechner des SAV ermöglicht eine Schätzung, welche Digitalisierungsmassnahme wie viel gekostet hat.",
+			"h1": "DigiKosten-Rechner",
+			"p1": "Der DigiKosten-Rechner des SAV ermöglicht eine Schätzung, welche Digitalisierungsmassnahme wie viel gekostet hat.",
 			"p2": "Sie können den Rechner in zwei einfachen Schritten nutzen:",
 			"p3": "Beschreiben Sie Ihre Kanzlei mit den Feldern im Bereich «Kanzlei-Beschreibung». Damit werden die Kosten anhand den Ausgaben ähnlicher Kanzleien in diesen Digitalisierungsschritten berechnet.",
-			"p4": "Geben Sie an, welche Digitalisierungsschritte sie durchführen möchten. Sie können bis zu maximal 8 Kosten gleichzeitig wählen.",
+			"p4": "Geben Sie an, welche Digitalisierungsschritte Sie durchführen möchten.",
 			"button": "Loslegen"
 		},
-		"progressBar": { "step1": "Standort", "step2": "Prozesse", "step3": "Finanzen" },
-		"locationInputCard": { "locationType": "Standorttyp", "locationNumber": "Anzahl Standorte", "placeholder": "Zahl eingeben" },
+		"progressBar": {
+			"step1": "Standort",
+			"step2": "Prozesse",
+			"step3": "Finanzen"
+		},
+		"locationInputCard": {
+			"locationType": "Standorttyp",
+			"locationNumber": "Anzahl Standorte",
+			"placeholder": "Zahl eingeben"
+		},
 		"processInputCard": {
 			"processLeadingPersonnel": "Anteil Prozessführende Anwält:innen",
 			"serviceType": "Typische Dienstleistung",
@@ -26,9 +34,21 @@
 			"bespokeStandard": "Bespoke (individuell angepasste oder personalisierte Dienstleistungen), normal",
 			"bespokeHighEnd": "Bespoke im High-End Bereich"
 		},
-		"financialInputCard": { "revenuePerYear": "Umsatz pro Jahr", "operatingCostsPerYear": "Betriebskosten pro Jahr", "inputPlaceholderCurrency": "Zahl in CHF eingeben" },
-		"dropdownComponent": { "placeholder": "Option auswählen" },
-		"inputPage": { "step": "Schritt 1", "titel": "Kanzleibeschreibung", "button1": "Zurück", "button1Abord": "Abbrechen", "button2": "Weiter" },
+		"financialInputCard": {
+			"revenuePerYear": "Umsatz pro Jahr",
+			"operatingCostsPerYear": "Betriebskosten pro Jahr",
+			"inputPlaceholderCurrency": "Zahl in CHF eingeben"
+		},
+		"dropdownComponent": {
+			"placeholder": "Option auswählen"
+		},
+		"inputPage": {
+			"step": "Schritt 1",
+			"titel": "Kanzleibeschreibung",
+			"button1": "Zurück",
+			"button1Abord": "Abbrechen",
+			"button2": "Weiter"
+		},
 		"outputPage": {
 			"step": "Schritt 2",
 			"titel": "Digitalisierungsschritte",
@@ -126,7 +146,12 @@
 			"InternetMobile": "Internetverbindungen, sowohl im Büro als auch mobil, z.B. über WLAN oder mobile Daten.",
 			"EinmaligerHardwareKauf": "Der einmalige Kauf von Hardware, wie Laptops, Servern oder Druckern, im Gegensatz zu Leasing oder Miete."
 		},
-		"tags": { "yearlyLabel": "Jährlich", "oneTimeLabel": "Einmalig", "yearlyExplanation": "Dies ist eine jährliche Ausgabe.", "oneTimeExplanation": "Dies ist eine einmalige Ausgabe." },
+		"tags": {
+			"yearlyLabel": "Jährlich",
+			"oneTimeLabel": "Einmalig",
+			"yearlyExplanation": "Dies ist eine jährliche Ausgabe.",
+			"oneTimeExplanation": "Dies ist eine einmalige Ausgabe."
+		},
 		"errorMessages": {
 			"locationTypeRequired": "Standorttyp ist erforderlich",
 			"locationNumberRequired": "Standortnummer ist erforderlich",
@@ -153,7 +178,7 @@
 		},
 		"firmPlot": {
 			"titel": "Ihre Kanzlei im Vergleich",
-			"description": "Das Spider-Diagramm vergleicht Ihre Kanzlei anhand der von Ihnen eingegebenen Daten mit dem Durchschnitt der Schweizer Kanzleien. So erhalten Sie eine klare Übersicht darüber, wie Ihre Kanzlei in den verschiedenen Bereichen abschneidet.",
+			"description": "Das Spider-Diagramm vergleicht Ihre Kanzlei anhand der von Ihnen eingegebenen Daten mit dem Durchschnitt der Schweizer Kanzleien. So erhalten Sie eine Übersicht darüber, wie Ihre Kanzlei in den verschiedenen Bereichen abschneidet.",
 			"legend1": "Ihre Kanzlei",
 			"legend2": "Referenz Kanzlei",
 			"locationNumberLabel": "Anzahl Standorte",
@@ -175,16 +200,25 @@
 			"descriptionStatistical": "Da keine spezifischen Daten vorliegen, dient hier der Median aller befragten Kanzleien als Orientierung.",
 			"descriptionRegression": "Ausreichende Datengrundlage für eine modellgestützte Schätzung vorhanden."
 		},
-		"table": { "yearlyLabel": "Jährliche Kostenübersicht", "oneTimeLabel": "Einmalige Kostenübersicht", "title": "Kostenübersicht" },
+		"table": {
+			"yearlyLabel": "Jährliche Kostenübersicht",
+			"oneTimeLabel": "Einmalige Kostenübersicht",
+			"title": "Kostenübersicht"
+		},
 		"summeryCard": {
 			"titel": "Zusammenfassung",
 			"text": "Für die angegebene **Digitalisierungsschritte** geben Kanzleien schätzungsweise insgesamt **{totalYearlyCost} pro Jahr** und **{totalOnceCost} einmalig** aus."
 		},
-		"stackedBarPlotCost": { "yearlyCosts": "Jährlich Kosten", "oneTimeCosts": "Einmalige Kosten", "mean": "Median", "model": "Modell" },
+		"stackedBarPlotCost": {
+			"yearlyCosts": "Jährlich Kosten",
+			"oneTimeCosts": "Einmalige Kosten",
+			"mean": "Median",
+			"model": "Modell"
+		},
 		"report": {
 			"titel": "Kanzleikostenrechner Bericht",
 			"header1": "Kanzleikostenrechner",
-			"header2": "SAV-FSA - Schweizerischer Anwaltsverand",
+			"header2": "SAV FSA - Schweizerischer Anwaltsverand",
 			"tabelKey": "Eigenschaft",
 			"tabelValue": "Eingabe",
 			"inputSectionTitel": "Eingabe",
@@ -198,15 +232,23 @@
 	},
 	"English": {
 		"landingPage": {
-			"h1": "Law Firm Cost Calculator",
-			"p1": "The SAV law firm cost calculator allows an estimation of how much each digitalization measure has cost.",
+			"h1": "DigiCost Calculator",
+			"p1": "The SAV DigiCost Calculator allows an estimation of how much each digitalization measure has cost.",
 			"p2": "You can use the calculator in two simple steps:",
 			"p3": "Describe your law firm using the fields in the 'Law Firm Description' section. This allows the costs to be calculated based on the expenses of similar law firms in these digitalization steps.",
-			"p4": "Indicate which digitalization steps you would like to take. You can select up to a maximum of 8 costs simultaneously.",
+			"p4": "Indicate which digitalization steps you would like to take.",
 			"button": "Get Started"
 		},
-		"progressBar": { "step1": "Location", "step2": "Processes", "step3": "Finances" },
-		"locationInputCard": { "locationType": "Location Type", "locationNumber": "Number of Locations", "placeholder": "Enter number" },
+		"progressBar": {
+			"step1": "Location",
+			"step2": "Processes",
+			"step3": "Finances"
+		},
+		"locationInputCard": {
+			"locationType": "Location Type",
+			"locationNumber": "Number of Locations",
+			"placeholder": "Enter number"
+		},
 		"processInputCard": {
 			"processLeadingPersonnel": "Percentage of Process-Leading Lawyers",
 			"serviceType": "Typical Service",
@@ -216,13 +258,6 @@
 			"inputPlaceholderOption": "Select an option",
 			"inputPlaceholderNumber": "Enter number"
 		},
-		"dropdownOptions": {
-			"localSwitzerland": "Local (represented within a single canton)",
-			"regionalSwitzerland": "Regional (represented in multiple cantons)",
-			"repetitiveTasksIndividualizedOfferings": "Repetitive tasks with individualized offerings",
-			"bespokeStandard": "Bespoke (individually tailored or personalized services), standard",
-			"bespokeHighEnd": "Bespoke in the high-end sector"
-		},
 		"financialInputCard": {
 			"revenuePerYear": "Revenue per Year",
 			"operatingCostsPerYear": "Operating Costs per Year",
@@ -231,7 +266,20 @@
 		"dropdownComponent": {
 			"placeholder": "Choose Option"
 		},
-		"inputPage": { "step": "Step 1", "titel": "Law Firm Description", "button1": "Back", "button1Abord": "Abort", "button2": "Next" },
+		"dropdownOptions": {
+			"localSwitzerland": "Local (represented within a single canton)",
+			"regionalSwitzerland": "Regional (represented in multiple cantons)",
+			"repetitiveTasksIndividualizedOfferings": "Repetitive tasks with individualized offerings",
+			"bespokeStandard": "Bespoke (individually tailored or personalized services), standard",
+			"bespokeHighEnd": "Bespoke in the high-end sector"
+		},
+		"inputPage": {
+			"step": "Step 1",
+			"titel": "Law Firm Description",
+			"button1": "Back",
+			"button1Abord": "Abort",
+			"button2": "Next"
+		},
 		"outputPage": {
 			"step": "Step 2",
 			"titel": "Digitization Steps",
@@ -251,7 +299,7 @@
 			"titel": "Result",
 			"description": "Based on your law firm description, average costs in the individual digitization steps are calculated. The costs are given in CHF.",
 			"disclaimerTitel": "Disclaimer",
-			"disclaimer": "The law firm cost calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. A total of 489 law firms participated in the survey conducted by gfs.bern on behalf of the SAV. The cost values are based on up to 256 data points from law firms. For digitalization steps where few firms provided cost data, medians are used, regardless of your law firm’s specific values. This model is an estimate and serves as a guide to the digitalization costs of law firms.",
+			"disclaimer": "The DigiCost Calculator is based on a model by gfs.bern. On behalf of the SAV, gfs.bern conducted a survey among SAV members in 2024 to gather data on law firm costs. A total of 489 law firms participated in the survey conducted by gfs.bern on behalf of the SAV. The cost values are based on up to 256 data points from law firms. For digitalization steps where few firms provided cost data, medians are used, regardless of your law firm’s specific values. This model is an estimate and serves as a guide to the digitalization costs of law firms.",
 			"button1": "Restart",
 			"button2": "Download Report",
 			"buttonBack": "Back",
@@ -329,7 +377,12 @@
 			"InternetMobile": "Internet connections, both in the office and mobile, e.g., via Wi-Fi or mobile data.",
 			"EinmaligerHardwareKauf": "The one-time purchase of hardware, such as laptops, servers, or printers, as opposed to leasing or renting."
 		},
-		"tags": { "yearlyLabel": "Yearly", "oneTimeLabel": "One-Time", "yearlyExplanation": "This is a yearly expense.", "oneTimeExplanation": "This is a one-time expense." },
+		"tags": {
+			"yearlyLabel": "Yearly",
+			"oneTimeLabel": "One-Time",
+			"yearlyExplanation": "This is a yearly expense.",
+			"oneTimeExplanation": "This is a one-time expense."
+		},
 		"errorMessages": {
 			"locationTypeRequired": "Location Type is required",
 			"locationNumberRequired": "Location number is required",
@@ -356,13 +409,13 @@
 		},
 		"firmPlot": {
 			"titel": "Your Law Firm Compared",
-			"description": "The spider diagram compares your law firm based on the data you entered with the average Swiss law firms. This provides you with a clear overview of how your firm performs in various areas.",
+			"description": "The spider diagram compares your law firm based on the data you entered with the average Swiss law firms. This provides you with a overview of how your firm performs in various areas.",
 			"legend1": "Your Law Firm",
 			"legend2": "Reference Law Firm",
 			"locationNumberLabel": "Number of Locations",
-			"locationTypeLabel": "Percentage of Process-Leading Lawyers",
-			"processLeadingPersonnelLabel": "Number of Partners",
-			"partnersCountLabel": "Type of location",
+			"processLeadingPersonnelLabel": "Percentage of Process-Leading Lawyers",
+			"partnersCountLabel": "Number of Partners",
+			"locationTypeLabel": "Type of location",
 			"employeesCountLabel": "Number of Employees",
 			"serviceTypeLabel": "Serivce type",
 			"revenuePerYearLabel": "Annual Revenue",
@@ -378,38 +431,54 @@
 			"descriptionStatistical": "As no specific data is available, the median of all surveyed law firms serves as a guide here.",
 			"descriptionRegression": "Sufficient data available for a model-based estimation."
 		},
-		"table": { "yearlyLabel": "Yearly Cost Overview", "oneTimeLabel": "One-Time Cost Overview", "title": "Cost Overview" },
+		"table": {
+			"yearlyLabel": "Yearly Cost Overview",
+			"oneTimeLabel": "One-Time Cost Overview",
+			"title": "Cost Overview"
+		},
 		"summeryCard": {
 			"titel": "Summary",
 			"text": "For the specified **digitalization steps**, law firms spend an estimated total of **{totalYearlyCost} per year** and **{totalOnceCost} one-time**."
 		},
-		"stackedBarPlotCost": { "yearlyCosts": "Yearly Costs", "oneTimeCosts": "One-time Costs", "mean": "Median", "model": "Model" },
+		"stackedBarPlotCost": {
+			"yearlyCosts": "Yearly Costs",
+			"oneTimeCosts": "One-time Costs",
+			"mean": "Median",
+			"model": "Model"
+		},
 		"report": {
-			"titel": "Law Firm Cost Calculator Report",
-			"header1": "Law Firm Cost Calculator",
-			"header2": "SAV-FSA - Swiss Law Firm Association",
-			"tabelKey": "Input",
-			"tabelValue": "Input",
-			"inputSectionTitel": "Property",
+			"titel": "DigiCost Calculator Report",
+			"header1": "DigiCost Calculator",
+			"header2": "SAV FSA - Swiss Law Firm Association",
+			"inputSectionTitel": "Input",
 			"inputSection": "You have entered the following law firm data into the calculator. Based on this information, the specific digitalization costs have been calculated.",
-			"headerTitle": "Report",
+			"tabelKey": "Property",
+			"tabelValue": "Input",
 			"introTitel": "Introduction",
+			"introduction": "The SAV DigiCost Calculator provides law firms with an informed estimate of potential digitalization costs. Based on a model developed by gfs.bern, this tool aims to offer a financial overview of various digitalization steps. Law firms can select specific steps they wish to implement and receive a comparison of average costs with similar firms.",
 			"limitationTitel": "Limitations",
-			"introduction": "The SAV Law Firm Cost Calculator provides law firms with an informed estimate of potential digitalization costs. Based on a model developed by gfs.bern, this tool aims to offer a financial overview of various digitalization steps. Law firms can select specific steps they wish to implement and receive a comparison of average costs with similar firms.",
-			"limitations": "The Law Firm Cost Calculator is based on a 2024 survey conducted by gfs.bern on behalf of the SAV. The cost calculations rely on data from 489 participating law firms, with some cost categories based on a smaller dataset. For digitalization steps with limited data, median values are displayed rather than specific estimates. The presented costs serve as a guideline and may vary significantly in practice. The calculator does not provide an exact prediction but offers an approximation based on available data."
+			"limitations": "The DigiCost Calculator is based on a 2024 survey conducted by gfs.bern on behalf of the SAV. The cost calculations rely on data from 489 participating law firms, with some cost categories based on a smaller dataset. For digitalization steps with limited data, median values are displayed rather than specific estimates. The presented costs serve as a guideline and may vary significantly in practice. The calculator does not provide an exact prediction but offers an approximation based on available data."
 		}
 	},
 	"French": {
 		"landingPage": {
-			"h1": "Calculateur de coûts pour les cabinets d'avocats",
-			"p1": "Le calculateur de coûts de la FSA permet d'estimer le coût des mesures de numérisation.",
+			"h1": "Calculateur de coûts numériques",
+			"p1": "Le calculateur de coûts numériques de SVA permet d'estimer le coût des mesures de numérisation.",
 			"p2": "Vous pouvez utiliser le calculateur en deux étapes simples :",
 			"p3": "Décrivez votre étude en utilisant les champs de la section « Description de l'étude ». Cela permettra de calculer les coûts en fonction des dépenses d'études similaires dans ces étapes de numérisation.",
-			"p4": "Indiquez quelles étapes de numérisation vous souhaitez entreprendre. Vous pouvez sélectionner jusqu'à 8 coûts simultanément.",
+			"p4": "Indiquez quelles étapes de numérisation vous souhaitez entreprendre.",
 			"button": "Commencer"
 		},
-		"progressBar": { "step1": "Site", "step2": "Processus", "step3": "Finances" },
-		"locationInputCard": { "locationType": "Type de site", "locationNumber": "Nombre de sites", "placeholder": "Indiquez le nombre" },
+		"progressBar": {
+			"step1": "Site",
+			"step2": "Processus",
+			"step3": "Finances"
+		},
+		"locationInputCard": {
+			"locationType": "Type de site",
+			"locationNumber": "Nombre de sites",
+			"placeholder": "Indiquez le nombre"
+		},
 		"processInputCard": {
 			"processLeadingPersonnel": "Pourcentage d'avocates et d'avocats qui exécutent des mandats judiciaires",
 			"serviceType": "Service typique",
@@ -426,9 +495,21 @@
 			"bespokeStandard": "Sur mesure (services adaptés ou personnalisés), standard",
 			"bespokeHighEnd": "Sur mesure haut de gamme"
 		},
-		"financialInputCard": { "revenuePerYear": "Chiffre d'affaires annuel", "operatingCostsPerYear": "Coûts opérationnels annuels", "inputPlaceholderCurrency": "Indiquez le montant en CHF" },
-		"dropdownComponent": { "placeholder": "Choisir une option" },
-		"inputPage": { "step": "Étape 1", "titel": "Description de l'étude", "button1": "Retour", "button1Abord": "Annuler", "button2": "Suivant" },
+		"financialInputCard": {
+			"revenuePerYear": "Chiffre d'affaires annuel",
+			"operatingCostsPerYear": "Coûts opérationnels annuels",
+			"inputPlaceholderCurrency": "Indiquez le montant en CHF"
+		},
+		"dropdownComponent": {
+			"placeholder": "Choisir une option"
+		},
+		"inputPage": {
+			"step": "Étape 1",
+			"titel": "Description de l'étude",
+			"button1": "Retour",
+			"button1Abord": "Annuler",
+			"button2": "Suivant"
+		},
 		"outputPage": {
 			"step": "Étape 2",
 			"titel": "Étapes de numérisation",
@@ -442,13 +523,13 @@
 			"hardwareInfrastructure": "Matériel et infrastructure",
 			"button1": "Retour",
 			"button2": "Calculer",
-			"error": "Au moins une étape de numérisation doit être sélectionnée."
+			"error": "Au moins une étape de digitalisation doit être sélectionnée."
 		},
 		"resultPage": {
 			"titel": "Résultat",
 			"description": "Sur la base de la description de votre étude, il est procédé à un calcul des coûts moyens pour chaque étape de numérisation. Les coûts sont indiqués en CHF.",
 			"disclaimerTitel": "Avertissement",
-			"disclaimer": "Le calculateur des coûts des études repose sur un modèle développé par gfs.bern. À la demande de la FSA, gfs.bern a réalisé une enquête en 2024 auprès des membres de la fédération, collectant des données sur les coûts des études. Au total, 489 études ont participé à cette enquête. Les valeurs utilisées pour les calculs reposent sur un maximum de 256 données provenant de ces études. Pour les étapes de numérisation où le nombre de données disponibles est limité, des médianes sont appliquées, sans tenir compte des spécificités propres à chaque étude. Ce modèle constitue une estimation et sert de référence indicative pour évaluer les coûts de numérisation des études d’avocats.",
+			"disclaimer": "Le calculateur de coûts numériques  repose sur un modèle développé par gfs.bern. À la demande de la FSA, gfs.bern a réalisé une enquête en 2024 auprès des membres de la fédération, collectant des données sur les coûts des études. Au total, 489 études ont participé à cette enquête. Les valeurs utilisées pour les calculs reposent sur un maximum de 256 données provenant de ces études. Pour les étapes de numérisation où le nombre de données disponibles est limité, des médianes sont appliquées, sans tenir compte des spécificités propres à chaque étude. Ce modèle constitue une estimation et sert de référence indicative pour évaluer les coûts de numérisation des études d’avocats.",
 			"button1": "Redémarrer",
 			"button2": "Télécharger le rapport",
 			"buttonBack": "Retour",
@@ -459,7 +540,7 @@
 		"checkboxLabels": {
 			"ITsupport": "Support informatique (externe)",
 			"ITMitarbeitende": "Personnel informatiques (interne)",
-			"SchulungenSoftware": "Formations (par ex. nouveaux logiciels, protection des données, etc.)",
+			"SchulungenSoftware": "Formations (par ex. nouveaux logiciels, etc.)",
 			"SchulungMitarbeitende": "Formation du personnel",
 			"Datensicherheit": "Sécurité des données",
 			"HostedDataStorage": "Solution de stockage/gestion de données hébergée",
@@ -526,7 +607,12 @@
 			"InternetMobile": "Connexions Internet, à la fois au bureau et mobiles, par exemple via Wi-Fi ou données mobiles.",
 			"EinmaligerHardwareKauf": "Achat unique de matériel, tel que des ordinateurs portables, serveurs ou imprimantes, par opposition à la location ou la location-vente."
 		},
-		"tags": { "yearlyLabel": "Annuel", "oneTimeLabel": "Unique", "yearlyExplanation": "Ceci est une dépense annuelle.", "oneTimeExplanation": "Ceci est une dépense unique." },
+		"tags": {
+			"yearlyLabel": "Annuel",
+			"oneTimeLabel": "Unique",
+			"yearlyExplanation": "Ceci est une dépense annuelle.",
+			"oneTimeExplanation": "Ceci est une dépense unique."
+		},
 		"errorMessages": {
 			"locationTypeRequired": "Le type de site est requis",
 			"locationNumberRequired": "Le nombre de sites est requis",
@@ -570,228 +656,271 @@
 			"absoluteValue": "Valeur Absolue"
 		},
 		"costPlot": {
-			"titel": "Coûts de numérisation",
+			"titel": "Coûts de digitalisation",
 			"description": "Le diagramme présente les dépenses estimées pour vos mesures de numérisation envisagées. Les coûts sont basés sur les investissements actuels d'études similaires, vous permettant de planifier votre budget de manière éclairée.",
 			"descriptionStatistical": "Comme aucune donnée spécifique n'est disponible, la médian de tous les cabinets interrogés sert ici de guide.",
 			"descriptionRegression": "Données suffisantes disponibles pour une estimation basée sur un modèle."
 		},
-		"table": { "yearlyLabel": "Aperçu des coûts annuels", "oneTimeLabel": "Aperçu des coûts uniques", "title": "Aperçu des coûts" },
+		"table": {
+			"yearlyLabel": "Aperçu des coûts annuels",
+			"oneTimeLabel": "Aperçu des coûts uniques",
+			"title": "Aperçu des coûts"
+		},
 		"summeryCard": {
 			"titel": "Résumé",
 			"text": "Pour les **étapes de numérisation** spécifiées, les études dépensent un total estimé de **{totalYearlyCost} par an** et **{totalOnceCost} en une seule fois**."
 		},
-		"stackedBarPlotCost": { "yearlyCosts": "Coûts annuels", "oneTimeCosts": "Coûts uniques", "mean": "Médian", "model": "Modèle" },
+		"stackedBarPlotCost": {
+			"yearlyCosts": "Coûts annuels",
+			"oneTimeCosts": "Coûts uniques",
+			"mean": "Médian",
+			"model": "Modèle"
+		},
 		"report": {
-			"titel": "Rapport du calculateur de coûts des études",
-			"header1": "Calculateur de coûts des études",
+			"titel": "Rapport du calculateur de coûts numériques  de coûts numériques ",
+			"header1": "Calculateur de coûts numériques ",
 			"header2": "SAV-FSA - Fédération Suisse des Avocats",
-			"tabelKey": "Entrée",
-			"tabelValue": "Entrée",
-			"inputSectionTitel": "Propriété",
+			"inputSectionTitel": "Entrée",
 			"inputSection": "Vous avez saisi les données suivantes de votre étude dans le calculateur. Sur la base de ces informations, les coûts de numérisation spécifiques ont été calculés.",
+			"tabelKey": "Propriété",
+			"tabelValue": "Entrée",
 			"headerTitle": "Rapport",
 			"introTitel": "Introduction",
+			"introduction": "Le calculateur de coûts numériques  de la FSA offre aux études d'avocats une estimation éclairée des coûts potentiels de relatifs à la numérisation. Basé sur un modèle développé par gfs.bern, cet outil vise à fournir un aperçu financier des différentes étapes de numérisation. Les études peuvent sélectionner des étapes spécifiques qu'elles souhaitent mettre en œuvre et recevoir une comparaison des coûts moyens avec des études similaires.",
 			"limitationTitel": "Limitations",
-			"introduction": "Le calculateur des coûts des études de la FSA offre aux études d'avocats une estimation éclairée des coûts potentiels de relatifs à la numérisation. Basé sur un modèle développé par gfs.bern, cet outil vise à fournir un aperçu financier des différentes étapes de numérisation. Les études peuvent sélectionner des étapes spécifiques qu'elles souhaitent mettre en œuvre et recevoir une comparaison des coûts moyens avec des études similaires.",
-			"limitations": "Le calculateur de coûts pour les études repose sur une enquête réalisée en 2024 par gfs.bern pour le compte de la FSA. Les calculs s'appuient sur les données collectées auprès de 489 études participantes, certaines catégories de coûts étant basées sur un échantillon plus restreint. Pour les étapes de numérisation disposant de données limitées, des valeurs médianes sont utilisées à la place d'estimations spécifiques. Les coûts indiqués servent de référence indicative et peuvent varier significativement dans la pratique. Le calculateur ne prétend pas fournir une prédiction précise, mais propose une approximation fondée sur les données disponibles."
+			"limitations": "Le calculateur de coûts numériques repose sur une enquête réalisée en 2024 par gfs.bern pour le compte de la FSA. Les calculs s'appuient sur les données collectées auprès de 489 études participantes, certaines catégories de coûts étant basées sur un échantillon plus restreint. Pour les étapes de numérisation disposant de données limitées, des valeurs médianes sont utilisées à la place d'estimations spécifiques. Les coûts indiqués servent de référence indicative et peuvent varier significativement dans la pratique. Le calculateur ne prétend pas fournir une prédiction précise, mais propose une approximation fondée sur les données disponibles."
 		}
 	},
 
 	"Italian": {
 		"landingPage": {
-			"h1": "Calcolatore dei costi dello studio legale",
-			"p1": "Il calcolatore dei costi dello studio legale della FSA permette di stimare il costo di una determinata misura di digitalizzazione.",
-			"p2": "È possibile utilizzare il calcolatore in due semplici passaggi:",
-			"p3": "Descriva il suo studio legale con i campi nell'area «Descrizione studio». In tal modo, i costi sono calcolati sulla base delle dei costi assunti da studi legali simili per queste fasi di digitalizzazione.",
-			"p4": "Indichi le fasi di digitalizzazione che desidera effettuare. Può scegliere fino a un massimo di 8 costi contemporaneamente.",
-			"button": "Iniziare"
+			"h1": "Calcolatore die costi digitali",
+			"p1": "Il calcolatore die costi digitali del SAV consente una stima di quanto è costata ciascuna misura di digitalizzazione.",
+			"p2": "Puoi utilizzare il calcolatore in due semplici passaggi:",
+			"p3": "Descrivi il tuo studio legale utilizzando i campi nella sezione 'Descrizione dello studio'. Questo permette di calcolare i costi basandosi sulle spese di studi legali simili in queste fasi di digitalizzazione.",
+			"p4": "Indica quali passi di digitalizzazione desideri intraprendere.",
+			"button": "Inizia"
 		},
-		"progressBar": { "step1": "Sede", "step2": "Processi", "step3": "Finanze" },
-		"locationInputCard": { "locationType": "Tipo di sede", "locationNumber": "Numero delle sedi", "placeholder": "Inserire numero" },
+		"progressBar": {
+			"step1": "Posizione",
+			"step2": "Processi",
+			"step3": "Finanze"
+		},
+		"locationInputCard": {
+			"locationType": "Tipo di posizione",
+			"locationNumber": "Numero di sedi",
+			"placeholder": "Inserisci numero"
+		},
 		"processInputCard": {
-			"processLeadingPersonnel": "Quota avvocate/i addette/i al contenzioso",
+			"processLeadingPersonnel": "Percentuale di avvocati che conducono processi",
 			"serviceType": "Servizio tipico",
-			"partnersCount": "Numero delle/dei partner",
-			"employeesCount": "Numero delle/dei collaboratrici/collaboratori",
-			"inputPlaceholderPercentage": "Inserire la percentuale",
-			"inputPlaceholderOption": "Selezionare l'opzione",
-			"inputPlaceholderNumber": "Inserire numero"
+			"partnersCount": "Numero di partner",
+			"employeesCount": "Numero di dipendenti",
+			"inputPlaceholderPercentage": "Inserisci percentuale",
+			"inputPlaceholderOption": "Seleziona un'opzione",
+			"inputPlaceholderNumber": "Inserisci numero"
 		},
 		"dropdownOptions": {
-			"localSwitzerland": "Locale (rappresentato in un solo Cantone)",
-			"regionalSwitzerland": "Regionale (rappresentato in più Cantoni)",
-			"repetitiveTasksIndividualizedOfferings": "Lavori ripetitivi con offerte personalizzate",
-			"bespokeStandard": "Bespoke (servizi adeguati in maniera individuale o personalizzati), normale",
-			"bespokeHighEnd": "Bespoke nel settore high-end"
+			"localSwitzerland": "Locale (rappresentato all'interno di un solo cantone)",
+			"regionalSwitzerland": "Regionale (rappresentato in più cantoni)",
+			"repetitiveTasksIndividualizedOfferings": "Attività ripetitive con offerte personalizzate",
+			"bespokeStandard": "Su misura (servizi personalizzati), standard",
+			"bespokeHighEnd": "Su misura nel settore di fascia alta"
 		},
-		"financialInputCard": { "revenuePerYear": "Fatturato annuo", "operatingCostsPerYear": "Costi d’esercizio per anno", "inputPlaceholderCurrency": "Inserire il valore in CHF" },
-		"dropdownComponent": { "placeholder": "Selezionare l'opzione" },
-		"inputPage": { "step": "Fase 1", "titel": "Descrizione dello studio legale", "button1": "Indietro", "button1Abord": "Annullare", "button2": "Avanti" },
+		"financialInputCard": {
+			"revenuePerYear": "Ricavi annui",
+			"operatingCostsPerYear": "Costi operativi annui",
+			"inputPlaceholderCurrency": "Inserisci importo in CHF"
+		},
+		"dropdownComponent": {
+			"placeholder": "Scegli un'opzione"
+		},
+		"inputPage": {
+			"step": "Passo 1",
+			"titel": "Descrizione dello studio",
+			"button1": "Indietro",
+			"button1Abord": "Annulla",
+			"button2": "Avanti"
+		},
 		"outputPage": {
-			"step": "Fase 2",
-			"titel": "Fasi della digitalizzazione",
-			"description": "Selezioni le fasi di digitalizzazione che desidera attuare nel suo studio legale o che le interessano.",
-			"selectedMessage": "{count} di max. 8 selezionati",
+			"step": "Passo 2",
+			"titel": "Passi di digitalizzazione",
+			"description": "Seleziona i passi di digitalizzazione che desideri implementare nel tuo studio o che ti interessano.",
+			"selectedMessage": "{count} su un massimo di 8 selezionati",
 			"personnelCosts": "Costi del personale",
-			"securityAndPrivacy": "Sicurezza e protezione dei dati",
+			"securityAndPrivacy": "Sicurezza e privacy",
 			"communicationCollaboration": "Comunicazione e collaborazione",
 			"externalServices": "Servizi esterni",
 			"softwareLicenses": "Software e licenze",
 			"hardwareInfrastructure": "Hardware e infrastruttura",
 			"button1": "Indietro",
-			"button2": "Calcolare",
-			"error": "Deve essere selezionata almeno una fase di digitalizzazione."
+			"button2": "Calcola",
+			"error": "Deve essere selezionato almeno un passaggio di digitalizzazione."
 		},
 		"resultPage": {
 			"titel": "Risultato",
-			"description": "Sulla base della descrizione dello studio legale, sono calcolati i costi medi per le singole fasi di digitalizzazione. I costi sono indicati in CHF.",
-			"disclaimerTitel": "Disclaimer",
-			"disclaimer": "Il calcolatore dei costi dello studio legale si basa su un modello di gfs.bern. Su incarico della FSA, nel 2024 gfs.bern ha condotto un sondaggio tra i membri della FSA e ha chiesto informazioni sui costi sostenuti dagli studi legali. 489 studi legali hanno partecipato al sondaggio condotto da gfs.bern su incarico della FSA. I valori relativi ai costi si basano su un massimo di 256 valori degli studi legali. Per le fasi di digitalizzazione per le quali pochi studi legali hanno indicato i costi, viene indicato il valore medio., indipendentemente dalle indicazioni del suo studio legale. La modellizzazione è una stima e funge da orientamento in merito ai costi di digitalizzazione degli studi legali.",
-			"button1": "Riavvio",
-			"button2": "Scaricare il rapporto",
+			"description": "Basandosi sulla descrizione del tuo studio, vengono calcolati i costi medi nelle singole fasi di digitalizzazione. I costi sono espressi in CHF.",
+			"disclaimerTitel": "Avvertenza",
+			"disclaimer": "Il calcolatore die costi digitali si basa su un modello di gfs.bern. Su incarico del SAV, gfs.bern ha condotto un sondaggio tra i membri del SAV nel 2024 per raccogliere dati sui costi degli studi legali. Un totale di 489 studi ha partecipato al sondaggio condotto da gfs.bern per conto del SAV. I valori dei costi si basano su un massimo di 256 punti dati di studi legali. Per i passi di digitalizzazione in cui pochi studi hanno fornito dati sui costi, vengono utilizzate le mediane, indipendentemente dai valori specifici del tuo studio. Questo modello è una stima e serve come guida ai costi di digitalizzazione degli studi legali.",
+			"button1": "Riavvia",
+			"button2": "Scarica rapporto",
 			"buttonBack": "Indietro",
-			"rangeMessageTitel": "Risultati al di fuori dell’ambito della definizione",
-			"rangeMessage": "Le proposte di costo calcolate per le fasi di digitalizzazione elencate di seguito esulano dall’ambito definito e sono pertanto escluse dai calcoli:",
+			"rangeMessageTitel": "Risultati al di fuori dell'intervallo definito",
+			"rangeMessage": "Le stime dei costi per i seguenti passi di digitalizzazione sono al di fuori dell'intervallo definito e saranno esclusi dai calcoli:",
 			"loadingMessage": "Calcolo in corso..."
 		},
 		"checkboxLabels": {
 			"ITsupport": "Supporto IT (esterno)",
-			"ITMitarbeitende": "Collaboratori IT (interni)",
-			"SchulungenSoftware": "Formazioni (ad es. nuovo software, protezione dei dati o simili)",
-			"SchulungMitarbeitende": "Formazione dei collaboratori",
+			"ITMitarbeitende": "Personale IT (interno)",
+			"SchulungenSoftware": "Formazione (es. nuovo software, protezione dati, ecc.)",
+			"SchulungMitarbeitende": "Formazione dei dipendenti",
 			"Datensicherheit": "Sicurezza dei dati",
-			"HostedDataStorage": "Hosted data storage / Management solution",
+			"HostedDataStorage": "Soluzione di archiviazione/gestione dati ospitata",
 			"SichererDatenaustausch": "Scambio sicuro di dati (esterno)",
-			"VideoKonferenzen": "Video/teleconferenze",
-			"SocialMedia": "Presenza sul web e sui social media (incl. pubblicità)",
-			"ChatExtern": "Soluzione chat con clienti (esterni)",
-			"ChatIntern": "Soluzione chat con collaboratori (interni)",
+			"VideoKonferenzen": "Videoconferenze / Teleconferenze",
+			"SocialMedia": "Presenza web e social media (incl. annunci)",
+			"ChatExtern": "Soluzione di chat con i clienti (esterna)",
+			"ChatIntern": "Soluzione di chat con i dipendenti (interna)",
 			"ExterneITBeratung": "Consulenza IT esterna",
 			"ExterneEntwicklung": "Sviluppo esterno",
 			"Datenmigration": "Migrazione dei dati",
-			"SoftwareKosten": "Voci di costo software (costi di licenza)",
-			"Kanzleisoftware": "Software dello studio legale",
+			"SoftwareKosten": "Costi software (licenze)",
+			"Kanzleisoftware": "Software per studi legali",
 			"CRMSoftware": "Software CRM",
-			"ChatExternClients": "Soluzione chat con clienti (esterni)",
-			"ChatInternEmployees": "Soluzione chat con collaboratori (interni)",
-			"DigitaleSignatur": "Soluzione per le firme digitali",
-			"Systemintegration": "Integrazione del sistema nel sistema IT esistente",
+			"ChatExternClients": "Soluzione di chat con i clienti (esterna)",
+			"ChatInternEmployees": "Soluzione di chat con i dipendenti (interna)",
+			"DigitaleSignatur": "Soluzione per firma digitale",
+			"Systemintegration": "Integrazione di sistema",
 			"EinmaligerSoftwareKauf": "Acquisto una tantum di software",
-			"InformatikKosten": "Cost IT  per collaboratore  (escl. software)",
-			"DruckerScanner": "Stampante con scanner integrato",
+			"InformatikKosten": "Costi del personale IT (escl. software)",
+			"DruckerScanner": "Stampanti con scanner integrato",
 			"Videokonferenzsystem": "Sistema di videoconferenza",
 			"Laptops": "Laptop aziendali",
 			"ServerNetzwerk": "Server e dispositivi di rete",
-			"InternetMobile": "Internet (mobile / office)",
+			"InternetMobile": "Internet (mobile / ufficio)",
 			"EinmaligerHardwareKauf": "Acquisto una tantum di hardware",
 			"personalkostenTitel": "Costi del personale",
-			"sicherheitTitel": "Sicurezza e protezione dei dati",
+			"sicherheitTitel": "Sicurezza e privacy",
 			"kommunikationTitel": "Comunicazione e collaborazione",
 			"dienstleistungenTitel": "Servizi esterni",
 			"softwareTitel": "Software e licenze",
 			"hardwareTitel": "Hardware e infrastruttura",
-			"yearlyTotal": "Totale annuale",
+			"yearlyTotal": "Totale annuo",
 			"onceTotal": "Totale una tantum"
 		},
 		"checkboxLabelsDescriptions": {
-			"ITsupport": "Supporto IT esterno messo a disposizione da un fornitore di servizi terzo per risolvere problemi tecnici o supportare l’infrastruttura IT.",
-			"ITMitarbeitende": "Collaboratori IT interni responsabili della gestione IT e del supporto all’interno dell’azienda.",
-			"SchulungenSoftware": "Corsi di formazione su temi quali nuovi software, protezione dei dati o altre tecnologie rilevanti per i collaboratori.",
-			"SchulungMitarbeitende": "Corsi di formazione generale per collaboratori, che possono coprire diverse tematiche come la sicurezza IT o altri processi interni.",
-			"Datensicherheit": "Misure e tecnologie per proteggere i dati dall’accesso non autorizzato, dalla perdita o dal danneggiamento.",
-			"HostedDataStorage": "Soluzioni esterne di hosting e gestione di dati, in cui i dati vengono salvati e gestiti nel cloud o su server di fornitori di servizi terzi.",
-			"SichererDatenaustausch": "Soluzioni per lo scambio sicuro di dati con partner o clienti esterni, ad es. tramite cifratura.",
-			"VideoKonferenzen": "Tecnologie per video/teleconferenze per consentire riunioni virtuali.",
-			"SocialMedia": "Il sito web e la presenza sui social media, inclusi annunci pubblicitari a pagamento.",
-			"ChatExtern": "Soluzioni di chat esterne per la comunicazione con clienti, ad es. tramite un sistema CRM o piattaforme di chat speciali.",
-			"ChatIntern": "Soluzioni di chat interne per la comunicazione tra collaboratori, ad es. tramite tool come Slack o Microsoft Teams.",
-			"ExterneITBeratung": "Prestazioni di consulenza da parte di specialisti IT esterni a supporto della strategia, pianificazione o implementazione IT.",
-			"ExterneEntwicklung": "Outsourcing dello sviluppo di software a sviluppatori o agenzie esterni.",
-			"Datenmigration": "Il processo di trasferimento dei dati da un sistema all’altro, spesso quando si introducono nuovi software o sistemi.",
-			"SoftwareKosten": "Costi connessi all’utilizzo di software, in particolare costi di licenza per prodotti software commerciali.",
-			"Kanzleisoftware": "Software specializzato per gli studi legali, ad es. per la gestione di mandanti, casi e documenti.",
-			"CRMSoftware": "Software per la gestione delle relazioni con i clienti, che viene utilizzato per gestire e ottimizzare le relazioni con i clienti.",
-			"ChatExternClients": "Soluzioni di chat per la comunicazione con clienti al di fuori dell’azienda, ad es. tramite un sistema CRM o piattaforme di chat speciali.",
-			"ChatInternEmployees": "Soluzioni di chat interne per la comunicazione tra collaboratori, ad es. tramite tool come Slack o Microsoft Teams.",
-			"DigitaleSignatur": "Soluzioni che permettono di firmare elettronicamente i documenti riducendo in tal modo le scartoffie.",
-			"Systemintegration": "Integrazione di nuovi software o sistemi nell’infrastruttura IT esistente dell’azienda.",
-			"EinmaligerSoftwareKauf": "Acquisto una tantum di licenze software, a differenza di modelli di abbonamento.",
-			"InformatikKosten": "Costi del personale in relazione al reparto IT, esclusi i costi del software.",
-			"DruckerScanner": "Dispositivi che offrono funzioni sia di stampa che di scansione, spesso denominati dispositivi multifunzione.",
-			"Videokonferenzsystem": "Un sistema completo di videoconferenza che include hardware e software per riunioni senza soluzione di continuità.",
-			"Laptops": "Laptop aziendali messi a disposizione dei collaboratori per svolgere le rispettive mansioni.",
-			"ServerNetzwerk": "Server e dispositivi di rete che fanno parte dell’infrastruttura informatica di un’azienda e che consentono la memorizzazione e lo scambio di dati.",
-			"InternetMobile": "Connessioni Internet, sia in ufficio sia mobili, per es. tramite WLAN o dati mobili.",
-			"EinmaligerHardwareKauf": "L’acquisto una tantum di hardware, come laptop, server o stampanti, anziché il leasing o l’affitto."
+			"ITsupport": "Supporto IT esterno fornito da un fornitore terzo per risolvere problemi tecnici o supportare l'infrastruttura IT.",
+			"ITMitarbeitende": "Personale IT interno responsabile dell'amministrazione IT e del supporto all'interno dell'azienda.",
+			"SchulungenSoftware": "Formazione su argomenti come nuovo software, protezione dei dati o altre tecnologie rilevanti per i dipendenti.",
+			"SchulungMitarbeitende": "Formazione generale per i dipendenti, che copre vari argomenti come la sicurezza IT o altri processi interni.",
+			"Datensicherheit": "Misure e tecnologie per proteggere i dati da accessi non autorizzati, perdita o danni.",
+			"HostedDataStorage": "Soluzioni esterne di hosting e gestione dei dati dove i dati sono archiviati e gestiti nel cloud o su server di terze parti.",
+			"SichererDatenaustausch": "Soluzioni per scambiare dati in modo sicuro con partner o clienti esterni, ad esempio tramite crittografia.",
+			"VideoKonferenzen": "Tecnologie per videoconferenze o teleconferenze per consentire riunioni virtuali.",
+			"SocialMedia": "La presenza web e sui social media, inclusi annunci a pagamento.",
+			"ChatExtern": "Soluzioni di chat esterne per la comunicazione con i clienti, ad esempio tramite un sistema CRM o piattaforme di chat specializzate.",
+			"ChatIntern": "Soluzioni di chat interne per la comunicazione tra dipendenti, ad esempio tramite strumenti come Slack o Microsoft Teams.",
+			"ExterneITBeratung": "Servizi di consulenza da esperti IT esterni per supportare la strategia IT, la pianificazione o l'implementazione.",
+			"ExterneEntwicklung": "Esternalizzazione dello sviluppo software a sviluppatori o agenzie esterne.",
+			"Datenmigration": "Il processo di trasferimento dei dati da un sistema a un altro, spesso durante l'introduzione di nuovo software o sistemi.",
+			"SoftwareKosten": "Costi relativi all'uso del software, in particolare i costi di licenza per prodotti software commerciali.",
+			"Kanzleisoftware": "Software specializzato per studi legali, ad esempio per la gestione di clienti, casi e documenti.",
+			"CRMSoftware": "Software di Customer Relationship Management utilizzato per gestire e ottimizzare le relazioni con i clienti.",
+			"ChatExternClients": "Soluzioni di chat per la comunicazione con clienti esterni, ad esempio tramite un sistema CRM o piattaforme di chat specializzate.",
+			"ChatInternEmployees": "Soluzioni di chat interne per la comunicazione tra dipendenti, ad esempio tramite strumenti come Slack o Microsoft Teams.",
+			"DigitaleSignatur": "Soluzioni che consentono di firmare elettronicamente documenti, riducendo la burocrazia cartacea.",
+			"Systemintegration": "Integrazione di nuovo software o sistemi nell'infrastruttura IT esistente dell'azienda.",
+			"EinmaligerSoftwareKauf": "L'acquisto una tantum di licenze software, a differenza dei modelli di abbonamento.",
+			"InformatikKosten": "Costi del personale relativi al dipartimento IT, esclusi i costi software.",
+			"DruckerScanner": "Dispositivi che offrono funzioni sia di stampa che di scansione, spesso come dispositivi multifunzione.",
+			"Videokonferenzsystem": "Un sistema completo per videoconferenze, che include hardware e software per riunioni senza interruzioni.",
+			"Laptops": "Laptop aziendali forniti ai dipendenti per svolgere le loro mansioni.",
+			"ServerNetzwerk": "Server e dispositivi di rete che appartengono all'infrastruttura IT di un'azienda e consentono l'archiviazione e lo scambio di dati.",
+			"InternetMobile": "Connessioni Internet, sia in ufficio che mobili, ad esempio tramite Wi-Fi o dati mobili.",
+			"EinmaligerHardwareKauf": "L'acquisto una tantum di hardware, come laptop, server o stampanti, a differenza del leasing o del noleggio."
 		},
-		"tags": { "yearlyLabel": "Annuo", "oneTimeLabel": "Una tantum", "yearlyExplanation": "Si tratta di una spesa annuale.", "oneTimeExplanation": "Si tratta di una spesa una tantum." },
+		"tags": {
+			"yearlyLabel": "Annuale",
+			"oneTimeLabel": "Una tantum",
+			"yearlyExplanation": "Questa è una spesa annuale.",
+			"oneTimeExplanation": "Questa è una spesa una tantum."
+		},
 		"errorMessages": {
-			"locationTypeRequired": "È necessario il tipo di sede",
-			"locationNumberRequired": "È necessario il numero di sede",
+			"locationTypeRequired": "Il tipo di posizione è obbligatorio",
+			"locationNumberRequired": "Il numero di sedi è obbligatorio",
 			"locationNumberInvalid": "Deve essere un numero valido",
 			"locationNumberGreaterThanZero": "Il numero deve essere maggiore di zero",
-			"locationNumberInteger": "Il numero deve essere un numero intero",
-			"processPersonnelPercentageRequired": "È necessaria la quota del personale addetto ai processi",
+			"locationNumberInteger": "Il numero deve essere un intero",
+			"processPersonnelPercentageRequired": "La percentuale del personale di processo è obbligatoria",
 			"processPersonnelPercentageInvalid": "Deve essere un numero valido",
-			"processPersonnelPercentageRange": "La percentuale deve essere compresa tra 0 e 100",
-			"serviceTypeRequired": "È necessario il tipo di servizio ",
-			"employeeCountRequired": "È necessario il numero di collaboratrici/collaboratori",
+			"processPersonnelPercentageRange": "La percentuale deve essere tra 0 e 100",
+			"serviceTypeRequired": "Il tipo di servizio è obbligatorio",
+			"employeeCountRequired": "Il numero di dipendenti è obbligatorio",
 			"employeeCountInvalid": "Deve essere un numero valido",
 			"employeeCountGreaterThanZero": "Il numero deve essere maggiore di zero",
-			"employeeCountInteger": "Il numero deve essere un numero intero",
-			"partnerCountRequired": "È necessario il numero di partner",
+			"employeeCountInteger": "Il numero deve essere un intero",
+			"partnerCountRequired": "Il numero di partner è obbligatorio",
 			"partnerCountInvalid": "Deve essere un numero valido",
 			"partnerCountGreaterThanZero": "Il numero deve essere maggiore di zero",
-			"partnerCountInteger": "Il numero deve essere un numero intero",
-			"revenuePerYearRequired": "È necessario un fatturato annuo",
+			"partnerCountInteger": "Il numero deve essere un intero",
+			"revenuePerYearRequired": "Il fatturato annuo è obbligatorio",
 			"revenuePerYearInvalid": "Deve essere un numero valido",
-			"operatingCostsPerYearRequired": "Sono necessari costi di esercizio annui",
+			"operatingCostsPerYearRequired": "I costi operativi annui sono obbligatori",
 			"operatingCostsPerYearInvalid": "Deve essere un numero valido",
 			"revenuePerYearGreaterThanZero": "Il numero deve essere maggiore di zero"
 		},
 		"firmPlot": {
-			"titel": "Il suo studio legale a confronto",
-			"description": "Il grafico ragnatela  confronta il suo studio legale sulla base dei dati da lei inseriti con la media degli studi legali svizzeri. In tal modo si ottiene una chiara panoramica sul modo in cui il suo studio legale si comporta nei vari ambiti.",
-			"legend1": "Il suo studio legale",
-			"legend2": "Studio legale di riferimento",
-			"locationNumberLabel": "Numero delle sedi",
-			"locationTypeLabel": "Tipo di sede",
-			"processLeadingPersonnelLabel": "Avvocate/i addette/i al contenzioso",
-			"partnersCountLabel": "Numero partner",
-			"employeesCountLabel": "Numero collaboratori",
+			"titel": "Il tuo studio in confronto",
+			"description": "Il diagramma a ragnatela confronta il tuo studio, basandosi sui dati inseriti, con la media degli studi svizzeri. Questo ti offre una panoramica di come il tuo studio si comporta in varie aree.",
+			"legend1": "Il tuo studio",
+			"legend2": "Studio di riferimento",
+			"locationNumberLabel": "Numero di sedi",
+			"locationTypeLabel": "Tipo di posizione",
+			"processLeadingPersonnelLabel": "Percentuale di avvocati che conducono processi",
+			"partnersCountLabel": "Numero di partner",
+			"employeesCountLabel": "Numero di dipendenti",
 			"serviceTypeLabel": "Tipo di servizio",
 			"revenuePerYearLabel": "Fatturato annuo",
-			"operatingCostsPerYearLabel": "Costi d'esercizio annui",
-			"yourFirm": "Il suo studio legale",
-			"referenceFirm": "Studio legale di riferimento",
+			"operatingCostsPerYearLabel": "Costi operativi annui",
+			"yourFirm": "Il tuo studio",
+			"referenceFirm": "Studio di riferimento",
 			"outputParametersLabel": "Output selezionato",
-			"absoluteValue": "Valore assoluto"
+			"absoluteValue": "Valore Assoluto"
 		},
 		"costPlot": {
 			"titel": "Costi di digitalizzazione",
-			"description": "Il diagramma mostra le uscite stimate per le misure di digitalizzazione da lei previste. I costi si basano sugli investimenti attuali di studi legali simili, di modo che lei può effettuare una solida pianificazione del budget.",
-			"descriptionStatistical": "Non essendo disponibili dati specifici, in tal caso si utilizza a titolo orientativo la mediana di tutti gli studi legali intervistati.",
-			"descriptionRegression": "È disponibile una base di dati sufficiente per una stima basata su modelli."
+			"description": "Il diagramma presenta le spese stimate per le tue misure di digitalizzazione pianificate. I costi si basano sugli investimenti attuali di studi legali simili, permettendoti di pianificare il budget in modo informato.",
+			"descriptionStatistical": "Poiché non sono disponibili dati specifici, qui la mediano di tutti gli studi intervistati serve come guida.",
+			"descriptionRegression": "Dati sufficienti disponibili per una stima basata su modello."
 		},
-		"table": { "yearlyLabel": "Panoramica dei costi annui", "oneTimeLabel": "Panoramica dei costi una tantum", "title": "Panoramica dei costi" },
+		"table": {
+			"yearlyLabel": "Panoramica dei costi annuali",
+			"oneTimeLabel": "Panoramica dei costi una tantum",
+			"title": "Panoramica dei costi"
+		},
 		"summeryCard": {
-			"titel": "Sintesi",
-			"text": "Per le **fasi di digitalizzazione** indicate, gli studi legali stimano complessivamente **{totalYearlyCost} all'anno** e **{totalOnceCost} una tantum**."
+			"titel": "Riepilogo",
+			"text": "Per i **passi di digitalizzazione** specificati, gli studi legali spendono un totale stimato di **{totalYearlyCost} all'anno** e **{totalOnceCost} una tantum**."
 		},
-		"stackedBarPlotCost": { "yearlyCosts": "Costi annui", "oneTimeCosts": "Costi una tantum", "mean": "Valore medio", "model": "Modello" },
+		"stackedBarPlotCost": {
+			"yearlyCosts": "Costi annuali",
+			"oneTimeCosts": "Costi una tantum",
+			"mean": "Mediano",
+			"model": "Modello"
+		},
 		"report": {
-			"titel": "Rapporto Calcolatore dei costi dello studio legale",
-			"header1": "Calcolatore dei costi dello studio legale",
-			"header2": "SAV-FSA - Federazione Svizzera degli Avvocati",
-			"tabelKey": "Caratteristica",
-			"tabelValue": "Inserimento",
-			"inputSectionTitel": "Inserimento",
-			"inputSection": "Lei ha inserito nel calcolatore i seguenti dati dello studio legale. Sulla base di queste informazioni sono stati calcolati i costi di digitalizzazione specifici.",
+			"titel": "Rapporto del calcolatore die costi digitali",
+			"header1": "Calcolatore die costi digitali",
+			"header2": "SAV FSA - Associazione Svizzera degli Avvocati",
+			"inputSectionTitel": "Input",
+			"inputSection": "Hai inserito i seguenti dati dello studio nel calcolatore. Basandosi su queste informazioni, sono stati calcolati i costi specifici di digitalizzazione.",
+			"tabelKey": "Proprietà",
+			"tabelValue": "Input",
 			"headerTitle": "Rapporto",
 			"introTitel": "Introduzione",
-			"limitationTitel": "Limitazione",
-			"introduction": "Il calcolatore dei costi dello studio legale della FSA offre agli studi legali una stima fondata dei potenziali costi di digitalizzazione. Sulla base di una modellizzazione sviluppata da gfs.bern, questo tool mira a offrire una panoramica dei possibili oneri finanziari per le diverse fasi di digitalizzazione. Con l'ausilio del calcolatore, gli studi legali possono scegliere le fasi specifiche che desiderano attuare, ottenendo in tal modo una panoramica dei costi medi rispetto a studi legali simili.",
-			"limitations": "Il calcolatore dei costi dello studio si basa su un sondaggio condotto da gfs.bern su incarico della FSA nel 2024. Il calcolo dei costi si basa su dati di 489 studi legali partecipanti; alcune categorie di costi si basano su una base di dati inferiore. Per le fasi di digitalizzazione in merito alle quali solo pochi studi legali hanno fornito indicazioni, vengono fornite delle mediane, anziché stime specifiche. I costi esposti sono da intendersi a titolo orientativo e in realtà possono differire notevolmente a seconda dello studio legale. Il calcolatore non fornisce una previsione esatta, ma un’approssimazione basata sui dati esistenti."
+			"introduction": "Il calcolatore die costi digitali del SAV offre agli studi legali una stima informata dei potenziali costi di digitalizzazione. Basato su un modello sviluppato da gfs.bern, questo strumento mira a offrire una panoramica finanziaria di vari passi di digitalizzazione. Gli studi possono selezionare specifici passi che desiderano implementare e ricevere un confronto dei costi medi con studi simili.",
+			"limitationTitel": "Limitazioni",
+			"limitations": "Il calcolatore die costi digitali si basa su un sondaggio del 2024 condotto da gfs.bern su incarico del SAV. I calcoli dei costi si basano su dati di 489 studi partecipanti, con alcune categorie di costi basate su un dataset più piccolo. Per i passi di digitalizzazione con dati limitati, vengono visualizzati valori mediani anziché stime specifiche. I costi presentati servono come linea guida e possono variare significativamente nella pratica. Il calcolatore non fornisce una previsione esatta ma offre un'approssimazione basata sui dati disponibili."
 		}
 	}
 }
