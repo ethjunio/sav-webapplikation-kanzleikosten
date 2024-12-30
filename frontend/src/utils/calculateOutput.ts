@@ -18,6 +18,8 @@ export interface InputEstimate {
 }
 
 interface OutputData {
+  mean: number;
+  median: number;
   estimate: InputEstimate;
   range: number[];
   matrix: number[][];
@@ -112,7 +114,7 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
     const sqrtResult = math.sqrt(scalarResult) as number;
     const t_Value = (formula as FormulaType)[outputIdentifier].tValue;
 
-    const CI_lower = 0; // @ethjunior why has this not been defined before
+    const CI_lower = outputEstimateResult - t_Value * sqrtResult;
     const CI_upper = outputEstimateResult + t_Value * sqrtResult;
 
     // Read the Range
@@ -122,16 +124,17 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
     if (outputEstimateResult >= range[0] && outputEstimateResult <= range[1]) {
       return {
         type: 'confidence',
-        estimatedCost: roundTo(outputEstimateResult, 2),
+        estimatedCost: roundTo(outputEstimateResult, 0),
         CI_lower: roundTo(CI_lower, 2),
         CI_upper: roundTo(CI_upper, 2),
       };
     } else {
       return {
-        type: 'outOfRange',
-        estimatedCost: 0,
-        CI_lower: 0,
-        CI_upper: 0,
+        type: 'statistics',
+        estimatedCost: (formula as FormulaType)[outputIdentifier]?.median,
+        mean: (formula as FormulaType)[outputIdentifier]?.mean,
+        q25: 0,
+        q75: 0,
       };
     }
   } else {
@@ -140,7 +143,7 @@ const calculateOutput = ({ outputIdentifier, input }: CalculateOutputProps): Fun
     // Return with discriminant
     return {
       type: 'statistics',
-      estimatedCost: staticResultVector.mean,
+      estimatedCost: staticResultVector.median,
       mean: staticResultVector.mean,
       q25: staticResultVector.q25,
       q75: staticResultVector.q75,

@@ -1,5 +1,7 @@
 {
 	"ITsupport": {
+		"mean": 7500,
+		"median": 3000,
 		"estimate": {
 			"intercept": 6.81084301915415,
 			"regionalSwitzerland": 0.00999993256329952,
@@ -58,6 +60,8 @@
 		"tValue": 1.975693928
 	},
 	"SoftwareKosten": {
+		"mean": 3400,
+		"median": 1000,
 		"estimate": {
 			"intercept": 6.81317777742646,
 			"regionalSwitzerland": 1.57885711292875,
@@ -116,6 +120,8 @@
 		"tValue": 1.97782575808711
 	},
 	"Kanzleisoftware": {
+		"mean": 3600,
+		"median": 2000,
 		"estimate": {
 			"intercept": 6.04621547595987,
 			"regionalSwitzerland": 0.203822481271314,
@@ -174,6 +180,8 @@
 		"tValue": 1.9815667570749
 	},
 	"Datensicherheit": {
+		"mean": 2200,
+		"median": 600,
 		"estimate": {
 			"intercept": 5.68823351172372,
 			"regionalSwitzerland": 0.448147157799117,
@@ -232,6 +240,8 @@
 		"tValue": 1.98697869950628
 	},
 	"SocialMedia": {
+		"mean": 2500,
+		"median": 700,
 		"estimate": {
 			"intercept": 6.59404752284719,
 			"regionalSwitzerland": 0.324911524241785,
@@ -290,6 +300,8 @@
 		"tValue": 1.98062600245909
 	},
 	"DruckerScanner": {
+		"mean": 2400,
+		"median": 1000,
 		"estimate": {
 			"intercept": 7.43077722285141,
 			"regionalSwitzerland": 1.79083172663578,
@@ -348,6 +360,8 @@
 		"tValue": 1.97796126416772
 	},
 	"Laptops": {
+		"mean": 1800,
+		"median": 1000,
 		"estimate": {
 			"intercept": 5.84286917044785,
 			"regionalSwitzerland": 0.639106124525971,
@@ -406,6 +420,8 @@
 		"tValue": 1.98118035941466
 	},
 	"ServerNetzwerk": {
+		"mean": 3200,
+		"median": 700,
 		"estimate": {
 			"intercept": 4.51592951333628,
 			"regionalSwitzerland": -0.895882460196391,
@@ -464,6 +480,8 @@
 		"tValue": 1.98421695158642
 	},
 	"InternetMobile": {
+		"mean": 2400,
+		"median": 1200,
 		"estimate": {
 			"intercept": 6.20416101424152,
 			"regionalSwitzerland": -0.642255299875367,
@@ -522,6 +540,8 @@
 		"tValue": 1.97471578592379
 	},
 	"HostedDataStorage": {
+		"mean": 3300,
+		"median": 600,
 		"estimate": {
 			"intercept": 6.62171888677376,
 			"regionalSwitzerland": -0.382540313936918,
@@ -580,6 +600,8 @@
 		"tValue": 2.00029782201426
 	},
 	"EinmaligerHardwareKauf": {
+		"mean": 9300,
+		"median": 4000,
 		"estimate": {
 			"intercept": 6.73504773249984,
 			"regionalSwitzerland": -0.371759031759443,
@@ -638,6 +660,8 @@
 		"tValue": 1.98137181487631
 	},
 	"ExterneITBeratung": {
+		"mean": 7000,
+		"median": 2000,
 		"estimate": {
 			"intercept": 6.58420706491029,
 			"regionalSwitzerland": 0.374187224604138,
@@ -696,3 +720,4 @@
 		"tValue": 1.99254349518093
 	}
 }
+

@@ -1,7 +1,4 @@
 import { useEffect, useRef } from 'react';
-import content from '@/assets/content.json';
-import { languageContentType } from '@/types/languageContentType';
-import { useLanguage } from '@/context/LanguageContext';
 import Button from '@/components/ui/general/Button';
 import LocationInputCard from '@/components/Step_1/LocationInputCard';
 import ProgressBar from '@/components/Step_1/ProgressBar';
@@ -10,11 +7,12 @@ import { useProgress, ProgressState } from '@/context/ProgressContext';
 import FinanceInputCard from '@/components/Step_1/FinanceInputCard';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '@/context/FormState';
+import useI18n from '@/translations/i18n';
 
 const InputPage = () => {
   const navigate = useNavigate();
+  const translate = useI18n();
 
-  const { language } = useLanguage();
   const { state, dispatch } = useForm();
   const { currentProgress, setProgress } = useProgress();
 
@@ -24,8 +22,6 @@ const InputPage = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const pageContent = (content as languageContentType)[language].inputPage;
 
   const locationInputRef = useRef<{ validateForm: () => boolean }>(null);
   const processInputRef = useRef<{ validateForm: () => boolean }>(null);
@@ -71,8 +67,8 @@ const InputPage = () => {
     <>
       <div className="flex flex-col gap-3 items-center w-3/4">
         <div className="flex flex-col gap-2 items-center w-full">
-          <h4>{pageContent.step}</h4>
-          <h2>{pageContent.titel}</h2>
+          <h4>{translate('inputPage.step')}</h4>
+          <h2>{translate('inputPage.titel')}</h2>
           <ProgressBar className={'w-3/4'} />
         </div>
         {currentProgress === 'location' && <LocationInputCard className="w-full my-6" ref={locationInputRef} />}
@@ -80,7 +76,11 @@ const InputPage = () => {
         {currentProgress === 'finances' && <FinanceInputCard className="w-full my-6" ref={financesInputRef} />}
         <div className="flex flex-row gap-4 w-full">
           <Button
-            text={steps.indexOf(currentProgress) === 0 ? pageContent.button1Abord : pageContent.button1}
+            text={
+              steps.indexOf(currentProgress) === 0
+                ? translate('inputPage.button1Abord')
+                : translate('inputPage.button1')
+            }
             width="100%"
             variant="ghost"
             onClick={() => {
@@ -88,7 +88,7 @@ const InputPage = () => {
             }}
           />
           <Button
-            text={pageContent.button2}
+            text={translate('inputPage.button2')}
             width="100%"
             onClick={() => {
               handleNextClick();

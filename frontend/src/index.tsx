@@ -27,7 +27,7 @@ export default function main({
   contextPath,
   portletElementId,
   configuration,
-}: PortletEntryParams): void {
+}: Omit<PortletEntryParams, 'rootElement'>): void {
   const container = document.getElementById(portletElementId) as HTMLElement;
 
   let mountPoint = container;

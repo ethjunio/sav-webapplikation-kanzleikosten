@@ -7,7 +7,7 @@
   body {
     color: #0d0d0d; /* Set the default text color */
     font-size: 16px;
-    font-weight: light;
+    font-weight: lighter;
   }
 
   label {
@@ -15,10 +15,10 @@
   }
 
   h1 {
-    @apply text-5xl font-semibold text-primary mb-5;
+    @apply text-5xl font-semibold text-primary mb-5 sm:mb-4 sm:text-4xl;
   }
   h2 {
-    @apply text-4xl font-medium text-primary mb-5;
+    @apply text-4xl font-medium text-primary mb-5 sm:mb-4 sm:text-3xl;
   }
 
   h3 {
@@ -28,6 +28,6 @@
     @apply text-sm font-medium tracking-wider text-gray-400 uppercase;
   }
   p {
-    @apply text-darkGray mb-3;
+    @apply text-darkGray mb-3 sm:mb-1;
   }
 }

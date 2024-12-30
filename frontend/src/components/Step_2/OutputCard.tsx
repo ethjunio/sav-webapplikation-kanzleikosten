@@ -1,11 +1,9 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Checkbox from './Checkbox';
-import GrouTitel from './GroupTitel';
+import GroupTitel from './GroupTitel';
 import { FaPeopleGroup, FaShieldHalved, FaHandshakeSimple, FaKey } from 'react-icons/fa6';
 import { IoChatbubbles, IoHardwareChip } from 'react-icons/io5';
-
-import { useLanguage } from '@/context/LanguageContext';
-import content from '@/assets/content.json';
+import useI18n from "@/translations/i18n";
 
 interface OutputCardProps {
   setSelectedList: Dispatch<SetStateAction<string[]>>;
@@ -14,10 +12,8 @@ interface OutputCardProps {
 
 const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
   const [tooManySelected, setTooManySelected] = useState<boolean>(false);
-  const [classesForAlert, setClassesForAlert] = useState('');
-  const { language } = useLanguage();
-
-  const ComponentContent = (content as any)[language as keyof typeof content].outputPage;
+  const [, setClassesForAlert] = useState('');
+  const translate = useI18n()
 
   const stateProps = {
     selectedList,
@@ -46,38 +42,30 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
 
   return (
     <div className="flex flex-col gap-6 items-center">
-      <div
-        className={`flex flex-row text-white w-fit text-lg justify-center items-center px-4 py-1 rounded-xl bg-primary ${classesForAlert}`}
-      >
-        <span className={`font-semibold mr-1`}>
-          {/* Dynamically render the selected message based on language */}
-          {ComponentContent.selectedMessage?.replace('{count}', selectedList.length.toString())}
-        </span>
-      </div>
       <div className="grid grid-cols-2 gap-24 bg-gray-50 w-full p-8 rounded-xl">
         {/* Column 1 */}
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">
-            <GrouTitel titel={ComponentContent.personnelCosts} icon={<FaPeopleGroup />} />
+            <GroupTitel titel={translate('outputPage.personnelCosts')} icon={<FaPeopleGroup />} />
             <Checkbox tag="jahrlich" identifier="ITsupport" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="ITMitarbeitende" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="SchulungenSoftware" {...stateProps} />
             <Checkbox tag="einmalig" identifier="SchulungMitarbeitende" {...stateProps} line={false} />
           </div>
           <div className="flex flex-col gap-2">
-            <GrouTitel titel={ComponentContent.securityAndPrivacy} icon={<FaShieldHalved />} />
+            <GroupTitel titel={translate('outputPage.securityAndPrivacy')} icon={<FaShieldHalved />} />
             <Checkbox tag="jahrlich" identifier="Datensicherheit" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="HostedDataStorage" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="SichererDatenaustausch" {...stateProps} line={false} />
           </div>
           <div className="flex flex-col gap-2">
-            <GrouTitel titel={ComponentContent.communicationCollaboration} icon={<IoChatbubbles />} />
+            <GroupTitel titel={translate('outputPage.communicationCollaboration')} icon={<IoChatbubbles />} />
             <Checkbox tag="jahrlich" identifier="VideoKonferenzen" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="SocialMedia" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="ChatExtern" {...stateProps} line={false} />
           </div>
           <div className="flex flex-col gap-2">
-            <GrouTitel titel={ComponentContent.externalServices} icon={<FaHandshakeSimple />} />
+            <GroupTitel titel={translate('outputPage.externalServices')} icon={<FaHandshakeSimple />} />
             <Checkbox tag="einmalig" identifier="ExterneITBeratung" {...stateProps} />
             <Checkbox tag="einmalig" identifier="ExterneEntwicklung" {...stateProps} />
             <Checkbox tag="einmalig" identifier="Datenmigration" {...stateProps} line={false} />
@@ -87,7 +75,7 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
         {/* Column 2 */}
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">
-            <GrouTitel titel={ComponentContent.softwareLicenses} icon={<FaKey />} />
+            <GroupTitel titel={translate('outputPage.softwareLicenses')} icon={<FaKey />} />
             <Checkbox tag="jahrlich" identifier="SoftwareKosten" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="Kanzleisoftware" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="CRMSoftware" {...stateProps} />
@@ -97,7 +85,7 @@ const OutputCard = ({ setSelectedList, selectedList }: OutputCardProps) => {
             <Checkbox tag="einmalig" identifier="EinmaligerSoftwareKauf" {...stateProps} line={false} />
           </div>
           <div className="flex flex-col gap-2">
-            <GrouTitel titel={ComponentContent.hardwareInfrastructure} icon={<IoHardwareChip />} />
+            <GroupTitel titel={translate('outputPage.hardwareInfrastructure')} icon={<IoHardwareChip />} />
             <Checkbox tag="jahrlich" identifier="InformatikKosten" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="DruckerScanner" {...stateProps} />
             <Checkbox tag="jahrlich" identifier="Videokonferenzsystem" {...stateProps} />

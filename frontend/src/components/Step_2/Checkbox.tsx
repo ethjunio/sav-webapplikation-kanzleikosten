@@ -1,8 +1,6 @@
 import Tag from './Tag';
-import { useLanguage } from '@/context/LanguageContext';
-import content from '@/assets/content.json';
-import { languageContentType } from '@/types/languageContentType';
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import {ChangeEvent, Dispatch, SetStateAction, useState} from 'react';
+import useI18n from "@/translations/i18n";
 
 interface CheckboxProps {
   identifier: string;
@@ -20,28 +18,18 @@ export default function Checkbox({
   selectedList,
   setSelectedList,
   line = true,
-  setTooManySelected,
 }: CheckboxProps) {
-  const { language } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
+  const translate = useI18n()
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
     if (isChecked) {
-      if (selectedList.length >= 8) {
-        setTooManySelected(true);
-        return;
-      } else {
-        setSelectedList((prev) => [...prev, identifier]);
-      }
+      setSelectedList((prev) => [...prev, identifier]);
     } else {
       setSelectedList((prev) => prev.filter((item) => item !== identifier));
     }
   };
-
-  const checkboxLabel = (content as languageContentType)[language as keyof typeof content].checkboxLabels[identifier];
-  const checkboxLabelDescriptions = (content as languageContentType)[language as keyof typeof content]
-    .checkboxLabelsDescriptions[identifier];
 
   return (
     <div className={`flex flex-row items-center justify-between mx-4 ${line ? 'border-b-2 pb-2' : 'border-0'} gap-12`}>
@@ -58,11 +46,11 @@ export default function Checkbox({
             onChange={handleChange}
             checked={selectedList.includes(identifier)}
           />
-          <label htmlFor={identifier}>{checkboxLabel}</label>
+          <label htmlFor={identifier}>{translate(`checkboxLabels.${identifier}`)}</label>
           {isHovered && (
             <div className="absolute bottom-full left-6 flex flex-wrap text-wrap text-start mb-2 py-2 px-2 bg-gray-500 text-white min-w-80 max-w-96 text-xs rounded-lg shadow-lg opacity-0 animate-fade-in-slide-up">
               <div className="absolute w-2 h-2 bg-gray-500 -bottom-1 left-5 rotate-45"></div> {/* Arrow */}
-              {checkboxLabelDescriptions}
+              {translate(`checkboxLabelDescriptions.${identifier}`)}
             </div>
           )}
         </div>

@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { PropsWithChildren } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import HeroImage from './HeroImage';
@@ -17,7 +17,7 @@ export default function Layout({ children, fullscreen }: PropsWithChildren<Layou
       >
         <section
           aria-label="Main Content"
-          className={`py-16 mx-12 ${!fullscreen ? 'basis-2/3 max-w-3xl' : 'max-w-7xl'}`}
+          className={`py-16 md:py-8 mx-12 ${!fullscreen ? 'basis-2/3 max-w-3xl' : 'max-w-7xl'}`}
         >
           {children}
         </section>

@@ -16,5 +16,9 @@ export const PortletPropsProvider = ({ children, ...props }: PropsWithChildren<P
 };
 
 export const usePortletProps = () => {
-  return useContext(PortletPropsContext);
+  const context = useContext(PortletPropsContext);
+  if (!context) {
+    throw Error('usePortletProps must be used inside the PortletPropsContext');
+  }
+  return context;
 };

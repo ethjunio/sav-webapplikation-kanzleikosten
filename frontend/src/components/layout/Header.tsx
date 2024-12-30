@@ -1,5 +1,4 @@
 import { usePortletProps } from '@/context/PortletPropsContext';
-import LangugageSwitch from '../ui/general/LanguageSwitch';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
@@ -18,7 +17,6 @@ const Header = () => {
         style={{ height: '50%', cursor: 'pointer' }}
         onClick={handlLogoClick}
       />
-      <LangugageSwitch />
     </div>
   );
 };
