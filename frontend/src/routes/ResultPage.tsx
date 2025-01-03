@@ -255,7 +255,7 @@ export default function ResultPage() {
   if (isLoading) {
     window.scrollTo(0, 0);
     return (
-      <div className="flex h-screen w-screen flex-col gap-4 items-center justify-center">
+      <div className="flex flex-col gap-4 items-center justify-center">
         {/* Loading spinner */}
         <l-quantum size="45" speed="1.75" color="black"></l-quantum>
         <p>{translate('resultPage.loadingMessage')}</p>
