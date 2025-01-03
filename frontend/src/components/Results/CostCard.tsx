@@ -1,8 +1,8 @@
 import { useCalculationResultContext } from '@/context/CalculationResultContext';
 import BarPlotCost from './BarPlotDigiCost';
-import {useState} from "react";
-import classifyOutput from "@/utils/classifyOutput";
-import useI18n from "@/translations/i18n";
+import { useState } from 'react';
+import classifyOutput from '@/utils/classifyOutput';
+import useI18n from '@/translations/i18n';
 
 export interface PlotEntry {
   value: number;
@@ -12,7 +12,7 @@ export interface PlotEntry {
 export default function CostCard() {
   const { calculationResults } = useCalculationResultContext();
   const [currentData, setCurrentData] = useState<string>('yearly');
-  const translate = useI18n()
+  const translate = useI18n();
 
   // Extract output parameter identifiers from the form state
   const labelIdentifier = Object.keys(calculationResults);
@@ -42,9 +42,11 @@ export default function CostCard() {
   const oneTimeDataAvailable = labelIdentifier.some((label) => classifyOutput(label)?.costType === 'einmalig');
 
   return (
-    <div className="flex flex-col w-full flex-grow  items-start h-screen min-h-[800px] lg:min-h-[1200px] rounded-2xl px-0 py-12">
+    <div className="flex flex-col w-full flex-grow items-start h-screen min-h-[800px] lg:min-h-[1200px] rounded-2xl px-0 py-12">
       <h2 className="font-bold text-start w-2/3 text-gray-700">{translate('costPlot.titel')}</h2>
-      <p className="text-xl sm:text-base font-semibold mt-2 text-start text-gray-500 w-2/3 lg:w-full">{translate('costPlot.description')}</p>
+      <p className="text-xl sm:text-base font-semibold mt-2 text-start text-gray-500 w-2/3 lg:w-full">
+        {translate('costPlot.description')}
+      </p>
 
       <div id="costLegend" className="flex flex-col gap-3">
         <div className="flex flex-row text-lg md:text-sm font-medium text-start items-start text-gray-500  w-2/3 lg:w-full">
@@ -60,39 +62,57 @@ export default function CostCard() {
 
       <div id={'costPlot'} className="flex h-full w-full flex-col overflow-visible">
         <div className="flex h-full">
-          <BarPlotCost dataSet={dataSet} labels={labels} labelIdentifier={labelIdentifier} currentData={currentData} setCurrentData={setCurrentData} />
+          <BarPlotCost
+            dataSet={dataSet}
+            labels={labels}
+            labelIdentifier={labelIdentifier}
+            currentData={currentData}
+            setCurrentData={setCurrentData}
+          />
         </div>
         {yearlyDataAvailable && (
-            <div
-                id="costPlotYearly"
-                className="flex"
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: -20000,
-                  width: '2000px',
-                  pointerEvents: 'none',
-                  height: '900px',
-                }}
-            >
-              <BarPlotCost dataSet={dataSet} labels={labels} labelIdentifier={labelIdentifier} currentData={'yearly'} setCurrentData={setCurrentData} />
-            </div>
+          <div
+            id="costPlotYearly"
+            className="flex"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: -20000,
+              width: '2000px',
+              pointerEvents: 'none',
+              height: '900px',
+            }}
+          >
+            <BarPlotCost
+              dataSet={dataSet}
+              labels={labels}
+              labelIdentifier={labelIdentifier}
+              currentData={'yearly'}
+              setCurrentData={setCurrentData}
+            />
+          </div>
         )}
         {oneTimeDataAvailable && (
-            <div
-                id="costPlotOneTime"
-                className="flex "
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: -10000,
-                  width: '2000px',
-                  pointerEvents: 'none',
-                  height: '900px',
-                }}
-            >
-              <BarPlotCost dataSet={dataSet} labels={labels} labelIdentifier={labelIdentifier} currentData={'oneTime'} setCurrentData={setCurrentData} />
-            </div>
+          <div
+            id="costPlotOneTime"
+            className="flex "
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: -10000,
+              width: '2000px',
+              pointerEvents: 'none',
+              height: '900px',
+            }}
+          >
+            <BarPlotCost
+              dataSet={dataSet}
+              labels={labels}
+              labelIdentifier={labelIdentifier}
+              currentData={'oneTime'}
+              setCurrentData={setCurrentData}
+            />
+          </div>
         )}
       </div>
     </div>

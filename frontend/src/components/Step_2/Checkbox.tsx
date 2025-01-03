@@ -1,6 +1,6 @@
 import Tag from './Tag';
-import {ChangeEvent, Dispatch, SetStateAction, useState} from 'react';
-import useI18n from "@/translations/i18n";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import useI18n from '@/translations/i18n';
 
 interface CheckboxProps {
   identifier: string;
@@ -12,15 +12,9 @@ interface CheckboxProps {
   setTooManySelected: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Checkbox({
-  identifier,
-  tag,
-  selectedList,
-  setSelectedList,
-  line = true,
-}: CheckboxProps) {
+export default function Checkbox({ identifier, tag, selectedList, setSelectedList, line = true }: CheckboxProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const translate = useI18n()
+  const translate = useI18n();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
@@ -50,7 +44,7 @@ export default function Checkbox({
           {isHovered && (
             <div className="absolute bottom-full left-6 flex flex-wrap text-wrap text-start mb-2 py-2 px-2 bg-gray-500 text-white min-w-80 max-w-96 text-xs rounded-lg shadow-lg opacity-0 animate-fade-in-slide-up">
               <div className="absolute w-2 h-2 bg-gray-500 -bottom-1 left-5 rotate-45"></div> {/* Arrow */}
-              {translate(`checkboxLabelDescriptions.${identifier}`)}
+              {translate(`checkboxLabelsDescriptions.${identifier}`)}
             </div>
           )}
         </div>
