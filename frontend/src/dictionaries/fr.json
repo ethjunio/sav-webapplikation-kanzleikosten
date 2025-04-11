@@ -1,6 +1,6 @@
 {
   "landingPage": {
-    "h1": "Calculateur de coûts pour les cabinets d'avocats",
+    "h1": "Calculateur de coûts pour les études d'avocats",
     "p1": "Le calculateur de coûts de la FSA permet d'estimer le coût des mesures de numérisation.",
     "p2": "Vous pouvez utiliser le calculateur en deux étapes simples :",
     "p3": "Décrivez votre étude en utilisant les champs de la section « Description de l'étude ». Cela permettra de calculer les coûts en fonction des dépenses d'études similaires dans ces étapes de numérisation.",
@@ -47,7 +47,7 @@
     "titel": "Résultat",
     "description": "Sur la base de la description de votre étude, il est procédé à un calcul des coûts moyens pour chaque étape de numérisation. Les coûts sont indiqués en CHF.",
     "disclaimerTitel": "Avertissement",
-    "disclaimer": "Le calculateur des coûts des études repose sur un modèle développé par gfs.bern. À la demande de la FSA, gfs.bern a réalisé une enquête en 2024 auprès des membres de la fédération, collectant des données sur les coûts des études. Au total, 489 études ont participé à cette enquête. Les valeurs utilisées pour les calculs reposent sur un maximum de 256 données provenant de ces études. Pour les étapes de numérisation où le nombre de données disponibles est limité, des médianes sont appliquées, sans tenir compte des spécificités propres à chaque étude. Ce modèle constitue une estimation et sert de référence indicative pour évaluer les coûts de numérisation des études d’avocats.",
+    "disclaimer": "Le calculateur des coûts des études repose sur un modèle développé par gfs.bern. À la demande de la FSA, gfs.bern a réalisé une enquête en 2024 auprès des membres de la fédération, collectant des données sur les coûts des études. Au total, 489 études ont participé à cette enquête. Les valeurs utilisées pour les calculs reposent sur un maximum de 256 données provenant de ces études. Pour les étapes de numérisation où le nombre de données disponibles est limité, des médianes sont appliquées, sans tenir compte des spécificités propres à chaque étude. Ce modèle constitue une estimation et sert de référence indicative pour évaluer les coûts de numérisation des études d'avocats.",
     "button1": "Redémarrer",
     "button2": "Télécharger le rapport",
     "buttonBack": "Retour",
