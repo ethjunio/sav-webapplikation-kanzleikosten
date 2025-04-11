@@ -186,7 +186,6 @@ const Footer = () => {
   return (
     <View style={styles.footer} fixed>
       {/* Footer content */}
-      <Text style={styles.pageNumber}>{dict.report.footerText}</Text>
       <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`} />
     </View>
   );

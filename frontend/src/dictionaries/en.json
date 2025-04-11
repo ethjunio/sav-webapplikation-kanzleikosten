@@ -199,7 +199,6 @@
     "introTitel": "Introduction",
     "limitationTitel": "Limitations",
     "introduction": "The SAV Law Firm Cost Calculator provides law firms with an informed estimate of potential digitalization costs. Based on a model developed by gfs.bern, this tool aims to offer a financial overview of various digitalization steps. Law firms can select specific steps they wish to implement and receive a comparison of average costs with similar firms.",
-    "limitations": "The Law Firm Cost Calculator is based on a 2024 survey conducted by gfs.bern on behalf of the SAV. The cost calculations rely on data from 489 participating law firms, with some cost categories based on a smaller dataset. For digitalization steps with limited data, median values are displayed rather than specific estimates. The presented costs serve as a guideline and may vary significantly in practice. The calculator does not provide an exact prediction but offers an approximation based on available data.",
-    "footerText": "TODO: FOOTER TEXT"
+    "limitations": "The Law Firm Cost Calculator is based on a 2024 survey conducted by gfs.bern on behalf of the SAV. The cost calculations rely on data from 489 participating law firms, with some cost categories based on a smaller dataset. For digitalization steps with limited data, median values are displayed rather than specific estimates. The presented costs serve as a guideline and may vary significantly in practice. The calculator does not provide an exact prediction but offers an approximation based on available data."
   }
 }
