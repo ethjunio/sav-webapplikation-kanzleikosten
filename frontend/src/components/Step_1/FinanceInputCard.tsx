@@ -1,15 +1,20 @@
-import {forwardRef, useImperativeHandle, useState} from 'react';
+import { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
 import InputField from './InputField';
-import {zodFormValidationFinances} from '@/types/getZodFormValidation';
+import { zodFormValidationFinances } from '@/types/getZodFormValidation';
 import cn from 'classnames';
-import {IoMdAlert} from 'react-icons/io';
-import {useForm} from '@/context/FormState';
-import useI18n from "@/translations/i18n";
+import { IoMdAlert } from 'react-icons/io';
+import { useForm } from '@/context/FormState';
 
-const FinanceInputCard = ({className}: { className?: string }, ref: any) => {
-  const {state} = useForm();
+import { useDictionary } from '@/context/DictionaryContext';
+import { useWindowWidth } from '@/context/WindowWidthContext';
+
+const FinanceInputCard = ({ className }: { className?: string }, ref: any) => {
+  const { state } = useForm();
   const [error, setError] = useState<string | null>(null);
-  const translate = useI18n();
+  const dict = useDictionary();
+  const { width } = useWindowWidth();
+
+  const isMobile = useMemo(() => width < 767, [width]);
 
   const validateForm = () => {
     const result = zodFormValidationFinances.safeParse({
@@ -34,30 +39,30 @@ const FinanceInputCard = ({className}: { className?: string }, ref: any) => {
   }));
 
   return (
-      <div className={cn('flex flex-col gap-8 p-10 rounded-xl bg-gray-100',
-          className)}>
-        <div className="flex flex-col gap-2">
-          <span className="font-medium">{translate(
-              'financialInputCard.revenuePerYear')}</span>
-          <InputField placeholder={translate(
-              'financialInputCard.inputPlaceholderCurrency')}
-                      identifier={'revenuePerYear'} unit={'CHF'}/>
-        </div>
-        <div className="flex flex-col gap-2">
-          <span className="font-medium">{translate(
-              'financialInputCard.operatingCostsPerYear')}</span>
-          <InputField placeholder={translate(
-              'financialInputCard.inputPlaceholderCurrency')}
-                      identifier={'operatingCostsPerYear'} unit={'CHF'}/>
-        </div>
-        {error && (
-            <div
-                className="flex flex-row items-center justify-start text-red-500 gap-1 text-sm">
-              <IoMdAlert/>
-              <div className="">{error}</div>
-            </div>
-        )}
+    <div className={cn(`flex flex-col gap-8 rounded-xl bg-gray-100 ${isMobile ? 'p-5' : 'p-10'}`, className)}>
+      <div className="flex flex-col gap-2">
+        <span className="font-medium">{dict.financialInputCard.revenuePerYear}</span>
+        <InputField
+          placeholder={dict.financialInputCard.inputPlaceholderCurrency}
+          identifier={'revenuePerYear'}
+          unit={'CHF'}
+        />
       </div>
+      <div className="flex flex-col gap-2">
+        <span className="font-medium">{dict.financialInputCard.operatingCostsPerYear}</span>
+        <InputField
+          placeholder={dict.financialInputCard.inputPlaceholderCurrency}
+          identifier={'operatingCostsPerYear'}
+          unit={'CHF'}
+        />
+      </div>
+      {error && (
+        <div className="flex flex-row items-center justify-start text-red-500 gap-1 text-sm">
+          <IoMdAlert />
+          <div className="">{error}</div>
+        </div>
+      )}
+    </div>
   );
 };
 

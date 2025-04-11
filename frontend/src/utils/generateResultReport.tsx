@@ -1,6 +1,6 @@
 import { Page, Font, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
-import useI18n from '@/translations/i18n';
 import { usePortletProps } from '@/context/PortletPropsContext';
+import { useDictionary } from '@/context/DictionaryContext';
 
 interface inputDataType {
   name: string[];
@@ -169,49 +169,49 @@ const styles = StyleSheet.create({
 });
 
 const Header = () => {
-  const translate = useI18n();
+  const dict = useDictionary();
 
   return (
     <View style={styles.header} fixed>
-      <Text>{translate('report.header1')}</Text>
-      <Text>{translate('report.header2')}</Text>
+      <Text>{dict.report.header1}</Text>
+      <Text>{dict.report.header2}</Text>
       <Text>{new Date().toLocaleDateString()}</Text>
     </View>
   );
 };
 
 const Footer = () => {
-  const translate = useI18n();
+  const dict = useDictionary();
 
   return (
     <View style={styles.footer} fixed>
       {/* Footer content */}
-      <Text style={styles.pageNumber}>{translate('report.footerText')}</Text>
+      <Text style={styles.pageNumber}>{dict.report.footerText}</Text>
       <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`} />
     </View>
   );
 };
 
 const IntroSection = ({ inputData }: { inputData: inputDataType }) => {
-  const translate = useI18n();
+  const dict = useDictionary();
 
   return (
     <View style={styles.section}>
-      <Text style={styles.H1}>{translate('report.titel')}</Text>
-      <Text style={styles.H2}>1. {translate('report.introTitel')}</Text>
-      <Text style={styles.p}>{translate('report.introduction')}</Text>
-      <Text style={styles.H2}>2. {translate('report.limitationTitel')}</Text>
-      <Text style={styles.p}>{translate('report.limitations')}</Text>
-      <Text style={styles.H2}>3. {translate('report.inputSectionTitel')}</Text>
-      <Text style={styles.p}>{translate('report.inputSection')}</Text>
+      <Text style={styles.H1}>{dict.report.titel}</Text>
+      <Text style={styles.H2}>1. {dict.report.introTitel}</Text>
+      <Text style={styles.p}>{dict.report.introduction}</Text>
+      <Text style={styles.H2}>2. {dict.report.limitationTitel}</Text>
+      <Text style={styles.p}>{dict.report.limitations}</Text>
+      <Text style={styles.H2}>3. {dict.report.inputSectionTitel}</Text>
+      <Text style={styles.p}>{dict.report.inputSection}</Text>
       <View style={styles.table} wrap={false}>
         {/* Single Header Row */}
         <View style={styles.tableHeaderRow}>
           <View style={styles.tableHeaderCol}>
-            <Text style={styles.tableHeaderCell}>{translate('report.tabelKey')}</Text>
+            <Text style={styles.tableHeaderCell}>{dict.report.tabelKey}</Text>
           </View>
           <View style={styles.tableHeaderCol}>
-            <Text style={styles.tableHeaderCell}>{translate('report.tabelValue')}</Text>
+            <Text style={styles.tableHeaderCell}>{dict.report.tabelValue}</Text>
           </View>
         </View>
 
@@ -234,26 +234,26 @@ const IntroSection = ({ inputData }: { inputData: inputDataType }) => {
 };
 
 const CostPlotSection = ({ plotImages }: { plotImages: plotImageInterface }) => {
-  const translate = useI18n();
+  const dict = useDictionary();
 
   return (
     <View style={styles.section}>
-      <Text style={styles.H2}>5. {translate('costPlot.titel')}</Text>
-      <Text style={styles.p}>{translate('costPlot.description')}</Text>
+      <Text style={styles.H2}>5. {dict.costPlot.titel}</Text>
+      <Text style={styles.p}>{dict.costPlot.description}</Text>
       <View style={styles.legendContainer}>
         <View style={styles.legend}>
           <View style={[styles.box, { backgroundColor: '#BFC9DF' }]} />
-          <Text style={{ paddingTop: 5 }}>{translate('costPlot.descriptionRegression')}</Text>
+          <Text style={{ paddingTop: 5 }}>{dict.costPlot.descriptionRegression}</Text>
         </View>
         <View style={styles.legend}>
           <View style={[styles.box, { backgroundColor: '#DED8CA' }]} />
-          <Text style={{ paddingTop: 5 }}>{translate('costPlot.descriptionStatistical')}</Text>
+          <Text style={{ paddingTop: 5 }}>{dict.costPlot.descriptionStatistical}</Text>
         </View>
       </View>
       <View>
         {plotImages.costPlotYearly && (
           <>
-            <Text style={styles.H4}>{translate('stackedBarPlotCost.yearlyCosts')}</Text>
+            <Text style={styles.H4}>{dict.stackedBarPlotCost.yearlyCosts}</Text>
             <Image
               src={plotImages.costPlotYearly}
               style={{
@@ -268,7 +268,7 @@ const CostPlotSection = ({ plotImages }: { plotImages: plotImageInterface }) => 
 
         {plotImages.costPlotOnce && (
           <>
-            <Text style={styles.H4}>{translate('stackedBarPlotCost.oneTimeCosts')}</Text>
+            <Text style={styles.H4}>{dict.stackedBarPlotCost.oneTimeCosts}</Text>
             <Image
               src={plotImages.costPlotOnce}
               style={{
@@ -285,20 +285,20 @@ const CostPlotSection = ({ plotImages }: { plotImages: plotImageInterface }) => 
 };
 
 const KanzleiPlotSection = ({ plotImages }: { plotImages: plotImageInterface }) => {
-  const translate = useI18n();
+  const dict = useDictionary();
 
   return (
     <View style={styles.section}>
-      <Text style={styles.H2}>4. {translate('firmPlot.titel')}</Text>
-      <Text style={styles.p}>{translate('firmPlot.description')}</Text>
+      <Text style={styles.H2}>4. {dict.firmPlot.titel}</Text>
+      <Text style={styles.p}>{dict.firmPlot.description}</Text>
       <View style={styles.legendContainer}>
         <View style={styles.legend}>
           <View style={[styles.box, { backgroundColor: '#BFC9DF' }]} />
-          <Text style={{ paddingTop: 5 }}>{translate('firmPlot.yourFirm')}</Text>
+          <Text style={{ paddingTop: 5 }}>{dict.firmPlot.yourFirm}</Text>
         </View>
         <View style={styles.legend}>
           <View style={[styles.box, { backgroundColor: '#F4F1EA' }]} />
-          <Text style={{ paddingTop: 5 }}>{translate('firmPlot.referenceFirm')}</Text>
+          <Text style={{ paddingTop: 5 }}>{dict.firmPlot.referenceFirm}</Text>
         </View>
       </View>
       {plotImages.kanzleiPlot !== '' && (
@@ -321,11 +321,11 @@ const CostTableSection = ({
   tableImages: tableImageInterface;
   summaryText: summaryText;
 }) => {
-  const translate = useI18n();
+  const dict = useDictionary();
 
   return (
     <View style={styles.section}>
-      <Text style={styles.H2}>6. {translate('summeryCard.titel')}</Text>
+      <Text style={styles.H2}>6. {dict.summeryCard.titel}</Text>
       <Text style={styles.p}>{summaryText.text}</Text>
       {tableImages.yearly && (
         <Image

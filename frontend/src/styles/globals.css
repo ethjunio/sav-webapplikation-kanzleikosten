@@ -4,10 +4,9 @@
 
 @layer base {
   /* Set default body styles */
-  body {
+  #savlegalfeescalculator {
     color: #0d0d0d; /* Set the default text color */
     font-size: 16px;
-    font-weight: lighter;
   }
 
   label {

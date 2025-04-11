@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import Button from '@/components/ui/general/Button';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { useForm } from '@/context/FormState';
-import useI18n from '@/translations/i18n';
+
+import { useDictionary } from '@/context/DictionaryContext';
 
 export default function LandingPage() {
   const { dispatch } = useForm();
-  const translate = useI18n();
+  const dict = useDictionary();
 
   useEffect(() => {
     dispatch({ type: 'RESET_FORM' });
@@ -14,21 +15,21 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <>
-      <h1>{translate('landingPage.h1')}</h1>
-      <p>{translate('landingPage.p1')}</p>
-      <p className="font-semibold">{translate('landingPage.p2')}</p>
+    <section>
+      <h1>{dict.landingPage.h1}</h1>
+      <p>{dict.landingPage.p1}</p>
+      <p className="font-semibold">{dict.landingPage.p2}</p>
       <div className="mb-5 text-sm ms-6">
         <div className="flex flex-row gap-3">
           <p>1.</p>
-          <p>{translate('landingPage.p3')}</p>
+          <p>{dict.landingPage.p3}</p>
         </div>
         <div className="flex flex-row gap-3">
           <p>2.</p>
-          <p>{translate('landingPage.p4')}</p>
+          <p>{dict.landingPage.p4}</p>
         </div>
       </div>
-      <Button endIcon={<FaLongArrowAltRight />} text={translate('landingPage.button')} route="/input" width="100%" />
-    </>
+      <Button endIcon={<FaLongArrowAltRight />} text={dict.landingPage.button} route="/input" width="100%" />
+    </section>
   );
 }

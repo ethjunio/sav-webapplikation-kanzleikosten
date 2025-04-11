@@ -1,16 +1,21 @@
-import { forwardRef, useImperativeHandle, useState } from 'react';
+import { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
 import InputField from './InputField';
 import InputFieldDropdown from './InputFieldDropdown';
 import cn from 'classnames';
 import { useForm } from '@/context/FormState';
 import { zodFormValidationProcess } from '@/types/getZodFormValidation';
 import { IoMdAlert } from 'react-icons/io';
-import useI18n from "@/translations/i18n";
+
+import { useDictionary } from '@/context/DictionaryContext';
+import { useWindowWidth } from '@/context/WindowWidthContext';
 
 const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref) => {
   const { state } = useForm();
   const [error, setError] = useState<string | null>(null);
-  const translate = useI18n();
+  const dict = useDictionary();
+  const { width } = useWindowWidth();
+
+  const isMobile = useMemo(() => width < 767, [width]);
 
   const DropdownOptions = ['repetitiveTasksIndividualizedOfferings', 'bespokeStandard', 'bespokeHighEnd'];
 
@@ -39,22 +44,26 @@ const ProcessInputCard = forwardRef(({ className }: { className?: string }, ref)
   }));
 
   return (
-    <div className={cn('flex flex-col gap-8 p-10 rounded-xl bg-gray-100', className)}>
+    <div className={cn(`flex flex-col gap-8 rounded-xl bg-gray-100 ${isMobile ? 'p-5' : 'p-10'}`, className)}>
       <div className="flex flex-col gap-2">
-        <span className="font-medium">{translate('processInputCard.processLeadingPersonnel')}</span>
-        <InputField placeholder={translate('processInputCard.inputPlaceholderPercentage')} identifier="processLeadingPersonnel" unit={'%'}/>
+        <span className="font-medium">{dict.processInputCard.processLeadingPersonnel}</span>
+        <InputField
+          placeholder={dict.processInputCard.inputPlaceholderPercentage}
+          identifier="processLeadingPersonnel"
+          unit={'%'}
+        />
       </div>
       <div className="flex flex-col gap-2">
-        <span className="font-medium">{translate('processInputCard.serviceType')}</span>
+        <span className="font-medium">{dict.processInputCard.serviceType}</span>
         <InputFieldDropdown options={DropdownOptions} identifier="serviceType" />
       </div>
       <div className="flex flex-col gap-2">
-        <span className="font-medium">{translate('processInputCard.employeesCount')}</span>
-        <InputField placeholder={translate('processInputCard.inputPlaceholderNumber')} identifier="employeesCount" />
+        <span className="font-medium">{dict.processInputCard.employeesCount}</span>
+        <InputField placeholder={dict.processInputCard.inputPlaceholderNumber} identifier="employeesCount" />
       </div>
       <div className="flex flex-col gap-2">
-        <span className="font-medium">{translate('processInputCard.partnersCount')}</span>
-        <InputField placeholder={translate('processInputCard.inputPlaceholderNumber')} identifier="partnersCount" />
+        <span className="font-medium">{dict.processInputCard.partnersCount}</span>
+        <InputField placeholder={dict.processInputCard.inputPlaceholderNumber} identifier="partnersCount" />
       </div>
       {error && (
         <div className="flex flex-row items-center justify-start text-red-500 gap-1 text-sm">

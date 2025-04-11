@@ -2,7 +2,9 @@ import { useCalculationResultContext } from '@/context/CalculationResultContext'
 import BarPlotCost from './BarPlotDigiCost';
 import { useState } from 'react';
 import classifyOutput from '@/utils/classifyOutput';
-import useI18n from '@/translations/i18n';
+
+import { useDictionary } from '@/context/DictionaryContext';
+import Dictionary from '@/types/Dictionary';
 
 export interface PlotEntry {
   value: number;
@@ -12,13 +14,13 @@ export interface PlotEntry {
 export default function CostCard() {
   const { calculationResults } = useCalculationResultContext();
   const [currentData, setCurrentData] = useState<string>('yearly');
-  const translate = useI18n();
+  const dict = useDictionary();
 
   // Extract output parameter identifiers from the form state
-  const labelIdentifier = Object.keys(calculationResults);
+  const labelIdentifier = Object.keys(calculationResults) as (keyof Dictionary['checkboxLabels'])[];
 
   // Create the labels for the radar plot from the checkbox labels in the content
-  const labels: string[] = labelIdentifier.map((value) => translate(`checkboxLabels.${value}`));
+  const labels: string[] = labelIdentifier.map((value) => dict.checkboxLabels[value]);
 
   // Map calculation results into datasets for the radar plot
   const dataSet = labelIdentifier.map((identifier) => {
@@ -43,20 +45,20 @@ export default function CostCard() {
 
   return (
     <div className="flex flex-col w-full flex-grow items-start h-screen min-h-[800px] lg:min-h-[1200px] rounded-2xl px-0 py-12">
-      <h2 className="font-bold text-start w-2/3 text-gray-700">{translate('costPlot.titel')}</h2>
+      <h2 className="font-bold text-start w-2/3 text-gray-700">{dict.costPlot.titel}</h2>
       <p className="text-xl sm:text-base font-semibold mt-2 text-start text-gray-500 w-2/3 lg:w-full">
-        {translate('costPlot.description')}
+        {dict.costPlot.description}
       </p>
 
       <div id="costLegend" className="flex flex-col gap-3">
         <div className="flex flex-row text-lg md:text-sm font-medium text-start items-start text-gray-500  w-2/3 lg:w-full">
           <div className="ms-9 md:ms-0 mt-1.5 w-10 h-4 me-2 bg-[#ded8ca] rounded-sm"></div>
-          <div className="leading-6 w-3/4 md:w-full">{translate('costPlot.descriptionStatistical')}</div>
+          <div className="leading-6 w-3/4 md:w-full">{dict.costPlot.descriptionStatistical}</div>
         </div>
 
         <div className="flex text-lg font-medium md:text-sm text-start items-start mb-12 text-gray-500  w-2/3 lg:w-full">
           <div className=" ms-9 md:ms-0 mt-1.5 w-10 h-4 bg-[#8997B3] rounded-sm me-2"></div>
-          <div className="leading-6 w-3/4 md:w-full">{translate('costPlot.descriptionRegression')}</div>
+          <div className="leading-6 w-3/4 md:w-full">{dict.costPlot.descriptionRegression}</div>
         </div>
       </div>
 

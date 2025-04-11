@@ -7,7 +7,6 @@
     "build:liferay": "vite build && liferay-npm-bundler-improved --copy-assets",
     "deploy": "vite build && liferay-npm-bundler-improved -d",
     "format": "prettier --write ./src/**/*.{ts,tsx}",
-    "translate": "translation-transformer",
     "start": "vite"
   },
   "browserslist": {
@@ -35,10 +34,10 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@clavisit/translation-transformer": "^3.0.1",
     "@react-pdf/renderer": "^4.0.0",
     "@rollup/plugin-replace": "^6.0.1",
     "@tailwindcss/forms": "^0.5.9",
+    "@types/liferay": "^1.0.3",
     "@types/mathjs": "^9.4.1",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
@@ -71,14 +70,6 @@
     "com.liferay.portlet.display-category": "category.sav-react-portlet",
     "javax.portlet.name": "sav-legal-fees-calculator",
     "javax.portlet.display-name": "Legal fees calculator"
-  },
-  "translation": {
-    "location": "src/translations/",
-    "properties": [
-      "features/localization/"
-    ],
-    "keys": [],
-    "typescript": true
   },
   "main": "index"
 }

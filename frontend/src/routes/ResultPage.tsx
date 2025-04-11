@@ -20,8 +20,12 @@ import { pdf } from '@react-pdf/renderer';
 import html2canvas from 'html2canvas';
 import { quantum } from 'ldrs';
 import { useWindowWidth } from '@/context/WindowWidthContext';
-import useI18n from '@/translations/i18n';
+
 import { PortletPropsProvider, usePortletProps } from '@/context/PortletPropsContext';
+import { useDictionary } from '@/context/DictionaryContext';
+import Dictionary from '@/types/Dictionary';
+import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowRotateLeft } from 'react-icons/fa6';
 
 // Initialize Quantum library
 quantum.register();
@@ -37,7 +41,7 @@ export default function ResultPage() {
 
   // Get calculation results and updater from CalculationResultContext
   const { calculationResults, updateCalculationResult } = useCalculationResultContext();
-  const translate = useI18n();
+  const dict = useDictionary();
   const props = usePortletProps();
 
   // --------------------------------------------------------------------------
@@ -175,11 +179,11 @@ export default function ResultPage() {
       // Prepare the report data object
       return {
         inputData: {
-          name: Object.keys(state).map((key) => translate(`firmPlot.${key}Label`)),
+          name: Object.keys(state).map((key) => dict.firmPlot[`${key}Label` as keyof Dictionary['firmPlot']]),
           value: Object.values(state).map((value, index) => {
             // Map dropdown options or convert values to strings
             if (index === 0 || index === 3) {
-              return translate(`dropdownOptions.${value.toString()}`);
+              return dict.dropdownOptions[value.toString() as keyof Dictionary['dropdownOptions']];
             } else {
               return value.toString();
             }
@@ -255,10 +259,10 @@ export default function ResultPage() {
   if (isLoading) {
     window.scrollTo(0, 0);
     return (
-      <div className="flex flex-col gap-4 items-center justify-center">
+      <div className="flex flex-col gap-4 items-center justify-center my-40">
         {/* Loading spinner */}
         <l-quantum size="45" speed="1.75" color="black"></l-quantum>
-        <p>{translate('resultPage.loadingMessage')}</p>
+        <p>{dict.resultPage.loadingMessage}</p>
       </div>
     );
   }
@@ -274,14 +278,14 @@ export default function ResultPage() {
             {/* Warning header */}
             <div className="flex flex-row gap-2 items-center text-red-600 border-b border-red-200 pb-3">
               <IoAlertCircle size={20} />
-              <span className="text-lg font-semibold">{translate('resultPage.rangeMessageTitel')}</span>
+              <span className="text-lg font-semibold">{dict.resultPage.rangeMessageTitel}</span>
             </div>
             {/* Warning messages */}
             <span>
-              {translate('resultPage.rangeMessage')}
+              {dict.resultPage.rangeMessage}
               <ul className="list-inside list-disc">
                 {warning.map((identifier) => (
-                  <li key={identifier}>{translate(`checkboxLabels.${identifier}`)}</li>
+                  <li key={identifier}>{dict.checkboxLabels[identifier as keyof Dictionary['checkboxLabels']]}</li>
                 ))}
               </ul>
             </span>
@@ -298,7 +302,7 @@ export default function ResultPage() {
       </div>
 
       {/* Summary and Table Section */}
-      <div className="flex  min-h-[800px] items-center justify-center flex-col w-full gap-4 py-12">
+      <div className="flex min-h-[800px] items-center justify-center flex-col w-full gap-4 py-12">
         {/* Display table with calculation results */}
         <Table
           identifiers={Object.keys(calculationResults)}
@@ -310,7 +314,7 @@ export default function ResultPage() {
           {width > 1000 ? (
             <Button
               startIcon={<TbReport />}
-              text={loadingReport ? 'loading...' : translate('resultPage.button2')}
+              text={loadingReport ? 'loading...' : dict.resultPage.button2}
               onClick={handleReportClick}
               width="100%"
               variant="primary"
@@ -319,13 +323,29 @@ export default function ResultPage() {
           ) : (
             ''
           )}
+          <div className="w-full flex items-start justify-start h-fit gap-2">
+            <Button
+              text={dict.resultPage.buttonBack}
+              width="100%"
+              variant={'secondary'}
+              route="/output"
+              startIcon={<FaArrowLeft />}
+            />
+            <Button
+              text={dict.resultPage.button1}
+              width="100%"
+              variant={width > 1000 ? 'secondary' : 'primary'}
+              route="/"
+              startIcon={<FaArrowRotateLeft />}
+            />
+          </div>
         </div>
       </div>
 
       {/* Disclaimer Section */}
-      <div className="flex flex-col items-center sm:items-start w-full text-center sm:text-start border-t-2 pt-8 my-12">
-        <h1 className="text-xl font-semibold">{translate('resultPage.disclaimerTitel')}</h1>
-        <p className="-mt-3 w-2/3 lg:w-full">{translate('resultPage.disclaimer')}</p>
+      <div className="flex flex-col items-center sm:items-start w-full text-center sm:text-start border-t-2 pt-8">
+        <h1 className="text-xl font-semibold">{dict.resultPage.disclaimerTitel}</h1>
+        <p className="-mt-3 w-2/3 lg:w-full">{dict.resultPage.disclaimer}</p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import Tag from './Tag';
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
-import useI18n from '@/translations/i18n';
+import { useDictionary } from '@/context/DictionaryContext';
+import Dictionary from "@/types/Dictionary";
 
 interface CheckboxProps {
   identifier: string;
@@ -14,7 +15,7 @@ interface CheckboxProps {
 
 export default function Checkbox({ identifier, tag, selectedList, setSelectedList, line = true }: CheckboxProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const translate = useI18n();
+  const dict = useDictionary();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
@@ -40,11 +41,12 @@ export default function Checkbox({ identifier, tag, selectedList, setSelectedLis
             onChange={handleChange}
             checked={selectedList.includes(identifier)}
           />
-          <label htmlFor={identifier}>{translate(`checkboxLabels.${identifier}`)}</label>
+          <label htmlFor={identifier}>{dict.checkboxLabels[identifier as keyof Dictionary['checkboxLabels']]}</label>
           {isHovered && (
             <div className="absolute bottom-full left-6 flex flex-wrap text-wrap text-start mb-2 py-2 px-2 bg-gray-500 text-white min-w-80 max-w-96 text-xs rounded-lg shadow-lg opacity-0 animate-fade-in-slide-up">
-              <div className="absolute w-2 h-2 bg-gray-500 -bottom-1 left-5 rotate-45"></div> {/* Arrow */}
-              {translate(`checkboxLabelsDescriptions.${identifier}`)}
+              <div className="absolute w-2 h-2 bg-gray-500 -bottom-1 left-5 rotate-45"></div>
+              {/* Arrow */}
+              {dict.checkboxLabelsDescriptions[identifier as keyof Dictionary['checkboxLabelsDescriptions']]}
             </div>
           )}
         </div>
