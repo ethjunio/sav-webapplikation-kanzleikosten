@@ -1,24 +1,36 @@
-import React, { ReactNode } from 'react';
-import { Outlet } from 'react-router-dom';
-import Background from './Background'; // Assuming you have this already
-import Footer from './Footer';
-import Header from './Header';
+import { PropsWithChildren, useMemo } from 'react';
+import HeroImage from './HeroImage';
+import { useWindowWidth } from '@/context/WindowWidthContext';
 
 interface LayoutProps {
-	children: ReactNode;
-	fullscreen?: boolean;
+  fullscreen?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, fullscreen }) => {
-	return (
-		<>
-			<Background fullscreen={fullscreen}>
-				<Header />
-				<div className="flex flex-row container mx-auto px-4 lg:0 py-16 md:py-8 flex-grow">{children}</div>
-			</Background>
-			<Footer />
-		</>
-	);
-};
+export default function Layout({ children, fullscreen }: PropsWithChildren<LayoutProps>) {
+  const { width } = useWindowWidth();
 
-export default Layout;
+  const showHeroImage = useMemo(() => !fullscreen && width >= 767, [width]);
+  const isSmMobile = useMemo(() => width < 639, [width]);
+
+  return (
+    <article
+      aria-label="Body"
+      className={`flex flex-row items-center ${showHeroImage ? 'justify-between' : 'justify-center'}`}
+    >
+      <section
+        aria-label="Main Content"
+        className={`py-16 md:py-8 flex justify-center ${showHeroImage ? 'basis-2/3 max-w-3xl' : 'w-full'} ${
+          isSmMobile ? 'px-4' : 'px-12'
+        }`}
+      >
+        {children}
+      </section>
+
+      {showHeroImage && (
+        <section aria-label="Hero Image" className="basis-1/3 h-[970px]">
+          <HeroImage />
+        </section>
+      )}
+    </article>
+  );
+}

@@ -1,20 +1,17 @@
-import React from 'react';
-import { IconType } from 'react-icons';
-import { FaRegCalendarCheck } from 'react-icons/fa6';
-import { FaArrowsRotate } from 'react-icons/fa6';
+import { ReactNode } from 'react';
 
 interface GrouTitelProps {
-	titel: string;
-	icon: React.ReactNode;
+  titel: string;
+  icon: ReactNode;
 }
 
-const GrouTitel: React.FC<GrouTitelProps> = ({ titel, icon }) => {
-	return (
-		<div className={`flex flex-row w-full bg-gray-100 px-4 py-2 rounded-xl items-center justify-start gap-2 mb-1 text-lg text-primaryFade`}>
-			<span className="text-xl">{icon}</span>
-			{titel}
-		</div>
-	);
-};
-
-export default GrouTitel;
+export default function GrouTitel({ titel, icon }: GrouTitelProps) {
+  return (
+    <div
+      className={`flex flex-row w-full bg-gray-100 px-4 py-2 rounded-xl items-center justify-start gap-2 mb-1 text-lg text-primaryFade`}
+    >
+      <span className="text-xl">{icon}</span>
+      {titel}
+    </div>
+  );
+}

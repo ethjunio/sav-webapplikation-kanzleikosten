@@ -1,35 +1,41 @@
-import React, { createContext, useState, useEffect, ReactNode, useContext } from 'react';
+import { createContext, useState, useEffect, ReactNode, useContext } from 'react';
 
 interface WindowWidthContextProps {
-	width: number;
+  width: number;
 }
 
 const WindowWidthContext = createContext<WindowWidthContextProps>({ width: window.innerWidth });
 
 interface WindowWidthProviderProps {
-	children: ReactNode;
+  children: ReactNode;
 }
 
-const WindowWidthProvider: React.FC<WindowWidthProviderProps> = ({ children }) => {
-	const [width, setWidth] = useState<number>(window.innerWidth);
+export function WindowWidthProvider({ children }: WindowWidthProviderProps) {
+  const [width, setWidth] = useState<number>(window.innerWidth);
 
-	useEffect(() => {
-		const handleResize = () => setWidth(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
 
-		window.addEventListener('resize', handleResize);
-		// Optional: Update width if the window is scrolled horizontally
-		window.addEventListener('scroll', handleResize);
+    window.addEventListener('resize', handleResize);
+    // Optional: Update width if the window is scrolled horizontally
+    window.addEventListener('scroll', handleResize);
 
-		return () => {
-			window.removeEventListener('resize', handleResize);
-			window.removeEventListener('scroll', handleResize);
-		};
-	}, []);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleResize);
+    };
+  }, []);
 
-	return <WindowWidthContext.Provider value={{ width }}>{children}</WindowWidthContext.Provider>;
-};
+  return <WindowWidthContext.Provider value={{ width }}>{children}</WindowWidthContext.Provider>;
+}
 
 // Custom hook for easier consumption
-const useWindowWidth = () => useContext(WindowWidthContext);
+export function useWindowWidth() {
+  const context = useContext(WindowWidthContext);
 
-export { WindowWidthProvider, useWindowWidth };
+  if (!context) {
+    throw new Error('useWindowWidth must be used inside WindowWidthProvider');
+  }
+
+  return context;
+}

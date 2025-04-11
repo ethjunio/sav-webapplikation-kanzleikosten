@@ -1,43 +1,13 @@
 {
-  "name": "sva-app",
-  "version": "0.1.0",
+  "name": "sav-legal-fees-calculator",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@react-pdf/renderer": "^4.0.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.108",
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
-    "chart.js": "^4.4.4",
-    "chartjs-plugin-datalabels": "^2.2.0",
-    "classnames": "^2.5.1",
-    "html2canvas": "^1.4.1",
-    "ldrs": "^1.0.2",
-    "mathjs": "^13.1.1",
-    "react": "^18.3.1",
-    "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.3.0",
-    "react-router-dom": "^6.26.1",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "zod": "^3.23.8"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "build": "vite build",
+    "build:liferay": "vite build && liferay-npm-bundler-improved --copy-assets",
+    "deploy": "vite build && liferay-npm-bundler-improved -d",
+    "format": "prettier --write ./src/**/*.{ts,tsx}",
+    "start": "vite"
   },
   "browserslist": {
     "production": [
@@ -51,13 +21,55 @@
       "last 1 safari version"
     ]
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
+    "react-router-dom": "^6.26.2"
+  },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@react-pdf/renderer": "^4.0.0",
+    "@rollup/plugin-replace": "^6.0.1",
     "@tailwindcss/forms": "^0.5.9",
+    "@types/liferay": "^1.0.3",
     "@types/mathjs": "^9.4.1",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
     "@types/react-pdf": "^6.2.0",
     "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.45",
-    "tailwindcss": "^3.4.10"
-  }
+    "chart.js": "^4.4.4",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "classnames": "^2.5.1",
+    "html2canvas": "^1.4.1",
+    "ldrs": "^1.0.2",
+    "liferay-npm-bundler-improved": "^1.5.1",
+    "mathjs": "^13.2.0",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "react-chartjs-2": "^5.2.0",
+    "rollup": "^4.24.0",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vite-tsconfig-paths": "^4.2.1",
+    "zod": "^3.23.8"
+  },
+  "portlet": {
+    "com.liferay.portlet.header-portlet-css": "/style.css",
+    "javax.portlet.resource-bundle": "content.Language",
+    "javax.portlet.security-role-ref": "power-user,user",
+    "com.liferay.portlet.instanceable": true,
+    "com.liferay.portlet.display-category": "category.sav-react-portlet",
+    "javax.portlet.name": "sav-legal-fees-calculator",
+    "javax.portlet.display-name": "Legal fees calculator"
+  },
+  "main": "index"
 }
